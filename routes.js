@@ -12,7 +12,7 @@ app.use(express.json());
 app.use(cookie_parser('1234'));
 
 router.get('/test', (req, res) => {
-  res.send('test');
+    res.send('test');
 });
 
 module.exports = router;
