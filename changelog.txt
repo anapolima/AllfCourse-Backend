@@ -1,0 +1,2 @@
+25 de agosto:
+    - Estrutura montada e projeto iniciado

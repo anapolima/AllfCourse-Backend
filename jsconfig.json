@@ -1,0 +1,40 @@
+{
+    "compilerOptions": {
+        "target": "esnext",
+        "allowSyntheticDefaultImports": false,
+        "baseUrl": "./",
+        "paths": {
+            "@app/*": [
+                "*"
+            ],
+            "@config/*": [
+                "config/*"
+            ],
+            "@controller/*": [
+                "controllers/*"
+            ],
+            "@functions/*": [
+                "functions/*"
+            ],
+            "@helpers/*": [
+                "helpers/*"
+            ],
+            "@logs/*": [
+                "logs/*"
+            ],
+            "@middlewares/*": [
+                "middlewares/*"
+            ],
+            "@model/*": [
+                "model/*"
+            ],
+            "@templates/*": [
+                "templates/*"
+            ],
+        }
+    },
+    "exclude": [
+        "node_modules",
+        "dist"
+    ]
+}
