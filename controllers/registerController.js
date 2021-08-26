@@ -35,7 +35,7 @@ module.exports = {
                     social_name: socialname || null,
                     document,
                     email,
-                    phone: parseInt(phone, 2),
+                    phone: parseInt(phone, 10),
                     password,
                     gender,
                     birth_date: birthdate,
@@ -53,7 +53,7 @@ module.exports = {
                     res.sendError(result.error.transaction, 500);
                 } else {
                     await emailrequest.send(email, firstname, token);
-                    res.status(201).send(result.data);
+                    res.status(201).send({ message: result.data });
                 }
             }
         } catch (err) {

@@ -47,7 +47,7 @@ module.exports = {
                         check.data[0].first_name,
                         token,
                     );
-                    res.send('Novo token gerado e e-mail enviado');
+                    res.status(201).send({ message: 'Novo token gerado e e-mail enviado' });
                 } else {
                     res.sendError('Email não encontrado', 404);
                 }

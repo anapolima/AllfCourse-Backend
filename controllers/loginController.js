@@ -46,7 +46,7 @@ module.exports = {
                             res.sendError('Não autorizado', 401);
                         } else {
                             console.log(decoded);
-                            res.send(true);
+                            res.status(200).send({ message: 'Login sucedido' });
                         }
                     });
                 } catch (err) {
