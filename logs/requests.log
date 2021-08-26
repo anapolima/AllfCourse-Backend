@@ -630,3 +630,95 @@ POST /validate 1247.498 ms
 DATE: Thursday, August 26, 2021
 HTTP STATUS CODE: 201
 
+POST /register 6103.787 ms
+DATE: Thursday, August 26, 2021
+HTTP STATUS CODE: 201
+
+POST /newvalidate - ms
+DATE: Thursday, August 26, 2021
+HTTP STATUS CODE: -
+
+POST /newvalidate 1098.683 ms
+DATE: Thursday, August 26, 2021
+HTTP STATUS CODE: 500
+
+POST /newvalidate 828.735 ms
+DATE: Thursday, August 26, 2021
+HTTP STATUS CODE: 500
+
+POST /newvalidate 1093.018 ms
+DATE: Thursday, August 26, 2021
+HTTP STATUS CODE: 500
+
+POST /newvalidate 1024.918 ms
+DATE: Thursday, August 26, 2021
+HTTP STATUS CODE: 500
+
+POST /newvalidate 1228.276 ms
+DATE: Thursday, August 26, 2021
+HTTP STATUS CODE: 404
+
+POST /newvalidate 3415.145 ms
+DATE: Thursday, August 26, 2021
+HTTP STATUS CODE: 200
+
+POST /newvalidate 3436.750 ms
+DATE: Thursday, August 26, 2021
+HTTP STATUS CODE: 200
+
+POST /newvalidate 4076.475 ms
+DATE: Thursday, August 26, 2021
+HTTP STATUS CODE: 200
+
+POST /validate 2221.735 ms
+DATE: Thursday, August 26, 2021
+HTTP STATUS CODE: 201
+
+POST /login 1094.996 ms
+DATE: Thursday, August 26, 2021
+HTTP STATUS CODE: 404
+
+POST /login 1033.618 ms
+DATE: Thursday, August 26, 2021
+HTTP STATUS CODE: 500
+
+POST /login 776.664 ms
+DATE: Thursday, August 26, 2021
+HTTP STATUS CODE: 500
+
+POST /login 1324.585 ms
+DATE: Thursday, August 26, 2021
+HTTP STATUS CODE: 403
+
+POST /login 884.759 ms
+DATE: Thursday, August 26, 2021
+HTTP STATUS CODE: 404
+
+POST /login 717.325 ms
+DATE: Thursday, August 26, 2021
+HTTP STATUS CODE: 200
+
+POST /login 628.688 ms
+DATE: Thursday, August 26, 2021
+HTTP STATUS CODE: 404
+
+POST /login 963.879 ms
+DATE: Thursday, August 26, 2021
+HTTP STATUS CODE: 200
+
+POST /login 1267.658 ms
+DATE: Thursday, August 26, 2021
+HTTP STATUS CODE: 200
+
+POST /logout 1.785 ms
+DATE: Thursday, August 26, 2021
+HTTP STATUS CODE: 202
+
+POST /login 961.348 ms
+DATE: Thursday, August 26, 2021
+HTTP STATUS CODE: 403
+
+POST /login 835.175 ms
+DATE: Thursday, August 26, 2021
+HTTP STATUS CODE: 200
+

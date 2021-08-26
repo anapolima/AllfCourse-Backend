@@ -9,6 +9,9 @@ const router = express.Router();
 
 const register = require('@controller/registerController');
 const validateaccount = require('@controller/validAccountController');
+const newemailtoken = require('@controller/newEmailTokenController');
+const login = require('@controller/loginController');
+const logout = require('@controller/logoutController');
 
 app.use(express.urlencoded({ extended: false }));
 app.use(express.json());
@@ -20,5 +23,8 @@ router.get('/test', (req, res) => {
 
 router.post('/register', register.post);
 router.post('/validate', validateaccount.post);
+router.post('/newvalidate', newemailtoken.post);
+router.post('/login', login.post);
+router.post('/logout', logout.post);
 
 module.exports = router;

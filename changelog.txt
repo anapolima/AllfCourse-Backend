@@ -6,3 +6,5 @@
     - Adicionado eslint
     - Arquitetura melhorada
     - Adicionado confirmação de criação de conta por token com validade
+    - Adicionado rota para gerar um novo token de confirmação de conta, caso o antigo tenha expirado
+    - Adicionado sistema de login e logout
