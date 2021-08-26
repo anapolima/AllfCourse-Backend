@@ -10,6 +10,7 @@ const sqlpool = new Pool({
   database: config.database.database,
   password: config.database.password,
   port: config.database.port,
+  ssl: { rejectUnauthorized: false },
 });
 
-module.exports = { sqlpool };
+module.exports = { sqlpool }
