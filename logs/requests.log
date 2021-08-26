@@ -722,3 +722,67 @@ POST /login 835.175 ms
 DATE: Thursday, August 26, 2021
 HTTP STATUS CODE: 200
 
+POST /course-flag 37.531 ms
+DATE: Thursday, August 26, 2021
+HTTP STATUS CODE: 400
+
+POST /course-flag 14.779 ms
+DATE: Thursday, August 26, 2021
+HTTP STATUS CODE: 400
+
+POST /course-flag 44.084 ms
+DATE: Thursday, August 26, 2021
+HTTP STATUS CODE: 500
+
+POST /course-flag 42.476 ms
+DATE: Thursday, August 26, 2021
+HTTP STATUS CODE: 500
+
+POST /course-flag 22.802 ms
+DATE: Thursday, August 26, 2021
+HTTP STATUS CODE: 500
+
+POST /course-flag 39.617 ms
+DATE: Thursday, August 26, 2021
+HTTP STATUS CODE: 500
+
+POST /course-flag 23.575 ms
+DATE: Thursday, August 26, 2021
+HTTP STATUS CODE: 500
+
+POST /course-flag 19.447 ms
+DATE: Thursday, August 26, 2021
+HTTP STATUS CODE: 500
+
+POST /course-flag 39.527 ms
+DATE: Thursday, August 26, 2021
+HTTP STATUS CODE: 500
+
+POST /course-flag 36.987 ms
+DATE: Thursday, August 26, 2021
+HTTP STATUS CODE: 500
+
+POST /course-flag 42.155 ms
+DATE: Thursday, August 26, 2021
+HTTP STATUS CODE: 500
+
+POST /course-flag 43.441 ms
+DATE: Thursday, August 26, 2021
+HTTP STATUS CODE: 500
+
+POST /course-flag 40.769 ms
+DATE: Thursday, August 26, 2021
+HTTP STATUS CODE: 500
+
+POST /course-flag 40.235 ms
+DATE: Thursday, August 26, 2021
+HTTP STATUS CODE: 500
+
+POST /course-flag 2164.513 ms
+DATE: Thursday, August 26, 2021
+HTTP STATUS CODE: 500
+
+POST /course-flag 1858.843 ms
+DATE: Thursday, August 26, 2021
+HTTP STATUS CODE: 500
+

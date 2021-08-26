@@ -12,6 +12,7 @@ const validateaccount = require('@controller/validAccountController');
 const newemailtoken = require('@controller/newEmailTokenController');
 const login = require('@controller/loginController');
 const logout = require('@controller/logoutController');
+const addCourseFlag = require('@controller/addCourseFlag');
 
 app.use(express.urlencoded({ extended: false }));
 app.use(express.json());
@@ -26,5 +27,6 @@ router.post('/validate', validateaccount.post);
 router.post('/newvalidate', newemailtoken.post);
 router.post('/login', login.post);
 router.post('/logout', logout.post);
+router.post('/course-flag', addCourseFlag.post);
 
 module.exports = router;
