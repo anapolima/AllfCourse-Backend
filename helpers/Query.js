@@ -41,7 +41,16 @@ class QueryGenerator {
         dotenv.config();
 
         this.#client = new pg.Client({
+<<<<<<< HEAD
             ...sqlconnect.sqlconnect,
+=======
+            host: process.env.DB_HOST,
+            port: process.env.DB_PORT,
+            database: process.env.DB_DATABASE,
+            user: process.env.DB_USER,
+            password: process.env.DB_PASSWORD,
+            ssl: { rejectUnauthorized: false },
+>>>>>>> d736031fa6b31aa82231353926942dda8f6e9931
         });
     };
 
