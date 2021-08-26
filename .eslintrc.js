@@ -9,8 +9,10 @@ module.exports = {
         Atomics: 'readonly',
         SharedArrayBuffer: 'readonly',
     },
+    parser: 'babel-eslint',
     parserOptions: {
-        ecmaVersion: 2018,
+        ecmaVersion: 2020,
+        sourceType: 'module',
     },
     rules: {
         'consistent-return': 'off',
@@ -24,6 +26,7 @@ module.exports = {
         'no-unused-expressions': 'off',
         'no-return-assign': 'off',
         'linebreak-style': 'off',
+        'no-plusplus': 'off',
         camelcase: 'off',
         indent: [
             'error',

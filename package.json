@@ -26,9 +26,13 @@
     "totalvoice-node": "^1.10.0"
   },
   "devDependencies": {
+    "babel-eslint": "^10.1.0",
+    "babel-plugin-module-resolver": "^4.1.0",
     "eslint": "^7.32.0",
     "eslint-config-airbnb-base": "^14.2.1",
-    "eslint-plugin-import": "^2.24.2"
+    "eslint-config-prettier": "^8.3.0",
+    "eslint-plugin-import": "^2.24.2",
+    "prettier": "^2.3.2"
   },
   "_moduleAliases": {
     "@app": ".",
@@ -39,6 +43,7 @@
     "@logs": "logs/",
     "@middlewares": "middlewares/",
     "@model": "model/",
+    "@services": "services/",
     "@templates": "templates/"
   }
 }

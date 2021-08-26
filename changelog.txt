@@ -1,2 +1,8 @@
 25 de agosto:
     - Estrutura montada e projeto iniciado
+
+25~26 de agosto:
+    - Sistema de registro criado
+    - Adicionado eslint
+    - Arquitetura melhorada
+    - Adicionado confirmação de criação de conta por token com validade
