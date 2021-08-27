@@ -17,12 +17,7 @@ module.exports = {
             errors.validationErrors,
         );
 
-        console.log('validCourseId', validCourseId);
-        console.log('validCategoryId', validCategoryId);
-        console.log(Object.keys(errors.validationErrors));
-
         if (Object.keys(errors.validationErrors).length > 0) {
-            console.log('MAIOR QUE ZERO');
             return errors;
         }
 
@@ -91,9 +86,6 @@ module.exports = {
             logicalOperatorCheck3,
         );
 
-        console.log('resultCheck1', resultCheck1);
-        console.log('resultCheck2', resultCheck2);
-        console.log('resultCheck3', resultCheck3);
         if (Array.isArray(resultCheck1.data)) {
             if (resultCheck1.data.length === 0) {
                 errors.validationErrors.courseid = {
@@ -137,8 +129,6 @@ module.exports = {
                 code: 500,
                 detail: { ...resultCheck3.error },
             };
-
-            console.log(resultCheck3.error);
         }
 
         if (errors.length !== 0) {

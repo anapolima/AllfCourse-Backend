@@ -8,10 +8,9 @@ module.exports = {
         const { categoryid } = req.body;
 
         const check = await checkCourseFlag.check(courseid, categoryid);
-        console.log('check', check);
 
         if (Object.keys(check.validationErrors).length !== 0
-                || Object.keys(check.criticalErrors).length !== 0) {
+            || Object.keys(check.criticalErrors).length !== 0) {
             res.sendError(check, 500);
         } else {
             const columns = {
