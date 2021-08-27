@@ -131,7 +131,8 @@ module.exports = {
             };
         }
 
-        if (errors.length !== 0) {
+        if (Object.keys(errors.validationErrors).length > 0
+            || Object.keys(errors.criticalErrors).length > 0) {
             return errors;
         }
 
