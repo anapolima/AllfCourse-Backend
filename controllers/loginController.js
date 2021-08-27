@@ -5,7 +5,6 @@ const Login = require('@functions/checkLogin');
 
 module.exports = {
     get: async (req, res) => {
-        const user = { email: 'rey.filareto@outlook.com', password: '123456' };
         const errors = { criticalErrors: {}, validationErrors: {} };
         const [, hash] = req.headers.authorization.split(' ');
         const [email, password] = Buffer.from(hash, 'base64').toString().split(':');
@@ -47,7 +46,7 @@ module.exports = {
                     httpOnly: true,
                 });
 
-                res.status(200).send({ message: 'Login sucedido', user });
+                res.status(200).send({ message: 'Login sucedido', token });
             } catch (err) {
                 if (err === 1) {
                     res.sendError({ message: 'Senha incorreta' }, 403);
