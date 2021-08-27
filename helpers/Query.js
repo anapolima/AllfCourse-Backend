@@ -164,7 +164,7 @@ class QueryGenerator {
 
                 if (whereColumns.length !== 0) {
                     whereColumns.forEach((_column, _index) => {
-                        const regex = /=$|!=$|>$|>=$|<$|<=$|between$|not between$|like$|is$|is not$|not like$/i;
+                        const regex = /=$|!=$|>$|>=$|<$|<=$|between$|not between$|like$|is$|is not$|not like$|in$|not in$/i;
 
                         const { operator } = whereColumnsValues[_column];
                         const isValidOperator = regex.test(operator);
@@ -213,6 +213,31 @@ class QueryGenerator {
                                 );
                                 // values.push(whereColumnsValues[_column].value);
                                 param++;
+                            } else if (operator.toLowerCase() === 'in'
+                                    || operator.toLowerCase() === 'not in'
+                            ) {
+                                let inValues = null;
+
+                                whereColumnsValues[_column].value.forEach((_value, _index) => {
+                                    if (_index === 0) {
+                                        inValues = `(${whereColumnsValues[_column].value[_index]}`;
+                                    } else {
+                                        inValues += `, ${whereColumnsValues[_column].value[_index]}`;
+                                    }
+
+                                    if (_index === whereColumnsValues[_column].value.length - 1) {
+                                        inValues += ')';
+                                    }
+                                });
+
+                                whereParams.push(
+                                    `${_column} ${operator.toUpperCase()} ${
+                                        inValues
+                                    } ${
+                                        logicalOperators[_index]
+                                            ? logicalOperators[_index]
+                                            : ''}`,
+                                );
                             } else {
                                 whereParams.push(
                                     `${_column} ${operator.toUpperCase()} $${param} ${
