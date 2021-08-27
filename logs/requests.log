@@ -722,6 +722,178 @@ POST /login 835.175 ms
 DATE: Thursday, August 26, 2021
 HTTP STATUS CODE: 200
 
+POST /requestpass_email 1317.607 ms
+DATE: Thursday, August 26, 2021
+HTTP STATUS CODE: 404
+
+POST /requestpass_email 4031.659 ms
+DATE: Thursday, August 26, 2021
+HTTP STATUS CODE: 201
+
+POST /requestpass_email 4254.584 ms
+DATE: Thursday, August 26, 2021
+HTTP STATUS CODE: 201
+
+POST /register 4999.163 ms
+DATE: Thursday, August 26, 2021
+HTTP STATUS CODE: 201
+
+POST /register 5242.720 ms
+DATE: Thursday, August 26, 2021
+HTTP STATUS CODE: 201
+
+POST /login 833.366 ms
+DATE: Thursday, August 26, 2021
+HTTP STATUS CODE: 404
+
+POST /logout 1.590 ms
+DATE: Thursday, August 26, 2021
+HTTP STATUS CODE: 202
+
+POST /login 842.960 ms
+DATE: Thursday, August 26, 2021
+HTTP STATUS CODE: 404
+
+POST /validate 629.710 ms
+DATE: Thursday, August 26, 2021
+HTTP STATUS CODE: 404
+
+POST /requestpass_email 1024.542 ms
+DATE: Thursday, August 26, 2021
+HTTP STATUS CODE: 404
+
+POST /validate 1831.721 ms
+DATE: Thursday, August 26, 2021
+HTTP STATUS CODE: 201
+
+POST /login 657.608 ms
+DATE: Thursday, August 26, 2021
+HTTP STATUS CODE: 200
+
+POST /logout 0.539 ms
+DATE: Thursday, August 26, 2021
+HTTP STATUS CODE: 202
+
+POST /requestpass_email 3532.778 ms
+DATE: Thursday, August 26, 2021
+HTTP STATUS CODE: 201
+
+POST /requestpass_sms 1279.249 ms
+DATE: Thursday, August 26, 2021
+HTTP STATUS CODE: 404
+
+POST /requestpass_sms 1414.954 ms
+DATE: Thursday, August 26, 2021
+HTTP STATUS CODE: 500
+
+POST /requestpass_sms 1861.790 ms
+DATE: Thursday, August 26, 2021
+HTTP STATUS CODE: 500
+
+POST /requestpass_sms 1598.265 ms
+DATE: Thursday, August 26, 2021
+HTTP STATUS CODE: 500
+
+POST /requestpass_sms 1957.898 ms
+DATE: Thursday, August 26, 2021
+HTTP STATUS CODE: 500
+
+POST /requestpass_sms 2194.781 ms
+DATE: Thursday, August 26, 2021
+HTTP STATUS CODE: 500
+
+POST /requestpass_sms 1910.287 ms
+DATE: Thursday, August 26, 2021
+HTTP STATUS CODE: 500
+
+POST /requestpass_sms 2113.137 ms
+DATE: Thursday, August 26, 2021
+HTTP STATUS CODE: 500
+
+POST /requestpass_sms 1972.029 ms
+DATE: Thursday, August 26, 2021
+HTTP STATUS CODE: 201
+
+POST /requestpass_sms 938.672 ms
+DATE: Thursday, August 26, 2021
+HTTP STATUS CODE: 500
+
+POST /requestpass_sms 1109.904 ms
+DATE: Thursday, August 26, 2021
+HTTP STATUS CODE: 500
+
+POST /requestpass_sms 956.668 ms
+DATE: Thursday, August 26, 2021
+HTTP STATUS CODE: 500
+
+POST /requestpass_sms 8339.465 ms
+DATE: Thursday, August 26, 2021
+HTTP STATUS CODE: 500
+
+POST /requestpass_sms 12428.681 ms
+DATE: Thursday, August 26, 2021
+HTTP STATUS CODE: 500
+
+POST /requestpass_sms 12112.441 ms
+DATE: Thursday, August 26, 2021
+HTTP STATUS CODE: 500
+
+POST /requestpass_sms 2069.643 ms
+DATE: Thursday, August 26, 2021
+HTTP STATUS CODE: 500
+
+POST /requestpass_sms 2411.646 ms
+DATE: Thursday, August 26, 2021
+HTTP STATUS CODE: 201
+
+POST /requestpass_sms 2589.329 ms
+DATE: Thursday, August 26, 2021
+HTTP STATUS CODE: 500
+
+POST /requestpass_sms 1936.265 ms
+DATE: Thursday, August 26, 2021
+HTTP STATUS CODE: 500
+
+POST /requestpass_sms 1710.425 ms
+DATE: Thursday, August 26, 2021
+HTTP STATUS CODE: 500
+
+POST /requestpass_sms 1421.354 ms
+DATE: Thursday, August 26, 2021
+HTTP STATUS CODE: 500
+
+POST /requestpass_sms 1740.751 ms
+DATE: Thursday, August 26, 2021
+HTTP STATUS CODE: 201
+
+POST /login 1254.944 ms
+DATE: Thursday, August 26, 2021
+HTTP STATUS CODE: 200
+
+POST /logout 1.974 ms
+DATE: Thursday, August 26, 2021
+HTTP STATUS CODE: 202
+
+POST /resetpass 1092.250 ms
+DATE: Thursday, August 26, 2021
+HTTP STATUS CODE: 404
+
+POST /resetpass 1697.254 ms
+DATE: Thursday, August 26, 2021
+HTTP STATUS CODE: 201
+
+POST /login 751.510 ms
+DATE: Thursday, August 26, 2021
+HTTP STATUS CODE: 403
+
+POST /login 673.638 ms
+DATE: Thursday, August 26, 2021
+HTTP STATUS CODE: 200
+
+POST /resetpass 590.148 ms
+DATE: Thursday, August 26, 2021
+HTTP STATUS CODE: 404
+
 POST /course-flag 37.531 ms
 DATE: Thursday, August 26, 2021
 HTTP STATUS CODE: 400
@@ -783,6 +955,362 @@ DATE: Thursday, August 26, 2021
 HTTP STATUS CODE: 500
 
 POST /course-flag 1858.843 ms
+DATE: Thursday, August 26, 2021
+HTTP STATUS CODE: 500
+
+POST /course-flag - ms
+DATE: Thursday, August 26, 2021
+HTTP STATUS CODE: -
+
+POST /course-flag 2529.680 ms
+DATE: Thursday, August 26, 2021
+HTTP STATUS CODE: 500
+
+POST /course-flag 2805.136 ms
+DATE: Thursday, August 26, 2021
+HTTP STATUS CODE: 500
+
+POST /course-flag 3.971 ms
+DATE: Thursday, August 26, 2021
+HTTP STATUS CODE: 200
+
+POST /course-flag 18.566 ms
+DATE: Thursday, August 26, 2021
+HTTP STATUS CODE: 200
+
+POST /course-flag 20.223 ms
+DATE: Thursday, August 26, 2021
+HTTP STATUS CODE: 500
+
+POST /course-flag 3.069 ms
+DATE: Thursday, August 26, 2021
+HTTP STATUS CODE: 500
+
+POST /register 86.496 ms
+DATE: Thursday, August 26, 2021
+HTTP STATUS CODE: 500
+
+POST /register 68.993 ms
+DATE: Thursday, August 26, 2021
+HTTP STATUS CODE: 500
+
+POST /register 68.405 ms
+DATE: Thursday, August 26, 2021
+HTTP STATUS CODE: 500
+
+POST /register 86.830 ms
+DATE: Thursday, August 26, 2021
+HTTP STATUS CODE: 500
+
+POST /register 87.123 ms
+DATE: Thursday, August 26, 2021
+HTTP STATUS CODE: 500
+
+POST /register 88.105 ms
+DATE: Thursday, August 26, 2021
+HTTP STATUS CODE: 500
+
+POST /register 86.565 ms
+DATE: Thursday, August 26, 2021
+HTTP STATUS CODE: 500
+
+POST /register 69.413 ms
+DATE: Thursday, August 26, 2021
+HTTP STATUS CODE: 500
+
+POST /register 68.980 ms
+DATE: Thursday, August 26, 2021
+HTTP STATUS CODE: 500
+
+POST /register 68.789 ms
+DATE: Thursday, August 26, 2021
+HTTP STATUS CODE: 500
+
+POST /register 2800.384 ms
+DATE: Thursday, August 26, 2021
+HTTP STATUS CODE: 500
+
+POST /register 70.320 ms
+DATE: Thursday, August 26, 2021
+HTTP STATUS CODE: 500
+
+POST /register 86.337 ms
+DATE: Thursday, August 26, 2021
+HTTP STATUS CODE: 500
+
+POST /register 2511.571 ms
+DATE: Thursday, August 26, 2021
+HTTP STATUS CODE: 500
+
+POST /register 69.142 ms
+DATE: Thursday, August 26, 2021
+HTTP STATUS CODE: 500
+
+POST /register 2698.119 ms
+DATE: Thursday, August 26, 2021
+HTTP STATUS CODE: 500
+
+POST /register 87.532 ms
+DATE: Thursday, August 26, 2021
+HTTP STATUS CODE: 500
+
+POST /register 70.456 ms
+DATE: Thursday, August 26, 2021
+HTTP STATUS CODE: 500
+
+POST /register 86.643 ms
+DATE: Thursday, August 26, 2021
+HTTP STATUS CODE: 500
+
+POST /register 86.733 ms
+DATE: Thursday, August 26, 2021
+HTTP STATUS CODE: 500
+
+POST /register 87.466 ms
+DATE: Thursday, August 26, 2021
+HTTP STATUS CODE: 500
+
+POST /register 87.152 ms
+DATE: Thursday, August 26, 2021
+HTTP STATUS CODE: 500
+
+POST /register 87.663 ms
+DATE: Thursday, August 26, 2021
+HTTP STATUS CODE: 500
+
+POST /register 86.977 ms
+DATE: Thursday, August 26, 2021
+HTTP STATUS CODE: 500
+
+POST /register 70.244 ms
+DATE: Thursday, August 26, 2021
+HTTP STATUS CODE: 500
+
+POST /register 87.744 ms
+DATE: Thursday, August 26, 2021
+HTTP STATUS CODE: 500
+
+POST /register 69.188 ms
+DATE: Thursday, August 26, 2021
+HTTP STATUS CODE: 500
+
+POST /resetpass 19.674 ms
+DATE: Thursday, August 26, 2021
+HTTP STATUS CODE: 500
+
+POST /resetpass 2.034 ms
+DATE: Thursday, August 26, 2021
+HTTP STATUS CODE: 500
+
+POST /resetpass 0.813 ms
+DATE: Thursday, August 26, 2021
+HTTP STATUS CODE: 500
+
+POST /resetpass 20.928 ms
+DATE: Thursday, August 26, 2021
+HTTP STATUS CODE: 500
+
+POST /resetpass 22.331 ms
+DATE: Thursday, August 26, 2021
+HTTP STATUS CODE: 500
+
+POST /resetpass 21.403 ms
+DATE: Thursday, August 26, 2021
+HTTP STATUS CODE: 500
+
+POST /register 87.651 ms
+DATE: Thursday, August 26, 2021
+HTTP STATUS CODE: 500
+
+POST /register 71.607 ms
+DATE: Thursday, August 26, 2021
+HTTP STATUS CODE: 500
+
+POST /register 87.335 ms
+DATE: Thursday, August 26, 2021
+HTTP STATUS CODE: 500
+
+POST /register 87.051 ms
+DATE: Thursday, August 26, 2021
+HTTP STATUS CODE: 500
+
+POST /register 88.714 ms
+DATE: Thursday, August 26, 2021
+HTTP STATUS CODE: 404
+
+POST /register 87.470 ms
+DATE: Thursday, August 26, 2021
+HTTP STATUS CODE: 500
+
+POST /resetpass 19.738 ms
+DATE: Thursday, August 26, 2021
+HTTP STATUS CODE: 500
+
+POST /resetpass 20.132 ms
+DATE: Thursday, August 26, 2021
+HTTP STATUS CODE: 500
+
+POST /resetpass 1319.113 ms
+DATE: Thursday, August 26, 2021
+HTTP STATUS CODE: 500
+
+POST /resetpass 1033.262 ms
+DATE: Thursday, August 26, 2021
+HTTP STATUS CODE: 500
+
+POST /resetpass 2.411 ms
+DATE: Thursday, August 26, 2021
+HTTP STATUS CODE: 500
+
+POST /resetpass 1.339 ms
+DATE: Thursday, August 26, 2021
+HTTP STATUS CODE: 500
+
+POST /resetpass 1221.988 ms
+DATE: Thursday, August 26, 2021
+HTTP STATUS CODE: 500
+
+POST /requestpass_sms 1058.353 ms
+DATE: Thursday, August 26, 2021
+HTTP STATUS CODE: 500
+
+POST /requestpass_sms 2691.148 ms
+DATE: Thursday, August 26, 2021
+HTTP STATUS CODE: 201
+
+POST /requestpass_sms 2339.459 ms
+DATE: Thursday, August 26, 2021
+HTTP STATUS CODE: 201
+
+POST /register 93.959 ms
+DATE: Thursday, August 26, 2021
+HTTP STATUS CODE: 500
+
+POST /requestpass_email 5695.006 ms
+DATE: Thursday, August 26, 2021
+HTTP STATUS CODE: 201
+
+POST /requestpass_email 4965.321 ms
+DATE: Thursday, August 26, 2021
+HTTP STATUS CODE: 201
+
+POST /register 87.280 ms
+DATE: Thursday, August 26, 2021
+HTTP STATUS CODE: 500
+
+POST /register 69.358 ms
+DATE: Thursday, August 26, 2021
+HTTP STATUS CODE: 500
+
+POST /register 87.353 ms
+DATE: Thursday, August 26, 2021
+HTTP STATUS CODE: 500
+
+POST /requestpass_email 4108.148 ms
+DATE: Thursday, August 26, 2021
+HTTP STATUS CODE: 201
+
+POST /register 150.346 ms
+DATE: Thursday, August 26, 2021
+HTTP STATUS CODE: 500
+
+POST /register 69.467 ms
+DATE: Thursday, August 26, 2021
+HTTP STATUS CODE: 500
+
+POST /register 68.563 ms
+DATE: Thursday, August 26, 2021
+HTTP STATUS CODE: 500
+
+POST /register 69.475 ms
+DATE: Thursday, August 26, 2021
+HTTP STATUS CODE: 500
+
+POST /register 87.806 ms
+DATE: Thursday, August 26, 2021
+HTTP STATUS CODE: 500
+
+POST /register 88.496 ms
+DATE: Thursday, August 26, 2021
+HTTP STATUS CODE: 500
+
+POST /register 91.236 ms
+DATE: Thursday, August 26, 2021
+HTTP STATUS CODE: 500
+
+POST /register 87.237 ms
+DATE: Thursday, August 26, 2021
+HTTP STATUS CODE: 500
+
+POST /register 6264.500 ms
+DATE: Thursday, August 26, 2021
+HTTP STATUS CODE: 201
+
+POST /register 2806.268 ms
+DATE: Thursday, August 26, 2021
+HTTP STATUS CODE: 500
+
+POST /register 69.157 ms
+DATE: Thursday, August 26, 2021
+HTTP STATUS CODE: 500
+
+POST /register 68.675 ms
+DATE: Thursday, August 26, 2021
+HTTP STATUS CODE: 500
+
+POST /register 69.067 ms
+DATE: Thursday, August 26, 2021
+HTTP STATUS CODE: 500
+
+POST /register 97.644 ms
+DATE: Thursday, August 26, 2021
+HTTP STATUS CODE: 500
+
+POST /register 69.155 ms
+DATE: Thursday, August 26, 2021
+HTTP STATUS CODE: 500
+
+POST /register 87.489 ms
+DATE: Thursday, August 26, 2021
+HTTP STATUS CODE: 500
+
+POST /register 88.253 ms
+DATE: Thursday, August 26, 2021
+HTTP STATUS CODE: 500
+
+POST /register 88.536 ms
+DATE: Thursday, August 26, 2021
+HTTP STATUS CODE: 500
+
+POST /register 87.596 ms
+DATE: Thursday, August 26, 2021
+HTTP STATUS CODE: 500
+
+POST /register 87.358 ms
+DATE: Thursday, August 26, 2021
+HTTP STATUS CODE: 500
+
+POST /register 88.262 ms
+DATE: Thursday, August 26, 2021
+HTTP STATUS CODE: 500
+
+POST /register 88.100 ms
+DATE: Thursday, August 26, 2021
+HTTP STATUS CODE: 500
+
+POST /register 87.574 ms
+DATE: Thursday, August 26, 2021
+HTTP STATUS CODE: 500
+
+POST /register 90.217 ms
+DATE: Thursday, August 26, 2021
+HTTP STATUS CODE: 500
+
+POST /register 90.493 ms
+DATE: Thursday, August 26, 2021
+HTTP STATUS CODE: 500
+
+POST /register 89.433 ms
 DATE: Thursday, August 26, 2021
 HTTP STATUS CODE: 500
 

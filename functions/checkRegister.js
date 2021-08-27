@@ -1,7 +1,31 @@
+/* eslint-disable no-unused-vars */
 const query = require('@helpers/Query');
+const validateRegister = require('@validations/validateRegister');
 require('dotenv').config();
 
-async function check(document, email, phone) {
+async function check(document, email, phone, firstname, lastname, gender, birthdate) {
+    console.log(birthdate);
+    const errors = [];
+    const validDocument = validateRegister.validateDocument(
+        document,
+        errors,
+    );
+    const validEmail = validateRegister.validateEmail(email, errors);
+    const validFirstName = validateRegister.validateFirstName(
+        firstname,
+        errors,
+    );
+    const validLastName = validateRegister.validateLastName(
+        lastname,
+        errors,
+    );
+    const validGender = validateRegister.validateGender(gender, errors);
+    const validPhone = validateRegister.validatePhone(phone, errors);
+    const validbirthDate = validateRegister.validateBirthDate(birthdate, errors);
+    if (errors.length > 0) {
+        return errors;
+    }
+
     const checkSelect1 = ['document'];
     const checkSelect2 = ['email'];
     const checkSelect3 = ['phone'];
@@ -63,18 +87,24 @@ async function check(document, email, phone) {
     ) {
         if (check1.data.length >= 1) {
             if (check2.data.length >= 1) {
-                return ['Documento e email já existem', 500];
+                errors.push({ 'document/email': 'Documento e e-mail já existem' });
+                return errors;
             } if (check3.data.length >= 1) {
-                return ['Documento e telefone já existem', 500];
+                errors.push({ 'document/phone': 'Documento e telefone já existem' });
+                return errors;
             }
-            return ['Documento já existe', 500];
+            errors.push({ document: 'Documento já existe' });
+            return errors;
         } if (check2.data.length >= 1) {
             if (check3.data.length >= 1) {
-                return ['Email e telefone já existem', 500];
+                errors.push({ 'email/phone': 'Email e telefone já existem' });
+                return errors;
             }
-            return ['Email já existe', 500];
+            errors.push({ email: 'Email já existe' });
+            return errors;
         } if (check3.data.length >= 1) {
-            return ['Telefone já existe', 500];
+            errors.push({ phone: 'Telefone já existe' });
+            return errors;
         }
         return true;
     }

@@ -34,6 +34,9 @@
       "@templates/*": [
         "templates/*"
       ],
+      "@validations/*": [
+        "validations/*"
+      ],
     }
   },
   "exclude": [

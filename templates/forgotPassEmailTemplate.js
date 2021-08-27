@@ -1,10 +1,10 @@
-function confirmationTemplate(
+function forgotTemplate(
     token,
-    user_name,
     web_browser,
     os_system,
     os_version,
     ip,
+    user_name,
 ) {
     return `<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
     <html xmlns="http://www.w3.org/1999/xhtml">
@@ -446,7 +446,7 @@ function confirmationTemplate(
       <![endif]-->
       </head>
       <body>
-        <span class="preheader">Use este código para confirmar sua conta, o código é válido por 2 horas.</span>
+        <span class="preheader">Use este código para resetar sua senha, o código é válido por 2 horas.</span>
         <table class="email-wrapper" width="100%" cellpadding="0" cellspacing="0" role="presentation">
           <tr>
             <td align="center">
@@ -467,7 +467,7 @@ function confirmationTemplate(
                         <td class="content-cell">
                           <div class="f-fallback">
                             <h1>Olá ${user_name},</h1>
-                            <p>Aqui está seu código, use-o em <a href="#">Confirmar e-mail</a>. <strong>Não se esqueça que o código vale apenas por 2 horas.</strong></p>
+                            <p>Aqui está seu código, use-o em <a href="#">Alterar senha</a>. <strong>Não se esqueça que o código vale apenas por 2 horas.</strong></p>
                             <!-- Action -->
                             <table class="body-action" align="center" width="100%" cellpadding="0" cellspacing="0" role="presentation">
                               <tr>
@@ -520,5 +520,5 @@ function confirmationTemplate(
 }
 
 module.exports = {
-    confirmationTemplate,
+    forgotTemplate,
 };
