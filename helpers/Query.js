@@ -515,6 +515,105 @@ class QueryGenerator {
         this.#result.error.params = 'Columns and values must be arrays';
         return this.#result;
     }
+
+    InsertSale(_table, _columnsValues, _returning, _allow) {
+        this.#SetClient();
+        this.#result = {
+            error: {
+                transaction: false,
+                commit: false,
+                rollback: false,
+                params: false,
+            },
+            data: false,
+        };
+        const table = _table;
+        const columnsValues = _columnsValues;
+        const returning = _returning;
+        const allowcommit = _allow;
+
+        if (allowcommit === true) {
+            this.#client.connect().then(() => this.#client.query('COMMIT;'))
+                .then(() => true);
+        }
+
+        if (
+            columnsValues instanceof Object
+            && !(columnsValues instanceof Array)
+        ) {
+            const start = Date.now();
+            const columns = Object.keys(columnsValues);
+            this.#columns = columns.join(', ');
+            const params = [];
+            const values = [];
+
+            for (let i = 0; i < columns.length; i++) {
+                params.push(`$${i + 1}`);
+            }
+
+            columns.forEach((column) => {
+                values.push(columnsValues[column]);
+            });
+
+            this.#params = params.join(', ');
+
+            if (returning) {
+                if (Array.isArray(returning)) {
+                    this.#returning = returning.join(', ');
+                } else {
+                    throw new Error('Returning must be an array');
+                }
+            }
+
+            const result = this.#client
+                .connect()
+                .then(() => this.#client.query('BEGIN;'))
+                .then(() => this.#client.query(
+                    `INSERT INTO ${table} (${this.#columns}) VALUES (${
+                        this.#params
+                    }) ${returning ? `RETURNING ${this.#returning}` : ''}`,
+                    values,
+                ))
+                .then(async (result) => {
+                    this.#result.data = result.rows;
+
+                    return this.#result;
+                })
+                .catch(async (err) => {
+                    this.#result.error.transaction = err.message;
+                    await this.#client
+                        .query('ROLLBACK')
+                        .then(() => {
+                            console.log('ERROR, ROLLBACK');
+                            console.log(err);
+                        })
+                        .catch(() => (this.#result.error.rollback = true));
+                    return this.#result;
+                })
+                .finally(() => {
+                    this.#client.end();
+                    const duration = Date.now() - start;
+                    fs.appendFileSync(
+                        './logs/queries_log.log',
+                        `executed query: { INSERT INTO ${table} (${
+                            this.#columns
+                        }) VALUES (${this.#params}) ${
+                            returning ? `RETURNING ${this.#returning}` : ''
+                        }, params: ${values}; duration: ${duration}ms }\n`,
+                    );
+                    this.#columns = '';
+                    this.#params = '';
+                    this.#returning = '';
+                    this.#whereParams = '';
+                    this.#whereColumns = '';
+                    this.#orderBy = '';
+                });
+
+            return result;
+        }
+        this.#result.error.params = 'Columns and values must be arrays';
+        return this.#result;
+    }
 }
 
 const Query = new QueryGenerator();

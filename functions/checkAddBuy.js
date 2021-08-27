@@ -36,13 +36,13 @@ module.exports = {
                 operator: '=',
                 value: validCourseId,
             },
-            deleted_at: {
-                operator: 'IS',
-                value: 'null',
-            },
             status: {
                 operator: 'like',
                 value: 'aprovado',
+            },
+            deleted_at: {
+                operator: 'IS',
+                value: 'null',
             },
         };
         const logicalOperatorCheck1 = ['AND', 'AND'];
@@ -103,6 +103,8 @@ module.exports = {
                 };
             }
         } else {
+            console.log('blpokdsfpokfpokfds');
+            console.log(resultCheck1);
             errors.criticalErrors.errorCourseId = {
                 message: 'Ocorreu um erro inesperado durante a consulta de cursos',
                 code: 500,
@@ -118,6 +120,7 @@ module.exports = {
                 };
             }
         } else {
+            console.log(resultCheck2.error);
             errors.criticalErrors.errorStudentId = {
                 message: 'Ocorreu um erro inesperado durante a consulta de estudantes',
                 code: 500,
