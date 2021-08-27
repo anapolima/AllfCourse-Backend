@@ -1,4 +1,4 @@
-const validateCourseFlag = require('@functions/validateCoursesFlags');
+const validateCourseFlag = require('@validations/validateCoursesFlags');
 const query = require('@helpers/Query');
 
 module.exports = {

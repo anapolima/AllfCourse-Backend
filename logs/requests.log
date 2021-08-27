@@ -1314,3 +1314,11 @@ POST /register 89.433 ms
 DATE: Thursday, August 26, 2021
 HTTP STATUS CODE: 500
 
+POST /course-flag 2428.026 ms
+DATE: Thursday, August 26, 2021
+HTTP STATUS CODE: 500
+
+POST /course-flag 14.918 ms
+DATE: Thursday, August 26, 2021
+HTTP STATUS CODE: 500
+
