@@ -1,34 +1,15 @@
-executed query: { INSERT INTO users (first_name, last_name, social_name, document, email, phone, password, gender, birth_date, type, email_token, etoken_expire) VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10, $11, $12) RETURNING *, params: Diego,Sousa,,52005773816,diego-s.novaes@hotmail.com,11970151606,$2b$10$Q2lixMSArhMS2dS9nyyGxeR0lIlVrPRous0oOAJzqu5uTXGfzK/5C,Male,2001-09-27,1,14187738d6fad8d064d2f67ba28133fd7208f0cb,Fri Aug 27 2021 16:34:25 GMT-0300 (Brasilia Standard Time); duration: 773ms }
-executed query: { SELECT email, first_name FROM users WHERE email = $1 AND active = $2 AND deleted_at IS null  , params: diego-s.novaes@hotmail.com,true; duration: 1214ms }
-executed query: { SELECT email, first_name FROM users WHERE email = $1 AND active = $2 AND deleted_at IS null  ,params: diego-s.novaes@hotmail.com,true; duration: 1149ms }
-executed query: { SELECT email, first_name FROM users WHERE 1 , params: diego-s.novaes@hotmail.com,true; duration: 1235ms }
-executed query: { SELECT email, first_name FROM users WHERE email = $1 AND active = $2 AND deleted_at IS null  , params: diego-s.novaes@hotmail.com,true; duration: 1289ms }
-executed query: { SELECT email, first_name FROM users WHERE email = $1 AND active = $2 AND deleted_at IS null  , params: diego-s.novaes@hotmail.com,true; duration: 774ms }
-executed query: { SELECT document FROM users WHERE document = $1 AND deleted_at IS null  , params: 52005773816; duration: 19244ms }
-executed query: { SELECT email FROM users WHERE email = $1 AND deleted_at IS null  , params: diego-s.novaes@hotmail.com; duration: 1060ms }
-executed query: { SELECT phone FROM users WHERE phone = $1 AND deleted_at IS null  , params: 3; duration: 631ms }
-executed query: { SELECT document FROM users WHERE document = $1 AND deleted_at IS null  , params: 52005773816; duration: 1330ms }
-executed query: { SELECT email FROM users WHERE email = $1 AND deleted_at IS null  , params: diego-s.novaes@hotmail.com; duration: 596ms }
-executed query: { SELECT phone FROM users WHERE phone = $1 AND deleted_at IS null  , params: 3; duration: 759ms }
-executed query: { INSERT INTO users (first_name, last_name, social_name, document, email, phone, password, gender, birth_date, type, email_token, etoken_expire) VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10, $11, $12) RETURNING *, params: Diego,Sousa,,52005773816,diego-s.novaes@hotmail.com,11970151606,$2b$10$F6vXwU4m94m3BE/KsHuq3eNyXp2Y4V/ovtBiOEqatZzOwvY1cfL6q,Male,2001-09-27,1,4520b077bafe026f436468f06e4e9fd8c35d178e,Fri Aug 27 2021 17:30:23 GMT-0300 (Brasilia Standard Time); duration: 659ms }
-executed query: { SELECT document FROM users WHERE document = $1 AND deleted_at IS null  , params: 52005773816; duration: 985ms }
-executed query: { SELECT email FROM users WHERE email = $1 AND deleted_at IS null  , params: diego-s.novaes@hotmail.com; duration: 718ms }
-executed query: { SELECT phone FROM users WHERE phone = $1 AND deleted_at IS null  , params: 3; duration: 717ms }
-executed query: { INSERT INTO users (first_name, last_name, social_name, document, email, phone, password, gender, birth_date, type, email_token, etoken_expire) VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10, $11, $12) RETURNING *, params: Diego,Sousa,,52005773816,diego-s.novaes@hotmail.com,11970151606,$2b$10$/opHSJzjtqvc.n08fFg86OFT57itIkFMafWVFh8aLp4lBonYsCa0m,Male,2001-09-27,1,cae26c1dc5e7f8420a2d746333031a78fbabd814,Fri Aug 27 2021 17:30:59 GMT-0300 (Brasilia Standard Time); duration: 851ms }
-executed query: { SELECT document FROM users WHERE document = $1 AND deleted_at IS null  , params: 52005773816; duration: 863ms }
-executed query: { SELECT email FROM users WHERE email = $1 AND deleted_at IS null  , params: diego-s.novaes@hotmail.com; duration: 653ms }
-executed query: { SELECT phone FROM users WHERE phone = $1 AND deleted_at IS null  , params: 3; duration: 651ms }
-executed query: { INSERT INTO users (first_name, last_name, social_name, document, email, phone, password, gender, birth_date, type, email_token, etoken_expire) VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10, $11, $12) RETURNING *, params: Diego,Sousa,,52005773816,diego-s.novaes@hotmail.com,11970151606,$2b$10$jHhX4oC40xiLxCFl5MvqHORCiHLIVYrgOHtuWKB6WSSiV0hNUKOJW,Male,2001-09-27,1,e60f779f5b8c6416b2f775bfac860a3ad26530c8,Fri Aug 27 2021 17:31:37 GMT-0300 (Brasilia Standard Time); duration: 751ms }
-executed query: { SELECT id, email, first_name, type, password FROM users WHERE email = $1 AND active IS true AND deleted_at IS null  , params: diego-s.novaes@hotmail.com; duration: 906ms }
-executed query: { SELECT id, email, first_name, type, password FROM users WHERE email = $1 AND active IS true AND deleted_at IS null  , params: diego-s.novaes@hotmail.com; duration: 655ms }
-executed query: { SELECT id, email, first_name, type, password FROM users WHERE email = $1 AND active IS true AND deleted_at IS null  , params: diego-s.novaes@hotmail.com; duration: 1322ms }
-executed query: { SELECT id, email, first_name, type, password FROM users WHERE email = $1 AND active IS true AND deleted_at IS null  , params: rey.filareto@outlook.com; duration: 917ms }
-executed query: { SELECT id, email, first_name, type, password FROM users WHERE email = $1 AND active IS true AND deleted_at IS null  , params: rey.filareto@outlook.com; duration: 916ms }
-executed query: { SELECT id, email, first_name, type, password FROM users WHERE email = $1 AND active IS true AND deleted_at IS null  , params: rey.filareto@outlook.com; duration: 1107ms }
-executed query: { SELECT id, email, first_name, type, password FROM users WHERE email = $1 AND active IS true AND deleted_at IS null  , params: rey.filareto@outlook.com; duration: 849ms }
-executed query: { SELECT id, email, first_name, type, password FROM users WHERE email = $1 AND active IS true AND deleted_at IS null  , params: rey.filareto@outlook.com; duration: 1053ms }
-executed query: { SELECT id, email, first_name, type, password FROM users WHERE email = $1 AND active IS true AND deleted_at IS null  , params: rey.filareto@outlook.com; duration: 974ms }
-executed query: { SELECT id, email, first_name, type, password FROM users WHERE email = $1 AND active IS true AND deleted_at IS null  , params: rey.filareto@outlook.com; duration: 905ms }
-executed query: { SELECT id, email, first_name, type, password FROM users WHERE email = $1 AND active IS true AND deleted_at IS null  , params: rey.filareto@outlook.com; duration: 1019ms }
-executed query: { SELECT id, email, first_name, type, password FROM users WHERE email = $1 AND active IS true AND deleted_at IS null  , params: rey.filareto@outlook.com; duration: 1209ms }
-executed query: { SELECT id, email, first_name, type, password FROM users WHERE email = $1 AND active IS true AND deleted_at IS null  , params: rey.filareto@outlook.com; duration: 949ms }
+executed query: { SELECT name FROM courses WHERE id = $1 AND status LIKE '%'||$2||'%' AND deleted_at IS null  , params: 5,aprovado; duration: 836ms }
+executed query: { SELECT type FROM users WHERE id = $1 AND active IS true AND deleted_at IS null AND type NOT IN (2, 4)  , params: 2; duration: 715ms }
+executed query: { SELECT name FROM payment_method WHERE id = $1  , params: 1; duration: 615ms }
+executed query: { query: BEGIN TRANSACTION, params: undefined; duration: 568ms, rows: null }
+executed query: { query: INSERT INTO sales(course_id, student_id, price, payment_method_id, release_date) VALUES ($1, $2, $3, $4, $5) RETURNING *, params: 5,2,140.45,1,Fri Aug 27 2021 18:31:37 GMT-0300 (Brasilia Standard Time); duration: 138ms, rows: 1 }
+executed query: { query: COMMIT, params: undefined; duration: 32ms, rows: null }
+executed query: { SELECT installments FROM payment_method WHERE id = $1  , params: 1; duration: 622ms }
+executed query: { query: BEGIN TRANSACTION, params: undefined; duration: 19ms, rows: null }
+executed query: { query: INSERT INTO receive_bills(sale_id, installment, subtotal, due_date, receipt_date) VALUES($1, $2, $3, $4, $5) RETURNING *, params: 29,1,,Sun Sep 26 2021 18:31:41 GMT-0300 (Brasilia Standard Time),Fri Aug 27 2021 18:31:41 GMT-0300 (Brasilia Standard Time); duration: 28ms, rows: error }
+executed query: { query: COMMIT, params: undefined; duration: 17ms, rows: null }
+executed query: { query: INSERT INTO receive_bills(sale_id, installment, subtotal, due_date, receipt_date) VALUES($1, $2, $3, $4, $5) RETURNING *, params: 29,2,,Sun Sep 26 2021 18:31:41 GMT-0300 (Brasilia Standard Time),Fri Aug 27 2021 18:31:41 GMT-0300 (Brasilia Standard Time); duration: 23ms, rows: error }
+executed query: { query: COMMIT, params: undefined; duration: 20ms, rows: null }
+executed query: { query: BEGIN TRANSACTION, params: undefined; duration: 35ms, rows: null }
+executed query: { query: INSERT INTO financial_transfer(sale_id, teacher_id, price, due_date, pay_date) VALUES($1, $2, $3, $4, $5), params: 29,2,140.45,Sun Sep 26 2021 18:31:41 GMT-0300 (Brasilia Standard Time),Fri Aug 27 2021 18:31:41 GMT-0300 (Brasilia Standard Time); duration: 49ms, rows: 1 }
+executed query: { query: COMMIT, params: undefined; duration: 29ms, rows: null }

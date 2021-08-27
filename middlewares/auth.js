@@ -1,5 +1,5 @@
 const fs = require('fs');
-const jwt = require('@models/jwt');
+const jwt = require('@model/jwt');
 
 //  ----------------------------------------------------------------------------
 //  --------------------Middleware to user authentication-----------------------
@@ -11,7 +11,7 @@ const authMiddleware = async (req, res, next) => {
         req.auth = {
             id: payload.id,
             email: payload.email,
-            first_name: payload.first_name,
+            firstname: payload.name,
             type: payload.type,
         };
 
@@ -19,13 +19,13 @@ const authMiddleware = async (req, res, next) => {
 
         next();
     } catch (error) {
-        fs.readFile('./src/logs/data.json', 'utf8', (err, data) => {
+        fs.readFile('./logs/data.json', 'utf8', (err, data) => {
             if (err) {
                 console.log(err);
             } else {
                 const buffer = JSON.parse(data);
                 buffer.error.push(error);
-                fs.writeFile('./src/logs/data.json', JSON.stringify(buffer), (err) => {
+                fs.writeFile('./logs/data.json', JSON.stringify(buffer), (err) => {
                     console.log(err);
                 });
             }

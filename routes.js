@@ -2,6 +2,7 @@ process.env.TZ = 'America/Sao_Paulo';
 require('dotenv').config();
 require('module-alias/register');
 const express = require('express');
+const jwtuser = require('@middlewares/auth');
 const cookie_parser = require('cookie-parser');
 
 const app = express();
@@ -21,6 +22,7 @@ const addCourseFlag = require('@controller/addCourseFlag');
 const addModule = require('@controller/addModule');
 const addClass = require('@controller/addClass');
 const addPaymentMethod = require('@controller/addPaymentMethod');
+const addSale = require('@controller/addSale');
 
 app.use(express.urlencoded({ extended: false }));
 app.use(express.json());
@@ -43,7 +45,7 @@ router.post('/modules', addModule.post);
 router.post('/course-flag', addCourseFlag.post);
 router.post('/classes', addClass.post);
 router.post('/payment-methods', addPaymentMethod.post);
-
+router.post('/buy', jwtuser, addSale.post);
 router.get('/login', login.get);
 
 module.exports = router;
