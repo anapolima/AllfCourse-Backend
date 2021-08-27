@@ -17,7 +17,7 @@ module.exports = {
                 value: email,
             },
             active: {
-                operator: '=',
+                operator: 'is',
                 value: true,
             },
             deleted_at: {
