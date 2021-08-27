@@ -7,6 +7,7 @@ module.exports = {
     post: async (req, res) => {
         const { phone } = req.body;
         const token = crypto.randomBytes(20).toString('hex');
+
         const checkSelect = ['phone'];
         const whereCheck = {
             phone: {
@@ -48,17 +49,18 @@ module.exports = {
                         );
                         res.status(201).send({ message: 'SMS enviado' });
                     } else {
-                        res.sendError('Erro Ao enviar o SMS', 500);
+                        res.sendError(smsresult, 500);
                     }
                 } catch (err) {
                     console.log(err);
                     res.sendError('Erro', 500);
                 }
             } else {
-                res.sendError(
+                res.sendError({
+                    message:
                     'Telefone não encontrado ou conta não ativada',
-                    404,
-                );
+                },
+                404);
             }
         } else {
             console.log(result.data);

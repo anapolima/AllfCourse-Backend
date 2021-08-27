@@ -7,7 +7,7 @@ module.exports = {
         try {
             const result = await tokencheck.check(token);
             if (result !== true) {
-                res.sendError(result[0], result[1]);
+                res.sendError({ message: result[0] }, 500);
             } else {
                 res.status(201).send({ message: 'Conta validada com sucesso' });
             }

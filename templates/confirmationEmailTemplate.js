@@ -454,7 +454,7 @@ function confirmationTemplate(
                 <tr>
                   <td class="email-masthead">
                     <a href="#" class="f-fallback email-masthead_name">
-                    AlffCourse
+                    AllfCourse
                   </a>
                   </td>
                 </tr>
@@ -489,7 +489,7 @@ function confirmationTemplate(
                             <p>IP Requisitante: <b>${ip}</b></p>
                             <p>Se você não realizou essa requisição, por favor ignore este email ou <a href="mailto:alffcoursehelp@gmail.com">contate o suporte</a> se você possuir dúvidas.</p>
                             <p>Obrigado,
-                              <br>AlffCourse Team</p>
+                              <br>AllfCourse Team</p>
                           </div>
                         </td>
                       </tr>
@@ -501,9 +501,9 @@ function confirmationTemplate(
                     <table class="email-footer" align="center" width="570" cellpadding="0" cellspacing="0" role="presentation">
                       <tr>
                         <td class="content-cell" align="center">
-                          <p class="f-fallback sub align-center">&copy; 2021 AlffCourse. All rights reserved.</p>
+                          <p class="f-fallback sub align-center">&copy; 2021 AllfCourse. All rights reserved.</p>
                           <p class="f-fallback sub align-center">
-                            AlffCourse
+                            AllfCourse
                             <br>Brazil
                           </p>
                         </td>

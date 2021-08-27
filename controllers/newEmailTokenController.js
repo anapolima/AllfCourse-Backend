@@ -49,7 +49,7 @@ module.exports = {
                     );
                     res.status(201).send({ message: 'Novo token gerado e e-mail enviado' });
                 } else {
-                    res.sendError('Email não encontrado', 404);
+                    res.sendError({ message: 'Email não encontrado' }, 404);
                 }
             }
         } catch (err) {

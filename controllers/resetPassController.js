@@ -5,10 +5,11 @@ module.exports = {
     post: async (req, res) => {
         const { token } = req.body;
         const { newpass } = req.body;
+        const { confirmnewpass } = req.body;
         try {
-            const result = await newuserpass.check(token, newpass);
-            if (result !== true) {
-                res.sendError(result[0], result[1]);
+            const check = await newuserpass.check(token, newpass, confirmnewpass);
+            if (check !== true) {
+                res.sendError(check, 500);
             } else {
                 res.status(201).send({ message: 'Senha alterada com sucesso' });
             }

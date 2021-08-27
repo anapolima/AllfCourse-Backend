@@ -1,3 +1,4 @@
+/* eslint-disable no-unused-vars */
 const query = require('@helpers/Query');
 require('dotenv').config();
 
@@ -20,14 +21,11 @@ module.exports = {
         const token = crypto.randomBytes(20).toString('hex');
         const expire = new Date();
         expire.setHours(expire.getHours() + 2);
-        // const expire_converted= expire.toLocaleString('en-US', { timeZone: 'America/Sao_Paulo' })
-        // expire = expire_converted;
-        // console.log(expire);
-
         try {
-            const check = await checkregister.check(document, email, phone);
+            // eslint-disable-next-line max-len
+            const check = await checkregister.check(document, email, phone, firstname, lastname, gender, birthdate);
             if (check !== true) {
-                res.sendError(check[0], check[1]);
+                res.sendError(check, 500);
             } else {
                 const columns = {
                     first_name: firstname,
@@ -50,7 +48,7 @@ module.exports = {
                     returningColumns,
                 );
                 if (result.error.transaction !== false) {
-                    res.sendError(result.error.transaction, 500);
+                    res.sendError({ message: result.error.transaction }, 500);
                 } else {
                     await emailrequest.send(email, firstname, token);
                     res.status(201).send({ message: result.data });

@@ -12,9 +12,11 @@ module.exports = {
         const validCourseId = validateCourseFlag.validateCourseId(courseid, errors);
         const validCategoryId = validateCourseFlag.validateCategoryId(categoryid, errors);
 
+        console.log(validCourseId);
+        console.log(validCategoryId);
+
         if (errors.length > 0) {
-            console.log(errors);
-            res.end();
+            res.sendError(errors);
         } else {
             const check = await checkCourseFlag.check(validCourseId, validCategoryId);
 
@@ -24,7 +26,6 @@ module.exports = {
                 const columns = {
                     course_id: validCourseId,
                     category_id: validCategoryId,
-                    created_at: 'now()',
                 };
                 const returningColumns = ['*'];
 

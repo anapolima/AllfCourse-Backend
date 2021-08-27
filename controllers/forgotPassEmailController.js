@@ -55,7 +55,7 @@ module.exports = {
                     res.sendError('Erro', 500);
                 }
             } else {
-                res.sendError('Email não encontrado ou conta não ativada', 404);
+                res.sendError({ message: 'Email não encontrado ou conta não ativada' }, 404);
             }
         } else {
             console.log(result.data);

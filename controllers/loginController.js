@@ -43,7 +43,7 @@ module.exports = {
                     jwt.verify(token, process.env.SECRET, (err, decoded) => {
                         if (err) {
                             console.log(err);
-                            res.sendError('Não autorizado', 401);
+                            res.sendError({ message: 'Não autorizado' }, 401);
                         } else {
                             console.log(decoded);
                             res.status(200).send({ message: 'Login sucedido' });
@@ -51,14 +51,14 @@ module.exports = {
                     });
                 } catch (err) {
                     if (err === 1) {
-                        res.sendError('Senha incorreta', 403);
+                        res.sendError({ message: 'Senha incorreta' }, 403);
                     } else {
                         console.log(err);
                         res.sendError('Erro', 500);
                     }
                 }
             } else {
-                res.sendError('Email não encontrado ou conta não ativada', 404);
+                res.sendError({ message: 'Email não encontrado ou conta não ativada' }, 404);
             }
         } else {
             console.log(result.data);

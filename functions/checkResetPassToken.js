@@ -1,8 +1,17 @@
+/* eslint-disable no-unused-vars */
 const query = require('@helpers/Query');
+const validateNewPass = require('@validations/validateNewPass');
 const bcrypt = require('bcrypt');
 require('dotenv').config();
 
-async function check(token, newpass) {
+async function check(token, newpass, confirmnewpass) {
+    const errors = [];
+    const validtoken = validateNewPass.validateToken(token);
+    const validpass = validateNewPass.validatePassword(newpass, confirmnewpass, errors);
+    if (errors.length > 0) {
+        return errors;
+    }
+
     let now = new Date();
     const now_converted = now.toLocaleString('en-US', {
         timeZone: 'America/Sao_Paulo',
@@ -17,12 +26,9 @@ async function check(token, newpass) {
         },
     };
     const check1 = await query.Select('users', checkSelect1, whereCheck1, ['']);
-    // console.log(now_converted);
+
     if (check1.data.length >= 1) {
         const expire = new Date(check1.data[0].rtoken_expire);
-        /* console.log(expire.toLocaleString("en-US", {
-            timeZone: "America/Sao_Paulo",
-        })); */
         if (new Date(now_converted).getTime() < new Date(expire).getTime()) {
             const whereColumns = {
                 recover_token: {
@@ -37,9 +43,11 @@ async function check(token, newpass) {
             await query.Update('users', fieldsValue, ['*'], whereColumns, ['']);
             return true;
         }
-        return ['Token Expirado', 500];
+        errors.push({ tokenExpired: 'Token Expirado' });
+        return errors;
     }
-    return ['Token Inválido', 404];
+    errors.push({ invalidToken: 'Token Inválido' });
+    return errors;
 }
 
 module.exports = { check };
