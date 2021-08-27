@@ -15,7 +15,7 @@ module.exports = {
                     sum = 0;
 
                     if (strCPF === '00000000000') {
-                        _errors.push({ cpf: 'CPF Inválido' });
+                        _errors.cpf = 'CPF Inválido';
                         return false;
                     }
 
@@ -29,7 +29,7 @@ module.exports = {
                     }
 
                     if (rest !== parseInt(strCPF.substring(9, 10), 10)) {
-                        _errors.push({ cpf: 'CPF Inválido' });
+                        _errors.cpf = 'CPF Inválido';
                         return false;
                     }
 
@@ -44,7 +44,7 @@ module.exports = {
                     }
 
                     if (rest !== parseInt(strCPF.substring(10, 11), 10)) {
-                        _errors.push({ cpf: 'CPF Inválido' });
+                        _errors.cpf = 'CPF Inválido';
                         return false;
                     }
 
@@ -54,18 +54,18 @@ module.exports = {
                 return true;
             }
 
-            _errors.push({ documentStringE: 'O documento não pode conter a letra E' });
+            _errors.documentStringE = 'O documento não pode conter a letra E';
             return false;
         }
 
-        _errors.push({ documentPattern: 'O Documento deve ser um numéro positivo e possuir 11 caracteres' });
+        _errors.documentPattern = 'O Documento deve ser um número positivo e possuir 11 caracteres';
         return false;
     },
     validateEmail: (_email, _errors) => {
         const regexEmail = /^\w+([\\.-]?\w+)*@\w+([\\.-]?\w+)*(\.\w{2,3})+$/;
 
         if (!_email.match(regexEmail)) {
-            _errors.push({ documentEmailFormat: 'E-mail em formato inválido' });
+            _errors.documentEmailFormat = 'E-mail em formato inválido';
             return false;
         }
         return true;
@@ -74,21 +74,21 @@ module.exports = {
         if (typeof (_firstname) === 'string') {
             return true;
         }
-        _errors.push({ firstNameString: 'O primeiro nome deve ser uma string' });
+        _errors.firstNameString = 'O primeiro nome deve ser uma string';
         return false;
     },
     validateLastName: (_lastname, _errors) => {
         if (typeof (_lastname) === 'string') {
             return true;
         }
-        _errors.push({ lastNameString: 'O último nome deve ser uma string' });
+        _errors.lastNameString = 'O último nome deve ser uma string';
         return false;
     },
     validateGender: (_gender, _errors) => {
         if (typeof (_gender) === 'string') {
             return true;
         }
-        _errors.push({ genderString: 'O gênero deve ser uma string' });
+        _errors.genderString = 'O gênero deve ser uma string';
         return false;
     },
     validatePhone: (_phone, _errors) => {
@@ -105,15 +105,15 @@ module.exports = {
                     return true;
                 }
 
-                _errors.push({ phonePattern: 'O telefone deve ser númerico e possuir 11 caracteres' });
+                _errors.phonePattern = 'O telefone deve ser númerico e possuir 11 caracteres';
                 return false;
             }
 
-            _errors.push({ phoneStringE: 'O telefone não pode possuir a letra E' });
+            _errors.phoneStringE = 'O telefone não pode possuir a letra E';
             return false;
         }
 
-        _errors.push({ phoneString: 'O número deve ser passado como string' });
+        _errors.phoneString = 'O número deve ser passado como string';
         return false;
     },
     validateBirthDate(_date, _errors) {
@@ -163,11 +163,11 @@ module.exports = {
                 return true;
 
             default:
-                _errors.push({ date: 'Data inválida' });
+                _errors.date = 'Data inválida';
                 return false;
             }
         }
-        _errors.push({ date: 'A data deve estar no formato YYYY-MM-DD' });
+        _errors.date = 'A data deve estar no formato YYYY-MM-DD';
         return false;
     },
 };

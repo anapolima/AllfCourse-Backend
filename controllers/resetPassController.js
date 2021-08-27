@@ -3,6 +3,7 @@ const newuserpass = require('@functions/checkResetPassToken');
 
 module.exports = {
     post: async (req, res) => {
+        const errors = { criticalErrors: {}, validationErrors: {} };
         const { token } = req.body;
         const { newpass } = req.body;
         const { confirmnewpass } = req.body;
@@ -14,7 +15,12 @@ module.exports = {
                 res.status(201).send({ message: 'Senha alterada com sucesso' });
             }
         } catch (err) {
-            res.status(500).send(err);
+            errors.criticalErrors.errorCategory = {
+                message: 'Ocorreu um erro inesperado.',
+                code: 500,
+                detail: { ...err },
+            };
+            res.sendError(errors, 500);
         }
     },
 };

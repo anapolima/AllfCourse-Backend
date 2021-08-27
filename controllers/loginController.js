@@ -5,6 +5,7 @@ const Login = require('@functions/checkLogin');
 
 module.exports = {
     post: async (req, res) => {
+        const errors = { criticalErrors: {}, validationErrors: {} };
         const { email } = req.body;
         const { password } = req.body;
         const checkSelect = ['id', 'email', 'first_name', 'type', 'password'];
@@ -43,7 +44,11 @@ module.exports = {
                     jwt.verify(token, process.env.SECRET, (err, decoded) => {
                         if (err) {
                             console.log(err);
-                            res.sendError({ message: 'Não autorizado' }, 401);
+                            errors.criticalErrors.Unauthorized = {
+                                message: 'Não autorizado',
+                                code: 401,
+                            };
+                            res.sendError(errors, 401);
                         } else {
                             console.log(decoded);
                             res.status(200).send({ message: 'Login sucedido' });
@@ -53,15 +58,28 @@ module.exports = {
                     if (err === 1) {
                         res.sendError({ message: 'Senha incorreta' }, 403);
                     } else {
-                        console.log(err);
-                        res.sendError('Erro', 500);
+                        errors.criticalErrors.errorCategory = {
+                            message: 'Ocorreu um erro inesperado.',
+                            code: 500,
+                            detail: { ...err },
+                        };
+                        res.sendError(errors, 500);
                     }
                 }
             } else {
-                res.sendError({ message: 'Email não encontrado ou conta não ativada' }, 404);
+                errors.criticalErrors.email = {
+                    message: 'Email não encontrado ou conta não ativada',
+                    code: 404,
+                };
+                res.sendError(errors, 404);
             }
         } else {
-            console.log(result.data);
+            errors.criticalErrors.errorCategory = {
+                message: 'Ocorreu um erro inesperado.',
+                code: 500,
+                detail: { ...result.data },
+            };
+            res.sendError(errors, 500);
             res.sendError('Erro', 500);
         }
     },

@@ -2,6 +2,7 @@ const query = require('@helpers/Query');
 require('dotenv').config();
 
 async function check(token) {
+    const errors = { criticalErrors: {}, validationErrors: {} };
     let now = new Date();
     const now_converted = now.toLocaleString('en-US', {
         timeZone: 'America/Sao_Paulo',
@@ -36,9 +37,17 @@ async function check(token) {
             await query.Update('users', fieldsValue, ['*'], whereColumns, ['']);
             return true;
         }
-        return ['Token Expirado', 500];
+        errors.criticalErrors.expiredToken = {
+            message: 'Token expirado',
+            code: 500,
+        };
+        return errors;
     }
-    return ['Token Inválido', 404];
+    errors.criticalErrors.invalidToken = {
+        message: 'Token Inválido',
+        code: 404,
+    };
+    return errors;
 }
 
 module.exports = { check };

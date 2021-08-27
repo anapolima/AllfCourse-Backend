@@ -5,6 +5,7 @@ const crypto = require('crypto');
 
 module.exports = {
     post: async (req, res) => {
+        const errors = { criticalErrors: {}, validationErrors: {} };
         const { phone } = req.body;
         const token = crypto.randomBytes(20).toString('hex');
 
@@ -52,19 +53,27 @@ module.exports = {
                         res.sendError(smsresult, 500);
                     }
                 } catch (err) {
-                    console.log(err);
-                    res.sendError('Erro', 500);
+                    errors.criticalErrors.errorCategory = {
+                        message: 'Ocorreu um erro inesperado.',
+                        code: 500,
+                        detail: { ...err },
+                    };
+                    res.sendError(errors, 500);
                 }
             } else {
-                res.sendError({
-                    message:
-                    'Telefone não encontrado ou conta não ativada',
-                },
-                404);
+                errors.criticalErrors.documentphone = {
+                    message: 'Telefone não encontrado ou conta não ativada',
+                    code: 404,
+                };
+                res.sendError(errors, 404);
             }
         } else {
-            console.log(result.data);
-            res.sendError('Erro', 500);
+            errors.criticalErrors.errorCategory = {
+                message: 'Ocorreu um erro inesperado.',
+                code: 500,
+                detail: { ...result.data },
+            };
+            res.sendError(errors, 500);
         }
     },
 };

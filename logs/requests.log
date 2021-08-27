@@ -1322,3 +1322,207 @@ POST /course-flag 14.918 ms
 DATE: Thursday, August 26, 2021
 HTTP STATUS CODE: 500
 
+POST /course-flag 23.360 ms
+DATE: Thursday, August 26, 2021
+HTTP STATUS CODE: 500
+
+POST /register 88.273 ms
+DATE: Thursday, August 26, 2021
+HTTP STATUS CODE: 500
+
+POST /register 2979.980 ms
+DATE: Friday, August 27, 2021
+HTTP STATUS CODE: 500
+
+POST /register 88.703 ms
+DATE: Friday, August 27, 2021
+HTTP STATUS CODE: 500
+
+POST /register 69.813 ms
+DATE: Friday, August 27, 2021
+HTTP STATUS CODE: 500
+
+POST /register 2206.619 ms
+DATE: Friday, August 27, 2021
+HTTP STATUS CODE: 500
+
+POST /register 68.409 ms
+DATE: Friday, August 27, 2021
+HTTP STATUS CODE: 500
+
+POST /register 2648.047 ms
+DATE: Friday, August 27, 2021
+HTTP STATUS CODE: 500
+
+POST /resetpass 1357.756 ms
+DATE: Friday, August 27, 2021
+HTTP STATUS CODE: 500
+
+POST /requestpass_email 4407.684 ms
+DATE: Friday, August 27, 2021
+HTTP STATUS CODE: 201
+
+POST /resetpass 1607.134 ms
+DATE: Friday, August 27, 2021
+HTTP STATUS CODE: 500
+
+POST /login 1297.150 ms
+DATE: Friday, August 27, 2021
+HTTP STATUS CODE: 200
+
+POST /requestpass_email 4904.428 ms
+DATE: Friday, August 27, 2021
+HTTP STATUS CODE: 201
+
+POST /resetpass 1678.510 ms
+DATE: Friday, August 27, 2021
+HTTP STATUS CODE: 500
+
+POST /requestpass_email 3953.502 ms
+DATE: Friday, August 27, 2021
+HTTP STATUS CODE: 201
+
+POST /resetpass 2.514 ms
+DATE: Friday, August 27, 2021
+HTTP STATUS CODE: 500
+
+POST /resetpass 1964.743 ms
+DATE: Friday, August 27, 2021
+HTTP STATUS CODE: 500
+
+POST /requestpass_email 3867.035 ms
+DATE: Friday, August 27, 2021
+HTTP STATUS CODE: 201
+
+POST /resetpass 1802.613 ms
+DATE: Friday, August 27, 2021
+HTTP STATUS CODE: 500
+
+POST /resetpass 1229.418 ms
+DATE: Friday, August 27, 2021
+HTTP STATUS CODE: 500
+
+POST /requestpass_email 3940.920 ms
+DATE: Friday, August 27, 2021
+HTTP STATUS CODE: 201
+
+POST /resetpass 1548.260 ms
+DATE: Friday, August 27, 2021
+HTTP STATUS CODE: 500
+
+POST /requestpass_email 3982.793 ms
+DATE: Friday, August 27, 2021
+HTTP STATUS CODE: 201
+
+POST /resetpass 1601.294 ms
+DATE: Friday, August 27, 2021
+HTTP STATUS CODE: 500
+
+POST /requestpass_email 3535.947 ms
+DATE: Friday, August 27, 2021
+HTTP STATUS CODE: 201
+
+POST /resetpass 2320.345 ms
+DATE: Friday, August 27, 2021
+HTTP STATUS CODE: 500
+
+POST /register 2300.290 ms
+DATE: Friday, August 27, 2021
+HTTP STATUS CODE: 500
+
+POST /register 2546.562 ms
+DATE: Friday, August 27, 2021
+HTTP STATUS CODE: 500
+
+POST /register 2149.203 ms
+DATE: Friday, August 27, 2021
+HTTP STATUS CODE: 500
+
+POST /register 5687.050 ms
+DATE: Friday, August 27, 2021
+HTTP STATUS CODE: 201
+
+POST /register 3415.905 ms
+DATE: Friday, August 27, 2021
+HTTP STATUS CODE: 500
+
+POST /requestpass_email 904.260 ms
+DATE: Friday, August 27, 2021
+HTTP STATUS CODE: 404
+
+POST /requestpass_email 3364.978 ms
+DATE: Friday, August 27, 2021
+HTTP STATUS CODE: 201
+
+POST /resetpass 1609.553 ms
+DATE: Friday, August 27, 2021
+HTTP STATUS CODE: 201
+
+POST /login 933.315 ms
+DATE: Friday, August 27, 2021
+HTTP STATUS CODE: 403
+
+POST /login 1004.360 ms
+DATE: Friday, August 27, 2021
+HTTP STATUS CODE: 200
+
+POST /logout 0.713 ms
+DATE: Friday, August 27, 2021
+HTTP STATUS CODE: 202
+
+POST /requestpass_email 765.597 ms
+DATE: Friday, August 27, 2021
+HTTP STATUS CODE: 404
+
+POST /requestpass_email 3995.465 ms
+DATE: Friday, August 27, 2021
+HTTP STATUS CODE: 201
+
+POST /resetpass 703.379 ms
+DATE: Friday, August 27, 2021
+HTTP STATUS CODE: 500
+
+POST /resetpass 1.776 ms
+DATE: Friday, August 27, 2021
+HTTP STATUS CODE: 500
+
+POST /resetpass 829.994 ms
+DATE: Friday, August 27, 2021
+HTTP STATUS CODE: 500
+
+POST /resetpass 799.356 ms
+DATE: Friday, August 27, 2021
+HTTP STATUS CODE: 500
+
+POST /resetpass 1423.845 ms
+DATE: Friday, August 27, 2021
+HTTP STATUS CODE: 201
+
+POST /requestpass_email 926.519 ms
+DATE: Friday, August 27, 2021
+HTTP STATUS CODE: 404
+
+POST /requestpass_sms 1402.987 ms
+DATE: Friday, August 27, 2021
+HTTP STATUS CODE: 404
+
+POST /login 1120.668 ms
+DATE: Friday, August 27, 2021
+HTTP STATUS CODE: 404
+
+POST /newvalidate 980.231 ms
+DATE: Friday, August 27, 2021
+HTTP STATUS CODE: 404
+
+POST /newvalidate 3964.370 ms
+DATE: Friday, August 27, 2021
+HTTP STATUS CODE: 201
+
+POST /validate 760.432 ms
+DATE: Friday, August 27, 2021
+HTTP STATUS CODE: 500
+
+POST /resetpass 992.491 ms
+DATE: Friday, August 27, 2021
+HTTP STATUS CODE: 500
+

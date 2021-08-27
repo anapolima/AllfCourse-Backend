@@ -6,6 +6,7 @@ const crypto = require('crypto');
 
 module.exports = {
     post: async (req, res) => {
+        const errors = { criticalErrors: {}, validationErrors: {} };
         const { email } = req.body;
         const token = crypto.randomBytes(20).toString('hex');
         const expire = new Date();
@@ -29,7 +30,6 @@ module.exports = {
                 whereCheck,
                 checkOperators,
             );
-            console.log(check);
             if (Array.isArray(check.data)) {
                 if (check.data.length >= 1) {
                     const fieldvalues = {};
@@ -49,12 +49,20 @@ module.exports = {
                     );
                     res.status(201).send({ message: 'Novo token gerado e e-mail enviado' });
                 } else {
-                    res.sendError({ message: 'Email não encontrado' }, 404);
+                    errors.criticalErrors.email = {
+                        message: 'Email não encontrado',
+                        code: 404,
+                    };
+                    res.sendError(errors, 404);
                 }
             }
         } catch (err) {
-            console.log(err);
-            res.sendError('erro', 500);
+            errors.criticalErrors.errorCategory = {
+                message: 'Ocorreu um erro inesperado.',
+                code: 500,
+                detail: { ...err },
+            };
+            res.sendError(errors, 500);
         }
     },
 };

@@ -3,26 +3,44 @@ const query = require('@helpers/Query');
 const validateRegister = require('@validations/validateRegister');
 require('dotenv').config();
 
-async function check(document, email, phone, firstname, lastname, gender, birthdate) {
+async function check(
+    document,
+    email,
+    phone,
+    firstname,
+    lastname,
+    gender,
+    birthdate,
+) {
     console.log(birthdate);
-    const errors = [];
+    // const errors = [];
+    const errors = { criticalErrors: {}, validationErrors: {} };
     const validDocument = validateRegister.validateDocument(
         document,
-        errors,
+        errors.validationErrors,
     );
     const validEmail = validateRegister.validateEmail(email, errors);
     const validFirstName = validateRegister.validateFirstName(
         firstname,
-        errors,
+        errors.validationErrors,
     );
     const validLastName = validateRegister.validateLastName(
         lastname,
-        errors,
+        errors.validationErrors,
     );
-    const validGender = validateRegister.validateGender(gender, errors);
-    const validPhone = validateRegister.validatePhone(phone, errors);
-    const validbirthDate = validateRegister.validateBirthDate(birthdate, errors);
-    if (errors.length > 0) {
+    const validGender = validateRegister.validateGender(
+        gender,
+        errors.validationErrors,
+    );
+    const validPhone = validateRegister.validatePhone(
+        phone,
+        errors.validationErrors,
+    );
+    const validbirthDate = validateRegister.validateBirthDate(
+        birthdate,
+        errors.validationErrors,
+    );
+    if (Object.keys(errors.validationErrors).length > 0) {
         return errors;
     }
 
@@ -87,23 +105,44 @@ async function check(document, email, phone, firstname, lastname, gender, birthd
     ) {
         if (check1.data.length >= 1) {
             if (check2.data.length >= 1) {
-                errors.push({ 'document/email': 'Documento e e-mail já existem' });
-                return errors;
-            } if (check3.data.length >= 1) {
-                errors.push({ 'document/phone': 'Documento e telefone já existem' });
+                errors.criticalErrors.documentemail = {
+                    message: 'Documento e e-mail já existem',
+                    code: 500,
+                };
                 return errors;
             }
-            errors.push({ document: 'Documento já existe' });
-            return errors;
-        } if (check2.data.length >= 1) {
             if (check3.data.length >= 1) {
-                errors.push({ 'email/phone': 'Email e telefone já existem' });
+                errors.criticalErrors.documentphone = {
+                    message: 'Documento e telefone já existem',
+                    code: 500,
+                };
                 return errors;
             }
-            errors.push({ email: 'Email já existe' });
+            errors.criticalErrors.document = {
+                message: 'Documento já existe',
+                code: 500,
+            };
             return errors;
-        } if (check3.data.length >= 1) {
-            errors.push({ phone: 'Telefone já existe' });
+        }
+        if (check2.data.length >= 1) {
+            if (check3.data.length >= 1) {
+                errors.criticalErrors.emailphone = {
+                    message: 'Email e telefone já existem',
+                    code: 500,
+                };
+                return errors;
+            }
+            errors.criticalErrors.email = {
+                message: 'E-mail já existe',
+                code: 500,
+            };
+            return errors;
+        }
+        if (check3.data.length >= 1) {
+            errors.criticalErrors.phone = {
+                message: 'Telefone já existe',
+                code: 500,
+            };
             return errors;
         }
         return true;

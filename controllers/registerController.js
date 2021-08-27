@@ -9,6 +9,7 @@ const checkregister = require('@functions/checkRegister');
 
 module.exports = {
     post: async (req, res) => {
+        const errors = { criticalErrors: {}, validationErrors: {} };
         const { document } = req.body;
         const { email } = req.body;
         const { socialname } = req.body;
@@ -55,8 +56,12 @@ module.exports = {
                 }
             }
         } catch (err) {
-            console.log(err);
-            res.status(500).send(err);
+            errors.criticalErrors.errorCategory = {
+                message: 'Ocorreu um erro inesperado.',
+                code: 500,
+                detail: { ...err },
+            };
+            res.sendError(errors, 500);
         }
     },
 };

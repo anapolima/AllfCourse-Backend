@@ -1,3 +1,4 @@
+/* eslint-disable max-len */
 /* eslint-disable no-unused-vars */
 const query = require('@helpers/Query');
 const validateNewPass = require('@validations/validateNewPass');
@@ -5,10 +6,11 @@ const bcrypt = require('bcrypt');
 require('dotenv').config();
 
 async function check(token, newpass, confirmnewpass) {
-    const errors = [];
-    const validtoken = validateNewPass.validateToken(token);
-    const validpass = validateNewPass.validatePassword(newpass, confirmnewpass, errors);
-    if (errors.length > 0) {
+    // const errors = [];
+    const errors = { criticalErrors: {}, validationErrors: {} };
+    const validtoken = validateNewPass.validateToken(token, errors.validationErrors);
+    const validpass = validateNewPass.validatePassword(newpass, confirmnewpass, errors.validationErrors);
+    if (Object.keys(errors.validationErrors).length > 0) {
         return errors;
     }
 
@@ -43,10 +45,16 @@ async function check(token, newpass, confirmnewpass) {
             await query.Update('users', fieldsValue, ['*'], whereColumns, ['']);
             return true;
         }
-        errors.push({ tokenExpired: 'Token Expirado' });
+        errors.criticalErrors.tokenExpired = {
+            message: 'Token expirado',
+            code: 400,
+        };
         return errors;
     }
-    errors.push({ invalidToken: 'Token Inválido' });
+    errors.criticalErrors.invalidToken = {
+        message: 'Token Inválido',
+        code: 404,
+    };
     return errors;
 }
 
