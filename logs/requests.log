@@ -1666,3 +1666,35 @@ POST /login 17.942 ms
 DATE: Friday, August 27, 2021
 HTTP STATUS CODE: 404
 
+POST /register 21029.204 ms
+DATE: Friday, August 27, 2021
+HTTP STATUS CODE: 500
+
+POST /register 3438.713 ms
+DATE: Friday, August 27, 2021
+HTTP STATUS CODE: 500
+
+POST /register 3343.678 ms
+DATE: Friday, August 27, 2021
+HTTP STATUS CODE: 500
+
+POST /register 5800.744 ms
+DATE: Friday, August 27, 2021
+HTTP STATUS CODE: 201
+
+GET /login - ms
+DATE: Friday, August 27, 2021
+HTTP STATUS CODE: -
+
+GET /login 907.998 ms
+DATE: Friday, August 27, 2021
+HTTP STATUS CODE: 404
+
+GET /login 656.770 ms
+DATE: Friday, August 27, 2021
+HTTP STATUS CODE: 404
+
+GET /login 1330.331 ms
+DATE: Friday, August 27, 2021
+HTTP STATUS CODE: 404
+

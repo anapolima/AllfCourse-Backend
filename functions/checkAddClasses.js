@@ -1,6 +1,6 @@
 const validateClass = require('@validations/validateClasses');
 const query = require('@helpers/Query');
-
+// test
 module.exports = {
     check: async (_name, _order, _moduleId, _inactive, _link, _description) => {
         const check1SelectTeacherName = ['id'];
