@@ -15,6 +15,7 @@ const logout = require('@controller/logoutController');
 const forgotpassemail = require('@controller/forgotPassEmailController');
 const forgotpasssms = require('@controller/forgotPassSMSController');
 const resetpass = require('@controller/resetPassController');
+const addCourseFlag = require('@controller/addCourseFlag');
 
 app.use(express.urlencoded({ extended: false }));
 app.use(express.json());
@@ -32,5 +33,6 @@ router.post('/logout', logout.post);
 router.post('/requestpass_email', forgotpassemail.post);
 router.post('/requestpass_sms', forgotpasssms.post);
 router.post('/resetpass', resetpass.post);
+router.post('/course-flag', addCourseFlag.post);
 
 module.exports = router;
