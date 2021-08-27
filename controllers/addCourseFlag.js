@@ -16,7 +16,6 @@ module.exports = {
             const columns = {
                 course_id: check.courseid,
                 category_id: check.categoryid,
-                created_at: 'now()',
             };
             const returningColumns = ['*'];
 
