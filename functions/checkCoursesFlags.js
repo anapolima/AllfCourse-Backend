@@ -97,7 +97,7 @@ module.exports = {
             errors.criticalErrors.errorCategory = {
                 message: 'Ocorreu um erro inesperado durante a consulta dos cursos',
                 code: 500,
-                detail: { ...resultCheck2.error },
+                detail: { ...resultCheck1.error },
             };
         }
 
