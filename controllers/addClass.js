@@ -24,7 +24,6 @@ module.exports = {
                 inactive: check.inactive,
                 description: check.description,
                 video_link: check.link,
-                created_at: 'now()',
             };
             const returningColumns = ['*'];
 

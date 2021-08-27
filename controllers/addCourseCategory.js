@@ -15,7 +15,6 @@ module.exports = {
             const columns = {
                 name: check.name,
                 created_by: 45,
-                created_at: 'now()',
             };
             const returningColumns = ['*'];
 
