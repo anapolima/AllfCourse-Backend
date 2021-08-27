@@ -15,7 +15,12 @@ const logout = require('@controller/logoutController');
 const forgotpassemail = require('@controller/forgotPassEmailController');
 const forgotpasssms = require('@controller/forgotPassSMSController');
 const resetpass = require('@controller/resetPassController');
+const addCourseCategory = require('@controller/addCourseCategory');
+const addCourse = require('@controller/addCourse');
 const addCourseFlag = require('@controller/addCourseFlag');
+const addModule = require('@controller/addModule');
+const addClass = require('@controller/addClass');
+const addPaymentMethod = require('@controller/addPaymentMethod');
 
 app.use(express.urlencoded({ extended: false }));
 app.use(express.json());
@@ -33,6 +38,11 @@ router.post('/logout', logout.post);
 router.post('/requestpass_email', forgotpassemail.post);
 router.post('/requestpass_sms', forgotpasssms.post);
 router.post('/resetpass', resetpass.post);
+router.post('/courses-categories', addCourseCategory.post);
+router.post('/courses', addCourse.post);
+router.post('/modules', addModule.post);
 router.post('/course-flag', addCourseFlag.post);
+router.post('/classes', addClass.post);
+router.post('/payment-methods', addPaymentMethod.post);
 
 module.exports = router;
