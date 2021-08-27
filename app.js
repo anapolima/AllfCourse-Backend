@@ -6,7 +6,6 @@ const express = require('express');
 const cors = require('cors');
 const compression = require('compression');
 const cookie_parser = require('cookie-parser');
-const config = require('@config');
 const helmet = require('helmet');
 const morgan = require('morgan');
 const path = require('path');
@@ -49,7 +48,7 @@ app.use(helmet());
 
 app.disable('x-powered-by');
 
-app.use(require('./routes')); // require all routes created on routes.js
+app.use(require('./routes/routes')); // require all routes created on routes.js
 
 // ----------------------------------------------------------------------------//
 // ---------------Middleware route to serve the home page----------------------//
@@ -57,7 +56,4 @@ app.use(require('./routes')); // require all routes created on routes.js
 // app.use(express.static('public'));
 // ---------------Middleware route to serve the home page----------------------//
 // ----------------------------------------------------------------------------//
-
-app.listen(config.app.port, () => {
-    console.log(`Server listening on port ${config.app.port}`);
-});
+module.exports = app;
