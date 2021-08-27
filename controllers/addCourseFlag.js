@@ -1,6 +1,6 @@
 const query = require('@helpers/Query');
 
-const checkCourseFlag = require('@functions/checkCoursesFlags');
+const checkCourseFlag = require('@app/functions/checkAddCoursesFlags');
 
 module.exports = {
     post: async (req, res) => {

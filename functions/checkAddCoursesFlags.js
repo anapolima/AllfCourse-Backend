@@ -139,6 +139,8 @@ module.exports = {
         return {
             courseid: validCourseId,
             categoryid: validCategoryId,
+            validationErrors: { ...errors.validationErrors },
+            criticalErrors: { ...errors.criticalErrors },
         };
     },
 };
