@@ -1,13 +1,15 @@
 require('dotenv').config();
-const jwt = require('jsonwebtoken');
+const jwt = require('@model/jwt');
 const query = require('@helpers/Query');
 const Login = require('@functions/checkLogin');
 
 module.exports = {
-    post: async (req, res) => {
+    get: async (req, res) => {
+        const user = { email: 'rey.filareto@outlook.com', password: '123456' };
         const errors = { criticalErrors: {}, validationErrors: {} };
-        const { email } = req.body;
-        const { password } = req.body;
+        const [, hash] = req.headers.authorization.split(' ');
+        const [email, password] = Buffer.from(hash, 'base64').toString().split(':');
+
         const checkSelect = ['id', 'email', 'first_name', 'type', 'password'];
         const whereCheck = {
             email: {
@@ -30,33 +32,22 @@ module.exports = {
             whereCheck,
             checkOperators,
         );
+
         if (userFound > 0) {
             try {
                 await Login.LoginUser(userFound[0].password, password);
-                const token = jwt.sign(
-                    {
-                        id: userFound[0].id,
-                        email,
-                        name: userFound[0].first_name,
-                        type: userFound[0].type,
-                    },
-                );
-                res.cookie('usertoken', token, {
+                const token = jwt.sign({
+                    id: userFound[0].id,
+                    email,
+                    name: userFound[0].first_name,
+                    type: userFound[0].type,
+                });
+
+                res.cookie('auth', token, {
                     httpOnly: true,
                 });
-                jwt.verify(token, process.env.SECRET, (err, decoded) => {
-                    if (err) {
-                        console.log(err);
-                        errors.criticalErrors.Unauthorized = {
-                            message: 'Não autorizado',
-                            code: 401,
-                        };
-                        res.sendError(errors, 401);
-                    } else {
-                        console.log(decoded);
-                        res.status(200).send({ message: 'Login sucedido' });
-                    }
-                });
+
+                res.status(200).send({ message: 'Login sucedido', user });
             } catch (err) {
                 if (err === 1) {
                     res.sendError({ message: 'Senha incorreta' }, 403);
