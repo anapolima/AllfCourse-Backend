@@ -44,9 +44,7 @@ module.exports = {
 
                 res.cookie('auth', token, {
                     httpOnly: true,
-                });
-
-                res.status(200).send({ message: 'Login sucedido', token });
+                }).status(200).send({ message: 'Login sucedido', token });
             } catch (err) {
                 if (err === 1) {
                     res.sendError({ message: 'Senha incorreta' }, 403);
