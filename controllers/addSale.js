@@ -44,7 +44,6 @@ module.exports = {
                         paymentmethodid,
                         today,
                     ]);
-                await db2.query('COMMIT');
 
                 if (result1) {
                     // console.log(result1);
@@ -63,11 +62,8 @@ module.exports = {
                         checkOperators,
                     );
 
-                    const due = new Date();
-                    due.setDate(due.getDate() + 30);
-
                     if (getinstallments.data[0].installments > 1) {
-                        await db2.query('BEGIN TRANSACTION');
+                        const due = new Date();
                         for (let i = 1; i <= getinstallments.data[0].installments; i++) {
                             // console.log(result1);
                             /* const columns2 = {
@@ -83,15 +79,15 @@ module.exports = {
                                 columns2,
                                 returningColumns2,
                             ); */
-                            await db2.query('INSERT INTO receive_bills(sale_id, installment, subtotal, due_date, receipt_date) VALUES($1, $2, $3, $4, $5) RETURNING *',
+                            await db2.query('INSERT INTO receive_bills(sale_id, installment, subtotal, due_date) VALUES($1, $2, $3, $4) RETURNING *',
                                 [
                                     result1.rows[0].id,
                                     i,
-                                    result1.rows[0].subtotal,
+                                    result1.rows[0].price / getinstallments.data[0].installments,
                                     due,
-                                    new Date(),
                                 ]);
-                            await db2.query('COMMIT');
+                            // console.log(result2);
+                            due.setDate(due.getDate() + 30 * i);
                         }
                         /* const columns3 = {
                             sale_id: result1.data[0].id,
@@ -106,7 +102,6 @@ module.exports = {
                             columns3,
                             returningColumns3,
                         ); */
-                        await db2.query('BEGIN TRANSACTION');
                         await db2.query('INSERT INTO financial_transfer(sale_id, teacher_id, price, due_date, pay_date) VALUES($1, $2, $3, $4, $5)',
                             [
                                 result1.rows[0].id,
@@ -115,8 +110,13 @@ module.exports = {
                                 due,
                                 new Date(),
                             ]);
+
+                        await db2.query('INSERT INTO enroll_students(student_id, course_id) VALUES($1, $2)',
+                            [
+                                studentid,
+                                courseid,
+                            ]);
                         await db2.query('COMMIT');
-                        console.log('FOI');
                         res.send('Compra sucedida');
                     }
                 } else {

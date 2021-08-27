@@ -1,15 +1,11 @@
-executed query: { SELECT name FROM courses WHERE id = $1 AND status LIKE '%'||$2||'%' AND deleted_at IS null  , params: 5,aprovado; duration: 836ms }
-executed query: { SELECT type FROM users WHERE id = $1 AND active IS true AND deleted_at IS null AND type NOT IN (2, 4)  , params: 2; duration: 715ms }
-executed query: { SELECT name FROM payment_method WHERE id = $1  , params: 1; duration: 615ms }
-executed query: { query: BEGIN TRANSACTION, params: undefined; duration: 568ms, rows: null }
-executed query: { query: INSERT INTO sales(course_id, student_id, price, payment_method_id, release_date) VALUES ($1, $2, $3, $4, $5) RETURNING *, params: 5,2,140.45,1,Fri Aug 27 2021 18:31:37 GMT-0300 (Brasilia Standard Time); duration: 138ms, rows: 1 }
-executed query: { query: COMMIT, params: undefined; duration: 32ms, rows: null }
-executed query: { SELECT installments FROM payment_method WHERE id = $1  , params: 1; duration: 622ms }
-executed query: { query: BEGIN TRANSACTION, params: undefined; duration: 19ms, rows: null }
-executed query: { query: INSERT INTO receive_bills(sale_id, installment, subtotal, due_date, receipt_date) VALUES($1, $2, $3, $4, $5) RETURNING *, params: 29,1,,Sun Sep 26 2021 18:31:41 GMT-0300 (Brasilia Standard Time),Fri Aug 27 2021 18:31:41 GMT-0300 (Brasilia Standard Time); duration: 28ms, rows: error }
-executed query: { query: COMMIT, params: undefined; duration: 17ms, rows: null }
-executed query: { query: INSERT INTO receive_bills(sale_id, installment, subtotal, due_date, receipt_date) VALUES($1, $2, $3, $4, $5) RETURNING *, params: 29,2,,Sun Sep 26 2021 18:31:41 GMT-0300 (Brasilia Standard Time),Fri Aug 27 2021 18:31:41 GMT-0300 (Brasilia Standard Time); duration: 23ms, rows: error }
-executed query: { query: COMMIT, params: undefined; duration: 20ms, rows: null }
-executed query: { query: BEGIN TRANSACTION, params: undefined; duration: 35ms, rows: null }
-executed query: { query: INSERT INTO financial_transfer(sale_id, teacher_id, price, due_date, pay_date) VALUES($1, $2, $3, $4, $5), params: 29,2,140.45,Sun Sep 26 2021 18:31:41 GMT-0300 (Brasilia Standard Time),Fri Aug 27 2021 18:31:41 GMT-0300 (Brasilia Standard Time); duration: 49ms, rows: 1 }
-executed query: { query: COMMIT, params: undefined; duration: 29ms, rows: null }
+executed query: { SELECT name FROM courses WHERE id = $1 AND status LIKE '%'||$2||'%' AND deleted_at IS null  , params: 5,aprovado; duration: 1455ms }
+executed query: { SELECT type FROM users WHERE id = $1 AND active IS true AND deleted_at IS null AND type NOT IN (2, 4)  , params: 2; duration: 685ms }
+executed query: { SELECT name FROM payment_method WHERE id = $1  , params: 1; duration: 671ms }
+executed query: { query: BEGIN TRANSACTION, params: undefined; duration: 509ms, rows: null }
+executed query: { query: INSERT INTO sales(course_id, student_id, price, payment_method_id, release_date) VALUES ($1, $2, $3, $4, $5) RETURNING *, params: 5,2,140.45,1,Fri Aug 27 2021 18:57:56 GMT-0300 (Brasilia Standard Time); duration: 140ms, rows: 1 }
+executed query: { SELECT installments FROM payment_method WHERE id = $1  , params: 1; duration: 720ms }
+executed query: { query: INSERT INTO receive_bills(sale_id, installment, subtotal, due_date) VALUES($1, $2, $3, $4) RETURNING *, params: 43,1,70.225,Fri Aug 27 2021 18:58:00 GMT-0300 (Brasilia Standard Time); duration: 23ms, rows: 1 }
+executed query: { query: INSERT INTO receive_bills(sale_id, installment, subtotal, due_date) VALUES($1, $2, $3, $4) RETURNING *, params: 43,2,70.225,Sun Sep 26 2021 18:58:00 GMT-0300 (Brasilia Standard Time); duration: 22ms, rows: 1 }
+executed query: { query: INSERT INTO financial_transfer(sale_id, teacher_id, price, due_date, pay_date) VALUES($1, $2, $3, $4, $5), params: 43,2,140.45,Thu Nov 25 2021 18:58:00 GMT-0300 (Brasilia Standard Time),Fri Aug 27 2021 18:58:01 GMT-0300 (Brasilia Standard Time); duration: 24ms, rows: 1 }
+executed query: { query: INSERT INTO enroll_students(student_id, course_id) VALUES($1, $2), params: 2,5; duration: 49ms, rows: 1 }
+executed query: { query: COMMIT, params: undefined; duration: 41ms, rows: null }
