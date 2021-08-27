@@ -4,7 +4,7 @@ const template = require('@templates/confirmationEmailTemplate');
 async function send(email, name, token) {
     const mailOptions = {
         to: `${email}`,
-        subject: 'Seu código de confirmação para o AlffCourse',
+        subject: 'Seu código de confirmação para o AllfCourse',
         html: template.confirmationTemplate(token, name),
     };
 

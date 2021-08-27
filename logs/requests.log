@@ -1626,3 +1626,43 @@ GET /login 982.662 ms
 DATE: Friday, August 27, 2021
 HTTP STATUS CODE: 200
 
+POST /register 6333.983 ms
+DATE: Friday, August 27, 2021
+HTTP STATUS CODE: 201
+
+POST /register 5263.455 ms
+DATE: Friday, August 27, 2021
+HTTP STATUS CODE: 201
+
+POST /register 5490.038 ms
+DATE: Friday, August 27, 2021
+HTTP STATUS CODE: 201
+
+POST /requestpass_email 4309.178 ms
+DATE: Friday, August 27, 2021
+HTTP STATUS CODE: 201
+
+POST /requestpass_email 4776.408 ms
+DATE: Friday, August 27, 2021
+HTTP STATUS CODE: 201
+
+POST /requestpass_email 4029.792 ms
+DATE: Friday, August 27, 2021
+HTTP STATUS CODE: 201
+
+POST /requestpass_email 4024.158 ms
+DATE: Friday, August 27, 2021
+HTTP STATUS CODE: 201
+
+POST /requestpass_email 4197.781 ms
+DATE: Friday, August 27, 2021
+HTTP STATUS CODE: 201
+
+POST /requestpass_email 3704.056 ms
+DATE: Friday, August 27, 2021
+HTTP STATUS CODE: 201
+
+POST /login 17.942 ms
+DATE: Friday, August 27, 2021
+HTTP STATUS CODE: 404
+

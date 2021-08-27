@@ -1,26 +1,27 @@
 const pg = require('pg');
 require('dotenv').config();
 const dotenv = require('dotenv');
+const fs = require('fs');
 const sqlconnect = require('@model/db');
 
 class QueryGenerator {
-    #columns;
+    #columns
 
-    #params;
+    #params
 
-    #returning;
+    #returning
 
-    #client;
+    #client
 
-    #whereParams;
+    #whereParams
 
-    #whereColumns;
+    #whereColumns
 
-    #orderBy;
+    #orderBy
 
-    #result;
+    #result
 
-    #query;
+    #query
 
     constructor() {
         this.#query = '';
@@ -43,7 +44,7 @@ class QueryGenerator {
         this.#client = new pg.Client({
             ...sqlconnect.sqlconnect,
         });
-    };
+    }
 
     Insert(_table, _columnsValues, _returning) {
         this.#SetClient();
@@ -64,6 +65,7 @@ class QueryGenerator {
             columnsValues instanceof Object
             && !(columnsValues instanceof Array)
         ) {
+            const start = Date.now();
             const columns = Object.keys(columnsValues);
             this.#columns = columns.join(', ');
             const params = [];
@@ -115,6 +117,15 @@ class QueryGenerator {
                 })
                 .finally(() => {
                     this.#client.end();
+                    const duration = Date.now() - start;
+                    fs.appendFileSync(
+                        './logs/queries_log.log',
+                        `executed query: { INSERT INTO ${table} (${
+                            this.#columns
+                        }) VALUES (${this.#params}) ${
+                            returning ? `RETURNING ${this.#returning}` : ''
+                        }, params: ${values}; duration: ${duration}ms }\n`,
+                    );
                     this.#columns = '';
                     this.#params = '';
                     this.#returning = '';
@@ -140,6 +151,7 @@ class QueryGenerator {
             },
             data: false,
         };
+        const start = Date.now();
         const table = _table;
         const columns = _columns;
         const whereColumnsValues = _whereColumnsValues;
@@ -178,7 +190,8 @@ class QueryGenerator {
                                     `${_column} ${operator.toUpperCase()} '%'||$${param}||'%' ${
                                         logicalOperators[_index]
                                             ? logicalOperators[_index]
-                                            : ''}`,
+                                            : ''
+                                    }`,
                                 );
                                 values.push(whereColumnsValues[_column].value);
                                 param++;
@@ -192,7 +205,8 @@ class QueryGenerator {
                                     } ${
                                         logicalOperators[_index]
                                             ? logicalOperators[_index]
-                                            : ''}`,
+                                            : ''
+                                    }`,
                                 );
                                 values.push(
                                     whereColumnsValues[_column].value[0],
@@ -209,41 +223,50 @@ class QueryGenerator {
                                     } ${
                                         logicalOperators[_index]
                                             ? logicalOperators[_index]
-                                            : ''}`,
+                                            : ''
+                                    }`,
                                 );
                                 // values.push(whereColumnsValues[_column].value);
                                 param++;
-                            } else if (operator.toLowerCase() === 'in'
-                                    || operator.toLowerCase() === 'not in'
+                            } else if (
+                                operator.toLowerCase() === 'in'
+                                || operator.toLowerCase() === 'not in'
                             ) {
                                 let inValues = null;
 
-                                whereColumnsValues[_column].value.forEach((_value, _index) => {
-                                    if (_index === 0) {
-                                        inValues = `(${whereColumnsValues[_column].value[_index]}`;
-                                    } else {
-                                        inValues += `, ${whereColumnsValues[_column].value[_index]}`;
-                                    }
+                                whereColumnsValues[_column].value.forEach(
+                                    (_value, _index) => {
+                                        if (_index === 0) {
+                                            inValues = `(${whereColumnsValues[_column].value[_index]}`;
+                                        } else {
+                                            inValues += `, ${whereColumnsValues[_column].value[_index]}`;
+                                        }
 
-                                    if (_index === whereColumnsValues[_column].value.length - 1) {
-                                        inValues += ')';
-                                    }
-                                });
+                                        if (
+                                            _index
+                                            === whereColumnsValues[_column].value
+                                                .length
+                                                - 1
+                                        ) {
+                                            inValues += ')';
+                                        }
+                                    },
+                                );
 
                                 whereParams.push(
-                                    `${_column} ${operator.toUpperCase()} ${
-                                        inValues
-                                    } ${
+                                    `${_column} ${operator.toUpperCase()} ${inValues} ${
                                         logicalOperators[_index]
                                             ? logicalOperators[_index]
-                                            : ''}`,
+                                            : ''
+                                    }`,
                                 );
                             } else {
                                 whereParams.push(
                                     `${_column} ${operator.toUpperCase()} $${param} ${
                                         logicalOperators[_index]
                                             ? logicalOperators[_index]
-                                            : ''}`,
+                                            : ''
+                                    }`,
                                 );
                                 values.push(whereColumnsValues[_column].value);
                                 param++;
@@ -280,6 +303,19 @@ class QueryGenerator {
                 .catch((err) => (this.#result.transaction = err.message))
                 .finally(() => {
                     this.#client.end();
+                    const duration = Date.now() - start;
+                    fs.appendFileSync(
+                        './logs/queries_log.log',
+                        `executed query: { SELECT ${
+                            this.#columns
+                        } FROM ${table} ${
+                            whereColumns.length !== 0
+                                ? `WHERE ${this.#whereParams}`
+                                : ''
+                        } ${
+                            orderBy ? `ORDER BY ${this.#orderBy}` : ''
+                        }, params: ${values}; duration: ${duration}ms }\n`,
+                    );
                     this.#columns = '';
                     this.#params = '';
                     this.#returning = '';
@@ -328,6 +364,7 @@ class QueryGenerator {
             const params = [];
 
             let param = 1;
+            const start = Date.now();
 
             columns.forEach((_column) => {
                 params.push(`${_column} = $${param}`);
@@ -382,7 +419,8 @@ class QueryGenerator {
                                     } ${
                                         logicalOperators[_index]
                                             ? logicalOperators[_index]
-                                            : ''}`,
+                                            : ''
+                                    }`,
                                 );
                                 values.push(
                                     whereColumnsValues[_column].value[0],
@@ -399,7 +437,8 @@ class QueryGenerator {
                                     } ${
                                         logicalOperators[_index]
                                             ? logicalOperators[_index]
-                                            : ''}`,
+                                            : ''
+                                    }`,
                                 );
                                 // values.push(whereColumnsValues[_column].value);
                                 param++;
@@ -408,7 +447,8 @@ class QueryGenerator {
                                     `${_column} ${operator.toUpperCase()} $${param} ${
                                         logicalOperators[_index]
                                             ? logicalOperators[_index]
-                                            : ''}`,
+                                            : ''
+                                    }`,
                                 );
                                 values.push(whereColumnsValues[_column].value);
                                 param++;
@@ -453,6 +493,15 @@ class QueryGenerator {
                 })
                 .finally(() => {
                     this.#client.end();
+                    const duration = Date.now() - start;
+                    fs.appendFileSync(
+                        './logs/queries_log.log',
+                        `executed query: { UPDATE ${table} SET ${this.params} ${
+                            whereColumns ? `WHERE ${this.#whereParams}` : ''
+                        } ${
+                            returning ? `RETURNING ${this.#returning}` : ''
+                        }, params: ${values}; duration: ${duration}ms }\n`,
+                    );
                     this.#columns = '';
                     this.#params = '';
                     this.#returning = '';

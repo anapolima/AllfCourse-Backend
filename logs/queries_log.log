@@ -1,0 +1,6 @@
+executed query: { INSERT INTO users (first_name, last_name, social_name, document, email, phone, password, gender, birth_date, type, email_token, etoken_expire) VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10, $11, $12) RETURNING *, params: Diego,Sousa,,52005773816,diego-s.novaes@hotmail.com,11970151606,$2b$10$Q2lixMSArhMS2dS9nyyGxeR0lIlVrPRous0oOAJzqu5uTXGfzK/5C,Male,2001-09-27,1,14187738d6fad8d064d2f67ba28133fd7208f0cb,Fri Aug 27 2021 16:34:25 GMT-0300 (Brasilia Standard Time); duration: 773ms }
+executed query: { SELECT email, first_name FROM users WHERE email = $1 AND active = $2 AND deleted_at IS null  , params: diego-s.novaes@hotmail.com,true; duration: 1214ms }
+executed query: { SELECT email, first_name FROM users WHERE email = $1 AND active = $2 AND deleted_at IS null  ,params: diego-s.novaes@hotmail.com,true; duration: 1149ms }
+executed query: { SELECT email, first_name FROM users WHERE 1 , params: diego-s.novaes@hotmail.com,true; duration: 1235ms }
+executed query: { SELECT email, first_name FROM users WHERE email = $1 AND active = $2 AND deleted_at IS null  , params: diego-s.novaes@hotmail.com,true; duration: 1289ms }
+executed query: { SELECT email, first_name FROM users WHERE email = $1 AND active = $2 AND deleted_at IS null  , params: diego-s.novaes@hotmail.com,true; duration: 774ms }
