@@ -33,7 +33,6 @@ router.get('/test', (req, res) => {
 router.post('/register', register.post);
 router.post('/validate', validateaccount.post);
 router.post('/newvalidate', newemailtoken.post);
-router.post('/login', login.post);
 router.post('/logout', logout.post);
 router.post('/requestpass_email', forgotpassemail.post);
 router.post('/requestpass_sms', forgotpasssms.post);
@@ -44,5 +43,7 @@ router.post('/modules', addModule.post);
 router.post('/course-flag', addCourseFlag.post);
 router.post('/classes', addClass.post);
 router.post('/payment-methods', addPaymentMethod.post);
+
+router.get('/login', login.get);
 
 module.exports = router;
