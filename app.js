@@ -3,6 +3,7 @@ require('dotenv').config();
 process.env.TZ = 'America/Sao_Paulo';
 require('module-alias/register');
 const express = require('express');
+const cors = require('cors');
 const compression = require('compression');
 const cookie_parser = require('cookie-parser');
 const config = require('@config');
@@ -39,6 +40,7 @@ app.use(
     ),
 );
 app.use(compression());
+app.use(cors());
 app.use(cookie_parser('1234')); // force to sign the cookie
 app.use(express.urlencoded({ extended: false }));
 app.use(express.json());
@@ -48,6 +50,13 @@ app.use(helmet());
 app.disable('x-powered-by');
 
 app.use(require('./routes')); // require all routes created on routes.js
+
+// ----------------------------------------------------------------------------//
+// ---------------Middleware route to serve the home page----------------------//
+// app.use(express.static(path.join(__dirname, "../../front/", "build")));
+// app.use(express.static('public'));
+// ---------------Middleware route to serve the home page----------------------//
+// ----------------------------------------------------------------------------//
 
 app.listen(config.app.port, () => {
     console.log(`Server listening on port ${config.app.port}`);
