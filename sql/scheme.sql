@@ -235,7 +235,7 @@ ALTER TABLE users ADD CONSTRAINT "users_fk0" FOREIGN KEY ("deleted_by") REFERENC
 
 ALTER TABLE classes ADD CONSTRAINT "classes_fk0" FOREIGN KEY ("module_id") REFERENCES modules("id");
 
-ALTER TABLE courses ADD CONSTRAINT "courses_fk0" FOREIGN KEY ("teacher_id") REFERENCES courses_flags("id");
+ALTER TABLE courses ADD CONSTRAINT "courses_fk0" FOREIGN KEY ("teacher_id") REFERENCES users("id");
 ALTER TABLE courses ADD CONSTRAINT "courses_fk1" FOREIGN KEY ("s_updated_by") REFERENCES users("id");
 ALTER TABLE courses ADD CONSTRAINT "courses_fk2" FOREIGN KEY ("deleted_by") REFERENCES users("id");
 
