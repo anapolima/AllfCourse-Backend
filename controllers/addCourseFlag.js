@@ -1,6 +1,5 @@
 const query = require('@helpers/Query');
 
-const validateCourseFlag = require('@functions/validateCoursesFlags');
 const checkCourseFlag = require('@functions/checkCoursesFlags');
 
 module.exports = {
@@ -9,21 +8,20 @@ module.exports = {
         const { courseid } = req.body;
         const { categoryid } = req.body;
 
-        const validCourseId = validateCourseFlag.validateCourseId(courseid, errors);
-        const validCategoryId = validateCourseFlag.validateCategoryId(categoryid, errors);
-
         if (errors.length > 0) {
             console.log(errors);
             res.end();
         } else {
-            const check = await checkCourseFlag.check(validCourseId, validCategoryId);
+            const check = await checkCourseFlag.check(courseid, categoryid);
+            console.log('check', check);
 
-            if (check !== true) {
-                res.sendError(check);
+            if (Object.keys(check.validationErrors).length !== 0
+                || Object.keys(check.criticalErrors).length !== 0) {
+                res.sendError(check, 500);
             } else {
                 const columns = {
-                    course_id: validCourseId,
-                    category_id: validCategoryId,
+                    course_id: check.courseid,
+                    category_id: check.categoryid,
                     created_at: 'now()',
                 };
                 const returningColumns = ['*'];
@@ -35,7 +33,7 @@ module.exports = {
                 );
 
                 if (Array.isArray(result.data)) {
-                    res.send(result.data);
+                    res.status(201).send({ message: 'Flag adicionada com sucesso!' });
                 } else {
                     res.sendError(result.error, 500);
                 }

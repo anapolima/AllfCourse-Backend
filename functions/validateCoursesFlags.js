@@ -7,23 +7,19 @@ module.exports = {
 
             if (eIndex === -1) {
                 if (!Number.isNaN(Number(courseFlagId)) && Number(courseFlagId) > 0) {
-                    // this.#id = Number(courseId);
+                    const validCourseFlagId = Number(courseFlagId);
 
-                    // return this.#id;
-                    return true;
+                    return validCourseFlagId;
                 }
 
-                _errors.push({ courseFlagId: 'The id must be a number, positive and non-zero, for example "5"' });
+                _errors.courseFlagId = 'The id must be a number, positive and non-zero, for example "5"';
                 return false;
             }
 
-            // throw new Error("The number string must not contain the letter E/e");
-            _errors.push({ courseFlagId: 'The number string must not contain the letter E/e' });
+            _errors.courseFlagId = 'The number string must not contain the letter E/e';
             return false;
         }
-
-        // throw new Error("You should pass numbers as a string");
-        _errors.push({ courseFlagId: 'You should pass numbers as a string' });
+        _errors.courseFlagId = 'You should pass numbers as a string';
         return false;
     },
     validateCourseId: (_id, _errors) => {
@@ -34,23 +30,22 @@ module.exports = {
 
             if (eIndex === -1) {
                 if (!Number.isNaN(Number(courseId)) && Number(courseId) > 0) {
-                    // this.#id = Number(courseId);
+                    const validCourseId = Number(courseId);
 
-                    // return this.#id;
-                    return true;
+                    return validCourseId;
                 }
 
-                _errors.push({ courseId: 'The id must be a number, positive and non-zero, for example "5"' });
+                _errors.courseId = 'The id must be a number, positive and non-zero, for example "5"';
+                console.log(_errors);
                 return false;
             }
 
-            // throw new Error("The number string must not contain the letter E/e");
-            _errors.push({ courseId: 'The number string must not contain the letter E/e' });
+            _errors.courseId = 'The number string must not contain the letter E/e';
+            console.log(_errors);
             return false;
         }
 
-        // throw new Error("You should pass numbers as a string");
-        _errors.push({ courseId: 'You should pass numbers as a string' });
+        _errors.courseId = 'You should pass numbers as a string';
         return false;
     },
     validateCategoryId: (_id, _errors) => {
@@ -61,22 +56,23 @@ module.exports = {
 
             if (eIndex === -1) {
                 if (!Number.isNaN(Number(categoryId)) && Number(categoryId) > 0) {
-                    // this.#id = Number(courseId);
+                    const validCategoryId = Number(categoryId);
 
-                    // return this.#id;
-                    return true;
+                    return validCategoryId;
                 }
-                _errors.push({ categoryId: 'The id must be a number, positive and non-zero, for example "5"' });
+                _errors.categoryId = 'The id must be a number, positive and non-zero, for example "5"';
+                console.log(_errors);
+
                 return false;
             }
 
-            // throw new Error("The number string must not contain the letter E/e");
-            _errors.push({ categoryId: 'The number string must not contain the letter E/e' });
+            _errors.categoryId = 'The number string must not contain the letter E/e';
+            console.log(_errors);
+
             return false;
         }
 
-        // throw new Error("You should pass numbers as a string");
-        _errors.push({ categoryId: 'You should pass numbers as a string' });
+        _errors.categoryId = 'You should pass numbers as a string';
         return false;
     },
 };

@@ -1,3 +1,4 @@
+const validateCourseFlag = require('@functions/validateCoursesFlags');
 const query = require('@helpers/Query');
 
 module.exports = {
@@ -5,12 +6,30 @@ module.exports = {
         const check1SelectCourseId = ['name'];
         const check2SelectCategoryId = ['name'];
         const check3Flag = ['id'];
-        const errors = [];
+        const errors = { criticalErrors: {}, validationErrors: {} };
+
+        const validCourseId = validateCourseFlag.validateCourseId(
+            _courseId,
+            errors.validationErrors,
+        );
+        const validCategoryId = validateCourseFlag.validateCategoryId(
+            _categoryId,
+            errors.validationErrors,
+        );
+
+        console.log('validCourseId', validCourseId);
+        console.log('validCategoryId', validCategoryId);
+        console.log(Object.keys(errors.validationErrors));
+
+        if (Object.keys(errors.validationErrors).length > 0) {
+            console.log('MAIOR QUE ZERO');
+            return errors;
+        }
 
         const whereCheck1 = {
             id: {
                 operator: '=',
-                value: _courseId,
+                value: validCourseId,
             },
             status: {
                 operator: 'not like',
@@ -26,7 +45,7 @@ module.exports = {
         const whereCheck2 = {
             id: {
                 operator: '=',
-                value: _categoryId,
+                value: validCategoryId,
             },
             deleted_at: {
                 operator: 'IS',
@@ -38,11 +57,11 @@ module.exports = {
         const whereCheck3 = {
             course_id: {
                 operator: '=',
-                value: _courseId,
+                value: validCourseId,
             },
             category_id: {
                 operator: '=',
-                value: _categoryId,
+                value: validCategoryId,
             },
             deleted_at: {
                 operator: 'IS',
@@ -72,68 +91,52 @@ module.exports = {
             logicalOperatorCheck3,
         );
 
-        console.log(resultCheck1, resultCheck2, resultCheck3);
+        console.log('resultCheck1', resultCheck1);
+        console.log('resultCheck2', resultCheck2);
+        console.log('resultCheck3', resultCheck3);
         if (Array.isArray(resultCheck1.data)) {
-            if (resultCheck1.data.length > 0) {
-                return true;
-            }
-
-            errors.push({
-                courseid: {
+            if (resultCheck1.data.length === 0) {
+                errors.validationErrors.courseid = {
                     message: 'Não existe nenhum curso com o ID informado',
                     code: 500,
-                },
-            });
+                };
+            }
         } else {
-            errors.push({
-                error: {
-                    message: 'Ocorreu um erro inesperado durante a consulta dos cursos',
-                    code: 500,
-                    detail: { ...resultCheck1.error },
-                },
-            });
+            errors.criticalErrors.errorCategory = {
+                message: 'Ocorreu um erro inesperado durante a consulta dos cursos',
+                code: 500,
+                detail: { ...resultCheck2.error },
+            };
         }
 
-        if (Array.isArray(resultCheck2).data) {
-            if (resultCheck2.data.length > 0) {
-                return true;
-            }
-
-            errors.push({
-                categoryid: {
+        if (Array.isArray(resultCheck2.data)) {
+            if (resultCheck2.data.length === 0) {
+                errors.validationErrors.categoryid = {
                     message: 'Não existe nenhuma categoria com o ID informado',
                     code: 500,
-                },
-            });
+                };
+            }
         } else {
-            errors.push({
-                error: {
-                    message: 'Ocorreu um erro inesperado durante a consulta das categorias',
-                    code: 500,
-                    detail: { ...resultCheck2.error },
-                },
-            });
+            errors.criticalErrors.errorCategory = {
+                message: 'Ocorreu um erro inesperado durante a consulta das categorias',
+                code: 500,
+                detail: { ...resultCheck2.error },
+            };
         }
 
         if (Array.isArray(resultCheck3.data)) {
             if (resultCheck3.data.length !== 0) {
-                return true;
-            }
-
-            errors.push({
-                flag: {
+                errors.validationErrors.flag = {
                     message: 'O curso já pertence à categoria informada',
                     code: 500,
-                },
-            });
+                };
+            }
         } else {
-            errors.push({
-                error: {
-                    message: 'Ocorreu um erro inesperado durante a consulta das flags',
-                    code: 500,
-                    detail: { ...resultCheck3.error },
-                },
-            });
+            errors.criticalErrors.errorFlag = {
+                message: 'Ocorreu um erro inesperado durante a consulta das flags',
+                code: 500,
+                detail: { ...resultCheck3.error },
+            };
 
             console.log(resultCheck3.error);
         }
@@ -142,6 +145,9 @@ module.exports = {
             return errors;
         }
 
-        return true;
+        return {
+            courseid: validCourseId,
+            categoryid: validCategoryId,
+        };
     },
 };
