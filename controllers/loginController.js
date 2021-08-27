@@ -25,21 +25,21 @@ module.exports = {
             },
         };
         const checkOperators = ['AND', 'AND'];
-        const { rowCount: userFound } = await query.Select(
+        const userFound = await query.Select(
             'users',
             checkSelect,
             whereCheck,
             checkOperators,
         );
-
-        if (userFound > 0) {
+        console.log(userFound);
+        if (userFound.data.length > 0) {
             try {
-                await Login.LoginUser(userFound[0].password, password);
+                await Login.LoginUser(userFound.data[0].password, password);
                 const token = jwt.sign({
-                    id: userFound[0].id,
+                    id: userFound.data[0].id,
                     email,
-                    name: userFound[0].first_name,
-                    type: userFound[0].type,
+                    name: userFound.data[0].first_name,
+                    type: userFound.data[0].type,
                 });
 
                 res.cookie('auth', token, {
@@ -49,6 +49,7 @@ module.exports = {
                 if (err === 1) {
                     res.sendError({ message: 'Senha incorreta' }, 403);
                 } else {
+                    console.log(err);
                     errors.criticalErrors.errorCategory = {
                         message: 'Ocorreu um erro inesperado.',
                         code: 500,
