@@ -1,19 +1,147 @@
-executed query: { SELECT name FROM courses WHERE id = $1 AND status LIKE '%'||$2||'%' AND deleted_at IS null  , params: 5,aprovado; duration: 1455ms }
-executed query: { SELECT type FROM users WHERE id = $1 AND active IS true AND deleted_at IS null AND type NOT IN (2, 4)  , params: 2; duration: 685ms }
-executed query: { SELECT name FROM payment_method WHERE id = $1  , params: 1; duration: 671ms }
-executed query: { query: BEGIN TRANSACTION, params: undefined; duration: 509ms, rows: null }
-executed query: { query: INSERT INTO sales(course_id, student_id, price, payment_method_id, release_date) VALUES ($1, $2, $3, $4, $5) RETURNING *, params: 5,2,140.45,1,Fri Aug 27 2021 18:57:56 GMT-0300 (Brasilia Standard Time); duration: 140ms, rows: 1 }
-executed query: { SELECT installments FROM payment_method WHERE id = $1  , params: 1; duration: 720ms }
-executed query: { query: INSERT INTO receive_bills(sale_id, installment, subtotal, due_date) VALUES($1, $2, $3, $4) RETURNING *, params: 43,1,70.225,Fri Aug 27 2021 18:58:00 GMT-0300 (Brasilia Standard Time); duration: 23ms, rows: 1 }
-executed query: { query: INSERT INTO receive_bills(sale_id, installment, subtotal, due_date) VALUES($1, $2, $3, $4) RETURNING *, params: 43,2,70.225,Sun Sep 26 2021 18:58:00 GMT-0300 (Brasilia Standard Time); duration: 22ms, rows: 1 }
-executed query: { query: INSERT INTO financial_transfer(sale_id, teacher_id, price, due_date, pay_date) VALUES($1, $2, $3, $4, $5), params: 43,2,140.45,Thu Nov 25 2021 18:58:00 GMT-0300 (Brasilia Standard Time),Fri Aug 27 2021 18:58:01 GMT-0300 (Brasilia Standard Time); duration: 24ms, rows: 1 }
-executed query: { query: INSERT INTO enroll_students(student_id, course_id) VALUES($1, $2), params: 2,5; duration: 49ms, rows: 1 }
+executed query: { SELECT first_name FROM users WHERE id = $1 AND deleted_at IS null AND active IS true AND type NOT IN (7)  , params: 2; duration: 703ms }
+executed query: { query: BEGIN, params: undefined; duration: 506ms, rows: null }
+executed query: { query: INSERT INTO courses(teacher_id, name, description, price, status) VALUES($1, $2, $3, $4, $5) RETURNING *, params: 2,CURSO DE HIPNOSE,TESTE,0,em análise; duration: 97ms, rows: 1 }
+executed query: { query: INSERT INTO courses_categories(name, created_by) VALUES($1, $2) RETURNING *, params: hipnose,2; duration: 28ms, rows: 1 }
+executed query: { query: INSERT INTO courses_flags(course_id, category_id, created_by) VALUES($1, $2, $3) RETURNING *, params: 63,81,2; duration: 46ms, rows: 1 }
+executed query: { query: INSERT INTO courses_categories(name, created_by) VALUES($1, $2) RETURNING *, params: passos,2; duration: 21ms, rows: 1 }
+executed query: { query: INSERT INTO courses_flags(course_id, category_id, created_by) VALUES($1, $2, $3) RETURNING *, params: 63,82,2; duration: 20ms, rows: 1 }
+executed query: { query: INSERT INTO modules(name, description) VALUES($1, $2) RETURNING *, params: PREPARAÇÃO,PRIMEIROS PASSOS PARA UMA HIPNOSE; duration: 28ms, rows: 1 }
+executed query: { query: INSERT INTO module_order(course_id, module_id, module_order) VALUES($1, $2, $3), params: 63,107,1; duration: 22ms, rows: 1 }
+executed query: { query: INSERT INTO modules(name, description) VALUES($1, $2) RETURNING *, params: PREPARAÇÃO 2,SEGUNDOS PASSOS PARA UMA HIPNOSE; duration: 20ms, rows: 1 }
+executed query: { query: INSERT INTO module_order(course_id, module_id, module_order) VALUES($1, $2, $3), params: 63,108,2; duration: 20ms, rows: 1 }
+executed query: { query: INSERT INTO modules(name, description) VALUES($1, $2) RETURNING *, params: PREPARAÇÃO 3,TERCEIROS PASSOS PARA UMA HIPNOSE; duration: 19ms, rows: 1 }
+executed query: { query: INSERT INTO module_order(course_id, module_id, module_order) VALUES($1, $2, $3), params: 63,109,3; duration: 21ms, rows: 1 }
+executed query: { query: SELECT id FROM modules WHERE id = $1 AND deleted_at IS NULL, params: 107; duration: 21ms, rows: 1 }
+executed query: { query: INSERT INTO classes(name, class_order, module_id, inactive, description, video_link) VALUES ($1, $2, $3, $4, $5, $6), params: true,1,107,false,TÔ COM SONO,www.youtube.com; duration: 21ms, rows: 1 }
+executed query: { query: SELECT id FROM modules WHERE id = $1 AND deleted_at IS NULL, params: 107; duration: 20ms, rows: 1 }
+executed query: { query: INSERT INTO classes(name, class_order, module_id, inactive, description, video_link) VALUES ($1, $2, $3, $4, $5, $6), params: true,2,107,false,TÔ COM SONO,www.youtube.com; duration: 21ms, rows: 1 }
+executed query: { query: SELECT id FROM modules WHERE id = $1 AND deleted_at IS NULL, params: 108; duration: 20ms, rows: 1 }
+executed query: { query: INSERT INTO classes(name, class_order, module_id, inactive, description, video_link) VALUES ($1, $2, $3, $4, $5, $6), params: true,1,108,false,AINDA TÔ COM SONO,www.youtube.com; duration: 21ms, rows: 1 }
+executed query: { query: SELECT id FROM modules WHERE id = $1 AND deleted_at IS NULL, params: 108; duration: 21ms, rows: 1 }
+executed query: { query: INSERT INTO classes(name, class_order, module_id, inactive, description, video_link) VALUES ($1, $2, $3, $4, $5, $6), params: true,2,108,false,AINDA TÔ COM SONO,www.youtube.com; duration: 20ms, rows: 1 }
+executed query: { query: SELECT id FROM modules WHERE id = $1 AND deleted_at IS NULL, params: 109; duration: 22ms, rows: 1 }
+executed query: { query: INSERT INTO classes(name, class_order, module_id, inactive, description, video_link) VALUES ($1, $2, $3, $4, $5, $6), params: true,1,109,false,MORRENDO DE SONO,www.youtube.com; duration: 21ms, rows: 1 }
+executed query: { query: SELECT id FROM modules WHERE id = $1 AND deleted_at IS NULL, params: 109; duration: 20ms, rows: 1 }
+executed query: { query: INSERT INTO classes(name, class_order, module_id, inactive, description, video_link) VALUES ($1, $2, $3, $4, $5, $6), params: true,2,109,false,MORRENDO DE SONO,www.youtube.com; duration: 21ms, rows: 1 }
+executed query: { query: SELECT id FROM modules WHERE id = $1 AND deleted_at IS NULL, params: 109; duration: 20ms, rows: 1 }
+executed query: { query: INSERT INTO classes(name, class_order, module_id, inactive, description, video_link) VALUES ($1, $2, $3, $4, $5, $6), params: true,3,109,false,MORRENDO DE SONO,www.youtube.com; duration: 20ms, rows: 1 }
+executed query: { query: COMMIT, params: undefined; duration: 36ms, rows: null }
+executed query: { SELECT first_name FROM users WHERE id = $1 AND deleted_at IS null AND active IS true AND type NOT IN (7)  , params: 2; duration: 1358ms }
+executed query: { query: BEGIN, params: undefined; duration: 517ms, rows: null }
+executed query: { query: INSERT INTO courses(teacher_id, name, description, price, status) VALUES($1, $2, $3, $4, $5) RETURNING *, params: 2,CURSO DE HIPNOSE,TESTE,0,em análise; duration: 117ms, rows: 1 }
+executed query: { query: INSERT INTO courses_categories(name, created_by) VALUES($1, $2) RETURNING *, params: hipnose,2; duration: 55ms, rows: 1 }
+executed query: { query: INSERT INTO courses_flags(course_id, category_id, created_by) VALUES($1, $2, $3) RETURNING *, params: 64,83,2; duration: 74ms, rows: 1 }
+executed query: { query: INSERT INTO courses_categories(name, created_by) VALUES($1, $2) RETURNING *, params: passos,2; duration: 22ms, rows: 1 }
+executed query: { query: INSERT INTO courses_flags(course_id, category_id, created_by) VALUES($1, $2, $3) RETURNING *, params: 64,84,2; duration: 25ms, rows: 1 }
+executed query: { query: INSERT INTO modules(name, description) VALUES($1, $2) RETURNING *, params: PREPARAÇÃO,PRIMEIROS PASSOS PARA UMA HIPNOSE; duration: 40ms, rows: 1 }
+executed query: { query: INSERT INTO module_order(course_id, module_id, module_order) VALUES($1, $2, $3), params: 64,110,1; duration: 93ms, rows: 1 }
+executed query: { query: INSERT INTO modules(name, description) VALUES($1, $2) RETURNING *, params: PREPARAÇÃO 2,SEGUNDOS PASSOS PARA UMA HIPNOSE; duration: 21ms, rows: 1 }
+executed query: { query: INSERT INTO module_order(course_id, module_id, module_order) VALUES($1, $2, $3), params: 64,111,2; duration: 23ms, rows: 1 }
+executed query: { query: INSERT INTO modules(name, description) VALUES($1, $2) RETURNING *, params: PREPARAÇÃO 3,TERCEIROS PASSOS PARA UMA HIPNOSE; duration: 21ms, rows: 1 }
+executed query: { query: INSERT INTO module_order(course_id, module_id, module_order) VALUES($1, $2, $3), params: 64,112,3; duration: 21ms, rows: 1 }
+executed query: { query: SELECT id FROM modules WHERE id = $1 AND deleted_at IS NULL, params: 110; duration: 22ms, rows: 1 }
+executed query: { query: INSERT INTO classes(name, class_order, module_id, inactive, description, video_link) VALUES ($1, $2, $3, $4, $5, $6), params: true,1,110,false,TÔ COM SONO,www.youtube.com; duration: 38ms, rows: 1 }
+executed query: { query: SELECT id FROM modules WHERE id = $1 AND deleted_at IS NULL, params: 110; duration: 20ms, rows: 1 }
+executed query: { query: INSERT INTO classes(name, class_order, module_id, inactive, description, video_link) VALUES ($1, $2, $3, $4, $5, $6), params: true,2,110,false,TÔ COM SONO,www.youtube.com; duration: 21ms, rows: 1 }
+executed query: { query: SELECT id FROM modules WHERE id = $1 AND deleted_at IS NULL, params: 111; duration: 23ms, rows: 1 }
+executed query: { query: INSERT INTO classes(name, class_order, module_id, inactive, description, video_link) VALUES ($1, $2, $3, $4, $5, $6), params: true,1,111,false,AINDA TÔ COM SONO,www.youtube.com; duration: 22ms, rows: 1 }
+executed query: { query: SELECT id FROM modules WHERE id = $1 AND deleted_at IS NULL, params: 111; duration: 21ms, rows: 1 }
+executed query: { query: INSERT INTO classes(name, class_order, module_id, inactive, description, video_link) VALUES ($1, $2, $3, $4, $5, $6), params: true,2,111,false,AINDA TÔ COM SONO,www.youtube.com; duration: 23ms, rows: 1 }
+executed query: { query: SELECT id FROM modules WHERE id = $1 AND deleted_at IS NULL, params: 112; duration: 22ms, rows: 1 }
+executed query: { query: INSERT INTO classes(name, class_order, module_id, inactive, description, video_link) VALUES ($1, $2, $3, $4, $5, $6), params: true,1,112,false,MORRENDO DE SONO,www.youtube.com; duration: 21ms, rows: 1 }
+executed query: { query: SELECT id FROM modules WHERE id = $1 AND deleted_at IS NULL, params: 112; duration: 21ms, rows: 1 }
+executed query: { query: INSERT INTO classes(name, class_order, module_id, inactive, description, video_link) VALUES ($1, $2, $3, $4, $5, $6), params: true,2,112,false,MORRENDO DE SONO,www.youtube.com; duration: 22ms, rows: 1 }
+executed query: { query: SELECT id FROM modules WHERE id = $1 AND deleted_at IS NULL, params: 112; duration: 22ms, rows: 1 }
+executed query: { query: INSERT INTO classes(name, class_order, module_id, inactive, description, video_link) VALUES ($1, $2, $3, $4, $5, $6), params: true,3,112,false,MORRENDO DE SONO,www.youtube.com; duration: 21ms, rows: 1 }
 executed query: { query: COMMIT, params: undefined; duration: 41ms, rows: null }
-executed query: { SELECT document FROM users WHERE document = $1 AND deleted_at IS null  , params: 03946949533; duration: 1413ms }
-executed query: { SELECT email FROM users WHERE email = $1 AND deleted_at IS null  , params: rey.filareto@outlook.com; duration: 840ms }
-executed query: { SELECT phone FROM users WHERE phone = $1 AND deleted_at IS null  , params: NaN; duration: 747ms }
-executed query: { INSERT INTO users (first_name, last_name, social_name, document, email, phone, password, gender, birth_date, type, email_token, etoken_expire) VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10, $11, $12) RETURNING *, params: Reinan,Santos,,03946949533,rey.filareto@outlook.com,71988093977,$2b$10$7Wjmw/FaJ3.wtjfhmyJJYu3tCf7kLUxztyfRcQ83ilknU7cGvYj.2,Male,2001-09-27,1,a9e3677ef6f81563e11f1dd730fc516b1f6269e6,Fri Aug 27 2021 23:32:38 GMT-0300 (Horário Padrão de Brasília); duration: 843ms }
-executed query: { SELECT document FROM users WHERE document = $1 AND deleted_at IS null  , params: 03946949533; duration: 1666ms }
-executed query: { SELECT email FROM users WHERE email = $1 AND deleted_at IS null  , params: rey.filareto@outlook.com; duration: 698ms }
-executed query: { SELECT phone FROM users WHERE phone = $1 AND deleted_at IS null  , params: NaN; duration: 825ms }
-executed query: { INSERT INTO users (first_name, last_name, social_name, document, email, phone, password, gender, birth_date, type, email_token, etoken_expire) VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10, $11, $12) RETURNING *, params: Reinan,Santos,,03946949533,rey.filareto@outlook.com,71988093977,$2b$10$MwQiU8brlR6WWSBootohVOQgcqCQVDT9KzM6RXphTI3/FmnR5WPdi,Male,2001-09-27,1,2acbc309c0a0086b55ca2b8780a7c9c391a9a69a,Fri Aug 27 2021 23:41:28 GMT-0300 (Horário Padrão de Brasília); duration: 830ms }
+executed query: { SELECT first_name FROM users WHERE id = $1 AND deleted_at IS null AND active IS true AND type NOT IN (7)  , params: 2; duration: 917ms }
+executed query: { query: BEGIN, params: undefined; duration: 556ms, rows: null }
+executed query: { query: INSERT INTO courses(teacher_id, name, description, price, status) VALUES($1, $2, $3, $4, $5) RETURNING *, params: 2,CURSO DE HIPNOSE,TESTE,0,em análise; duration: 140ms, rows: 1 }
+executed query: { query: INSERT INTO courses_categories(name, created_by) VALUES($1, $2) RETURNING *, params: hipnose,2; duration: 57ms, rows: 1 }
+executed query: { query: INSERT INTO courses_flags(course_id, category_id, created_by) VALUES($1, $2, $3) RETURNING *, params: 65,85,2; duration: 75ms, rows: 1 }
+executed query: { query: INSERT INTO courses_categories(name, created_by) VALUES($1, $2) RETURNING *, params: passos,2; duration: 20ms, rows: 1 }
+executed query: { query: INSERT INTO courses_flags(course_id, category_id, created_by) VALUES($1, $2, $3) RETURNING *, params: 65,86,2; duration: 20ms, rows: 1 }
+executed query: { query: INSERT INTO modules(name, description) VALUES($1, $2) RETURNING *, params: PREPARAÇÃO,PRIMEIROS PASSOS PARA UMA HIPNOSE; duration: 40ms, rows: 1 }
+executed query: { query: INSERT INTO module_order(course_id, module_id, module_order) VALUES($1, $2, $3), params: 65,113,1; duration: 64ms, rows: 1 }
+executed query: { query: INSERT INTO modules(name, description) VALUES($1, $2) RETURNING *, params: PREPARAÇÃO 2,SEGUNDOS PASSOS PARA UMA HIPNOSE; duration: 20ms, rows: 1 }
+executed query: { query: INSERT INTO module_order(course_id, module_id, module_order) VALUES($1, $2, $3), params: 65,114,2; duration: 20ms, rows: 1 }
+executed query: { query: INSERT INTO modules(name, description) VALUES($1, $2) RETURNING *, params: PREPARAÇÃO 3,TERCEIROS PASSOS PARA UMA HIPNOSE; duration: 20ms, rows: 1 }
+executed query: { query: INSERT INTO module_order(course_id, module_id, module_order) VALUES($1, $2, $3), params: 65,115,3; duration: 20ms, rows: 1 }
+executed query: { query: SELECT id FROM modules WHERE id = $1 AND deleted_at IS NULL, params: 113; duration: 20ms, rows: 1 }
+executed query: { query: INSERT INTO classes(name, class_order, module_id, inactive, description, video_link) VALUES ($1, $2, $3, $4, $5, $6), params: true,1,113,false,TÔ COM SONO,www.youtube.com; duration: 35ms, rows: 1 }
+executed query: { query: SELECT id FROM modules WHERE id = $1 AND deleted_at IS NULL, params: 113; duration: 19ms, rows: 1 }
+executed query: { query: INSERT INTO classes(name, class_order, module_id, inactive, description, video_link) VALUES ($1, $2, $3, $4, $5, $6), params: true,2,113,false,TÔ COM SONO,www.youtube.com; duration: 20ms, rows: 1 }
+executed query: { query: SELECT id FROM modules WHERE id = $1 AND deleted_at IS NULL, params: 114; duration: 21ms, rows: 1 }
+executed query: { query: INSERT INTO classes(name, class_order, module_id, inactive, description, video_link) VALUES ($1, $2, $3, $4, $5, $6), params: true,1,114,false,AINDA TÔ COM SONO,www.youtube.com; duration: 20ms, rows: 1 }
+executed query: { query: SELECT id FROM modules WHERE id = $1 AND deleted_at IS NULL, params: 114; duration: 19ms, rows: 1 }
+executed query: { query: INSERT INTO classes(name, class_order, module_id, inactive, description, video_link) VALUES ($1, $2, $3, $4, $5, $6), params: true,2,114,false,AINDA TÔ COM SONO,www.youtube.com; duration: 19ms, rows: 1 }
+executed query: { query: SELECT id FROM modules WHERE id = $1 AND deleted_at IS NULL, params: 115; duration: 19ms, rows: 1 }
+executed query: { query: INSERT INTO classes(name, class_order, module_id, inactive, description, video_link) VALUES ($1, $2, $3, $4, $5, $6), params: true,1,115,false,MORRENDO DE SONO,www.youtube.com; duration: 21ms, rows: 1 }
+executed query: { query: SELECT id FROM modules WHERE id = $1 AND deleted_at IS NULL, params: 115; duration: 20ms, rows: 1 }
+executed query: { query: INSERT INTO classes(name, class_order, module_id, inactive, description, video_link) VALUES ($1, $2, $3, $4, $5, $6), params: true,2,115,false,MORRENDO DE SONO,www.youtube.com; duration: 20ms, rows: 1 }
+executed query: { query: SELECT id FROM modules WHERE id = $1 AND deleted_at IS NULL, params: 115; duration: 20ms, rows: 1 }
+executed query: { query: INSERT INTO classes(name, class_order, module_id, inactive, description, video_link) VALUES ($1, $2, $3, $4, $5, $6), params: true,3,115,false,MORRENDO DE SONO,www.youtube.com; duration: 20ms, rows: 1 }
+executed query: { query: COMMIT, params: undefined; duration: 39ms, rows: null }
+executed query: { SELECT first_name FROM users WHERE id = $1 AND deleted_at IS null AND active IS true AND type NOT IN (7)  , params: 2; duration: 911ms }
+executed query: { query: BEGIN, params: undefined; duration: 597ms, rows: null }
+executed query: { query: INSERT INTO courses(teacher_id, name, description, price, status) VALUES($1, $2, $3, $4, $5) RETURNING *, params: 2,CURSO DE HIPNOSE,TESTE,0,em análise; duration: 139ms, rows: 1 }
+executed query: { query: INSERT INTO courses_categories(name, created_by) VALUES($1, $2) RETURNING *, params: hipnose,2; duration: 65ms, rows: 1 }
+executed query: { query: INSERT INTO courses_flags(course_id, category_id, created_by) VALUES($1, $2, $3) RETURNING *, params: 66,87,2; duration: 131ms, rows: 1 }
+executed query: { query: INSERT INTO courses_categories(name, created_by) VALUES($1, $2) RETURNING *, params: passos,2; duration: 21ms, rows: 1 }
+executed query: { query: INSERT INTO courses_flags(course_id, category_id, created_by) VALUES($1, $2, $3) RETURNING *, params: 66,88,2; duration: 21ms, rows: 1 }
+executed query: { query: INSERT INTO modules(name, description) VALUES($1, $2) RETURNING *, params: PREPARAÇÃO,PRIMEIROS PASSOS PARA UMA HIPNOSE; duration: 50ms, rows: 1 }
+executed query: { query: INSERT INTO module_order(course_id, module_id, module_order) VALUES($1, $2, $3), params: 66,116,1; duration: 62ms, rows: 1 }
+executed query: { query: INSERT INTO modules(name, description) VALUES($1, $2) RETURNING *, params: PREPARAÇÃO 2,SEGUNDOS PASSOS PARA UMA HIPNOSE; duration: 21ms, rows: 1 }
+executed query: { query: INSERT INTO module_order(course_id, module_id, module_order) VALUES($1, $2, $3), params: 66,117,2; duration: 21ms, rows: 1 }
+executed query: { query: INSERT INTO modules(name, description) VALUES($1, $2) RETURNING *, params: PREPARAÇÃO 3,TERCEIROS PASSOS PARA UMA HIPNOSE; duration: 22ms, rows: 1 }
+executed query: { query: INSERT INTO module_order(course_id, module_id, module_order) VALUES($1, $2, $3), params: 66,118,3; duration: 21ms, rows: 1 }
+executed query: { query: SELECT id FROM modules WHERE id = $1 AND deleted_at IS NULL, params: 116; duration: 21ms, rows: 1 }
+executed query: { query: INSERT INTO classes(name, class_order, module_id, inactive, description, video_link) VALUES ($1, $2, $3, $4, $5, $6), params: true,1,116,false,TÔ COM SONO,www.youtube.com; duration: 39ms, rows: 1 }
+executed query: { query: SELECT id FROM modules WHERE id = $1 AND deleted_at IS NULL, params: 116; duration: 22ms, rows: 1 }
+executed query: { query: INSERT INTO classes(name, class_order, module_id, inactive, description, video_link) VALUES ($1, $2, $3, $4, $5, $6), params: true,2,116,false,TÔ COM SONO,www.youtube.com; duration: 22ms, rows: 1 }
+executed query: { query: SELECT id FROM modules WHERE id = $1 AND deleted_at IS NULL, params: 117; duration: 22ms, rows: 1 }
+executed query: { query: INSERT INTO classes(name, class_order, module_id, inactive, description, video_link) VALUES ($1, $2, $3, $4, $5, $6), params: true,1,117,false,AINDA TÔ COM SONO,www.youtube.com; duration: 22ms, rows: 1 }
+executed query: { query: SELECT id FROM modules WHERE id = $1 AND deleted_at IS NULL, params: 117; duration: 21ms, rows: 1 }
+executed query: { query: INSERT INTO classes(name, class_order, module_id, inactive, description, video_link) VALUES ($1, $2, $3, $4, $5, $6), params: true,2,117,false,AINDA TÔ COM SONO,www.youtube.com; duration: 21ms, rows: 1 }
+executed query: { query: SELECT id FROM modules WHERE id = $1 AND deleted_at IS NULL, params: 118; duration: 20ms, rows: 1 }
+executed query: { query: INSERT INTO classes(name, class_order, module_id, inactive, description, video_link) VALUES ($1, $2, $3, $4, $5, $6), params: true,1,118,false,MORRENDO DE SONO,www.youtube.com; duration: 22ms, rows: 1 }
+executed query: { query: SELECT id FROM modules WHERE id = $1 AND deleted_at IS NULL, params: 118; duration: 21ms, rows: 1 }
+executed query: { query: INSERT INTO classes(name, class_order, module_id, inactive, description, video_link) VALUES ($1, $2, $3, $4, $5, $6), params: true,2,118,false,MORRENDO DE SONO,www.youtube.com; duration: 22ms, rows: 1 }
+executed query: { query: SELECT id FROM modules WHERE id = $1 AND deleted_at IS NULL, params: 118; duration: 22ms, rows: 1 }
+executed query: { query: INSERT INTO classes(name, class_order, module_id, inactive, description, video_link) VALUES ($1, $2, $3, $4, $5, $6), params: true,3,118,false,MORRENDO DE SONO,www.youtube.com; duration: 22ms, rows: 1 }
+executed query: { query: COMMIT, params: undefined; duration: 42ms, rows: null }
+executed query: { SELECT first_name FROM users WHERE id = $1 AND deleted_at IS null AND active IS true AND type NOT IN (7)  , params: 2; duration: 1356ms }
+executed query: { query: BEGIN, params: undefined; duration: 548ms, rows: null }
+executed query: { query: INSERT INTO courses(teacher_id, name, description, price, status) VALUES($1, $2, $3, $4, $5) RETURNING *, params: 2,CURSO DE HIPNOSE,TESTE,0,em análise; duration: 137ms, rows: 1 }
+executed query: { query: INSERT INTO courses_categories(name, created_by) VALUES($1, $2) RETURNING *, params: hipnose,2; duration: 56ms, rows: 1 }
+executed query: { query: INSERT INTO courses_flags(course_id, category_id, created_by) VALUES($1, $2, $3) RETURNING *, params: 67,89,diego-s.novaes@hotmail.com; duration: 26ms, rows: error }
+executed query: { query: INSERT INTO courses_categories(name, created_by) VALUES($1, $2) RETURNING *, params: passos,2; duration: 22ms, rows: error }
+executed query: { query: INSERT INTO modules(name, description) VALUES($1, $2) RETURNING *, params: PREPARAÇÃO,PRIMEIROS PASSOS PARA UMA HIPNOSE; duration: 23ms, rows: error }
+executed query: { SELECT first_name FROM users WHERE id = $1 AND deleted_at IS null AND active IS true AND type NOT IN (7)  , params: 2; duration: 1139ms }
+executed query: { query: BEGIN, params: undefined; duration: 529ms, rows: null }
+executed query: { query: INSERT INTO courses(teacher_id, name, description, price, status) VALUES($1, $2, $3, $4, $5) RETURNING *, params: 2,CURSO DE HIPNOSE,TESTE,0,em análise; duration: 124ms, rows: 1 }
+executed query: { query: INSERT INTO courses_categories(name, created_by) VALUES($1, $2) RETURNING *, params: hipnose,2; duration: 60ms, rows: 1 }
+executed query: { query: INSERT INTO courses_flags(course_id, category_id, created_by) VALUES($1, $2, $3) RETURNING *, params: 68,90,2; duration: 95ms, rows: 1 }
+executed query: { query: INSERT INTO courses_categories(name, created_by) VALUES($1, $2) RETURNING *, params: passos,2; duration: 23ms, rows: 1 }
+executed query: { query: INSERT INTO courses_flags(course_id, category_id, created_by) VALUES($1, $2, $3) RETURNING *, params: 68,91,2; duration: 22ms, rows: 1 }
+executed query: { query: INSERT INTO modules(name, description) VALUES($1, $2) RETURNING *, params: PREPARAÇÃO,PRIMEIROS PASSOS PARA UMA HIPNOSE; duration: 41ms, rows: 1 }
+executed query: { query: INSERT INTO module_order(course_id, module_id, module_order) VALUES($1, $2, $3), params: 68,119,1; duration: 52ms, rows: 1 }
+executed query: { query: INSERT INTO modules(name, description) VALUES($1, $2) RETURNING *, params: PREPARAÇÃO 2,SEGUNDOS PASSOS PARA UMA HIPNOSE; duration: 21ms, rows: 1 }
+executed query: { query: INSERT INTO module_order(course_id, module_id, module_order) VALUES($1, $2, $3), params: 68,120,2; duration: 22ms, rows: 1 }
+executed query: { query: INSERT INTO modules(name, description) VALUES($1, $2) RETURNING *, params: PREPARAÇÃO 3,TERCEIROS PASSOS PARA UMA HIPNOSE; duration: 26ms, rows: 1 }
+executed query: { query: INSERT INTO module_order(course_id, module_id, module_order) VALUES($1, $2, $3), params: 68,121,3; duration: 23ms, rows: 1 }
+executed query: { query: SELECT id FROM modules WHERE id = $1 AND deleted_at IS NULL, params: 119; duration: 22ms, rows: 1 }
+executed query: { query: INSERT INTO classes(name, class_order, module_id, inactive, description, video_link) VALUES ($1, $2, $3, $4, $5, $6), params: true,1,119,false,TÔ COM SONO,www.youtube.com; duration: 58ms, rows: 1 }
+executed query: { query: SELECT id FROM modules WHERE id = $1 AND deleted_at IS NULL, params: 119; duration: 21ms, rows: 1 }
+executed query: { query: INSERT INTO classes(name, class_order, module_id, inactive, description, video_link) VALUES ($1, $2, $3, $4, $5, $6), params: true,2,119,false,TÔ COM SONO,www.youtube.com; duration: 22ms, rows: 1 }
+executed query: { query: SELECT id FROM modules WHERE id = $1 AND deleted_at IS NULL, params: 120; duration: 22ms, rows: 1 }
+executed query: { query: INSERT INTO classes(name, class_order, module_id, inactive, description, video_link) VALUES ($1, $2, $3, $4, $5, $6), params: true,1,120,false,AINDA TÔ COM SONO,www.youtube.com; duration: 21ms, rows: 1 }
+executed query: { query: SELECT id FROM modules WHERE id = $1 AND deleted_at IS NULL, params: 120; duration: 22ms, rows: 1 }
+executed query: { query: INSERT INTO classes(name, class_order, module_id, inactive, description, video_link) VALUES ($1, $2, $3, $4, $5, $6), params: true,2,120,false,AINDA TÔ COM SONO,www.youtube.com; duration: 23ms, rows: 1 }
+executed query: { query: SELECT id FROM modules WHERE id = $1 AND deleted_at IS NULL, params: 121; duration: 20ms, rows: 1 }
+executed query: { query: INSERT INTO classes(name, class_order, module_id, inactive, description, video_link) VALUES ($1, $2, $3, $4, $5, $6), params: true,1,121,false,MORRENDO DE SONO,www.youtube.com; duration: 24ms, rows: 1 }
+executed query: { query: SELECT id FROM modules WHERE id = $1 AND deleted_at IS NULL, params: 121; duration: 22ms, rows: 1 }
+executed query: { query: INSERT INTO classes(name, class_order, module_id, inactive, description, video_link) VALUES ($1, $2, $3, $4, $5, $6), params: true,2,121,false,MORRENDO DE SONO,www.youtube.com; duration: 21ms, rows: 1 }
+executed query: { query: SELECT id FROM modules WHERE id = $1 AND deleted_at IS NULL, params: 121; duration: 22ms, rows: 1 }
+executed query: { query: INSERT INTO classes(name, class_order, module_id, inactive, description, video_link) VALUES ($1, $2, $3, $4, $5, $6), params: true,3,121,false,MORRENDO DE SONO,www.youtube.com; duration: 22ms, rows: 1 }
+executed query: { query: COMMIT, params: undefined; duration: 40ms, rows: null }

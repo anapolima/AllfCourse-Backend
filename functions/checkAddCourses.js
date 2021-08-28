@@ -48,7 +48,7 @@ module.exports = {
             },
             type: {
                 operator: 'not in',
-                value: [1, 4],
+                value: [7],
             },
         };
         const logicalOperatorCheck1 = ['AND', 'AND', 'AND'];
@@ -61,7 +61,7 @@ module.exports = {
         );
 
         if (Array.isArray(resultCheck1.data)) {
-            if (resultCheck1.data.length === 0) {
+            if (resultCheck1.data.length > 0) {
                 errors.validationErrors.teacherid = {
                     message: 'Não existe nenhum professor com o ID informado',
                     code: 500,

@@ -1,9 +1,10 @@
 const validateClass = require('@validations/validateClasses');
-const query = require('@helpers/Query');
+// const query = require('@helpers/Query');
+const db = require('@model/db2');
 // test
 module.exports = {
     check: async (_name, _order, _moduleId, _inactive, _link, _description) => {
-        const check1SelectTeacherName = ['id'];
+        // const check1SelectTeacherName = ['id'];
         const errors = { criticalErrors: {}, validationErrors: {} };
 
         const validClassName = validateClass.validateClassName(
@@ -40,27 +41,10 @@ module.exports = {
             return errors;
         }
 
-        const whereCheck1 = {
-            id: {
-                operator: '=',
-                value: validModuleId,
-            },
-            deleted_at: {
-                operator: 'IS',
-                value: 'null',
-            },
-        };
-        const logicalOperatorCheck1 = ['AND'];
+        const resultCheck1 = await db.query('SELECT id FROM modules WHERE id = $1 AND deleted_at IS NULL', [_moduleId]);
 
-        const resultCheck1 = await query.Select(
-            'modules',
-            check1SelectTeacherName,
-            whereCheck1,
-            logicalOperatorCheck1,
-        );
-
-        if (Array.isArray(resultCheck1.data)) {
-            if (resultCheck1.data.length === 0) {
+        if (Array.isArray(resultCheck1.rows)) {
+            if (resultCheck1.rows.length === 0) {
                 errors.validationErrors.teacherid = {
                     message: 'Não existe nenhum módulo com o ID informado',
                     code: 500,
@@ -81,7 +65,7 @@ module.exports = {
 
         return {
             name: validClassName,
-            moduleid: validModuleId,
+            moduleid: parseInt(validModuleId, 10),
             order: validOrder,
             description: validDescription,
             inactive: validInactive,

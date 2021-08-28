@@ -1,3 +1,4 @@
+/* eslint-disable no-unused-vars */
 const validateCourseCategory = require('@validations/validateCoursesCategories');
 // const query = require('@helpers/Query');
 
@@ -6,14 +7,15 @@ module.exports = {
         // const check1SelectCategoryName = ['name'];
         const errors = { criticalErrors: {}, validationErrors: {} };
 
-        const validCategoryName = validateCourseCategory.validateCategoryName(
+        /* const validCategoryName = validateCourseCategory.validateCategoryName(
             _name,
             errors.validationErrors,
         );
 
         if (Object.keys(errors.validationErrors).length > 0) {
             return errors;
-        }
+        } */
+        return errors;
 
         // const whereCheck1 = {
         //     name: {
@@ -49,15 +51,15 @@ module.exports = {
         //     };
         // }
 
-        if (Object.keys(errors.validationErrors).length > 0
-            || Object.keys(errors.criticalErrors).length > 0) {
-            return errors;
-        }
+        // if (Object.keys(errors.validationErrors).length > 0
+        //  || Object.keys(errors.criticalErrors).length > 0) {
+        // return errors;
+        // }
 
-        return {
-            name: validCategoryName,
-            validationErrors: { ...errors.validationErrors },
-            criticalErrors: { ...errors.criticalErrors },
-        };
+        // return {
+        //  name: validCategoryName,
+        // validationErrors: { ...errors.validationErrors },
+        // criticalErrors: { ...errors.criticalErrors },
+        // };
     },
 };
