@@ -28,7 +28,6 @@ exports.addCourse = async (req, res) => {
             price: check.price,
             description: check.description,
             status: 'em análise',
-            created_by: 45,
         };
         const returningColumns = ['*'];
 
