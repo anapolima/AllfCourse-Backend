@@ -23,6 +23,8 @@ class QueryGenerator {
 
     #query
 
+    #join
+
     constructor() {
         this.#query = '';
         this.#columns = '';
@@ -46,7 +48,7 @@ class QueryGenerator {
         });
     }
 
-    Insert(_table, _columnsValues, _returning) {
+    Insert(_beginTransaction, _table, _columnsValues, _returning) {
         this.#SetClient();
         this.#result = {
             error: {
@@ -60,6 +62,7 @@ class QueryGenerator {
         const table = _table;
         const columnsValues = _columnsValues;
         const returning = _returning;
+        const beginTransaction = _beginTransaction;
 
         if (
             columnsValues instanceof Object
@@ -89,30 +92,73 @@ class QueryGenerator {
                 }
             }
 
+            if (beginTransaction) {
+                if (typeof (beginTransaction) === 'boolean') {
+                    const result = this.#client
+                        .connect()
+                        .then(() => this.#client.query('BEGIN;'))
+                        .then(() => this.#client.query(
+                            `INSERT INTO ${table} (${this.#columns}) VALUES (${
+                                this.#params
+                            }) ${returning ? `RETURNING ${this.#returning}` : ''}`,
+                            values,
+                        ))
+                        .then(async (result) => {
+                            this.#result.data = result.rows;
+
+                            await this.#client
+                                .query('COMMIT')
+                                .then(() => console.log('COMMIT SUCCESSFUL'))
+                                .catch((err) => (this.#result.error.commit = err));
+                            return this.#result;
+                        })
+                        .catch(async (err) => {
+                            this.#result.error.transaction = err.message;
+                            await this.#client
+                                .query('ROLLBACK')
+                                .then(() => console.log('ERROR, ROLLBACK'))
+                                .catch(() => (this.#result.error.rollback = true));
+                            return this.#result;
+                        })
+                        .finally(() => {
+                            this.#client.end();
+                            const duration = Date.now() - start;
+                            fs.appendFileSync(
+                                './logs/queries_log.log',
+                                `executed query: { INSERT INTO ${table} (${
+                                    this.#columns
+                                }) VALUES (${this.#params}) ${
+                                    returning ? `RETURNING ${this.#returning}` : ''
+                                }, params: ${values}; duration: ${duration}ms }\n`,
+                            );
+                            this.#columns = '';
+                            this.#params = '';
+                            this.#returning = '';
+                            this.#whereParams = '';
+                            this.#whereColumns = '';
+                            this.#orderBy = '';
+                        });
+
+                    return result;
+                }
+                this.#result.error.params = 'The begin transaction must be a boolean value';
+                return this.#result;
+            }
+
             const result = this.#client
                 .connect()
-                .then(() => this.#client.query('BEGIN;'))
                 .then(() => this.#client.query(
                     `INSERT INTO ${table} (${this.#columns}) VALUES (${
                         this.#params
                     }) ${returning ? `RETURNING ${this.#returning}` : ''}`,
                     values,
                 ))
-                .then(async (result) => {
+                .then((result) => {
                     this.#result.data = result.rows;
-
-                    await this.#client
-                        .query('COMMIT')
-                        .then(() => console.log('COMMIT SUCCESSFUL'))
-                        .catch((err) => (this.#result.error.commit = err));
                     return this.#result;
                 })
-                .catch(async (err) => {
+                .catch((err) => {
                     this.#result.error.transaction = err.message;
-                    await this.#client
-                        .query('ROLLBACK')
-                        .then(() => console.log('ERROR, ROLLBACK'))
-                        .catch(() => (this.#result.error.rollback = true));
                     return this.#result;
                 })
                 .finally(() => {
@@ -140,7 +186,7 @@ class QueryGenerator {
         return this.#result;
     }
 
-    Select(_table, _columns, _whereColumnsValues, _logicalOperators, _orderBy) {
+    Select(_table, _columns, _whereColumnsValues, _logicalOperators, _orderBy, _join) {
         this.#SetClient();
         this.#result = {
             error: {
@@ -159,6 +205,7 @@ class QueryGenerator {
         const whereColumns = [];
         const values = [];
         const orderBy = _orderBy;
+        const join = _join;
 
         if (Array.isArray(columns)) {
             this.#columns = columns.join(', ');
@@ -226,8 +273,6 @@ class QueryGenerator {
                                             : ''
                                     }`,
                                 );
-                                // values.push(whereColumnsValues[_column].value);
-                                param++;
                             } else if (
                                 operator.toLowerCase() === 'in'
                                 || operator.toLowerCase() === 'not in'
@@ -280,6 +325,128 @@ class QueryGenerator {
                 }
             }
 
+            if (join) {
+                if ((join instanceof Object && !(join instanceof Array))) {
+                    const tables = Object.keys(join);
+                    const regexJoin = /join$|inner join$|left join$|right join$|full outer join$/;
+                    const regexOperator = /=$|!=$|>$|>=$|<$|<=$|between$|not between$|like$|is$|is not$|not like$|in$|not in$/i;
+                    const whereJoinParams = [];
+
+                    tables.forEach((_table) => {
+                        const table = join[_table];
+
+                        if ((table instanceof Object && !(table instanceof Array))) {
+                            const tableJoin = join[_table].join;
+                            const isValidJoin = regexJoin.test(tableJoin);
+
+                            if (isValidJoin) {
+                                const whereJoin = { ...join[_table].on };
+                                const whereJoinColumns = Object.keys(whereJoin);
+
+                                whereJoinParams.push(`${tableJoin.toUpperCase()} ${_table} ON`);
+                                whereJoinColumns.forEach((_column, _indexColumn) => {
+                                    const { operator } = whereJoin[_column];
+                                    const isValidOperator = regexOperator.test(operator);
+
+                                    if (isValidOperator) {
+                                        const { value } = whereJoin[_column];
+
+                                        if (operator.toLowerCase() === 'like' || operator.toLowerCase() === 'not like') {
+                                            whereJoinParams.push(
+                                                `${_table}.${_column} ${operator.toUpperCase()} '%'||$${param}||'%' ${
+                                                    join[_table].logicalOperators[_indexColumn]
+                                                        // eslint-disable-next-line max-len
+                                                        ? join[_table].logicalOperators[_indexColumn]
+                                                        : ''
+                                                }
+                                            `,
+                                            );
+                                            values.push(value);
+                                            param++;
+                                        } else if (operator.toLowerCase() === 'between' || operator.toLowerCase() === 'not between') {
+                                            whereJoinParams.push(`
+                                                ${_table}.${_column} ${operator.toUpperCase()}
+                                                     $${param} AND $${param + 1} 
+                                                ${
+    join[_table].logicalOperators[_indexColumn]
+        ? join[_table].logicalOperators[_indexColumn]
+        : ''
+}`);
+                                            values.push(value[0], value[1]);
+                                            param += 2;
+                                        } else if (operator.toLowerCase() === 'is' || operator.toLowerCase() === 'is not') {
+                                            whereJoinParams.push(`
+                                                    ${_table}.${_column} ${operator.toUpperCase()}
+                                                     ${value} 
+                                                ${
+    join[_table].logicalOperators[_indexColumn]
+        ? join[_table].logicalOperators[_indexColumn]
+        : ''
+}
+                                            `);
+                                        } else if (operator.toLowerCase() === 'in' || operator.toLowerCase() === 'not in') {
+                                            let inValues = null;
+
+                                            value.forEach((_value, _index) => {
+                                                if (_index === 0) {
+                                                    inValues = `(${value[_index]}`;
+                                                } else {
+                                                    inValues += `, ${value[_index]}`;
+                                                }
+
+                                                if (_index === value.length - 1) {
+                                                    inValues += ')';
+                                                }
+                                            });
+                                            whereJoinParams.push(`
+                                                ${_table}.${_column} ${operator.toUpperCase()} ${inValues} ${
+    join[_table].logicalOperators[_indexColumn]
+        ? join[_table].logicalOperators[_indexColumn]
+        : ''
+}`);
+                                        } else if (Number.isNaN(value)) {
+                                            whereJoinParams.push(`
+                                                    ${_table}.${_column} ${operator.toUpperCase()}
+                                                     ${value} 
+                                                    ${
+    join[_table].logicalOperators[_indexColumn]
+        ? join[_table].logicalOperators[_indexColumn]
+        : ''
+}`);
+                                        } else {
+                                            whereJoinParams.push(`
+                                                    ${_table}.${_column} ${operator.toUpperCase()}
+                                                     $${param} 
+                                                    ${
+    join[_table].logicalOperators[_indexColumn]
+        ? join[_table].logicalOperators[_indexColumn]
+        : ''
+}`);
+                                            values.push(value);
+                                            param++;
+                                        }
+                                    } else {
+                                        this.#result.error.params = 'Invalid operator on JOIN WHERE params';
+                                        return this.#result;
+                                    }
+                                });
+                            } else {
+                                this.#result.error.params = 'Invalid join type';
+                                return this.#result;
+                            }
+                        } else {
+                            this.#result.error.params = "The table to join must be an JSON containing a 'join' key that must be a string indicating the join type. A 'where' key that must be a JSON, and a 'logicalOperators' key that must be an array";
+                            return this.#result;
+                        }
+                    });
+
+                    this.#join = whereJoinParams.join(' ');
+                } else {
+                    this.#result.error.params = 'The join must be an JSON. Each key must be the name of the table to join';
+                    return this.#result;
+                }
+            }
+
             if (orderBy) {
                 if (Array.isArray(orderBy)) {
                     this.#orderBy = orderBy.join(', ');
@@ -290,6 +457,7 @@ class QueryGenerator {
                 .connect()
                 .then(() => this.#client.query(
                     `SELECT ${this.#columns} FROM ${table} ${
+                        join ? this.#join : ''} ${
                         whereColumns.length !== 0
                             ? `WHERE ${this.#whereParams}`
                             : ''
@@ -330,6 +498,7 @@ class QueryGenerator {
     }
 
     Update(
+        _beginTransaction,
         _table,
         _columnsValues,
         _returning,
@@ -354,6 +523,7 @@ class QueryGenerator {
         const whereColumnsValues = _whereColumnsValues;
         const whereColumns = [];
         const logicalOperators = _logicalOperators;
+        const beginTransaction = _beginTransaction;
 
         if (
             columnsValues instanceof Object
@@ -440,8 +610,38 @@ class QueryGenerator {
                                             : ''
                                     }`,
                                 );
-                                // values.push(whereColumnsValues[_column].value);
-                                param++;
+                            } else if (
+                                operator.toLowerCase() === 'in'
+                                || operator.toLowerCase() === 'not in'
+                            ) {
+                                let inValues = null;
+
+                                whereColumnsValues[_column].value.forEach(
+                                    (_value, _index) => {
+                                        if (_index === 0) {
+                                            inValues = `(${whereColumnsValues[_column].value[_index]}`;
+                                        } else {
+                                            inValues += `, ${whereColumnsValues[_column].value[_index]}`;
+                                        }
+
+                                        if (
+                                            _index
+                                            === whereColumnsValues[_column].value
+                                                .length
+                                                - 1
+                                        ) {
+                                            inValues += ')';
+                                        }
+                                    },
+                                );
+
+                                whereParams.push(
+                                    `${_column} ${operator.toUpperCase()} ${inValues} ${
+                                        logicalOperators[_index]
+                                            ? logicalOperators[_index]
+                                            : ''
+                                    }`,
+                                );
                             } else {
                                 whereParams.push(
                                     `${_column} ${operator.toUpperCase()} $${param} ${
@@ -463,32 +663,75 @@ class QueryGenerator {
                 }
             }
 
+            if (beginTransaction) {
+                if (typeof (beginTransaction) === 'boolean') {
+                    const result = this.#client
+                        .connect()
+                        .then(() => this.#client.query('BEGIN;'))
+                        .then(() => this.#client.query(
+                            `UPDATE ${table} SET ${this.#params} ${
+                                whereColumns ? `WHERE ${this.#whereParams}` : ''
+                            } ${returning ? `RETURNING ${this.#returning}` : ''}`,
+                            values,
+                        ))
+                        .then(async (result) => {
+                            this.#result.data = result.rows;
+                            await this.#client
+                                .query('COMMIT;')
+                                .then(() => console.log('COMMIT SUCCESSFUL'))
+                                .catch((err) => (this.#result.error.commit = err));
+
+                            return this.#result;
+                        })
+                        .catch(async (err) => {
+                            this.#result.error.transaction = err.message;
+
+                            await this.#client
+                                .query('ROLLBACK;')
+                                .then(() => console.log('ERROR, ROLLBACK'))
+                                .catch(() => (this.#result.error.rollback = true));
+
+                            return this.#result;
+                        })
+                        .finally(() => {
+                            this.#client.end();
+                            const duration = Date.now() - start;
+                            fs.appendFileSync(
+                                './logs/queries_log.log',
+                                `executed query: { UPDATE ${table} SET ${this.params} ${
+                                    whereColumns ? `WHERE ${this.#whereParams}` : ''
+                                } ${
+                                    returning ? `RETURNING ${this.#returning}` : ''
+                                }, params: ${values}; duration: ${duration}ms }\n`,
+                            );
+                            this.#columns = '';
+                            this.#params = '';
+                            this.#returning = '';
+                            this.#whereParams = '';
+                            this.#whereColumns = '';
+                            this.#orderBy = '';
+                        });
+
+                    return result;
+                }
+                this.#result.error.params = 'The begin transaction must be a boolean value';
+                return this.#result;
+            }
+
             const result = this.#client
                 .connect()
-                .then(() => this.#client.query('BEGIN;'))
                 .then(() => this.#client.query(
                     `UPDATE ${table} SET ${this.#params} ${
                         whereColumns ? `WHERE ${this.#whereParams}` : ''
                     } ${returning ? `RETURNING ${this.#returning}` : ''}`,
                     values,
                 ))
-                .then(async (result) => {
+                .then((result) => {
                     this.#result.data = result.rows;
-                    await this.#client
-                        .query('COMMIT;')
-                        .then(() => console.log('COMMIT SUCCESSFUL'))
-                        .catch((err) => (this.#result.error.commit = err));
-
                     return this.#result;
                 })
-                .catch(async (err) => {
+                .catch((err) => {
                     this.#result.error.transaction = err.message;
-
-                    await this.#client
-                        .query('ROLLBACK;')
-                        .then(() => console.log('ERROR, ROLLBACK'))
-                        .catch(() => (this.#result.error.rollback = true));
-
                     return this.#result;
                 })
                 .finally(() => {
@@ -612,6 +855,54 @@ class QueryGenerator {
             return result;
         }
         this.#result.error.params = 'Columns and values must be arrays';
+        return this.#result;
+    }
+
+    BeginTransaction() {
+        this.#result = {
+            error: {
+                transaction: false, commit: false, rollback: false, params: false,
+            },
+            data: false,
+        };
+        this.#SetClient();
+        this.#client.connect();
+        this.#client.query('BEGIN;');
+    }
+
+    Commit() {
+        this.#result = {
+            error: {
+                transaction: false, commit: false, rollback: false, params: false,
+            },
+            data: false,
+        };
+
+        this.#client.query('COMMIT;')
+            .then(() => {
+                console.log('COMMIT SUCCESSFUL');
+                this.#client.end();
+            })
+            .catch((err) => this.#result.error.commit = err);
+
+        return this.#result;
+    }
+
+    Rollback() {
+        this.#result = {
+            error: {
+                transaction: false, commit: false, rollback: false, params: false,
+            },
+            data: false,
+        };
+
+        this.#client.query('ROLLBACK;')
+            .then(() => {
+                console.log('ROLLBACK SUCCESSFUL');
+                this.#client.end();
+            })
+            .catch((err) => this.#result.error.rollback = err);
+
         return this.#result;
     }
 }
