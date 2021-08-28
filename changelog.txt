@@ -8,3 +8,15 @@
     - Adicionado confirmação de criação de conta por token com validade
     - Adicionado rota para gerar um novo token de confirmação de conta, caso o antigo tenha expirado
     - Adicionado sistema de login e logout
+
+27 de agosto:
+    - Arquitetura melhorada
+    - Validações adicionadas e antigas melhoradas
+    - Corrigido bugs menores
+    - Melhorando middleware de autenticação
+    - Logs melhorados
+    - Consultas no bd dividas entre: comuns(sem begin transaction) e de alto fluxo(com begin transaction) em 2 arquivos distintos
+    - Schemas do SQL Adicionado
+
+28 de agosto:
+    - Rotas get adicionadas
