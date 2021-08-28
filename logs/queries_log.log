@@ -145,3 +145,37 @@ executed query: { query: INSERT INTO classes(name, class_order, module_id, inact
 executed query: { query: SELECT id FROM modules WHERE id = $1 AND deleted_at IS NULL, params: 121; duration: 22ms, rows: 1 }
 executed query: { query: INSERT INTO classes(name, class_order, module_id, inactive, description, video_link) VALUES ($1, $2, $3, $4, $5, $6), params: true,3,121,false,MORRENDO DE SONO,www.youtube.com; duration: 22ms, rows: 1 }
 executed query: { query: COMMIT, params: undefined; duration: 40ms, rows: null }
+executed query: { SELECT id, email, first_name, type, password FROM users WHERE email = $1 AND active IS true AND deleted_at IS null  , params: diego-s.novaes@hotmail.com; duration: 1361ms }
+executed query: { SELECT * FROM users  , params: ; duration: 1139ms }
+executed query: { SELECT * FROM users  , params: ; duration: 1128ms }
+executed query: { SELECT * FROM users WHERE id = $1  , params: 1; duration: 955ms }
+executed query: { SELECT * FROM users WHERE id = $1  , params: 2; duration: 569ms }
+executed query: { SELECT * FROM users WHERE id = $1  , params: 0; duration: 941ms }
+executed query: { SELECT * FROM users WHERE id = $1  , params: 0; duration: 836ms }
+executed query: { SELECT * FROM users WHERE id = $1  , params: 0; duration: 852ms }
+executed query: { SELECT * FROM users WHERE id = $1  , params: 0; duration: 756ms }
+executed query: { SELECT * FROM users  , params: ; duration: 873ms }
+executed query: { SELECT * FROM users WHERE id = $1  , params: 14; duration: 911ms }
+executed query: { SELECT * FROM users  , params: ; duration: 622ms }
+executed query: { SELECT * FROM users WHERE id = $1  , params: 3; duration: 780ms }
+executed query: { SELECT * FROM users  , params: ; duration: 714ms }
+executed query: { SELECT * FROM users WHERE id = $1  , params: 6; duration: 654ms }
+executed query: { SELECT * FROM courses_categories  , params: ; duration: 1491ms }
+executed query: { SELECT * FROM courses_categories WHERE id = $1  , params: 95; duration: 912ms }
+executed query: { SELECT * FROM courses_categories WHERE id = $1  , params: 90; duration: 629ms }
+executed query: { SELECT * FROM courses WHERE id = $1  , params: ; duration: 1028ms }
+executed query: { SELECT * FROM courses  , params: ; duration: 749ms }
+executed query: { SELECT * FROM courses WHERE id = $1  , params: 64; duration: 710ms }
+executed query: { SELECT * FROM courses WHERE id = $1  , params: 63; duration: 624ms }
+executed query: { SELECT * FROM courses  , params: ; duration: 724ms }
+executed query: { SELECT * FROM courses WHERE id = $1  , params: 68; duration: 701ms }
+executed query: { SELECT * FROM classes WHERE moduleid = $1  , params: ; duration: 1160ms }
+executed query: { SELECT * FROM classes WHERE moduleid = $1  , params: ; duration: 1311ms }
+executed query: { SELECT * FROM classes WHERE id = $1  , params: ; duration: 1124ms }
+executed query: { SELECT * FROM classes  , params: ; duration: 1092ms }
+executed query: { SELECT * FROM classes WHERE moduleid = $1  , params: 121; duration: 616ms }
+executed query: { SELECT * FROM classes WHERE module_id = $1  , params: 121; duration: 755ms }
+executed query: { SELECT * FROM classes WHERE module_id = $1  , params: 125; duration: 665ms }
+executed query: { SELECT * FROM classes  , params: ; duration: 591ms }
+executed query: { SELECT * FROM enroll_students  , params: ; duration: 780ms }
+executed query: { SELECT * FROM enroll_students WHERE course_id = $1  , params: 1; duration: 544ms }

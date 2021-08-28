@@ -10,11 +10,15 @@ const express = require('express');
 const router = express.Router();
 const { addUser } = require('@controller/users/register.controller');
 const { validateAccount } = require('@controller/users/validAccount.controller');
+const { getuser } = require('@controller/users/getusers.controller');
+const { getstudent } = require('@controller/users/getEnrollStudentsController');
 
 // ------------------------------------------------------------//
 // -------------------------users-routes-----------------------//
 router.post('/register', addUser);
 router.post('/validate', validateAccount);
+router.get('/user/:id', getuser);
+router.get('/getstudent/:courseid', getstudent);
 // -------------------------users-routes-----------------------//
 // ------------------------------------------------------------//
 

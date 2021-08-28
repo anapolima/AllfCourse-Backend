@@ -9,10 +9,12 @@ const express = require('express');
 
 const router = express.Router();
 const { addCourseCategory } = require('@controller/course-categories/addCourseCategory.controller');
+const { getcategory } = require('@controller/course-categories/getCourseCategory.controller');
 
 // ------------------------------------------------------------//
 // ------------------course-categories-routes------------------//
 router.post('/courses-categories', addCourseCategory);
+router.get('/category/:id', getcategory);
 // ------------------course-categories-routes------------------//
 // ------------------------------------------------------------//
 
