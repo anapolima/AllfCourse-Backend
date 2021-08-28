@@ -28,8 +28,9 @@ exports.addCourse2 = async (req, res) => {
     newcourse.course_classes = req.body.course_classes;
     newcourse.course_classes.moduleid = null;
     console.log(req.auth);
+    console.log(newcourse.name);
 
-    const check = await checkAddCourses.check(newcourse.name, '2', newcourse.price, newcourse.description);
+    const check = await checkAddCourses.check(newcourse.name, req.auth.id.toString(), newcourse.price, newcourse.description);
 
     if (Object.keys(check.validationErrors).length !== 0
         || Object.keys(check.criticalErrors).length !== 0) {
@@ -118,6 +119,7 @@ exports.addCourse2 = async (req, res) => {
                 // const index = formatedmodules.findIndex((m) => m.position);
                 // const index2 = newcourse.course_classes.findIndex((p) => p.position = formatedmodules[index].position);
                 // newclass.moduleid = formatedmodules[index2].id;
+                console.log(check);
                 if (Object.keys(check.validationErrors).length !== 0 || Object.keys(check.criticalErrors).length !== 0) {
                     res.sendError(check, 500);
                 } else {

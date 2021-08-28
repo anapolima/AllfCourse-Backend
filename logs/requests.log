@@ -2302,3 +2302,23 @@ GET /getstudent/1 548.043 ms
 DATE: Saturday, August 28, 2021
 HTTP STATUS CODE: 404
 
+POST /addcourse2 2804.231 ms
+DATE: Saturday, August 28, 2021
+HTTP STATUS CODE: 201
+
+POST /addcourse2 2666.623 ms
+DATE: Saturday, August 28, 2021
+HTTP STATUS CODE: 201
+
+POST /addcourse2 3116.714 ms
+DATE: Saturday, August 28, 2021
+HTTP STATUS CODE: 201
+
+POST /addcourse2 2808.436 ms
+DATE: Saturday, August 28, 2021
+HTTP STATUS CODE: 201
+
+POST /addcourse2 2452.673 ms
+DATE: Saturday, August 28, 2021
+HTTP STATUS CODE: 201
+
