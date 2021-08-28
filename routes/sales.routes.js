@@ -1,6 +1,6 @@
 // -----------------------------------------------------------------------------------------------//
-// Archive: routes/users.routes.js
-// Description: File responsible for api routes related to 'users' class
+// Archive: routes/sales.routes.js
+// Description: File responsible for api routes related to 'sales' class
 // Data: 2021/08/27
 // Author: Allfcourse team
 // -----------------------------------------------------------------------------------------------//
@@ -8,14 +8,12 @@
 const express = require('express');
 
 const router = express.Router();
-const { addUser } = require('@controller/users/register.controller');
-const { validateAccount } = require('@controller/users/validAccount.controller');
+const { addSale } = require('@controller/sales/addSale.controller');
 
 // ------------------------------------------------------------//
-// -------------------------users-routes-----------------------//
-router.post('/register', addUser);
-router.post('/validate', validateAccount);
-// -------------------------users-routes-----------------------//
+// -------------------------sales-routes-----------------------//
+router.post('/buy', addSale);
+// -------------------------sales-routes-----------------------//
 // ------------------------------------------------------------//
 
 module.exports = router;

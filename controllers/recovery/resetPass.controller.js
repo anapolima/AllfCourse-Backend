@@ -1,22 +1,24 @@
 // -----------------------------------------------------------------------------------------------//
-// Archive: controllers/users/validateAccount.controller.js
-// Description: File responsible for the 'validateAccount' function of the 'users' class controller
+// Archive: controllers/recovery/resetPass.controller.js
+// Description: File responsible for the 'resetPass' function of the 'recovery' class controller
 // Data: 2021/08/27
 // Author: Allfcourse team
 // -----------------------------------------------------------------------------------------------//
 
 require('dotenv').config();
-const tokencheck = require('@functions/checkValidAccountToken');
+const newuserpass = require('@functions/checkResetPassToken');
 
-exports.validateAccount = async (req, res) => {
+exports.resetPass = async (req, res) => {
     const errors = { criticalErrors: {}, validationErrors: {} };
     const { token } = req.body;
+    const { newpass } = req.body;
+    const { confirmnewpass } = req.body;
     try {
-        const result = await tokencheck.check(token);
-        if (result !== true) {
-            res.sendError(result, 500);
+        const check = await newuserpass.check(token, newpass, confirmnewpass);
+        if (check !== true) {
+            res.sendError(check, 500);
         } else {
-            res.status(201).send({ message: 'Conta validada com sucesso' });
+            res.status(201).send({ message: 'Senha alterada com sucesso' });
         }
     } catch (err) {
         errors.criticalErrors.errorCategory = {

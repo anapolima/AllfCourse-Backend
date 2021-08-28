@@ -1,6 +1,6 @@
 // -----------------------------------------------------------------------------------------------//
-// Archive: routes/users.routes.js
-// Description: File responsible for api routes related to 'users' class
+// Archive: routes/payment-method.routes.js
+// Description: File responsible for api routes related to 'payment method' class
 // Data: 2021/08/27
 // Author: Allfcourse team
 // -----------------------------------------------------------------------------------------------//
@@ -8,14 +8,12 @@
 const express = require('express');
 
 const router = express.Router();
-const { addUser } = require('@controller/users/register.controller');
-const { validateAccount } = require('@controller/users/validAccount.controller');
+const { addPaymentMethod } = require('@controller/payment-method/addPaymentMethod.controller');
 
 // ------------------------------------------------------------//
-// -------------------------users-routes-----------------------//
-router.post('/register', addUser);
-router.post('/validate', validateAccount);
-// -------------------------users-routes-----------------------//
+// --------------------payment-method-routes-------------------//
+router.post('/payment-methods', addPaymentMethod);
+// --------------------payment-method-routes-------------------//
 // ------------------------------------------------------------//
 
 module.exports = router;

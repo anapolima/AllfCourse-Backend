@@ -1878,3 +1878,19 @@ POST /buy 4370.831 ms
 DATE: Friday, August 27, 2021
 HTTP STATUS CODE: 200
 
+POST /users 27.517 ms
+DATE: Friday, August 27, 2021
+HTTP STATUS CODE: 500
+
+POST /users 19.506 ms
+DATE: Friday, August 27, 2021
+HTTP STATUS CODE: 500
+
+POST /register 6873.650 ms
+DATE: Friday, August 27, 2021
+HTTP STATUS CODE: 201
+
+POST /register 6788.878 ms
+DATE: Friday, August 27, 2021
+HTTP STATUS CODE: 201
+

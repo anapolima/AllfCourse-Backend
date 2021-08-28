@@ -2,7 +2,7 @@
 // Archive: server.js
 // Description: File responsible for configuring the application (Back-End)
 // Data: 2021/08/27
-// Author: Rey
+// Author: Allfcourse team
 // -----------------------------------------------------------------------------------------------//
 
 require('module-alias/register');

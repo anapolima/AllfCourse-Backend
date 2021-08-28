@@ -9,3 +9,11 @@ executed query: { query: INSERT INTO receive_bills(sale_id, installment, subtota
 executed query: { query: INSERT INTO financial_transfer(sale_id, teacher_id, price, due_date, pay_date) VALUES($1, $2, $3, $4, $5), params: 43,2,140.45,Thu Nov 25 2021 18:58:00 GMT-0300 (Brasilia Standard Time),Fri Aug 27 2021 18:58:01 GMT-0300 (Brasilia Standard Time); duration: 24ms, rows: 1 }
 executed query: { query: INSERT INTO enroll_students(student_id, course_id) VALUES($1, $2), params: 2,5; duration: 49ms, rows: 1 }
 executed query: { query: COMMIT, params: undefined; duration: 41ms, rows: null }
+executed query: { SELECT document FROM users WHERE document = $1 AND deleted_at IS null  , params: 03946949533; duration: 1413ms }
+executed query: { SELECT email FROM users WHERE email = $1 AND deleted_at IS null  , params: rey.filareto@outlook.com; duration: 840ms }
+executed query: { SELECT phone FROM users WHERE phone = $1 AND deleted_at IS null  , params: NaN; duration: 747ms }
+executed query: { INSERT INTO users (first_name, last_name, social_name, document, email, phone, password, gender, birth_date, type, email_token, etoken_expire) VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10, $11, $12) RETURNING *, params: Reinan,Santos,,03946949533,rey.filareto@outlook.com,71988093977,$2b$10$7Wjmw/FaJ3.wtjfhmyJJYu3tCf7kLUxztyfRcQ83ilknU7cGvYj.2,Male,2001-09-27,1,a9e3677ef6f81563e11f1dd730fc516b1f6269e6,Fri Aug 27 2021 23:32:38 GMT-0300 (Horário Padrão de Brasília); duration: 843ms }
+executed query: { SELECT document FROM users WHERE document = $1 AND deleted_at IS null  , params: 03946949533; duration: 1666ms }
+executed query: { SELECT email FROM users WHERE email = $1 AND deleted_at IS null  , params: rey.filareto@outlook.com; duration: 698ms }
+executed query: { SELECT phone FROM users WHERE phone = $1 AND deleted_at IS null  , params: NaN; duration: 825ms }
+executed query: { INSERT INTO users (first_name, last_name, social_name, document, email, phone, password, gender, birth_date, type, email_token, etoken_expire) VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10, $11, $12) RETURNING *, params: Reinan,Santos,,03946949533,rey.filareto@outlook.com,71988093977,$2b$10$MwQiU8brlR6WWSBootohVOQgcqCQVDT9KzM6RXphTI3/FmnR5WPdi,Male,2001-09-27,1,2acbc309c0a0086b55ca2b8780a7c9c391a9a69a,Fri Aug 27 2021 23:41:28 GMT-0300 (Horário Padrão de Brasília); duration: 830ms }

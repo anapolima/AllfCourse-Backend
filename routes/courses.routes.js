@@ -1,6 +1,6 @@
 // -----------------------------------------------------------------------------------------------//
-// Archive: routes/users.routes.js
-// Description: File responsible for api routes related to 'users' class
+// Archive: routes/courses.routes.js
+// Description: File responsible for api routes related to 'courses' class
 // Data: 2021/08/27
 // Author: Allfcourse team
 // -----------------------------------------------------------------------------------------------//
@@ -8,14 +8,12 @@
 const express = require('express');
 
 const router = express.Router();
-const { addUser } = require('@controller/users/register.controller');
-const { validateAccount } = require('@controller/users/validAccount.controller');
+const { addCourse } = require('@controller/courses/addCourse.controller');
 
 // ------------------------------------------------------------//
-// -------------------------users-routes-----------------------//
-router.post('/register', addUser);
-router.post('/validate', validateAccount);
-// -------------------------users-routes-----------------------//
+// -----------------------courses-routes-----------------------//
+router.post('/courses', addCourse);
+// -----------------------courses-routes-----------------------//
 // ------------------------------------------------------------//
 
 module.exports = router;

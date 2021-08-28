@@ -1,3 +1,10 @@
+// -----------------------------------------------------------------------------------------------//
+// Archive: app.js
+// Description: File responsible for configuring the application (Back-End)
+// Data: 2021/08/27
+// Author: Allfcourse team
+// -----------------------------------------------------------------------------------------------//
+
 require('dotenv').config();
 
 process.env.TZ = 'America/Sao_Paulo';
@@ -12,6 +19,7 @@ const path = require('path');
 const fs = require('fs');
 const rateLimit = require('@middlewares/rateLimit');
 const sendError = require('@helpers/sendError');
+const routes = require('./routes/index.routes');
 
 const dateoptions = {
     weekday: 'long',
@@ -48,7 +56,7 @@ app.use(helmet());
 
 app.disable('x-powered-by');
 
-app.use(require('./routes/routes')); // require all routes created on routes.js
+app.use(routes); // => require all routes created on index.routes.js
 
 // ----------------------------------------------------------------------------//
 // ---------------Middleware route to serve the home page----------------------//
