@@ -867,7 +867,11 @@ class QueryGenerator {
         };
         this.#SetClient();
         this.#client.connect();
-        this.#client.query('BEGIN;');
+        this.#client.query('BEGIN;')
+            .then(() => {
+                console.log('BEGIN SUCCESSFUL');
+            });
+        // this.#client.end();
     }
 
     Commit() {

@@ -49,6 +49,7 @@ module.exports = {
                     message: 'Não existe nenhum módulo com o ID informado',
                     code: 500,
                 };
+                return errors;
             }
         } else {
             errors.criticalErrors.errorTeacherId = {

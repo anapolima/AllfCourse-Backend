@@ -27,6 +27,7 @@ exports.addPaymentMethod = async (req, res) => {
         const returningColumns = ['*'];
 
         const result = await query.Insert(
+            false,
             'payment_method',
             columns,
             returningColumns,
