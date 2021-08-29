@@ -20,6 +20,7 @@ module.exports = {
             const returningColumns = ['*'];
 
             const result = await query.Insert(
+                false,
                 'courses_flags',
                 columns,
                 returningColumns,

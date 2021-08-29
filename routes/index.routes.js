@@ -6,7 +6,7 @@
 // -----------------------------------------------------------------------------------------------//
 
 require('module-alias/register');
-const jwtuser = require('@middlewares/auth');
+// const jwtuser = require('@middlewares/auth');
 const express = require('express');
 
 const app = express();
@@ -18,7 +18,7 @@ app.use(express.json());
 // ------------------------general-routes----------------------//
 app.use(require('./session.routes'));
 
-app.use(jwtuser);
+// app.use(jwtuser);
 
 app.use(require('./users.routes'));
 app.use(require('./recovery.routes'));

@@ -1,3 +1,4 @@
+/* eslint-disable no-await-in-loop */
 // -----------------------------------------------------------------------------------------------//
 // Archive: controllers/sales/addSale.controller.js
 // Description: File responsible for the 'addSale' function of the 'sales' class controller

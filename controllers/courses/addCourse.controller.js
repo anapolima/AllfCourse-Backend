@@ -32,6 +32,7 @@ exports.addCourse = async (req, res) => {
         const returningColumns = ['*'];
 
         const result = await query.Insert(
+            false,
             'courses',
             columns,
             returningColumns,

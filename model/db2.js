@@ -31,6 +31,7 @@ async function query(text, params) {
                     query !== undefined ? query.rowCount : 'error'
                 } }\n`,
             );
+            // console.log(client);
             client.release();
         }
         return query;

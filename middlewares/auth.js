@@ -24,9 +24,10 @@ const authMiddleware = async (req, res, next) => {
                 console.log(err);
             } else {
                 const buffer = JSON.parse(data);
-                buffer.error.push(error);
+                buffer.push(error);
+                // eslint-disable-next-line no-unused-vars
                 fs.writeFile('./logs/data.json', JSON.stringify(buffer), (err) => {
-                    console.log(err);
+                    // console.log(err);
                 });
             }
         });
