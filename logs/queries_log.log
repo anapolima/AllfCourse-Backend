@@ -42,3 +42,4 @@ executed query: { query: INSERT INTO classes(name, class_order, module_id, inact
 executed query: { query: SELECT id FROM modules WHERE id = $1 AND deleted_at IS NULL, params: 321; duration: 22ms, rows: 1 }
 executed query: { query: INSERT INTO classes(name, class_order, module_id, inactive, description, video_link) VALUES ($1, $2, $3, $4, $5, $6), params: Dormindo modulo 3 order3,3,321,false,MORRENDO DE SONO,www.youtube.com; duration: 22ms, rows: 1 }
 executed query: { query: COMMIT, params: undefined; duration: 37ms, rows: null }
+executed query: { SELECT id, email, first_name, type, password FROM users WHERE email = $1 AND active IS true AND deleted_at IS null  , params: diego-s.novaes@hotmail.com; duration: 1240ms }

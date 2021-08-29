@@ -6,6 +6,7 @@
 // -----------------------------------------------------------------------------------------------//
 
 const express = require('express');
+const jwtuser = require('@middlewares/auth');
 
 const router = express.Router();
 const { addUser } = require('@controller/users/register.controller');
@@ -17,8 +18,8 @@ const { getstudent } = require('@controller/users/getEnrollStudentsController');
 // -------------------------users-routes-----------------------//
 router.post('/register', addUser);
 router.post('/validate', validateAccount);
-router.get('/user/:id', getuser);
-router.get('/getstudent/:courseid', getstudent);
+router.get('/user/:id', jwtuser, getuser);
+router.get('/getstudent/:courseid', jwtuser, getstudent);
 // -------------------------users-routes-----------------------//
 // ------------------------------------------------------------//
 

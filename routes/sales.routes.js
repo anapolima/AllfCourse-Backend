@@ -6,13 +6,14 @@
 // -----------------------------------------------------------------------------------------------//
 
 const express = require('express');
+const jwtuser = require('@middlewares/auth');
 
 const router = express.Router();
 const { addSale } = require('@controller/sales/addSale.controller');
 
 // ------------------------------------------------------------//
 // -------------------------sales-routes-----------------------//
-router.post('/buy', addSale);
+router.post('/buy', jwtuser, addSale);
 // -------------------------sales-routes-----------------------//
 // ------------------------------------------------------------//
 

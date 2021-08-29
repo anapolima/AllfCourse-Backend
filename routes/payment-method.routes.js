@@ -6,13 +6,14 @@
 // -----------------------------------------------------------------------------------------------//
 
 const express = require('express');
+const jwtuser = require('@middlewares/auth');
 
 const router = express.Router();
 const { addPaymentMethod } = require('@controller/payment-method/addPaymentMethod.controller');
 
 // ------------------------------------------------------------//
 // --------------------payment-method-routes-------------------//
-router.post('/payment-methods', addPaymentMethod);
+router.post('/payment-methods', jwtuser, addPaymentMethod);
 // --------------------payment-method-routes-------------------//
 // ------------------------------------------------------------//
 

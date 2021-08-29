@@ -2762,3 +2762,23 @@ POST /addcourse2 2219.616 ms
 DATE: Sunday, August 29, 2021
 HTTP STATUS CODE: 201
 
+POST /login 1319.182 ms
+DATE: Sunday, August 29, 2021
+HTTP STATUS CODE: 403
+
+GET /user/6 2.543 ms
+DATE: Sunday, August 29, 2021
+HTTP STATUS CODE: 401
+
+GET /user/6 7.221 ms
+DATE: Sunday, August 29, 2021
+HTTP STATUS CODE: 401
+
+GET /user/6 7.062 ms
+DATE: Sunday, August 29, 2021
+HTTP STATUS CODE: 401
+
+GET /user/6 7.122 ms
+DATE: Sunday, August 29, 2021
+HTTP STATUS CODE: 401
+

@@ -6,6 +6,7 @@
 // -----------------------------------------------------------------------------------------------//
 
 const express = require('express');
+const jwtuser = require('@middlewares/auth');
 
 const router = express.Router();
 const { addCourseCategory } = require('@controller/course-categories/addCourseCategory.controller');
@@ -13,8 +14,8 @@ const { getcategory } = require('@controller/course-categories/getCourseCategory
 
 // ------------------------------------------------------------//
 // ------------------course-categories-routes------------------//
-router.post('/courses-categories', addCourseCategory);
-router.get('/category/:id', getcategory);
+router.post('/courses-categories', jwtuser, addCourseCategory);
+router.get('/category/:id', jwtuser, getcategory);
 // ------------------course-categories-routes------------------//
 // ------------------------------------------------------------//
 
