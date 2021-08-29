@@ -49,7 +49,7 @@ exports.addUser = async (req, res) => {
             };
             const returningColumns = ['*'];
             const result = await query.Insert(
-                false,
+                true,
                 'users',
                 columns,
                 returningColumns,

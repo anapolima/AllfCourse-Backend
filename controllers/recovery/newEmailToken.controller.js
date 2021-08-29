@@ -42,6 +42,7 @@ exports.newEmailToken = async (req, res) => {
                 fieldvalues.email_token = token;
                 fieldvalues.etoken_expire = expire;
                 await query.Update(
+                    true,
                     'users',
                     fieldvalues,
                     ['*'],

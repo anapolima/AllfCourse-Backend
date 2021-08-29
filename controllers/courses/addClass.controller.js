@@ -28,7 +28,7 @@ module.exports = {
             const returningColumns = ['*'];
 
             const result = await query.Insert(
-                false,
+                true,
                 'classes',
                 columns,
                 returningColumns,

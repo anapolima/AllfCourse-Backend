@@ -51,6 +51,7 @@ exports.forgotPassEmail = async (req, res) => {
                 fieldvalues.recover_token = token;
                 fieldvalues.rtoken_expire = expire;
                 await query.Update(
+                    true,
                     'users',
                     fieldvalues,
                     ['*'],

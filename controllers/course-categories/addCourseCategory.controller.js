@@ -26,7 +26,7 @@ exports.addCourseCategory = async (req, res) => {
         const returningColumns = ['*'];
 
         const result = await query.Insert(
-            false,
+            true,
             'courses_categories',
             columns,
             returningColumns,

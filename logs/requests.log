@@ -2322,6 +2322,7 @@ POST /addcourse2 2452.673 ms
 DATE: Saturday, August 28, 2021
 HTTP STATUS CODE: 201
 
+<<<<<<< Updated upstream
 POST /login 1776.814 ms
 DATE: Sunday, August 29, 2021
 HTTP STATUS CODE: 200
@@ -2782,3 +2783,57 @@ GET /user/6 7.122 ms
 DATE: Sunday, August 29, 2021
 HTTP STATUS CODE: 401
 
+=======
+GET /login 13.003 ms
+DATE: Sunday, August 29, 2021
+HTTP STATUS CODE: 401
+
+GET /login 16.029 ms
+DATE: Sunday, August 29, 2021
+HTTP STATUS CODE: 404
+
+GET /login 9.440 ms
+DATE: Sunday, August 29, 2021
+HTTP STATUS CODE: 404
+
+POST /login 4007.746 ms
+DATE: Sunday, August 29, 2021
+HTTP STATUS CODE: 200
+
+POST /logout 9.405 ms
+DATE: Sunday, August 29, 2021
+HTTP STATUS CODE: 202
+
+POST /login 1549.086 ms
+DATE: Sunday, August 29, 2021
+HTTP STATUS CODE: 200
+
+POST /payment-methods - ms
+DATE: Sunday, August 29, 2021
+HTTP STATUS CODE: -
+
+POST /logout 5.362 ms
+DATE: Sunday, August 29, 2021
+HTTP STATUS CODE: 202
+
+POST /login 927.227 ms
+DATE: Sunday, August 29, 2021
+HTTP STATUS CODE: 200
+
+POST /payment-methods 34.795 ms
+DATE: Sunday, August 29, 2021
+HTTP STATUS CODE: 401
+
+POST /logout 2.435 ms
+DATE: Sunday, August 29, 2021
+HTTP STATUS CODE: 202
+
+POST /login 1041.197 ms
+DATE: Sunday, August 29, 2021
+HTTP STATUS CODE: 200
+
+POST /payment-methods 1629.264 ms
+DATE: Sunday, August 29, 2021
+HTTP STATUS CODE: 201
+
+>>>>>>> Stashed changes
