@@ -1,4 +1,3 @@
-/* eslint-disable max-len */
 /* eslint-disable no-unused-vars */
 const query = require('@helpers/Query');
 const validateNewPass = require('@validations/validateNewPass');

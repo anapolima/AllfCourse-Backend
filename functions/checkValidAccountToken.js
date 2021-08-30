@@ -17,12 +17,9 @@ async function check(token) {
         },
     };
     const check1 = await query.Select('users', checkSelect1, whereCheck1, ['']);
-    // console.log(now_converted);
     if (check1.data.length >= 1) {
         const expire = new Date(check1.data[0].etoken_expire);
-        /* console.log(expire.toLocaleString("en-US", {
-            timeZone: "America/Sao_Paulo",
-        })); */
+
         if (new Date(now_converted).getTime() < new Date(expire).getTime()) {
             const whereColumns = {
                 email_token: {
@@ -34,7 +31,7 @@ async function check(token) {
             fieldsValue.active = true;
             fieldsValue.email_token = null;
             fieldsValue.etoken_expire = null;
-            await query.Update('users', fieldsValue, ['*'], whereColumns, ['']);
+            await query.Update(true, 'users', fieldsValue, ['*'], whereColumns, ['']);
             return true;
         }
         errors.criticalErrors.expiredToken = {

@@ -20,3 +20,19 @@
 
 28 de agosto:
     - Rotas get adicionadas
+    - Fix de bugs menores
+
+29 de agosto:
+    - Arquitetura melhorada
+    - Rota de adição de curso melhorada
+    - Adicionado logs especificos para o JWT
+    - Configuração do ESLint ajustada
+    - Login e logout fixados
+    - Middlewares melhorados
+    - Adicionado parcialmente rotas de delete
+    - Fixado vários bugs na rota de compra de cursos e adição de novo curso
+    - Validadores melhorados
+    - Schema do SQL atualizado
+    - Adicionado rota para validar um curso
+    - Adicionado coluna "deleted_by" na modules
+    - Consoles.logs e comentários antigos/irrelevantes removidos

@@ -8,34 +8,40 @@
 
 const query = require('@helpers/Query');
 
-const checkAddCoursesCategories = require('@app/functions/checkAddCoursesCategories');
+const checkAddCoursesCategories = require('@functions/checkAddCoursesCategories');
 
 exports.addCourseCategory = async (req, res) => {
-    const { name } = req.body;
+    const { type } = req.auth;
+    if (type === 4 || type === 5 || type === 7 || type === 6) {
+        const { name } = req.body;
+        const userid = req.auth.id;
 
-    const check = await checkAddCoursesCategories.check(name);
+        const check = await checkAddCoursesCategories.check(name);
 
-    if (Object.keys(check.validationErrors).length !== 0
+        if (Object.keys(check.validationErrors).length !== 0
         || Object.keys(check.criticalErrors).length !== 0) {
-        res.sendError(check, 500);
-    } else {
-        const columns = {
-            name: check.name,
-            created_by: 45,
-        };
-        const returningColumns = ['*'];
-
-        const result = await query.Insert(
-            false,
-            'courses_categories',
-            columns,
-            returningColumns,
-        );
-
-        if (Array.isArray(result.data)) {
-            res.status(201).send({ message: 'Categoria adicionada com sucesso!' });
+            res.sendError(check, 500);
         } else {
-            res.sendError(result.error, 500);
+            const columns = {
+                name: check.name,
+                created_by: userid,
+            };
+            const returningColumns = ['*'];
+
+            const result = await query.Insert(
+                true,
+                'courses_categories',
+                columns,
+                returningColumns,
+            );
+
+            if (Array.isArray(result.data)) {
+                res.status(201).send({ message: 'Categoria adicionada com sucesso!' });
+            } else {
+                res.sendError(result.error, 500);
+            }
         }
+    } else {
+        res.status(401).send({ message: 'Não autorizado' });
     }
 };

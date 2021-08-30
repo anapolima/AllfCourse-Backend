@@ -28,7 +28,6 @@ exports.addUser = async (req, res) => {
     const expire = new Date();
     expire.setHours(expire.getHours() + 2);
     try {
-        // eslint-disable-next-line max-len
         const check = await checkregister.check(document, email, phone, firstname, lastname, gender, birthdate);
         if (check !== true) {
             res.sendError(check, 500);

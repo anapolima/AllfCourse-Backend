@@ -1,20 +1,21 @@
 // -----------------------------------------------------------------------------------------------//
-// Archive: routes/sales.routes.js
-// Description: File responsible for api routes related to 'sales' class
+// Archive: routes/login.routes.js
+// Description: File responsible for api routes related to 'session' class
 // Data: 2021/08/27
 // Author: Allfcourse team
 // -----------------------------------------------------------------------------------------------//
 
 const express = require('express');
-const jwtuser = require('@middlewares/auth');
 
 const router = express.Router();
-const { addSale } = require('@controller/sales/addSale.controller');
+const { login } = require('@controller/session/login.controller');
+const { logout } = require('@controller/session/logout.controller');
 
 // ------------------------------------------------------------//
-// -------------------------sales-routes-----------------------//
-router.post('/buy', jwtuser, addSale); // aluno, professor
-// -------------------------sales-routes-----------------------//
+// -----------------------session-routes-----------------------//
+router.post('/login', login);
+router.post('/logout', logout);
+// -----------------------session-routes-----------------------//
 // ------------------------------------------------------------//
 
 module.exports = router;
