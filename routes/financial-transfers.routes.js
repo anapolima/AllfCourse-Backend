@@ -1,6 +1,6 @@
 // -----------------------------------------------------------------------------------------------//
 // Archive: routes/courses.routes.js
-// Description: File responsible for api routes related to 'courses' class
+// Description: File responsible for api routes related to 'financial-transfers' class
 // Data: 2021/08/30
 // Author: Allfcourse team
 // -----------------------------------------------------------------------------------------------//
