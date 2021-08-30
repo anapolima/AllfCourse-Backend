@@ -90,7 +90,7 @@ exports.getCoursesInFlags = async (req, res) => {
                                 value: 'aprovado',
                             },
                         },
-                        logicalOperators: ['AND'],
+                        logicalOperators: ['AND', 'AND'],
                     },
                     users: {
                         join: 'join',
