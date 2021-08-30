@@ -109,15 +109,10 @@ exports.getModulesByCourse = async (req, res) => {
         const modules = await query.Select(table, columns, where, logicalOperator, order, join);
 
         if (Array.isArray(modules.data)) {
-            if (modules.data.length === 0) {
-                res.sendError('Não existe nada por aqui', 500);
-            }
+            res.status(200).send(modules.data);
         } else {
             res.sendError('Ocorreu um erro inesperado durante a consulta dos módulos', 500);
         }
-
-        console.table(modules.data);
-        res.status(200).send(modules.data);
     }
     // } else {
     //     res.status(401).send({ message: 'Não autorizado' });
