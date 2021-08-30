@@ -56,3 +56,5 @@ Se o id passado for zero retorna informações de todas as contas a receber;
 as contas a receber referentes àquela venda. Se o id passado for zero retorna informações de todas as contas a receber;
     - Adição da tota de get sales/:id. Recebe no :id o id de uma venda e retorna suas informações. Se o id passado
 for zero, retorna todas as vendas.
+    - Adição da rota get sales/student/:id. Recebe no :id o id de um estudante e retorna informações de todas as 
+vendas realizadas para o aluno especificado. Se o id passado for zero retorna informações de todas as vendas
