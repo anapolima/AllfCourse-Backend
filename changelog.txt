@@ -39,11 +39,15 @@
 
 29 de agosto, Ana Paula:
     - Correção de bugs na Query
-    - Adição da rota de get courses-in-flag/:id. Recebe no :id o id de uma categoria e retorna todos os 
+    - Adição da rota de get courses/flag/:id. Recebe no :id o id de uma categoria e retorna todos os 
 cursos daquela categoria. Se o id passado for zero, retorna todos os cursos de todas as categorias.
-    - Adição da rota de get modules-by-course/:id. Recebe no :id o id de um curso e retorna todos os
+    - Adição da rota de get modules/course/:id. Recebe no :id o id de um curso e retorna todos os
 módulos daquele curso. Se o id passado for zero, retorna todos os módulos existentes
     - Adição da rota get payment-methods/:id. Recebe no :id o id de um método de pagamento e retorna as
 informações referentes a esse método. Se o id passado for zero retorna todos os métodos existentes.
-    - Adição da rota get sales:id. Recebe no :id o id de um curso e retorna informações de todas as vendas 
+    - Adição da rota get sales/course/:id. Recebe no :id o id de um curso e retorna informações de todas as vendas 
 do curso especificado. Se o id passado for zero retorna informações de todas as vendas
+    - Adiçao da rota get financial-transfer/teacher/:id. Recebe no :id o id de um professor e retorna informações
+de todos os repasses financeiros daquele professor. Se o id passado for zero retorna informações de todos os 
+repasses
+    
