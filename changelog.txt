@@ -37,27 +37,18 @@
     - Adicionado coluna "deleted_by" na modules
     - Consoles.logs e comentários antigos/irrelevantes removidos
 
-29 de agosto, Ana Paula:
+30 de agosto, Ana Paula:
     - Correção de bugs na Query
-    - Adição da rota de get courses/flag/:id. Recebe no :id o id de uma categoria e retorna todos os 
-cursos daquela categoria. Se o id passado for zero, retorna todos os cursos de todas as categorias.
-    - Adição da rota de get modules/course/:id. Recebe no :id o id de um curso e retorna todos os
-módulos daquele curso. Se o id passado for zero, retorna todos os módulos existentes
-    - Adição da rota get payment-methods/:id. Recebe no :id o id de um método de pagamento e retorna as
-informações referentes a esse método. Se o id passado for zero retorna todos os métodos existentes.
-    - Adição da rota get sales/course/:id. Recebe no :id o id de um curso e retorna informações de todas as vendas 
-do curso especificado. Se o id passado for zero retorna informações de todas as vendas
-    - Adiçao da rota get financial-transfer/teacher/:id. Recebe no :id o id de um professor e retorna informações
-de todos os repasses financeiros daquele professor. Se o id passado for zero retorna informações de todos os 
-repasses
-    - Adição da rota de get receive-bills/:id. Recebe no :id o id de uma conta a receber e retorna suas informações.
-Se o id passado for zero retorna informações de todas as contas a receber;
-    - Adição da rota de get receive-bills/sale/:id. Recebe no :id o id de uma venda e retorna as informações sobre
-as contas a receber referentes àquela venda. Se o id passado for zero retorna informações de todas as contas a receber;
-    - Adição da tota de get sales/:id. Recebe no :id o id de uma venda e retorna suas informações. Se o id passado
-for zero, retorna todas as vendas.
-    - Adição da rota get sales/student/:id. Recebe no :id o id de um estudante e retorna informações de todas as 
-vendas realizadas para o aluno especificado. Se o id passado for zero retorna informações de todas as vendas
+    - Adição da rota de get courses/flag/:id
+    - Adição da rota de get modules/course/:id
+    - Adição da rota get payment-methods/:id
+    - Adição da rota get sales/course/:id
+    - Adiçao da rota get financial-transfer/teacher/:id
+    - Adição da rota de get receive-bills/:id
+    - Adição da rota de get receive-bills/sale/:id
+    - Adição da tota de get sales/:id
+    - Adição da rota get sales/student/:id
+    - Adição da rota get courses/logged-teacher
 
 30 de agosto:
     - Adição da rota: 'checkpasstoken', seu controlador: 'checkResetPassToken.controller' e sua função de validação:
