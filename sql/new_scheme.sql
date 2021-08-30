@@ -199,6 +199,9 @@ CREATE TABLE public.payment_method (
 	"id" serial NOT NULL,
 	"name" varchar(30) NOT NULL,
 	"installments" integer NOT NULL,
+    "created_at" timestamp with time zone NOT NULL DEFAULT(timezone('America/Sao_Paulo'::text, now())),
+	"deleted_at" timestamp with time zone,
+
 	CONSTRAINT "payment_method_pk" PRIMARY KEY ("id")
 ) WITH (
   OIDS=FALSE
