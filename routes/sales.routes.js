@@ -10,10 +10,12 @@ const jwtuser = require('@middlewares/auth');
 
 const router = express.Router();
 const { addSale } = require('@controller/sales/addSale.controller');
+const { getSales } = require('@controller/sales/getSales.controller');
 
 // ------------------------------------------------------------//
 // -------------------------sales-routes-----------------------//
 router.post('/buy', jwtuser, addSale); // aluno, professor
+router.get('/sales/:id', getSales);
 // -------------------------sales-routes-----------------------//
 // ------------------------------------------------------------//
 
