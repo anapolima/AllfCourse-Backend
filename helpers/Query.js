@@ -404,7 +404,8 @@ class QueryGenerator {
         ? join[_table].logicalOperators[_indexColumn]
         : ''
 }`);
-                                        } else if (Number.isNaN(value)) {
+                                        // eslint-disable-next-line no-restricted-globals
+                                        } else if (isNaN(value)) {
                                             whereJoinParams.push(`
                                                     ${_table}.${_column} ${operator.toUpperCase()}
                                                      ${value} 
@@ -490,6 +491,7 @@ class QueryGenerator {
                     this.#whereParams = '';
                     this.#whereColumns = '';
                     this.#orderBy = '';
+                    this.#join = '';
                 });
             return result;
         }
