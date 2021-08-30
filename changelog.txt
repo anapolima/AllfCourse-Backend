@@ -58,3 +58,8 @@ as contas a receber referentes àquela venda. Se o id passado for zero retorna i
 for zero, retorna todas as vendas.
     - Adição da rota get sales/student/:id. Recebe no :id o id de um estudante e retorna informações de todas as 
 vendas realizadas para o aluno especificado. Se o id passado for zero retorna informações de todas as vendas
+
+30 de agosto:
+    - Adição da rota: 'checkpasstoken', seu controlador: 'checkResetPassToken.controller' e sua função de validação:
+    'checkResetPassTokenOnly'. Verifica a validade do token para recuperação de senha isoladamente antes
+    de fazer nova requisição enviando a nova senha.

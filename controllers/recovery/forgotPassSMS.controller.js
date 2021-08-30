@@ -11,6 +11,7 @@ const smsrequest = require('@functions/sendForgotPassSMS');
 const crypto = require('crypto');
 
 exports.forgotPassSMS = async (req, res) => {
+    console.log(req.body);
     const errors = { criticalErrors: {}, validationErrors: {} };
     const { phone } = req.body;
     const token = crypto.randomBytes(20).toString('hex');

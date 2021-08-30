@@ -13,7 +13,7 @@ const { logout } = require('@controller/session/logout.controller');
 
 // ------------------------------------------------------------//
 // -----------------------session-routes-----------------------//
-router.post('/login', login);
+router.get('/login', login);
 router.post('/logout', logout);
 // -----------------------session-routes-----------------------//
 // ------------------------------------------------------------//
