@@ -14,7 +14,7 @@ module.exports = {
             return errors;
         }
 
-        const check1SelectTeacherId = ['*'];
+        const check1SelectTeacherId = ['id'];
 
         const whereCheck1 = {
             id: {
