@@ -462,7 +462,7 @@ class QueryGenerator {
                         whereColumns.length !== 0
                             ? `WHERE ${this.#whereParams}`
                             : ''
-                    } ${orderBy ? `ORDER BY ${this.#orderBy}` : ''}`,
+                    } ${orderBy && orderBy.length > 0 ? `ORDER BY ${this.#orderBy}` : ''}`,
                     values,
                 ))
                 .then((result) => {
