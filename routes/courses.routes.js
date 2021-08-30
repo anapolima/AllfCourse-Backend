@@ -22,8 +22,8 @@ const { getModulesByCourse } = require('@app/controllers/courses/getCourseModule
 router.post('/addcourse', jwtuser, addCourse); // professor
 router.get('/getcourse/:id', jwtuser, getcourse); // todos
 router.get('/getclass/:moduleid', jwtuser, getclass); // todos
-router.get('/courses-in-flags/:id', jwtuser, getCoursesInFlags); // retorna todos os cursos em uma determinada categoria (passar o id da categoria), se 0 retorna todos os cursos de todas as categorias
-router.get('/modules-by-course/:id', jwtuser, getModulesByCourse);
+router.get('/courses/flag/:id', jwtuser, getCoursesInFlags); // retorna todos os cursos em uma determinada categoria (passar o id da categoria), se 0 retorna todos os cursos de todas as categorias
+router.get('/modules/course/:id', jwtuser, getModulesByCourse);
 router.delete('/deletecourse/:id', jwtuser, deletecourse);
 router.delete('/deletemodule/:id', jwtuser, deletecoursemodule);
 router.put('/validatecourse', jwtuser, validateCourse);

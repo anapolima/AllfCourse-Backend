@@ -15,7 +15,7 @@ const { getSales } = require('@controller/sales/getSales.controller');
 // ------------------------------------------------------------//
 // -------------------------sales-routes-----------------------//
 router.post('/buy', jwtuser, addSale); // aluno, professor
-router.get('/sales/:id', jwtuser, getSales);
+router.get('/sales/course/:id', jwtuser, getSales);
 // -------------------------sales-routes-----------------------//
 // ------------------------------------------------------------//
 
