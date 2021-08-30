@@ -66,8 +66,6 @@ exports.getCoursesByLoggedTeacher = async (req, res) => {
         res.sendError('Ocorreu um problema durante a consulta de cursos', 500);
     }
 
-    res.status(200).send(courses);
-
     // } else {
     //     res.status(401).send({ message: 'Não autorizado' });
     // }
