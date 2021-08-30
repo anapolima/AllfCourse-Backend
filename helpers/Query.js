@@ -25,6 +25,8 @@ class QueryGenerator {
 
     #join
 
+    #groupBy
+
     constructor() {
         this.#query = '';
         this.#columns = '';
@@ -186,7 +188,7 @@ class QueryGenerator {
         return this.#result;
     }
 
-    Select(_table, _columns, _whereColumnsValues, _logicalOperators, _orderBy, _join) {
+    Select(_table, _columns, _whereColumnsValues, _logicalOperators, _orderBy, _join, _groupBy) {
         this.#SetClient();
         this.#result = {
             error: {
@@ -206,6 +208,7 @@ class QueryGenerator {
         const values = [];
         const orderBy = _orderBy;
         const join = _join;
+        const groupBy = _groupBy;
 
         if (Array.isArray(columns)) {
             this.#columns = columns.join(', ');
@@ -454,6 +457,12 @@ class QueryGenerator {
                 }
             }
 
+            if (groupBy) {
+                if (Array.isArray(groupBy)) {
+                    this.#groupBy = groupBy.join(', ');
+                }
+            }
+
             const result = this.#client
                 .connect()
                 .then(() => this.#client.query(
@@ -462,7 +471,8 @@ class QueryGenerator {
                         whereColumns.length !== 0
                             ? `WHERE ${this.#whereParams}`
                             : ''
-                    } ${orderBy && orderBy.length > 0 ? `ORDER BY ${this.#orderBy}` : ''}`,
+                    } ${groupBy && groupBy.length > 0 ? `GROUP BY ${this.#groupBy}` : ''}
+                    ${orderBy && orderBy.length > 0 ? `ORDER BY ${this.#orderBy}` : ''}`,
                     values,
                 ))
                 .then((result) => {
@@ -492,6 +502,7 @@ class QueryGenerator {
                     this.#whereColumns = '';
                     this.#orderBy = '';
                     this.#join = '';
+                    this.#groupBy = '';
                 });
             return result;
         }
