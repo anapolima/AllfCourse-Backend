@@ -39,5 +39,7 @@
 
 29 de agosto, Ana Paula:
     - Correção de bugs na Query
-    - Adição da rota de get courses-in-flag/:id. Recebe no :id o id de uma categoria e retorna todos os/
+    - Adição da rota de get courses-in-flag/:id. Recebe no :id o id de uma categoria e retorna todos os 
 cursos daquela categoria. Se o id passado for zero, retorna todos os cursos de todas as categorias.
+    - Adição da rota de get modules-by-course/:id. Recebe no :id o id de um curso e retorna todos os
+módulos daquele curso. Se o id passado for zero, retorna todos os módulos existentes
