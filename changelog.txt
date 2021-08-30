@@ -50,6 +50,7 @@ do curso especificado. Se o id passado for zero retorna informações de todas a
     - Adiçao da rota get financial-transfer/teacher/:id. Recebe no :id o id de um professor e retorna informações
 de todos os repasses financeiros daquele professor. Se o id passado for zero retorna informações de todos os 
 repasses
-    -Adição da rota de get receive-bills/:id. Recebe no :id o id de uma conta a receber e retorna suas informações.
+    - Adição da rota de get receive-bills/:id. Recebe no :id o id de uma conta a receber e retorna suas informações.
 Se o id passado for zero retorna informações de todas as contas a receber;
-    
+    - Adição da rota de receive-bills/sale/:id. Recebe no :id o id de uma venda e retorna as informações sobre
+as contas a receber referentes àquela venda. Se o id passado for zero retorna informações de todas as contas a receber;
