@@ -41,9 +41,9 @@ exports.getCoursesInFlags = async (req, res) => {
             if (Array.isArray(resultCheck1.data)) {
                 const columns = [
                     'courses.id as course_id',
-                    'courses.name as nome_curso',
+                    'courses.name as course_name',
                     'courses_categories.id as category_id',
-                    'courses_categories.name as categoria',
+                    'courses_categories.name as category_name',
                     'users.id as teacher_id',
                     'CONCAT(users.first_name, \' \', users.last_name) as teacher_name',
                 ];
@@ -81,7 +81,7 @@ exports.getCoursesInFlags = async (req, res) => {
                                 operator: '=',
                                 value: 'courses_flags.course_id',
                             },
-                            deleted_At: {
+                            deleted_at: {
                                 operator: 'is',
                                 value: 'null',
                             },
@@ -172,7 +172,7 @@ exports.getCoursesInFlags = async (req, res) => {
                             operator: '=',
                             value: 'courses_flags.course_id',
                         },
-                        deleted_At: {
+                        deleted_at: {
                             operator: 'is',
                             value: 'null',
                         },
