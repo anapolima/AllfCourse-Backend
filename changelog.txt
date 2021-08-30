@@ -45,3 +45,5 @@ cursos daquela categoria. Se o id passado for zero, retorna todos os cursos de t
 módulos daquele curso. Se o id passado for zero, retorna todos os módulos existentes
     - Adição da rota get payment-methods/:id. Recebe no :id o id de um método de pagamento e retorna as
 informações referentes a esse método. Se o id passado for zero retorna todos os métodos existentes.
+    - Adição da rota get sales:id. Recebe no :id o id de um curso e retorna informações de todas as vendas 
+do curso especificado. Se o id passado for zero retorna informações de todas as vendas
