@@ -23,6 +23,7 @@ app.use(require('./sales.routes'));
 app.use(require('./courses.routes'));
 app.use(require('./course-categories.routes'));
 app.use(require('./payment-method.routes'));
+app.use(require('./financial-transfers.routes'));
 // ------------------------general-routes----------------------//
 // ------------------------------------------------------------//
 
