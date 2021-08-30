@@ -9,11 +9,13 @@ const express = require('express');
 const jwtuser = require('@middlewares/auth');
 
 const { getReceiveBills } = require('@controller/receive-bills/getReceiveBills.controller');
+const { getReceiveBillsBySale } = require('@controller/receive-bills/getReceiveBillsBySale.controller');
 
 const router = express.Router();
 // ------------------------------------------------------------//
 // -----------------------receive-bills-routes-----------------------//
-router.get('/receive-bills/:id', jwtuser, getReceiveBills); // todos
+router.get('/receive-bills/:id', jwtuser, getReceiveBills);
+router.get('/receive-bills/sale/:id', getReceiveBillsBySale);
 
 // -----------------------receive-bills-routes-----------------------//
 // ------------------------------------------------------------//
