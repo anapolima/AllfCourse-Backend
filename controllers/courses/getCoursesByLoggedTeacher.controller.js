@@ -13,7 +13,7 @@ exports.getCoursesByLoggedTeacher = async (req, res) => {
     // if (userType === 1 || userType === 3) {
     const columns = [
         'courses.id as course_id',
-        'courses.name as course_name',
+        'courses.name as name',
         'courses.description as description',
         'courses.price as value',
         'courses.status as status',
