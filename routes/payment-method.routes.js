@@ -10,10 +10,12 @@ const jwtuser = require('@middlewares/auth');
 
 const router = express.Router();
 const { addPaymentMethod } = require('@controller/payment-method/addPaymentMethod.controller');
+const { getPaymentMethod } = require('@controller/payment-method/getPaymentMethod.controller');
 
 // ------------------------------------------------------------//
 // --------------------payment-method-routes-------------------//
 router.post('/payment-methods', jwtuser, addPaymentMethod); // admin
+router.get('/payment-methods/:id', jwtuser, getPaymentMethod);
 // --------------------payment-method-routes-------------------//
 // ------------------------------------------------------------//
 
