@@ -698,7 +698,7 @@ class QueryGenerator {
                             const duration = Date.now() - start;
                             fs.appendFileSync(
                                 './logs/queries_log.log',
-                                `executed query: { UPDATE ${table} SET ${this.params} ${
+                                `executed query: { UPDATE ${table} SET ${this.#params} ${
                                     whereColumns ? `WHERE ${this.#whereParams}` : ''
                                 } ${
                                     returning ? `RETURNING ${this.#returning}` : ''
@@ -739,7 +739,7 @@ class QueryGenerator {
                     const duration = Date.now() - start;
                     fs.appendFileSync(
                         './logs/queries_log.log',
-                        `executed query: { UPDATE ${table} SET ${this.params} ${
+                        `executed query: { UPDATE ${table} SET ${this.#params} ${
                             whereColumns ? `WHERE ${this.#whereParams}` : ''
                         } ${
                             returning ? `RETURNING ${this.#returning}` : ''

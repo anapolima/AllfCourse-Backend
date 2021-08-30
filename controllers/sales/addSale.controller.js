@@ -1,4 +1,3 @@
-/* eslint-disable no-await-in-loop */
 // -----------------------------------------------------------------------------------------------//
 // Archive: controllers/sales/addSale.controller.js
 // Description: File responsible for the 'addSale' function of the 'sales' class controller
@@ -6,43 +5,24 @@
 // Author: Allfcourse team
 // -----------------------------------------------------------------------------------------------//
 
-const query = require('@helpers/Query');
-const db2 = require('@model/db2');
-
+const db = require('@model/db2');
 const checkAddBuy = require('@functions/checkAddBuy');
 
 exports.addSale = async (req, res) => {
-    const { courseid } = req.body;
-    const { studentid } = req.body;
-    const { paymentmethodid } = req.body;
-    const { price } = req.body;
-    const userid = req.auth.id;
-    const today = new Date();
+    const { type } = req.auth;
+    const errors = { criticalErrors: {}, validationErrors: {} };
+    if (type === 1 || type === 3 || type === 7) {
+        const { courseid } = req.body;
+        const { studentid } = req.body;
+        const { paymentmethodid } = req.body;
+        const { price } = req.body;
+        const userid = req.auth.id;
+        const today = new Date();
 
-    const check = await checkAddBuy.check(courseid, studentid, price, paymentmethodid);
+        const check = await checkAddBuy.check(courseid, studentid, price, paymentmethodid);
 
-    if (Object.keys(check.validationErrors).length !== 0
-        || Object.keys(check.criticalErrors).length !== 0) {
-        res.sendError(check, 500);
-    } else {
-        try {
-            /* const columns1 = {
-                course_id: check.course_id,
-                student_id: check.student_id,
-                price: check.price,
-                payment_method_id: check.payment_method_id,
-                release_date: today,
-            };
-            const returningColumns1 = ['*'];
-
-            const result1 = await query.InsertSale(
-                'sales',
-                columns1,
-                returningColumns1,
-            ); */
-
-            await db2.query('BEGIN TRANSACTION');
-            const result1 = await db2.query('INSERT INTO sales(course_id, student_id, price, payment_method_id, release_date) VALUES ($1, $2, $3, $4, $5) RETURNING *',
+        async function insertsale() {
+            const result1 = await db.query('INSERT INTO sales(course_id, student_id, price, payment_method_id, release_date) VALUES ($1, $2, $3, $4, $5) RETURNING *',
                 [
                     courseid,
                     studentid,
@@ -50,87 +30,128 @@ exports.addSale = async (req, res) => {
                     paymentmethodid,
                     today,
                 ]);
-
-            if (result1) {
-                // console.log(result1);
-                const checkSelect1 = ['installments'];
-                const whereCheck1 = {
-                    id: {
-                        operator: '=',
-                        value: check.payment_method_id,
-                    },
+            if (result1.severity === 'ERROR') {
+                await db.query('ROLLBACK');
+                errors.criticalErrors.error = {
+                    message: 'Ocorreu um ao inserir a venda.',
+                    code: 500,
+                    detail: { ...result1 },
                 };
-                const checkOperators = [''];
-                const getinstallments = await query.Select(
-                    'payment_method',
-                    checkSelect1,
-                    whereCheck1,
-                    checkOperators,
-                );
-
-                if (getinstallments.data[0].installments > 1) {
-                    const due = new Date();
-                    for (let i = 1; i <= getinstallments.data[0].installments; i++) {
-                        // console.log(result1);
-                        /* const columns2 = {
-                            sale_id: result1.data[0].id,
-                            installment: i,
-                            subtotal: check.price,
-                            due_date: due,
-                            receipt_date: new Date(),
-                        };
-                        const returningColumns2 = ['*'];
-                        await query.InsertSale(
-                            'receive_bills',
-                            columns2,
-                            returningColumns2,
-                        ); */
-                        await db2.query('INSERT INTO receive_bills(sale_id, installment, subtotal, due_date) VALUES($1, $2, $3, $4) RETURNING *',
-                            [
-                                result1.rows[0].id,
-                                i,
-                                result1.rows[0].price / getinstallments.data[0].installments,
-                                due,
-                            ]);
-                        // console.log(result2);
-                        due.setDate(due.getDate() + 30 * i);
-                    }
-                    /* const columns3 = {
-                        sale_id: result1.data[0].id,
-                        teacher_id: userid,
-                        price: check.price,
-                        due_date: due,
-                        pay_date: new Date(),
-                    };
-                    const returningColumns3 = ['*'];
-                    const result3 = await query.InsertSale(
-                        'financial_transfer',
-                        columns3,
-                        returningColumns3,
-                    ); */
-                    await db2.query('INSERT INTO financial_transfer(sale_id, teacher_id, price, due_date, pay_date) VALUES($1, $2, $3, $4, $5)',
-                        [
-                            result1.rows[0].id,
-                            userid,
-                            check.price,
-                            due,
-                            new Date(),
-                        ]);
-
-                    await db2.query('INSERT INTO enroll_students(student_id, course_id) VALUES($1, $2)',
-                        [
-                            studentid,
-                            courseid,
-                        ]);
-                    await db2.query('COMMIT');
-                    res.send('Compra sucedida');
-                }
-            } else {
-                res.sendError(result1.error, 500);
+                return errors;
             }
-        } catch (err) {
-            console.log(err);
-            res.sendError('blabla', 500);
+            return result1;
         }
+
+        async function receivebills(resultsale, getinstallments) {
+            const due = new Date();
+            for (let i = 1; i <= getinstallments.rows.length + 1; i++) {
+                const eachbill = await db.query('INSERT INTO receive_bills(sale_id, installment, subtotal, due_date) VALUES($1, $2, $3, $4) RETURNING *',
+                    [
+                        resultsale.rows[0].id,
+                        i,
+                        resultsale.rows[0].price / getinstallments.rows[0].installments,
+                        due,
+                    ]);
+                due.setDate(due.getDate() + 30 * i);
+                if (eachbill.severity === 'ERROR') {
+                    await db.query('ROLLBACK');
+                    errors.criticalErrors.error = {
+                        message: 'Ocorreu um erro ao inserir as contas a receber.',
+                        code: 500,
+                        detail: { ...eachbill },
+                    };
+                    return errors;
+                }
+            }
+            return due;
+        }
+
+        async function teachertransfer(resultsale, due) {
+            const transfer = await db.query('INSERT INTO financial_transfer(sale_id, teacher_id, price, due_date, pay_date) VALUES($1, $2, $3, $4, $5)',
+                [
+                    resultsale.rows[0].id,
+                    userid,
+                    check.price,
+                    due,
+                    new Date(),
+                ]);
+            if (transfer.severity === 'ERROR') {
+                await db.query('ROLLBACK');
+                errors.criticalErrors.error = {
+                    message: 'Ocorreu um erro ao inserir pagamento do professor.',
+                    code: 500,
+                    detail: { ...transfer },
+                };
+                return errors;
+            }
+            return true;
+        }
+
+        async function enrollstudent() {
+            const enroll = await db.query('INSERT INTO enroll_students(student_id, course_id) VALUES($1, $2)',
+                [
+                    studentid,
+                    courseid,
+                ]);
+            if (enroll.severity === 'ERROR') {
+                await db.query('ROLLBACK');
+                errors.criticalErrors.error = {
+                    message: 'Ocorreu um erro ao inserir a matrícula do aluno.',
+                    code: 500,
+                    detail: { ...enroll },
+                };
+                return errors;
+            }
+            return true;
+        }
+
+        if (Object.keys(check.validationErrors).length !== 0
+        || Object.keys(check.criticalErrors).length !== 0) {
+            res.sendError(check, 500);
+        } else {
+            try {
+                await db.query('BEGIN');
+                const newsale = await insertsale();
+                if (!newsale.criticalErrors) {
+                    const getinstallments = await db.query('SELECT installments from payment_method WHERE id = $1', [check.payment_method_id]);
+                    if (getinstallments.length <= 0) {
+                        errors.criticalErrors.error = {
+                            message: 'Metódo de pagamento não existe.',
+                            code: 500,
+                            detail: { ...errors },
+                        };
+                        res.sendError(errors, 500);
+                    } else {
+                        const newbill = await receivebills(newsale, getinstallments);
+                        if (!newbill.criticalErrors) {
+                            const newtransfer = await teachertransfer(newsale, newbill);
+                            if (!newtransfer.criticalErrors) {
+                                const newstudent = await enrollstudent();
+                                if (!newstudent.criticalErrors) {
+                                    await db.query('COMMIT');
+                                    res.status(201).send({ message: 'Compra sucedida' });
+                                } else {
+                                    res.sendError(newstudent, 500);
+                                }
+                            } else {
+                                res.sendError(newtransfer, 500);
+                            }
+                        } else {
+                            res.sendError(newbill, 500);
+                        }
+                    }
+                }
+            } catch (err) {
+                console.log(err);
+                errors.criticalErrors.error = {
+                    message: 'Ocorreu um ao realizar a compra do curso.',
+                    code: 500,
+                    detail: { ...err },
+                };
+                res.sendError(err, 500);
+            }
+        }
+    } else {
+        res.status(401).send({ message: 'Não autorizado' });
     }
 };

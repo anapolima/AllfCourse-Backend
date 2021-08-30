@@ -1,1 +1,1 @@
-[{"name":"JsonWebTokenError","message":"jwt malformed"},{"name":"JsonWebTokenError","message":"jwt malformed"}]
+[{"name":"JsonWebTokenError","message":"jwt malformed"},{"name":"JsonWebTokenError","message":"jwt malformed"},{"name":"JsonWebTokenError","message":"jwt must be provided"}]

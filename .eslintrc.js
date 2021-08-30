@@ -33,5 +33,9 @@ module.exports = {
             4,
         ],
         'no-param-reassign': 'off',
+        'no-inner-declarations': 'off',
+        'max-len': 'off',
+        'no-restricted-syntax': 'off',
+        'no-await-in-loop': 'off',
     },
 };

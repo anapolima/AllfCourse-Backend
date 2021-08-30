@@ -98,7 +98,7 @@ module.exports = {
         if (Array.isArray(resultCheck1.data)) {
             if (resultCheck1.data.length === 0) {
                 errors.validationErrors.courseid = {
-                    message: 'Não existe nenhum curso com o ID informado',
+                    message: 'Não existe nenhum curso com o ID informado ou o curso não está aprovado',
                     code: 500,
                 };
             }

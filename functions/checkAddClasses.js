@@ -1,10 +1,8 @@
 const validateClass = require('@validations/validateClasses');
-// const query = require('@helpers/Query');
 const db = require('@model/db2');
-// test
+
 module.exports = {
     check: async (_name, _order, _moduleId, _inactive, _link, _description) => {
-        // const check1SelectTeacherName = ['id'];
         const errors = { criticalErrors: {}, validationErrors: {} };
 
         const validClassName = validateClass.validateClassName(
