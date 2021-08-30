@@ -49,6 +49,7 @@
     - Adição da tota de get sales/:id
     - Adição da rota get sales/student/:id
     - Adição da rota get courses/logged-teacher
+    - Adição da rota de delete classes/:id
 
 30 de agosto:
     - Adição da rota: 'checkpasstoken', seu controlador: 'checkResetPassToken.controller' e sua função de validação:
