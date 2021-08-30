@@ -5,6 +5,7 @@ const bcrypt = require('bcrypt');
 require('dotenv').config();
 
 async function check(token, newpass, confirmnewpass) {
+    console.log('1', token, newpass, confirmnewpass);
     // const errors = [];
     const errors = { criticalErrors: {}, validationErrors: {} };
     const validtoken = validateNewPass.validateToken(token, errors.validationErrors);
@@ -29,6 +30,7 @@ async function check(token, newpass, confirmnewpass) {
     const check1 = await query.Select('users', checkSelect1, whereCheck1, ['']);
 
     if (check1.data.length >= 1) {
+        console.log(check1);
         const expire = new Date(check1.data[0].rtoken_expire);
         if (new Date(now_converted).getTime() < new Date(expire).getTime()) {
             const whereColumns = {
@@ -41,7 +43,8 @@ async function check(token, newpass, confirmnewpass) {
             fieldsValue.recover_token = null;
             fieldsValue.rtoken_expire = null;
             fieldsValue.password = bcrypt.hashSync(newpass, 10);
-            await query.Update('users', fieldsValue, ['*'], whereColumns, ['']);
+            const teste = await query.Update(true, 'users', fieldsValue, ['*'], whereColumns, ['']);
+            console.log(teste);
             return true;
         }
         errors.criticalErrors.tokenExpired = {

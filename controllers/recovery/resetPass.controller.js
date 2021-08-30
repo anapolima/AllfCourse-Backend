@@ -13,6 +13,7 @@ exports.resetPass = async (req, res) => {
     const { token } = req.body;
     const { password } = req.body;
     const { confirmPassword } = req.body;
+    console.log('1', req.body);
     try {
         const check = await newuserpass.check(token, password, confirmPassword);
         if (check !== true) {

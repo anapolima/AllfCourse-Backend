@@ -3384,3 +3384,95 @@ DATE: Sunday, August 29, 2021
 HTTP STATUS CODE: 500
 
 >>>>>>> 07b06bcc74b7a9d3c24f6867a622c5e762c1d0d3
+GET /login 1069.431 ms
+DATE: Monday, August 30, 2021
+HTTP STATUS CODE: 403
+
+OPTIONS /requestpass-email 4.601 ms
+DATE: Monday, August 30, 2021
+HTTP STATUS CODE: 204
+
+POST /requestpass-email 4866.706 ms
+DATE: Monday, August 30, 2021
+HTTP STATUS CODE: 201
+
+OPTIONS /requestpass-email 0.360 ms
+DATE: Monday, August 30, 2021
+HTTP STATUS CODE: 204
+
+POST /requestpass-email 4568.642 ms
+DATE: Monday, August 30, 2021
+HTTP STATUS CODE: 201
+
+OPTIONS /checkpasstoken 0.785 ms
+DATE: Monday, August 30, 2021
+HTTP STATUS CODE: 204
+
+POST /checkpasstoken 873.686 ms
+DATE: Monday, August 30, 2021
+HTTP STATUS CODE: 201
+
+OPTIONS /resetpass 3.744 ms
+DATE: Monday, August 30, 2021
+HTTP STATUS CODE: 204
+
+POST /resetpass 1068.567 ms
+DATE: Monday, August 30, 2021
+HTTP STATUS CODE: 201
+
+OPTIONS /requestpass-email 3.005 ms
+DATE: Monday, August 30, 2021
+HTTP STATUS CODE: 204
+
+POST /requestpass-email 5185.912 ms
+DATE: Monday, August 30, 2021
+HTTP STATUS CODE: 201
+
+OPTIONS /checkpasstoken 0.360 ms
+DATE: Monday, August 30, 2021
+HTTP STATUS CODE: 204
+
+POST /checkpasstoken 825.547 ms
+DATE: Monday, August 30, 2021
+HTTP STATUS CODE: 500
+
+OPTIONS /checkpasstoken 0.411 ms
+DATE: Monday, August 30, 2021
+HTTP STATUS CODE: 204
+
+POST /checkpasstoken 1039.345 ms
+DATE: Monday, August 30, 2021
+HTTP STATUS CODE: 201
+
+OPTIONS /resetpass 0.337 ms
+DATE: Monday, August 30, 2021
+HTTP STATUS CODE: 204
+
+POST /resetpass 1086.051 ms
+DATE: Monday, August 30, 2021
+HTTP STATUS CODE: 201
+
+OPTIONS /requestpass-email 5.245 ms
+DATE: Monday, August 30, 2021
+HTTP STATUS CODE: 204
+
+POST /requestpass-email 4279.042 ms
+DATE: Monday, August 30, 2021
+HTTP STATUS CODE: 201
+
+OPTIONS /checkpasstoken 0.354 ms
+DATE: Monday, August 30, 2021
+HTTP STATUS CODE: 204
+
+POST /checkpasstoken 980.175 ms
+DATE: Monday, August 30, 2021
+HTTP STATUS CODE: 201
+
+OPTIONS /resetpass 0.542 ms
+DATE: Monday, August 30, 2021
+HTTP STATUS CODE: 204
+
+POST /resetpass 885.960 ms
+DATE: Monday, August 30, 2021
+HTTP STATUS CODE: 201
+
