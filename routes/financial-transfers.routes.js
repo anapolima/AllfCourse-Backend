@@ -1,7 +1,7 @@
 // -----------------------------------------------------------------------------------------------//
 // Archive: routes/courses.routes.js
 // Description: File responsible for api routes related to 'courses' class
-// Data: 2021/08/27
+// Data: 2021/08/30
 // Author: Allfcourse team
 // -----------------------------------------------------------------------------------------------//
 
