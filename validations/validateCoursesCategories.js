@@ -1,5 +1,5 @@
 module.exports = {
-    validateCatrgoryId: (_id, _errors) => {
+    validateCategoryId: (_id, _errors) => {
         if (typeof (_id) === 'string') {
             const categoryId = _id.trim();
             const eIndex = categoryId.toLowerCase().indexOf('e');

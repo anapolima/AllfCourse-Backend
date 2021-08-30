@@ -36,3 +36,8 @@
     - Adicionado rota para validar um curso
     - Adicionado coluna "deleted_by" na modules
     - Consoles.logs e comentários antigos/irrelevantes removidos
+
+29 de agosto, Ana Paula:
+    - Correção de bugs na Query
+    - Adição da rota de get courses-in-flag/:id. Recebe no :id o id de uma categoria e retorna todos os/
+cursos daquela categoria. Se o id passado for zero, retorna todos os cursos de todas as categorias.
