@@ -8,7 +8,7 @@
 const query = require('@helpers/Query');
 const checkCourse = require('@app/functions/checkIfCourseExists');
 
-exports.getSales = async (req, res) => {
+exports.getSalesByCourseId = async (req, res) => {
     const courseId = req.params.id.toString();
     // const userType = req.auth.id;
 
