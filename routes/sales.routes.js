@@ -10,7 +10,7 @@ const jwtuser = require('@middlewares/auth');
 
 const router = express.Router();
 const { addSale } = require('@controller/sales/addSale.controller');
-const { getSales } = require('@controller/sales/getSales.controller');
+const { getSales } = require('@app/controllers/sales/getSalesByCourseId.controller');
 
 // ------------------------------------------------------------//
 // -------------------------sales-routes-----------------------//
