@@ -24,6 +24,7 @@ app.use(require('./courses.routes'));
 app.use(require('./course-categories.routes'));
 app.use(require('./payment-method.routes'));
 app.use(require('./financial-transfers.routes'));
+app.use(require('./receive-bills.routes'));
 // ------------------------general-routes----------------------//
 // ------------------------------------------------------------//
 
