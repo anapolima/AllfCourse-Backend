@@ -176,10 +176,10 @@ exports.getCoursesInFlags = async (req, res) => {
                             operator: 'is',
                             value: 'null',
                         },
-                        // status: {
-                        //     operator: 'like',
-                        //     value: 'aprovado',
-                        // },
+                        status: {
+                            operator: 'like',
+                            value: 'aprovado',
+                        },
                     },
                     logicalOperators: ['AND'],
                 },
