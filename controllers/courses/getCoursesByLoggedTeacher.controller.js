@@ -16,7 +16,7 @@ exports.getCoursesByLoggedTeacher = async (req, res) => {
         'courses.name as course_name',
         'courses.description as description',
         'courses.price as value',
-        'courses.status as course_status',
+        'courses.status as status',
         'COUNT(enroll_students.id) as enrolleds',
         'courses.created_at as create_date',
     ];
