@@ -52,5 +52,7 @@ de todos os repasses financeiros daquele professor. Se o id passado for zero ret
 repasses
     - Adição da rota de get receive-bills/:id. Recebe no :id o id de uma conta a receber e retorna suas informações.
 Se o id passado for zero retorna informações de todas as contas a receber;
-    - Adição da rota de receive-bills/sale/:id. Recebe no :id o id de uma venda e retorna as informações sobre
+    - Adição da rota de get receive-bills/sale/:id. Recebe no :id o id de uma venda e retorna as informações sobre
 as contas a receber referentes àquela venda. Se o id passado for zero retorna informações de todas as contas a receber;
+    - Adição da tota de get sales/:id. Recebe no :id o id de uma venda e retorna suas informações. Se o id passado
+for zero, retorna todas as vendas.
