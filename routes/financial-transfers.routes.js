@@ -8,7 +8,7 @@
 const express = require('express');
 const jwtuser = require('@middlewares/auth');
 
-const { getFinancialTransfersByTeacher } = require('@controller/financial-transfers/getFinancialTransfersByTeacher');
+const { getFinancialTransfersByTeacher } = require('@controller/financial-transfers/getFinancialTransfersByTeacher.controller');
 
 const router = express.Router();
 // ------------------------------------------------------------//
