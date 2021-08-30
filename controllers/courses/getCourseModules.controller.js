@@ -6,7 +6,7 @@
 // -----------------------------------------------------------------------------------------------//
 
 const query = require('@helpers/Query');
-const checkGetModulesByCourse = require('@app/functions/checkGetModulesByCourse');
+const checkGetModulesByCourse = require('@app/functions/checkIfCourseExists');
 
 exports.getModulesByCourse = async (req, res) => {
     const courseId = req.params.id.toString();
@@ -87,7 +87,7 @@ exports.getModulesByCourse = async (req, res) => {
                         value: 'aprovado',
                     },
                 },
-                logicalOperators: ['AND'],
+                logicalOperators: ['AND', 'AND'],
             },
             users: {
                 join: 'join',
