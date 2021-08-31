@@ -16,6 +16,7 @@ const { getstudent } = require('@controller/users/getEnrollStudentsController');
 const { deleteuser } = require('@controller/users/deleteUser.controller');
 const { updatephoto } = require('@controller/users/updateProfilePhoto.controller');
 const { updateUserData } = require('@controller/users/updateUserdata.controller');
+const { updateUserPassword } = require('@controller/users/updatePassword.controller');
 
 // ------------------------------------------------------------//
 // -------------------------users-routes-----------------------//
@@ -26,6 +27,7 @@ router.get('/getstudent/:courseid', jwtuser, getstudent); // todos
 router.delete('/deleteuser/:id', jwtuser, deleteuser);
 router.put('/updatephoto', jwtuser, updatephoto);
 router.put('/update-userdata', jwtuser, updateUserData);
+router.put('/update-password', jwtuser, updateUserPassword);
 // -------------------------users-routes-----------------------//
 // ------------------------------------------------------------//
 
