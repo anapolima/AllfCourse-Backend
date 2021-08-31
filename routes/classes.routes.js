@@ -6,14 +6,14 @@
 // -----------------------------------------------------------------------------------------------//
 
 const express = require('express');
-// const jwtuser = require('@middlewares/auth');
+const jwtuser = require('@middlewares/auth');
 
 const router = express.Router();
 const { deleteClass } = require('@controller/classes/deleteClass.controller');
 
 // ------------------------------------------------------------//
 // --------------------classes-routes-------------------//
-router.delete('/class/:id', deleteClass);
+router.delete('/class/:id', jwtuser, deleteClass);
 // --------------------classes-routes-------------------//
 // ------------------------------------------------------------//
 
