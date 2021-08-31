@@ -4064,3 +4064,15 @@ GET /user/0 603.178 ms
 DATE: Tuesday, August 31, 2021
 HTTP STATUS CODE: 200
 
+OPTIONS /login 1.798 ms
+DATE: Tuesday, August 31, 2021
+HTTP STATUS CODE: 204
+
+GET /login 1650.052 ms
+DATE: Tuesday, August 31, 2021
+HTTP STATUS CODE: 200
+
+GET /courses/logged-user 857.390 ms
+DATE: Tuesday, August 31, 2021
+HTTP STATUS CODE: 200
+

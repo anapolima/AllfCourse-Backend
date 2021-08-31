@@ -1,8 +1,9 @@
-require('dotenv').config();
+/* eslint-disable semi */
+require('dotenv').config()
 
 module.exports = {
     app: {
-        port: process.env.PORT || 3000,
+        port: process.env.PORT || 3001,
     },
 
     database: {
@@ -25,4 +26,4 @@ module.exports = {
             // each request after 100 requests in 15 minutes
         },
     },
-};
+}
