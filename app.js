@@ -37,6 +37,11 @@ const accessLogStream = fs.createWriteStream(
     { flags: 'a' },
 );
 
+const corsOptions = {
+    origin: 'http://localhost:3000',
+    credentials: true,
+};
+
 app.use(sendError);
 app.use('/static', express.static(`${__dirname}/avatars`));
 app.use(fileUpload());
@@ -50,15 +55,8 @@ app.use(
     ),
 );
 app.use(compression());
-app.use(cors());
-app.use((req, res, next) => {
-    res.setHeader('Access-Control-Allow-Origin', `http://localhost:${process.env.front_port}`);
-    res.setHeader('Access-Control-Allow-Methods', 'GET, POST, OPTIONS, PUT, PATCH, DELETE');
-    res.setHeader('Access-Control-Allow-Headers', 'X-Requested-With,content-type');
-    res.setHeader('Access-Control-Allow-Credentials', true);
 
-    next();
-});
+app.use(cors(corsOptions));
 app.use(cookie_parser('1234')); // force to sign the cookie
 app.use(express.urlencoded({ extended: false }));
 app.use(express.json());
