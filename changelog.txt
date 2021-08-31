@@ -53,7 +53,7 @@
     - Adição da rota de delete payment-method/:id
     - Adição da rota de get courses/logged-user
     - Adição da rota de delete enroll-student/:id
-    - Adição da rota: "checkpasstoken", seu controlador: "checkResetPassToken.controller" e sua função de validação:
+    - Adição da rota: "checkpasstoken", seu controller: "checkResetPassToken.controller" e sua função de validação:
     "checkResetPassTokenOnly". Verifica a validade do token para recuperação de senha isoladamente antes
     de fazer nova requisição enviando a nova senha.
 
