@@ -68,3 +68,4 @@
     - Adicionado validação no número de telefone
     - Adicionado lib "express-fileupload"
     - Adicionado rota /static para acesso as fotos de perfil no front-end
+    - SQL scheme atualizado
