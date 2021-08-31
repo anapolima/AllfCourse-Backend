@@ -61,7 +61,7 @@ exports.getSalesByCourseId = async (req, res) => {
                             value: 'aprovado',
                         },
                     },
-                    logicalOperators: ['AND'],
+                    logicalOperators: ['AND', 'AND'],
                 },
                 users: {
                     join: 'join',
@@ -144,7 +144,7 @@ exports.getSalesByCourseId = async (req, res) => {
                         value: 'aprovado',
                     },
                 },
-                logicalOperators: ['AND'],
+                logicalOperators: ['AND', 'AND'],
             },
             users: {
                 join: 'join',

@@ -27,7 +27,7 @@ module.exports = {
                 value: 'aprovado',
             },
         };
-        const logicalOperatorCheck1 = ['AND'];
+        const logicalOperatorCheck1 = ['AND', 'AND'];
 
         const resultCheck1 = await query.Select(
             'courses',
