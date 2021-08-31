@@ -10,7 +10,7 @@ const checkClass = require('@app/functions/checkIfClassExists');
 
 exports.deleteClass = async (req, res) => {
     const classId = req.params.id.toString();
-    // const userType = req.auth.id;
+    // const userType = req.auth.type;
 
     // if (userType === 1 || userType === 3) {
 

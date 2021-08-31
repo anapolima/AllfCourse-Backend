@@ -10,7 +10,7 @@ const checkCourse = require('@app/functions/checkIfCourseExists');
 
 exports.getSalesByCourseId = async (req, res) => {
     const courseId = req.params.id.toString();
-    // const userType = req.auth.id;
+    // const userType = req.auth.type;
 
     // if (userType === 1 || userType === 3) {
     if (courseId !== '0') {

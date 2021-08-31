@@ -11,7 +11,7 @@ const validateBills = require('@app/validations/validateSales');
 exports.getReceiveBills = async (req, res) => {
     const billId = req.params.id.toString();
     const errors = { criticalErrors: {}, validationErrors: {} };
-    // const userType = req.auth.id;
+    // const userType = req.auth.type;
 
     // if (userType === 1 || userType === 3) {
     if (billId !== '0') {

@@ -11,7 +11,7 @@ const validateSales = require('@app/validations/validateSales');
 exports.getSales = async (req, res) => {
     const saleId = req.params.id.toString();
     const errors = { criticalErrors: {}, validationErrors: {} };
-    // const userType = req.auth.id;
+    // const userType = req.auth.type;
 
     // if (userType === 1 || userType === 3) {
     if (saleId !== '0') {

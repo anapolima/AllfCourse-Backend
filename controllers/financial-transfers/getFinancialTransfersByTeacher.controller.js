@@ -10,7 +10,7 @@ const checkGetFinancialTransfers = require('@app/functions/checkGetFinancialTran
 
 exports.getFinancialTransfersByTeacher = async (req, res) => {
     const teacherId = req.params.id.toString();
-    // const userType = req.auth.id;
+    // const userType = req.auth.type;
 
     // if (userType === 1 || userType === 3) {
     if (teacherId !== '0') {

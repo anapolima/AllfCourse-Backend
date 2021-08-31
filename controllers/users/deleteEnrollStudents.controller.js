@@ -11,7 +11,7 @@ const checkValidCourse = require('@functions/checkIfCourseExists');
 exports.deleteEnrollStudent = async (req, res) => {
     const studentId = req.auth.id;
     const courseId = req.params.id.toString();
-    const userType = req.auth.id;
+    const userType = req.auth.type;
 
     if (userType !== 2 && userType !== 4 && userType !== 6) {
         const checkCourse = await checkValidCourse.check(courseId);

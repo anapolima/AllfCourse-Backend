@@ -10,7 +10,7 @@ const checkStudent = require('@app/functions/checkIfStudentExists');
 
 exports.getSalesByStudentId = async (req, res) => {
     const studentId = req.params.id.toString();
-    // const userType = req.auth.id;
+    // const userType = req.auth.type;
 
     // if (userType === 1 || userType === 3) {
     if (studentId !== '0') {

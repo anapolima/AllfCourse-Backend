@@ -11,7 +11,7 @@ const checkPaymentMethod = require('@app/functions/checkIfPaymentMethodExists');
 exports.deletePaymentMethod = async (req, res) => {
     const paymentMethodId = req.params.id.toString();
     console.log(paymentMethodId);
-    const userType = req.auth.id;
+    const userType = req.auth.type;
 
     if (userType === 4 || userType === 5
         || userType === 6 || userType === 7) {

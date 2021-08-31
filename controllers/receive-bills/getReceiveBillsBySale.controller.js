@@ -10,7 +10,7 @@ const checkReceiveBillBySaleId = require('@app/functions/checkGetReceiveBillsByS
 
 exports.getReceiveBillsBySale = async (req, res) => {
     const saleId = req.params.id.toString();
-    // const userType = req.auth.id;
+    // const userType = req.auth.type;
 
     // if (userType === 1 || userType === 3) {
     if (saleId !== '0') {
