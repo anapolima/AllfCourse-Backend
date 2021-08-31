@@ -52,6 +52,7 @@
     - Adição da rota de delete classes/:id
     - Adição da rota de delete payment-method/:id
     - Adição da rota de get courses/logged-user
+    - Adição da rota de delete enroll-student/:id
 
 30 de agosto:
     - Adição da rota: 'checkpasstoken', seu controlador: 'checkResetPassToken.controller' e sua função de validação:
