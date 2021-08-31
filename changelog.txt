@@ -37,7 +37,7 @@
     - Adicionado coluna "deleted_by" na modules
     - Consoles.logs e comentários antigos/irrelevantes removidos
 
-30 de agosto, Ana Paula:
+30 de agosto:
     - Correção de bugs na Query
     - Adição da rota de get courses/flag/:id
     - Adição da rota de get modules/course/:id
