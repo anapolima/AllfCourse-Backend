@@ -12,22 +12,22 @@ exports.addSale = async (req, res) => {
     const { type } = req.auth;
     const errors = { criticalErrors: {}, validationErrors: {} };
     if (type === 1 || type === 3 || type === 7) {
-        const { courseid } = req.body;
-        const { studentid } = req.body;
-        const { paymentmethodid } = req.body;
+        const { courseId } = req.body;
+        const { studentId } = req.body;
+        const { paymentMethodId } = req.body;
         const { price } = req.body;
         const userid = req.auth.id;
         const today = new Date();
 
-        const check = await checkAddBuy.check(courseid, studentid, price, paymentmethodid);
+        const check = await checkAddBuy.check(courseId, studentId, price, paymentMethodId);
 
         async function insertsale() {
             const result1 = await db.query('INSERT INTO sales(course_id, student_id, price, payment_method_id, release_date) VALUES ($1, $2, $3, $4, $5) RETURNING *',
                 [
-                    courseid,
-                    studentid,
+                    courseId,
+                    studentId,
                     check.price,
-                    paymentmethodid,
+                    paymentMethodId,
                     today,
                 ]);
             if (result1.severity === 'ERROR') {
@@ -90,8 +90,8 @@ exports.addSale = async (req, res) => {
         async function enrollstudent() {
             const enroll = await db.query('INSERT INTO enroll_students(student_id, course_id) VALUES($1, $2)',
                 [
-                    studentid,
-                    courseid,
+                    studentId,
+                    courseId,
                 ]);
             if (enroll.severity === 'ERROR') {
                 await db.query('ROLLBACK');

@@ -17,12 +17,12 @@ exports.addCourse = async (req, res) => {
         const errors = { criticalErrors: {}, validationErrors: {} };
         const newcourse = {};
         const formatedmodules = [];
-        newcourse.name = req.body.coursename;
+        newcourse.name = req.body.courseName;
         newcourse.description = req.body.description;
         newcourse.price = req.body.price;
-        newcourse.course_categories = req.body.course_categories;
-        newcourse.course_modules = req.body.course_modules;
-        newcourse.course_classes = req.body.course_classes;
+        newcourse.course_categories = req.body.courseCategories;
+        newcourse.course_modules = req.body.courseModules;
+        newcourse.course_classes = req.body.courseClasses;
         newcourse.course_classes.moduleid = null;
 
         async function checkCategory() {

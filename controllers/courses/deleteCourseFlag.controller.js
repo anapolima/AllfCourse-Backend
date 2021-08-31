@@ -10,8 +10,8 @@ const checkValidCourse = require('@app/functions/checkIfCourseExists');
 const checkValidCategory = require('@app/functions/checkIdCategoryExists');
 
 exports.deleteCourseFlag = async (req, res) => {
-    const courseId = req.params.courseid.toString();
-    const categoryId = req.params.categoryid.toString();
+    const courseId = req.params.courseId.toString();
+    const categoryId = req.params.categoryId.toString();
     // const userType = req.auth.type;
 
     // if (userType === 4 || userType === 5

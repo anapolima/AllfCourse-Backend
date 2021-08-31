@@ -9,8 +9,8 @@ require('dotenv').config();
 const query = require('@helpers/Query');
 
 exports.getstudent = async (req, res) => {
-    const { courseid } = req.params;
-    if (courseid === '0') {
+    const { courseId } = req.params;
+    if (courseId === '0') {
         const checkSelect = ['*'];
         const studentFound = await query.Select(
             'enroll_students',
@@ -28,7 +28,7 @@ exports.getstudent = async (req, res) => {
         const whereCheck = {
             course_id: {
                 operator: '=',
-                value: courseid,
+                value: courseId,
             },
         };
         const studentFound = await query.Select(

@@ -71,7 +71,10 @@
     - SQL scheme atualizado
     - Adição da rota de put update-userdata
     - Sugestão de melhorias nos arquivos referente à rota de registro de usuários
+    - Adição da rota para atualizar senha do usuário
     - Adicionado link da foto do usuário no jwt
     - Corrigido types em algumas rotas
     - Corrigido bug na rota /updatephoto
     - Usuário agora por padrão vem com a foto "default.png"
+    - Atualizando para camelCase todas os valores recebidos no req.body
+    - Corrigido bug que não setava os cookies no browser do usuário
