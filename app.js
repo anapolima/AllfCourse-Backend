@@ -38,6 +38,7 @@ const accessLogStream = fs.createWriteStream(
 );
 
 app.use(sendError);
+app.use('/static', express.static(`${__dirname}/avatars`));
 app.use(fileUpload());
 app.use(
     morgan(
