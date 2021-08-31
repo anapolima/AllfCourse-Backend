@@ -1,8 +1,7 @@
 module.exports = {
     validateModuleId: (_id, _errors) => {
-        const moduleId = _id.trim();
-
-        if (typeof (moduleId) === 'string') {
+        if (typeof (_id) === 'string') {
+            const moduleId = _id.trim();
             const eIndex = moduleId.toLowerCase().indexOf('e');
 
             if (eIndex === -1) {
