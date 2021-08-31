@@ -3796,3 +3796,171 @@ GET /login 767.464 ms
 DATE: Tuesday, August 31, 2021
 HTTP STATUS CODE: 404
 
+PUT /updatecategory/1 182.092 ms
+DATE: Tuesday, August 31, 2021
+HTTP STATUS CODE: 404
+
+PUT /updatecategory/1 19.952 ms
+DATE: Tuesday, August 31, 2021
+HTTP STATUS CODE: 401
+
+GET /login 1303.217 ms
+DATE: Tuesday, August 31, 2021
+HTTP STATUS CODE: 200
+
+PUT /updatecategory/1 1520.687 ms
+DATE: Tuesday, August 31, 2021
+HTTP STATUS CODE: 201
+
+PUT /updatepaymentmethod/45 24.181 ms
+DATE: Tuesday, August 31, 2021
+HTTP STATUS CODE: 500
+
+PUT /updatepaymentmethod/45 23.795 ms
+DATE: Tuesday, August 31, 2021
+HTTP STATUS CODE: 500
+
+PUT /updatepaymentmethod/45 1025.087 ms
+DATE: Tuesday, August 31, 2021
+HTTP STATUS CODE: 500
+
+PUT /updatepaymentmethod/45 1083.452 ms
+DATE: Tuesday, August 31, 2021
+HTTP STATUS CODE: 500
+
+PUT /updatepaymentmethod/45 766.864 ms
+DATE: Tuesday, August 31, 2021
+HTTP STATUS CODE: 500
+
+PUT /updatepaymentmethod/45 855.683 ms
+DATE: Tuesday, August 31, 2021
+HTTP STATUS CODE: 500
+
+PUT /updatepaymentmethod/45 1181.554 ms
+DATE: Tuesday, August 31, 2021
+HTTP STATUS CODE: 500
+
+PUT /updatepaymentmethod/45 1109.422 ms
+DATE: Tuesday, August 31, 2021
+HTTP STATUS CODE: 500
+
+PUT /updatepaymentmethod/45 1229.460 ms
+DATE: Tuesday, August 31, 2021
+HTTP STATUS CODE: 500
+
+PUT /updatepaymentmethod/45 1029.061 ms
+DATE: Tuesday, August 31, 2021
+HTTP STATUS CODE: 500
+
+PUT /updatepaymentmethod/45 1256.752 ms
+DATE: Tuesday, August 31, 2021
+HTTP STATUS CODE: 500
+
+PUT /updatepaymentmethod/45 1274.641 ms
+DATE: Tuesday, August 31, 2021
+HTTP STATUS CODE: 500
+
+PUT /updatepaymentmethod/45 790.334 ms
+DATE: Tuesday, August 31, 2021
+HTTP STATUS CODE: 500
+
+PUT /updatepaymentmethod/45 1220.426 ms
+DATE: Tuesday, August 31, 2021
+HTTP STATUS CODE: 500
+
+PUT /updatepaymentmethod/45 1240.779 ms
+DATE: Tuesday, August 31, 2021
+HTTP STATUS CODE: 500
+
+PUT /updatepaymentmethod/45 843.242 ms
+DATE: Tuesday, August 31, 2021
+HTTP STATUS CODE: 500
+
+PUT /updatepaymentmethod/45 784.408 ms
+DATE: Tuesday, August 31, 2021
+HTTP STATUS CODE: 500
+
+PUT /updatepaymentmethod/2 907.609 ms
+DATE: Tuesday, August 31, 2021
+HTTP STATUS CODE: 500
+
+PUT /updatepaymentmethod/2 1011.045 ms
+DATE: Tuesday, August 31, 2021
+HTTP STATUS CODE: 500
+
+PUT /updatepaymentmethod/2 924.450 ms
+DATE: Tuesday, August 31, 2021
+HTTP STATUS CODE: 500
+
+PUT /updatepaymentmethod/2 862.436 ms
+DATE: Tuesday, August 31, 2021
+HTTP STATUS CODE: 500
+
+PUT /updatepaymentmethod/2 842.306 ms
+DATE: Tuesday, August 31, 2021
+HTTP STATUS CODE: 500
+
+PUT /updatepaymentmethod/2 1574.187 ms
+DATE: Tuesday, August 31, 2021
+HTTP STATUS CODE: 500
+
+PUT /updatepaymentmethod/2 1649.105 ms
+DATE: Tuesday, August 31, 2021
+HTTP STATUS CODE: 201
+
+PUT /updatepaymentmethod/2 1661.343 ms
+DATE: Tuesday, August 31, 2021
+HTTP STATUS CODE: 500
+
+PUT /updatepaymentmethod/2 1449.457 ms
+DATE: Tuesday, August 31, 2021
+HTTP STATUS CODE: 201
+
+PUT /updatepaymentmethod/2 5.085 ms
+DATE: Tuesday, August 31, 2021
+HTTP STATUS CODE: 200
+
+PUT /updatepaymentmethod/2 1483.465 ms
+DATE: Tuesday, August 31, 2021
+HTTP STATUS CODE: 201
+
+PUT /updatepaymentmethod/2 1303.668 ms
+DATE: Tuesday, August 31, 2021
+HTTP STATUS CODE: 201
+
+POST /register 90.533 ms
+DATE: Tuesday, August 31, 2021
+HTTP STATUS CODE: 501
+
+POST /register 69.870 ms
+DATE: Tuesday, August 31, 2021
+HTTP STATUS CODE: 501
+
+POST /register 91.178 ms
+DATE: Tuesday, August 31, 2021
+HTTP STATUS CODE: 501
+
+POST /register 92.651 ms
+DATE: Tuesday, August 31, 2021
+HTTP STATUS CODE: 501
+
+POST /register 71.832 ms
+DATE: Tuesday, August 31, 2021
+HTTP STATUS CODE: 500
+
+POST /register 71.199 ms
+DATE: Tuesday, August 31, 2021
+HTTP STATUS CODE: 500
+
+POST /register 2475.080 ms
+DATE: Tuesday, August 31, 2021
+HTTP STATUS CODE: 500
+
+PUT /updatephoto 7.704 ms
+DATE: Tuesday, August 31, 2021
+HTTP STATUS CODE: 404
+
+PUT /updatephoto 6.855 ms
+DATE: Tuesday, August 31, 2021
+HTTP STATUS CODE: 404
+

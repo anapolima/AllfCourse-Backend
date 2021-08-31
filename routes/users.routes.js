@@ -14,6 +14,7 @@ const { validateAccount } = require('@controller/users/validAccount.controller')
 const { getuser } = require('@controller/users/getusers.controller');
 const { getstudent } = require('@controller/users/getEnrollStudentsController');
 const { deleteuser } = require('@controller/users/deleteUser.controller');
+const { updatephoto } = require('@controller/users/updateProfilePhoto.controller');
 
 // ------------------------------------------------------------//
 // -------------------------users-routes-----------------------//
@@ -22,6 +23,7 @@ router.post('/validate', validateAccount);
 router.get('/user/:id', jwtuser, getuser); // admin, usuário
 router.get('/getstudent/:courseid', jwtuser, getstudent); // todos
 router.delete('/deleteuser/:id', jwtuser, deleteuser);
+router.put('/updatephoto', jwtuser, updatephoto);
 // -------------------------users-routes-----------------------//
 // ------------------------------------------------------------//
 

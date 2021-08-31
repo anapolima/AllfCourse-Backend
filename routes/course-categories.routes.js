@@ -12,12 +12,14 @@ const router = express.Router();
 const { addCourseCategory } = require('@controller/course-categories/addCourseCategory.controller');
 const { getcategory } = require('@controller/course-categories/getCourseCategory.controller');
 const { deletecategory } = require('@controller/course-categories/deleteCourseCategory.controller');
+const { updateCourseCategory } = require('@controller/course-categories/updateCourseCategory.controller');
 
 // ------------------------------------------------------------//
 // ------------------course-categories-routes------------------//
 router.post('/courses-categories', jwtuser, addCourseCategory); // admin
 router.get('/category/:id', jwtuser, getcategory); // admin
 router.delete('/deletecategory/:id', jwtuser, deletecategory);
+router.put('/updatecategory/:id', jwtuser, updateCourseCategory);
 // ------------------course-categories-routes------------------//
 // ------------------------------------------------------------//
 

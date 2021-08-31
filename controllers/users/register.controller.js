@@ -68,6 +68,7 @@ exports.addUser = async (req, res) => {
             }
         }
     } catch (err) {
+        console.log(err);
         errors.criticalErrors.errorCategory = {
             message: 'Ocorreu um erro inesperado.',
             code: 500,

@@ -398,3 +398,49 @@ executed query: { SELECT email FROM users WHERE email = $1 AND deleted_at IS nul
 executed query: { SELECT phone FROM users WHERE phone = $1 AND deleted_at IS null  , params: 55719880939; duration: 669ms }
 executed query: { INSERT INTO users (first_name, last_name, social_name, document, email, phone, password, gender, birth_date, profile_photo, type, email_token, etoken_expire) VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10, $11, $12, $13) RETURNING *, params: Reinan santos de,silva,Reinan santos de jesus silva,12312456489,rey.filareto@outlook.com.br,55719880939,$2b$10$Fk0Yug0x/rRU4i65M4bT7eFNb7nqopj4YqBJ0O763ZyM9eBJSqAWO,Male,2000-01-01,,3,fcde00d43322d926d448dc0d26559830526203d6,Tue Aug 31 2021 05:08:38 GMT-0300 (Horário Padrão de Brasília); duration: 835ms }
 executed query: { SELECT id, email, first_name, type, password FROM users WHERE email = $1 AND active IS true AND deleted_at IS null  , params: undefined; duration: 762ms }
+executed query: { SELECT id, email, first_name, type, password FROM users WHERE email = $1 AND active IS true AND deleted_at IS null  , params: diego-s.novaes@hotmail.com; duration: 1227ms }
+executed query: { SELECT name FROM courses_categories WHERE name LIKE '%'||$1||'%' AND deleted_at IS null  , params: TESTEUPDATE; duration: 724ms }
+executed query: { UPDATE courses_categories SET name = $1 WHERE id = $2  RETURNING *, params: testeupdate,1; duration: 787ms }
+executed query: { UPDATE payment_method SET name = $1 WHERE id = $2  deleted_at IS null  RETURNING *, params: PIX TESTE,45; duration: 999ms }
+executed query: { UPDATE payment_method SET name = $1 WHERE id = $2  deleted_at IS null  RETURNING *, params: PIX TESTE,45; duration: 1058ms }
+executed query: { SELECT id FROM payment_method WHERE id = $1 AND deleted_at IS null  , params: 45; duration: 1155ms }
+executed query: { SELECT id FROM payment_method WHERE id = $1 AND deleted_at IS null  , params: 45; duration: 1083ms }
+executed query: { SELECT id FROM payment_method WHERE id = $1 AND deleted_at IS null  , params: 45; duration: 1202ms }
+executed query: { SELECT id FROM payment_method WHERE id = $1 AND deleted_at IS null  , params: 45; duration: 1002ms }
+executed query: { SELECT id FROM payment_method WHERE id = $1 AND deleted_at IS null  , params: 45; duration: 1230ms }
+executed query: { SELECT id FROM payment_method WHERE id = $1 AND deleted_at IS null  , params: 45; duration: 982ms }
+executed query: { SELECT id FROM payment_method WHERE id = $1 AND deleted_at IS null  , params: 45; duration: 630ms }
+executed query: { SELECT id FROM payment_method WHERE id = $1 AND deleted_at IS null  , params: 45; duration: 794ms }
+executed query: { SELECT id FROM payment_method WHERE id = $1 AND deleted_at IS null  , params: 45; duration: 647ms }
+executed query: { SELECT id FROM payment_method WHERE id = $1 AND deleted_at IS null  , params: 45; duration: 1123ms }
+executed query: { SELECT id FROM payment_method WHERE id = $1 AND deleted_at IS null  , params: 45; duration: 784ms }
+executed query: { SELECT id FROM payment_method WHERE id = $1 AND deleted_at IS null  , params: 45; duration: 1247ms }
+executed query: { SELECT id FROM payment_method WHERE id = $1 AND deleted_at IS null  , params: 45; duration: 757ms }
+executed query: { SELECT id FROM payment_method WHERE id = $1 AND deleted_at IS null  , params: 45; duration: 1191ms }
+executed query: { SELECT id FROM payment_method WHERE id = $1 AND deleted_at IS null  , params: 45; duration: 1211ms }
+executed query: { SELECT id FROM payment_method WHERE id = $1 AND deleted_at IS null  , params: 45; duration: 816ms }
+executed query: { SELECT id FROM payment_method WHERE id = $1 AND deleted_at IS null  , params: 45; duration: 758ms }
+executed query: { SELECT id FROM payment_method WHERE id = $1 AND deleted_at IS null  , params: 2; duration: 901ms }
+executed query: { SELECT id FROM payment_method WHERE id = $1 AND deleted_at IS null  , params: 2; duration: 985ms }
+executed query: { SELECT id FROM payment_method WHERE id = $1 AND deleted_at IS null  , params: 2; duration: 898ms }
+executed query: { SELECT id FROM payment_method WHERE id = $1 AND deleted_at IS null  , params: 2; duration: 835ms }
+executed query: { SELECT id FROM payment_method WHERE id = $1 AND deleted_at IS null  , params: 2; duration: 815ms }
+executed query: { SELECT id FROM payment_method WHERE id = $1 AND deleted_at IS null  , params: 2; duration: 1066ms }
+executed query: { SELECT id FROM payment_method WHERE id = $1 AND deleted_at IS null  , params: 2; duration: 728ms }
+executed query: { SELECT id FROM payment_method WHERE id = $1 AND deleted_at IS null  , params: 2; duration: 800ms }
+executed query: { SELECT id FROM payment_method WHERE id = $1 AND deleted_at IS null  , params: 2; duration: 903ms }
+executed query: { UPDATE payment_method SET name = $1 WHERE id = $2  deleted_at IS null  RETURNING *, params: CARTÃO TESTE,2; duration: 644ms }
+executed query: { SELECT id FROM payment_method WHERE id = $1 AND deleted_at IS null  , params: 2; duration: 1015ms }
+executed query: { UPDATE payment_method SET name = $1 WHERE id = $2 AND deleted_at IS null  RETURNING *, params: CARTÃO TESTE,2; duration: 605ms }
+executed query: { SELECT id FROM payment_method WHERE id = $1 AND deleted_at IS null  , params: 2; duration: 1016ms }
+executed query: { UPDATE payment_method SET name = $1 WHERE id = $2 AND deleted_at IS null  RETURNING *, params: ,2; duration: 638ms }
+executed query: { SELECT id FROM payment_method WHERE id = $1 AND deleted_at IS null  , params: 2; duration: 913ms }
+executed query: { SELECT id FROM payment_method WHERE id = $1 AND deleted_at IS null  , params: 2; duration: 671ms }
+executed query: { UPDATE payment_method SET installments = $1 WHERE id = $2 AND deleted_at IS null  RETURNING *, params: 7,2; duration: 751ms }
+executed query: { SELECT id FROM payment_method WHERE id = $1 AND deleted_at IS null  , params: 2; duration: 702ms }
+executed query: { UPDATE payment_method SET name = $1 WHERE id = $2 AND deleted_at IS null  RETURNING *, params: cartão teste2,2; duration: 777ms }
+executed query: { SELECT id FROM payment_method WHERE id = $1 AND deleted_at IS null  , params: 2; duration: 665ms }
+executed query: { UPDATE payment_method SET name = $1, installments = $2 WHERE id = $3 AND deleted_at IS null  RETURNING *, params: cartão teste23,9,2; duration: 636ms }
+executed query: { SELECT document FROM users WHERE document = $1 AND deleted_at IS null  , params: 52005773816; duration: 1242ms }
+executed query: { SELECT email FROM users WHERE email = $1 AND deleted_at IS null  , params: diego-s.novaes@hotmail.com; duration: 585ms }
+executed query: { SELECT phone FROM users WHERE phone = $1 AND deleted_at IS null  , params: 11970151606; duration: 573ms }

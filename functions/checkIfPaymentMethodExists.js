@@ -34,6 +34,7 @@ module.exports = {
             whereCheck1,
             logicalOperatorCheck1,
         );
+
         if (Array.isArray(resultCheck1.data)) {
             if (resultCheck1.data.length === 0) {
                 errors.validationErrors.categoryid = {

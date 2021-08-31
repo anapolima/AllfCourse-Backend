@@ -122,7 +122,6 @@ module.exports = {
 
         if (regex.test(date)) {
             const date = _date.split('-');
-            console.log(date);
 
             const day = date[2];
             const month = date[1];

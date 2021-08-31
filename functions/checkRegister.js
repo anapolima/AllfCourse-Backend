@@ -68,7 +68,7 @@ async function check(
     const whereCheck3 = {
         phone: {
             operator: '=',
-            value: parseInt(phone, 2),
+            value: parseInt(phone, 10),
         },
         deleted_at: {
             operator: 'is',
@@ -101,6 +101,13 @@ async function check(
         || Array.isArray(check2.data)
         || Array.isArray(check3.data)
     ) {
+        if (check1.data.length >= 1 && check2.data.length >= 1 && check3.data.length >= 1) {
+            errors.criticalErrors.documentemailphone = {
+                message: 'Documento, e-mail e telefone já existem',
+                code: 500,
+            };
+            return errors;
+        }
         if (check1.data.length >= 1) {
             if (check2.data.length >= 1) {
                 errors.criticalErrors.documentemail = {

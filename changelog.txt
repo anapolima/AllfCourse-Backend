@@ -53,11 +53,17 @@
     - Adição da rota de delete payment-method/:id
     - Adição da rota de get courses/logged-user
     - Adição da rota de delete enroll-student/:id
-
-30 de agosto:
     - Adição da rota: 'checkpasstoken', seu controlador: 'checkResetPassToken.controller' e sua função de validação:
     'checkResetPassTokenOnly'. Verifica a validade do token para recuperação de senha isoladamente antes
     de fazer nova requisição enviando a nova senha.
 
 31 de agosto:
-    -Adição da rota de delete course-flag/:courseid/:categoryid
+    - Adição da rota de delete course-flag/:courseid/:categoryid
+    - Adicionado rota de atualizar categoria
+    - Adicionado rota de atualizar foto de perfil
+    - Adicionado rota de atualizar Metódo de pagamento
+    - Alguns bugs corrigidos
+    - Adicionado pasta de fotos de perfil
+    - Corrigido bugs de validação
+    - Adicionado validação no número de telefone
+    - Adicionado lib "express-fileupload"

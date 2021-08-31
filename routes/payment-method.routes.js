@@ -12,12 +12,14 @@ const router = express.Router();
 const { addPaymentMethod } = require('@controller/payment-method/addPaymentMethod.controller');
 const { getPaymentMethod } = require('@controller/payment-method/getPaymentMethod.controller');
 const { deletePaymentMethod } = require('@controller/payment-method/deletePaymentMethod.controller');
+const { updatePaymentMethod } = require('@controller/payment-method/updatePaymentMethod.controller');
 
 // ------------------------------------------------------------//
 // --------------------payment-method-routes-------------------//
 router.post('/payment-methods', jwtuser, addPaymentMethod); // admin
 router.get('/payment-methods/:id', jwtuser, getPaymentMethod);
 router.delete('/payment-method/:id', deletePaymentMethod);
+router.put('/updatepaymentmethod/:id', jwtuser, updatePaymentMethod);
 // --------------------payment-method-routes-------------------//
 // ------------------------------------------------------------//
 

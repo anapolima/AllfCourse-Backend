@@ -10,6 +10,7 @@ require('dotenv').config();
 process.env.TZ = 'America/Sao_Paulo';
 require('module-alias/register');
 const express = require('express');
+const fileUpload = require('express-fileupload');
 const cors = require('cors');
 const compression = require('compression');
 const cookie_parser = require('cookie-parser');
@@ -37,6 +38,7 @@ const accessLogStream = fs.createWriteStream(
 );
 
 app.use(sendError);
+app.use(fileUpload());
 app.use(
     morgan(
         `:method :url :response-time ms\nDATE: ${new Date().toLocaleDateString(
