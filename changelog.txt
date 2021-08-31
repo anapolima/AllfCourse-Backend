@@ -69,3 +69,5 @@
     - Adicionado lib "express-fileupload"
     - Adicionado rota /static para acesso as fotos de perfil no front-end
     - SQL scheme atualizado
+    - Adição da rota de put update-userdata
+    - Sugestão de melhorias nos arquivos referente à rota de registro de usuários
