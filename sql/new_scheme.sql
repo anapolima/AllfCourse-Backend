@@ -19,6 +19,7 @@ CREATE TABLE public.users (
 	"created_at" timestamp with time zone NOT NULL DEFAULT(timezone('America/Sao_Paulo'::text, now())),
 	"deleted_by" integer,
 	"deleted_at" timestamp with time zone,
+    "updated_at" timestamp with time zone;
 	CONSTRAINT "users_pk" PRIMARY KEY ("id")
 ) WITH (
   OIDS=FALSE
