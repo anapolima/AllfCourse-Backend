@@ -66,4 +66,5 @@
     - Adicionado pasta de fotos de perfil
     - Corrigido bugs de validação
     - Adicionado validação no número de telefone
-    - Adicionado lib "express-fileupload"
+    - Adicionado lib "express-fileupload
+    - Adicionado rota /static para acesso as fotos de perfil no front-end
