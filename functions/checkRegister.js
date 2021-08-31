@@ -12,7 +12,6 @@ async function check(
     gender,
     birthdate,
 ) {
-    console.log(birthdate);
     const errors = { criticalErrors: {}, validationErrors: {} };
     const validDocument = validateRegister.validateDocument(
         document,

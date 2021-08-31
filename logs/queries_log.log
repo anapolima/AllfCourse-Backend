@@ -341,3 +341,60 @@ executed query: { UPDATE users SET recover_token = $1, rtoken_expire = $2, passw
 executed query: { SELECT id, email, first_name, type, password FROM users WHERE email = $1 AND active IS true AND deleted_at IS null  , params: rey.filareto@outlook.com; duration: 870ms }
 executed query: { SELECT id, email, first_name, type, password FROM users WHERE email = $1 AND active IS true AND deleted_at IS null  , params: rey.filareto@outlook.com; duration: 696ms }
 executed query: { SELECT id, email, first_name, type, password FROM users WHERE email = $1 AND active IS true AND deleted_at IS null  , params: rey.filareto@outlook.com; duration: 1035ms }
+executed query: { SELECT id, email, first_name, type, password FROM users WHERE email = $1 AND active IS true AND deleted_at IS null  , params: rey.filareto@outlook.com; duration: 1185ms }
+executed query: { SELECT id, email, first_name, type, password FROM users WHERE email = $1 AND active IS true AND deleted_at IS null  , params: rey.filareto@outlook.com; duration: 897ms }
+executed query: { SELECT id, email, first_name, type, password FROM users WHERE email = $1 AND active IS true AND deleted_at IS null  , params: rey.filareto@outlook.com; duration: 826ms }
+executed query: { SELECT id, email, first_name, type, password FROM users WHERE email = $1 AND active IS true AND deleted_at IS null  , params: rey.filareto@outlook.com; duration: 822ms }
+executed query: { SELECT id, email, first_name, type, password FROM users WHERE email = $1 AND active IS true AND deleted_at IS null  , params: rey.filareto@outlook.com; duration: 998ms }
+executed query: { SELECT id, email, first_name, type, password FROM users WHERE email = $1 AND active IS true AND deleted_at IS null  , params: rey.filareto@outlook.com; duration: 742ms }
+executed query: { SELECT id, email, first_name, type, password FROM users WHERE email = $1 AND active IS true AND deleted_at IS null  , params: rey.filareto@outlook.com; duration: 784ms }
+executed query: { SELECT id, email, first_name, type, password FROM users WHERE email = $1 AND active IS true AND deleted_at IS null  , params: rey.filareto@outlook.com; duration: 1027ms }
+executed query: { SELECT id, email, first_name, type, password FROM users WHERE email = $1 AND active IS true AND deleted_at IS null  , params: rey.filareto@outlook.com; duration: 733ms }
+executed query: { SELECT id, email, first_name, type, password FROM users WHERE email = $1 AND active IS true AND deleted_at IS null  , params: rey.filareto@outlook.com; duration: 783ms }
+executed query: { SELECT id, email, first_name, type, password FROM users WHERE email = $1 AND active IS true AND deleted_at IS null  , params: rey.filareto@outlook.com; duration: 1095ms }
+executed query: { SELECT id, email, first_name, type, password FROM users WHERE email = $1 AND active IS true AND deleted_at IS null  , params: rey.filareto@outlook.com; duration: 809ms }
+executed query: { SELECT id, email, first_name, type, password FROM users WHERE email = $1 AND active IS true AND deleted_at IS null  , params: rey.filareto@outlook.com; duration: 986ms }
+executed query: { SELECT id, email, first_name, type, password FROM users WHERE email = $1 AND active IS true AND deleted_at IS null  , params: rey.filareto@outlook.com; duration: 765ms }
+executed query: { SELECT id, email, first_name, type, password FROM users WHERE email = $1 AND active IS true AND deleted_at IS null  , params: rey.filareto@outlook.com; duration: 759ms }
+executed query: { SELECT id, email, first_name, type, password FROM users WHERE email = $1 AND active IS true AND deleted_at IS null  , params: rey.filareto@outlook.com; duration: 1025ms }
+executed query: { SELECT id, email, first_name, type, password FROM users WHERE email = $1 AND active IS true AND deleted_at IS null  , params: rey.filareto@outlook.com; duration: 853ms }
+executed query: { SELECT id, email, first_name, type, password FROM users WHERE email = $1 AND active IS true AND deleted_at IS null  , params: rey.filareto@outlook.com; duration: 751ms }
+executed query: { SELECT id, email, first_name, type, password FROM users WHERE email = $1 AND active IS true AND deleted_at IS null  , params: rey.filareto@outlook.com; duration: 766ms }
+executed query: { SELECT id, email, first_name, type, password FROM users WHERE email = $1 AND active IS true AND deleted_at IS null  , params: rey.filareto@outlook.com; duration: 801ms }
+executed query: { SELECT id, email, first_name, type, password FROM users WHERE email = $1 AND active IS true AND deleted_at IS null  , params: rey.filareto@outlook.com; duration: 997ms }
+executed query: { SELECT id, email, first_name, type, password FROM users WHERE email = $1 AND active IS true AND deleted_at IS null  , params: rey.filareto@outlook.com; duration: 904ms }
+executed query: { SELECT id, email, first_name, type, password FROM users WHERE email = $1 AND active IS true AND deleted_at IS null  , params: rey.filareto@outlook.com; duration: 966ms }
+executed query: { SELECT id, email, first_name, type, password FROM users WHERE email = $1 AND active IS true AND deleted_at IS null  , params: rey.filareto@outlook.com; duration: 771ms }
+executed query: { SELECT id, email, first_name, type, password FROM users WHERE email = $1 AND active IS true AND deleted_at IS null  , params: rey.filareto@outlook.com; duration: 1028ms }
+executed query: { SELECT id, email, first_name, type, password FROM users WHERE email = $1 AND active IS true AND deleted_at IS null  , params: rey.filareto@outlook.com; duration: 1149ms }
+executed query: { SELECT id, email, first_name, type, password FROM users WHERE email = $1 AND active IS true AND deleted_at IS null  , params: rey.filareto@outlook.com; duration: 808ms }
+executed query: { SELECT id, email, first_name, type, password FROM users WHERE email = $1 AND active IS true AND deleted_at IS null  , params: rey.filareto@outlook.com; duration: 925ms }
+executed query: { SELECT id, email, first_name, type, password FROM users WHERE email = $1 AND active IS true AND deleted_at IS null  , params: rey.filareto@outlook.com; duration: 737ms }
+executed query: { SELECT id, email, first_name, type, password FROM users WHERE email = $1 AND active IS true AND deleted_at IS null  , params: rey.filareto@outlook.com; duration: 850ms }
+executed query: { SELECT email, first_name FROM users WHERE email = $1 AND active = $2 AND deleted_at IS null  , params: rey.filareto@outlook.com,true; duration: 896ms }
+executed query: { UPDATE users SET recover_token = $1, rtoken_expire = $2 WHERE email = $3 AND active = $4 AND deleted_at IS null  RETURNING *, params: 5ecefc1715b1dae6835be6458b9b3cc13fb9c9fa,Mon Aug 30 2021 22:15:20 GMT-0300 (Horário Padrão de Brasília),rey.filareto@outlook.com,true; duration: 905ms }
+executed query: { SELECT recover_token, rtoken_expire FROM users WHERE recover_token = $1  , params: 248599ce49dd630b64c8e458aaa58469c94ab4a0; duration: 1244ms }
+executed query: { SELECT  FROM users WHERE  , params: 248599ce49dd630b64c8e458aaa58469c94ab4a0; duration: 914ms }
+executed query: { SELECT  FROM users WHERE  , params: 248599ce49dd630b64c8e458aaa58469c94ab4a0; duration: 1244ms }
+executed query: { SELECT  FROM users WHERE  , params: 248599ce49dd630b64c8e458aaa58469c94ab4a0; duration: 724ms }
+executed query: { SELECT recover_token, rtoken_expire FROM users WHERE recover_token = $1  , params: 248599ce49dd630b64c8e458aaa58469c94ab4a0; duration: 811ms }
+executed query: { SELECT recover_token, rtoken_expire FROM users WHERE recover_token = $1  , params: 248599ce49dd630b64c8e458aaa58469c94ab4a0; duration: 826ms }
+executed query: { SELECT recover_token, rtoken_expire FROM users WHERE recover_token = $1  , params: 248599ce49dd630b64c8e458aaa58469c94ab4a0; duration: 759ms }
+executed query: { SELECT recover_token, rtoken_expire FROM users WHERE recover_token = $1  , params: 5ecefc1715b1dae6835be6458b9b3cc13fb9c9fa; duration: 950ms }
+executed query: { SELECT recover_token, rtoken_expire FROM users WHERE recover_token = $1  , params: 5ecefc1715b1dae6835be6458b9b3cc13fb9c9fa; duration: 908ms }
+executed query: { UPDATE users SET recover_token = $1, rtoken_expire = $2, password = $3 WHERE recover_token = $4  RETURNING *, params: ,,$2b$10$Fj8fIfiOZKIqTSVO8gty6OE8/3GvhFVVO//sfgz5m.kkCRx8UA4qS,5ecefc1715b1dae6835be6458b9b3cc13fb9c9fa; duration: 828ms }
+executed query: { SELECT id, email, first_name, type, password FROM users WHERE email = $1 AND active IS true AND deleted_at IS null  , params: rey.filareto@outlook.com; duration: 815ms }
+executed query: { SELECT document FROM users WHERE document = $1 AND deleted_at IS null  , params: 03946949535; duration: 1241ms }
+executed query: { SELECT email FROM users WHERE email = $1 AND deleted_at IS null  , params: rey.filareto@gmail.com; duration: 738ms }
+executed query: { SELECT phone FROM users WHERE phone = $1 AND deleted_at IS null  , params: 71988093976; duration: 722ms }
+executed query: { INSERT INTO users (first_name, last_name, social_name, document, email, phone, password, gender, birth_date, profile_photo, type, email_token, etoken_expire) VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10, $11, $12, $13) RETURNING *, params: Reinan,Santos,,03946949535,rey.filareto@gmail.com,71988093976,$2b$10$kNV.AcZ0vbuimljn4xVaPewJBFTLwcJjSjiNWEfIb3/KhSqKnTgPC,Male,1991-01-17,,,d45f14e8f1c3fa98bfbce9375532002ed79394f5,Tue Aug 31 2021 05:06:54 GMT-0300 (Horário Padrão de Brasília); duration: 1099ms }
+executed query: { SELECT document FROM users WHERE document = $1 AND deleted_at IS null  , params: 03946949535; duration: 866ms }
+executed query: { SELECT email FROM users WHERE email = $1 AND deleted_at IS null  , params: rey.filareto@gmail.com; duration: 635ms }
+executed query: { SELECT phone FROM users WHERE phone = $1 AND deleted_at IS null  , params: 71123456789; duration: 813ms }
+executed query: { INSERT INTO users (first_name, last_name, social_name, document, email, phone, password, gender, birth_date, profile_photo, type, email_token, etoken_expire) VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10, $11, $12, $13) RETURNING *, params: Reinan,Santos,,03946949535,rey.filareto@gmail.com,71123456789,$2b$10$Qhnp2w5dquwGTROgg5vku.w2lH8OHTQ14swAsk6x62NPLBQCYgi/a,Male,1991-01-17,,1,84b34952179d928ef69c3c0c6c59b3d68bd27aa5,Tue Aug 31 2021 05:07:26 GMT-0300 (Horário Padrão de Brasília); duration: 847ms }
+executed query: { SELECT id, email, first_name, type, password FROM users WHERE email = $1 AND active IS true AND deleted_at IS null  , params: undefined; duration: 668ms }
+executed query: { SELECT document FROM users WHERE document = $1 AND deleted_at IS null  , params: 12312456489; duration: 961ms }
+executed query: { SELECT email FROM users WHERE email = $1 AND deleted_at IS null  , params: rey.filareto@outlook.com.br; duration: 675ms }
+executed query: { SELECT phone FROM users WHERE phone = $1 AND deleted_at IS null  , params: 55719880939; duration: 669ms }
+executed query: { INSERT INTO users (first_name, last_name, social_name, document, email, phone, password, gender, birth_date, profile_photo, type, email_token, etoken_expire) VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10, $11, $12, $13) RETURNING *, params: Reinan santos de,silva,Reinan santos de jesus silva,12312456489,rey.filareto@outlook.com.br,55719880939,$2b$10$Fk0Yug0x/rRU4i65M4bT7eFNb7nqopj4YqBJ0O763ZyM9eBJSqAWO,Male,2000-01-01,,3,fcde00d43322d926d448dc0d26559830526203d6,Tue Aug 31 2021 05:08:38 GMT-0300 (Horário Padrão de Brasília); duration: 835ms }
+executed query: { SELECT id, email, first_name, type, password FROM users WHERE email = $1 AND active IS true AND deleted_at IS null  , params: undefined; duration: 762ms }
