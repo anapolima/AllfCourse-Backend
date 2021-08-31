@@ -1,6 +1,6 @@
 // -----------------------------------------------------------------------------------------------//
 // Archive: controllers/payment-method/addPaymentMethod.controller.js
-// Description: File responsible for the 'addPaymentMethod' function of the 'payment method'
+// Description: File responsible for the 'validateCourse' function of the 'courses'
 //  class controller
 // Data: 2021/08/27
 // Author: Allfcourse team

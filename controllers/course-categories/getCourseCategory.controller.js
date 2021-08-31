@@ -1,6 +1,6 @@
 // -----------------------------------------------------------------------------------------------//
 // Archive: controllers/session/login.controller.js
-// Description: File responsible for the 'login' function of the 'session' class controller
+// Description: File responsible for the 'getcategory' function of the 'courses-categories' class controller
 // Data: 2021/08/27
 // Author: Allfcourse team
 // -----------------------------------------------------------------------------------------------//

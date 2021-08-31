@@ -1,6 +1,6 @@
 // -----------------------------------------------------------------------------------------------//
 // Archive: controllers/session/login.controller.js
-// Description: File responsible for delete a class from a course
+// Description: File responsible for the 'deletePaymentMethod' function of the 'payment-method' class controller
 // Data: 2021/08/30
 // Author: Allfcourse team
 // -----------------------------------------------------------------------------------------------//

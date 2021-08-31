@@ -9,7 +9,7 @@ const express = require('express');
 const jwtuser = require('@middlewares/auth');
 
 const router = express.Router();
-const { deleteEnrollStudent } = require('@app/controllers/enroll-students/deleteEnrollStudents.controller');
+const { deleteEnrollStudent } = require('@app/controllers/users/deleteEnrollStudents.controller');
 
 // ------------------------------------------------------------//
 // --------------------classes-routes-------------------//

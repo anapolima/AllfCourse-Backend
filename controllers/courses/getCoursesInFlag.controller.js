@@ -1,6 +1,6 @@
 // -----------------------------------------------------------------------------------------------//
 // Archive: controllers/session/login.controller.js
-// Description: File responsible for the 'login' function of the 'session' class controller
+// Description: File responsible for the 'login' function of the 'getCoursesInFlags' class controller
 // Data: 2021/08/29
 // Author: Allfcourse team
 // -----------------------------------------------------------------------------------------------//
