@@ -17,8 +17,8 @@ CREATE TABLE public.users (
 	"type" int NOT NULL DEFAULT(1),
 	"active" BOOLEAN NOT NULL,
 	"created_at" timestamp with time zone NOT NULL DEFAULT(timezone('America/Sao_Paulo'::text, now())),
-	"deleted_by" integer,
-	"deleted_at" timestamp with time zone,
+	"deleted_by" integer NULL,
+	"deleted_at" timestamp with time zone NULL,
 	CONSTRAINT "users_pk" PRIMARY KEY ("id")
 ) WITH (
   OIDS=FALSE
@@ -35,7 +35,7 @@ CREATE TABLE public.classes (
 	"description" TEXT NOT NULL,
 	"inactive" BOOLEAN NOT NULL,
 	"created_at" timestamp with time zone NOT NULL DEFAULT(timezone('America/Sao_Paulo'::text, now())),
-	"deleted_at" timestamp with time zone,
+	"deleted_at" timestamp with time zone NULL,
 	CONSTRAINT "classes_pk" PRIMARY KEY ("id")
 ) WITH (
   OIDS=FALSE
@@ -52,10 +52,10 @@ CREATE TABLE public.courses (
 	"price" DECIMAL(10,2) NOT NULL,
 	"status" varchar(20) NOT NULL,
 	"created_at" timestamp with time zone NOT NULL DEFAULT(timezone('America/Sao_Paulo'::text, now())),
-	"s_updated_by" integer NOT NULL,
+	"s_updated_by" integer NULL,
 	"updated_at" timestamp with time zone,
-	"deleted_by" integer NOT NULL,
-	"deleted_at" timestamp with time zone,
+	"deleted_by" integer NULL,
+	"deleted_at" timestamp with time zone NULL,
 	CONSTRAINT "courses_pk" PRIMARY KEY ("id")
 ) WITH (
   OIDS=FALSE
@@ -68,8 +68,8 @@ CREATE TABLE public.courses_categories (
 	"name" varchar(30) NOT NULL,
 	"created_by" integer NOT NULL,
 	"created_at" timestamp with time zone NOT NULL DEFAULT(timezone('America/Sao_Paulo'::text, now())),
-	"deleted_by" integer,
-	"deleted_at" timestamp with time zone,
+	"deleted_by" integer NULL,
+	"deleted_at" timestamp with time zone NULL,
 	CONSTRAINT "courses_categories_pk" PRIMARY KEY ("id")
 ) WITH (
   OIDS=FALSE
@@ -84,7 +84,7 @@ CREATE TABLE public.enroll_students (
 	"finished" BOOLEAN NOT NULL,
 	"finished_at" timestamp with time zone,
 	"created_at" timestamp with time zone NOT NULL DEFAULT(timezone('America/Sao_Paulo'::text, now())),
-	"deleted_at" timestamp with time zone,
+	"deleted_at" timestamp with time zone NULL,
 	CONSTRAINT "enroll_students_pk" PRIMARY KEY ("id")
 ) WITH (
   OIDS=FALSE
@@ -119,7 +119,7 @@ CREATE TABLE public.modules (
 	"name" varchar(80) NOT NULL,
 	"description" TEXT NOT NULL,
 	"created_at" timestamp with time zone NOT NULL DEFAULT(timezone('America/Sao_Paulo'::text, now())),
-	"deleted_at" timestamp with time zone,
+	"deleted_at" timestamp with time zone NULL,
 	CONSTRAINT "modules_pk" PRIMARY KEY ("id")
 ) WITH (
   OIDS=FALSE
@@ -133,8 +133,8 @@ CREATE TABLE public.courses_flags (
 	"category_id" integer NOT NULL,
 	"created_by" integer NOT NULL,
 	"created_at" timestamp with time zone NOT NULL DEFAULT(timezone('America/Sao_Paulo'::text, now())),
-	"deleted_by" integer,
-	"deleted_at" timestamp with time zone,
+	"deleted_by" integer NULL,
+	"deleted_at" timestamp with time zone NULL,
 	CONSTRAINT "courses_flags_pk" PRIMARY KEY ("course_id","category_id")
 ) WITH (
   OIDS=FALSE
@@ -158,7 +158,7 @@ CREATE TABLE public.sales (
 	"id" serial NOT NULL,
 	"course_id" integer NOT NULL,
 	"student_id" integer NOT NULL,
-	"realease_date" DATE NOT NULL,
+	"release_date" DATE NOT NULL,
 	"payment_method_id" integer NOT NULL,
 	"price" DECIMAL(10,2) NOT NULL,
 	"created_at" timestamp with time zone NOT NULL DEFAULT(timezone('America/Sao_Paulo'::text, now())),
@@ -180,7 +180,7 @@ CREATE TABLE public.financial_transfer (
 	"pay_date" DATE,
 	"created_at" timestamp with time zone NOT NULL DEFAULT(timezone('America/Sao_Paulo'::text, now())),
 	"deleted_by" integer,
-	"deleted_at" timestamp with time zone NOT NULL,
+	"deleted_at" timestamp with time zone NULL,
 	CONSTRAINT "financial_transfer_pk" PRIMARY KEY ("sale_id","teacher_id")
 ) WITH (
   OIDS=FALSE
@@ -209,6 +209,7 @@ CREATE TABLE public.payment_method (
 	"id" serial NOT NULL,
 	"name" varchar(30) NOT NULL,
 	"installments" integer NOT NULL,
+    "deleted_at" timestamp with time zone,
 	CONSTRAINT "payment_method_pk" PRIMARY KEY ("id")
 ) WITH (
   OIDS=FALSE
