@@ -18,6 +18,7 @@ const { validateCourse } = require('@controller/courses/validateCourse.controlle
 const { getCoursesInFlags } = require('@app/controllers/courses/getCoursesInFlag.controller');
 const { getModulesByCourse } = require('@app/controllers/courses/getCourseModules.controller');
 const { getCoursesByLoggedTeacher } = require('@app/controllers/courses/getCoursesByLoggedTeacher.controller');
+const { getCoursesByLoggedUser } = require('@app/controllers/courses/getCoursesByLoggedUser.controller');
 // ------------------------------------------------------------//
 // -----------------------courses-routes-----------------------//
 router.post('/addcourse', jwtuser, addCourse); // professor
@@ -29,6 +30,7 @@ router.delete('/deletecourse/:id', jwtuser, deletecourse);
 router.delete('/deletemodule/:id', jwtuser, deletecoursemodule);
 router.put('/validatecourse', jwtuser, validateCourse);
 router.get('/courses/logged-teacher', jwtuser, getCoursesByLoggedTeacher);
+router.get('/courses/logged-user', jwtuser, getCoursesByLoggedUser);
 // -----------------------courses-routes-----------------------//
 // ------------------------------------------------------------//
 
