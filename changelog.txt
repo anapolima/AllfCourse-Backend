@@ -51,6 +51,7 @@
     - Adição da rota get courses/logged-teacher
     - Adição da rota de delete classes/:id
     - Adição da rota de delete payment-method/:id
+    - Adição da rota de get courses/logged-user
 
 30 de agosto:
     - Adição da rota: 'checkpasstoken', seu controlador: 'checkResetPassToken.controller' e sua função de validação:
