@@ -71,3 +71,7 @@
     - SQL scheme atualizado
     - Adição da rota de put update-userdata
     - Sugestão de melhorias nos arquivos referente à rota de registro de usuários
+    - Adicionado link da foto do usuário no jwt
+    - Corrigido types em algumas rotas
+    - Corrigido bug na rota /updatephoto
+    - Usuário agora por padrão vem com a foto "default.png"

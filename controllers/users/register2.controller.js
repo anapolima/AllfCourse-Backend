@@ -23,7 +23,7 @@ exports.addUser = async (req, res) => {
     const { birthDate } = req.body;
     const { phone } = req.body;
     const { email } = req.body;
-    const { avatar } = req.body;
+    // const { avatar } = req.body;
     const { type } = req.body;
     const { password } = req.body;
     const token = crypto.randomBytes(20).toString('hex');
@@ -50,7 +50,7 @@ exports.addUser = async (req, res) => {
                 password: encryptedPasswd,
                 gender: check.gender,
                 birth_date: check.birthDate,
-                profile_photo: avatar,
+                profile_photo: 'http://localhost:3000/static/default.png',
                 type: check.type,
                 email_token: token,
                 etoken_expire: expire,

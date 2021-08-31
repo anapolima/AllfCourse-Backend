@@ -3964,3 +3964,103 @@ PUT /updatephoto 6.855 ms
 DATE: Tuesday, August 31, 2021
 HTTP STATUS CODE: 404
 
+POST /register 22.412 ms
+DATE: Tuesday, August 31, 2021
+HTTP STATUS CODE: 500
+
+POST /register 2.793 ms
+DATE: Tuesday, August 31, 2021
+HTTP STATUS CODE: 500
+
+POST /register 6553.692 ms
+DATE: Tuesday, August 31, 2021
+HTTP STATUS CODE: 201
+
+POST /register 5188.828 ms
+DATE: Tuesday, August 31, 2021
+HTTP STATUS CODE: 201
+
+POST /register 6821.336 ms
+DATE: Tuesday, August 31, 2021
+HTTP STATUS CODE: 201
+
+GET /favicon.ico 3.102 ms
+DATE: Tuesday, August 31, 2021
+HTTP STATUS CODE: 404
+
+GET /favicon.ico 3.700 ms
+DATE: Tuesday, August 31, 2021
+HTTP STATUS CODE: 404
+
+GET /favicon.ico 0.841 ms
+DATE: Tuesday, August 31, 2021
+HTTP STATUS CODE: 404
+
+POST /validate 2001.511 ms
+DATE: Tuesday, August 31, 2021
+HTTP STATUS CODE: 201
+
+GET /login 965.432 ms
+DATE: Tuesday, August 31, 2021
+HTTP STATUS CODE: 200
+
+POST /addcourse 1474.848 ms
+DATE: Tuesday, August 31, 2021
+HTTP STATUS CODE: 404
+
+POST /addcourse 1684.662 ms
+DATE: Tuesday, August 31, 2021
+HTTP STATUS CODE: 404
+
+POST /addcourse 1518.173 ms
+DATE: Tuesday, August 31, 2021
+HTTP STATUS CODE: 201
+
+POST /buy 2672.022 ms
+DATE: Tuesday, August 31, 2021
+HTTP STATUS CODE: 500
+
+POST /buy 3112.008 ms
+DATE: Tuesday, August 31, 2021
+HTTP STATUS CODE: 201
+
+POST /logout 6.588 ms
+DATE: Tuesday, August 31, 2021
+HTTP STATUS CODE: 202
+
+GET /login 1245.887 ms
+DATE: Tuesday, August 31, 2021
+HTTP STATUS CODE: 200
+
+GET /user/0 685.829 ms
+DATE: Tuesday, August 31, 2021
+HTTP STATUS CODE: 200
+
+POST /logout 6.507 ms
+DATE: Tuesday, August 31, 2021
+HTTP STATUS CODE: 202
+
+GET /login 1194.191 ms
+DATE: Tuesday, August 31, 2021
+HTTP STATUS CODE: 200
+
+GET /user/0 646.972 ms
+DATE: Tuesday, August 31, 2021
+HTTP STATUS CODE: 200
+
+GET /user/0 921.620 ms
+DATE: Tuesday, August 31, 2021
+HTTP STATUS CODE: 200
+
+POST /logout 6.714 ms
+DATE: Tuesday, August 31, 2021
+HTTP STATUS CODE: 202
+
+GET /login 1207.993 ms
+DATE: Tuesday, August 31, 2021
+HTTP STATUS CODE: 200
+
+GET /user/0 603.178 ms
+DATE: Tuesday, August 31, 2021
+HTTP STATUS CODE: 200
+

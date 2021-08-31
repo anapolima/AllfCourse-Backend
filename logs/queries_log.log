@@ -444,3 +444,74 @@ executed query: { UPDATE payment_method SET name = $1, installments = $2 WHERE i
 executed query: { SELECT document FROM users WHERE document = $1 AND deleted_at IS null  , params: 52005773816; duration: 1242ms }
 executed query: { SELECT email FROM users WHERE email = $1 AND deleted_at IS null  , params: diego-s.novaes@hotmail.com; duration: 585ms }
 executed query: { SELECT phone FROM users WHERE phone = $1 AND deleted_at IS null  , params: 11970151606; duration: 573ms }
+executed query: { SELECT document FROM users WHERE document = $1 AND deleted_at IS null  , params: 11599238764; duration: 1118ms }
+executed query: { SELECT email FROM users WHERE email = $1 AND deleted_at IS null  , params: burzlaff.juliana@gmail.com; duration: 600ms }
+executed query: { SELECT phone FROM users WHERE phone = $1 AND deleted_at IS null  , params: 27999990396; duration: 608ms }
+executed query: { INSERT INTO users (first_name, last_name, social_name, document, email, phone, password, gender, birth_date, profile_photo, type, email_token, etoken_expire) VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10, $11, $12, $13) RETURNING *, params: JULIANA,BURZLAFF,,11599238764,burzlaff.juliana@gmail.com,27999990396,$2b$10$mvhxBm4HWuuRI24NkNcV4.rEk1.ohhCtEjnIa0tNx6p0zIjQB4FSu,FEMALE,1994-01-06,,7,613afaa71813906b0b87f10fd69ae634fbec9946,Tue Aug 31 2021 16:58:17 GMT-0300 (Brasilia Standard Time); duration: 711ms }
+executed query: { SELECT document FROM users WHERE document = $1 AND deleted_at IS null  , params: 05799793340; duration: 1070ms }
+executed query: { SELECT email FROM users WHERE email = $1 AND deleted_at IS null  , params: lucasgsousa93@gmail.com; duration: 608ms }
+executed query: { SELECT phone FROM users WHERE phone = $1 AND deleted_at IS null  , params: 88992336173; duration: 569ms }
+executed query: { INSERT INTO users (first_name, last_name, social_name, document, email, phone, password, gender, birth_date, profile_photo, type, email_token, etoken_expire) VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10, $11, $12, $13) RETURNING *, params: LUCAS,SOUSA,,05799793340,lucasgsousa93@gmail.com,88992336173,$2b$10$/WTDPBcf2lbTTQZ4GSWkne3oKU/uyOE8AavBGr/3SXnBfCOJSkFQe,MALE,1993-02-17,,7,12d8040c4fb4e132c363b34f78a7134a8d92431c,Tue Aug 31 2021 16:59:50 GMT-0300 (Brasilia Standard Time); duration: 668ms }
+executed query: { SELECT document FROM users WHERE document = $1 AND deleted_at IS null  , params: 52005773816; duration: 1485ms }
+executed query: { SELECT email FROM users WHERE email = $1 AND deleted_at IS null  , params: diego-s.novaes@hotmail.com; duration: 769ms }
+executed query: { SELECT phone FROM users WHERE phone = $1 AND deleted_at IS null  , params: 11970151606; duration: 654ms }
+executed query: { INSERT INTO users (first_name, last_name, social_name, document, email, phone, password, gender, birth_date, profile_photo, type, email_token, etoken_expire) VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10, $11, $12, $13) RETURNING *, params: DIEGO,SOUSA,,52005773816,diego-s.novaes@hotmail.com,11970151606,$2b$10$OjVvAI5wHspogIoP0btDm.zKtrnQH5xKDaSq58NvPkEJdeOLHxZOS,MALE,2001-09-27,http://localhost:3000/static/default.png,7,dfca5e285dd1c9def416b4ac2b66be4fe690ac30,Tue Aug 31 2021 17:23:56 GMT-0300 (Brasilia Standard Time); duration: 694ms }
+executed query: { SELECT email_token, etoken_expire FROM users WHERE email_token = $1  , params: dfca5e285dd1c9def416b4ac2b66be4fe690ac30; duration: 1307ms }
+executed query: { UPDATE users SET active = $1, email_token = $2, etoken_expire = $3 WHERE email_token = $4  RETURNING *, params: true,,,dfca5e285dd1c9def416b4ac2b66be4fe690ac30; duration: 690ms }
+executed query: { SELECT id, email, first_name, type, password FROM users WHERE email = $1 AND active IS true AND deleted_at IS null  , params: diego-s.novaes@hotmail.com; duration: 892ms }
+executed query: { SELECT first_name FROM users WHERE id = $1 AND deleted_at IS null AND active IS true AND type NOT IN (7)  , params: 20; duration: 767ms }
+executed query: { query: BEGIN, params: undefined; duration: 562ms, rows: null }
+executed query: { query: INSERT INTO courses(teacher_id, name, description, price, status) VALUES($1, $2, $3, $4, $5) RETURNING *, params: 20,CURSO DE HIPNOSE,TESTE,0,em análise; duration: 68ms, rows: 1 }
+executed query: { query: SELECT id from courses_categories WHERE name = $1 AND deleted_at IS NULL, params: hipnose; duration: 46ms, rows: 0 }
+executed query: { query: ROLLBACK, params: undefined; duration: 22ms, rows: null }
+executed query: { SELECT first_name FROM users WHERE id = $1 AND deleted_at IS null AND active IS true AND type NOT IN (7)  , params: 20; duration: 900ms }
+executed query: { query: BEGIN, params: undefined; duration: 634ms, rows: null }
+executed query: { query: INSERT INTO courses(teacher_id, name, description, price, status) VALUES($1, $2, $3, $4, $5) RETURNING *, params: 20,CURSO DE HIPNOSE,TESTE,0,em análise; duration: 75ms, rows: 1 }
+executed query: { query: SELECT id from courses_categories WHERE name = $1 AND deleted_at IS NULL, params: teste; duration: 48ms, rows: 0 }
+executed query: { query: ROLLBACK, params: undefined; duration: 20ms, rows: null }
+executed query: { SELECT first_name FROM users WHERE id = $1 AND deleted_at IS null AND active IS true AND type NOT IN (7)  , params: 20; duration: 797ms }
+executed query: { query: BEGIN, params: undefined; duration: 21ms, rows: null }
+executed query: { query: INSERT INTO courses(teacher_id, name, description, price, status) VALUES($1, $2, $3, $4, $5) RETURNING *, params: 20,CURSO DE HIPNOSE,TESTE,0,em análise; duration: 21ms, rows: 1 }
+executed query: { query: SELECT id from courses_categories WHERE name = $1 AND deleted_at IS NULL, params: TEST; duration: 29ms, rows: 1 }
+executed query: { query: SELECT id from courses_categories WHERE name = $1 AND deleted_at IS NULL, params: passos; duration: 27ms, rows: 1 }
+executed query: { query: INSERT INTO courses_flags(course_id, category_id, created_by) VALUES($1, $2, $3) RETURNING *, params: 24,5,20; duration: 92ms, rows: 1 }
+executed query: { query: INSERT INTO courses_flags(course_id, category_id, created_by) VALUES($1, $2, $3) RETURNING *, params: 24,2,20; duration: 28ms, rows: 1 }
+executed query: { query: INSERT INTO modules(name, description, module_order, course_id) VALUES($1, $2, $3, $4) RETURNING *, params: PREPARAÇÃO,PRIMEIROS PASSOS PARA UMA HIPNOSE,1,24; duration: 39ms, rows: 1 }
+executed query: { query: INSERT INTO modules(name, description, module_order, course_id) VALUES($1, $2, $3, $4) RETURNING *, params: PREPARAÇÃO 2,SEGUNDOS PASSOS PARA UMA HIPNOSE,2,24; duration: 21ms, rows: 1 }
+executed query: { query: INSERT INTO modules(name, description, module_order, course_id) VALUES($1, $2, $3, $4) RETURNING *, params: PREPARAÇÃO 3,TERCEIROS PASSOS PARA UMA HIPNOSE,3,24; duration: 22ms, rows: 1 }
+executed query: { query: SELECT id FROM modules WHERE id = $1 AND deleted_at IS NULL, params: 16; duration: 34ms, rows: 1 }
+executed query: { query: INSERT INTO classes(name, class_order, module_id, inactive, description, video_link) VALUES ($1, $2, $3, $4, $5, $6), params: Dormindo modulo 1 order1,1,16,false,TÔ COM SONO,www.youtube.com; duration: 44ms, rows: 1 }
+executed query: { query: SELECT id FROM modules WHERE id = $1 AND deleted_at IS NULL, params: 16; duration: 22ms, rows: 1 }
+executed query: { query: INSERT INTO classes(name, class_order, module_id, inactive, description, video_link) VALUES ($1, $2, $3, $4, $5, $6), params: Dormindo  modulo 1 order2,2,16,false,TÔ COM SONO,www.youtube.com; duration: 27ms, rows: 1 }
+executed query: { query: SELECT id FROM modules WHERE id = $1 AND deleted_at IS NULL, params: 17; duration: 29ms, rows: 1 }
+executed query: { query: INSERT INTO classes(name, class_order, module_id, inactive, description, video_link) VALUES ($1, $2, $3, $4, $5, $6), params: Acordando  modulo 2 order1,1,17,false,AINDA TÔ COM SONO,www.youtube.com; duration: 22ms, rows: 1 }
+executed query: { query: SELECT id FROM modules WHERE id = $1 AND deleted_at IS NULL, params: 17; duration: 20ms, rows: 1 }
+executed query: { query: INSERT INTO classes(name, class_order, module_id, inactive, description, video_link) VALUES ($1, $2, $3, $4, $5, $6), params: Dormindo modulo 2 order2,2,17,false,AINDA TÔ COM SONO,www.youtube.com; duration: 22ms, rows: 1 }
+executed query: { query: SELECT id FROM modules WHERE id = $1 AND deleted_at IS NULL, params: 18; duration: 21ms, rows: 1 }
+executed query: { query: INSERT INTO classes(name, class_order, module_id, inactive, description, video_link) VALUES ($1, $2, $3, $4, $5, $6), params: Dormindo modulo 3 order1,1,18,false,MORRENDO DE SONO,www.youtube.com; duration: 22ms, rows: 1 }
+executed query: { query: SELECT id FROM modules WHERE id = $1 AND deleted_at IS NULL, params: 18; duration: 22ms, rows: 1 }
+executed query: { query: INSERT INTO classes(name, class_order, module_id, inactive, description, video_link) VALUES ($1, $2, $3, $4, $5, $6), params: Dormindo modulo 3 order2,2,18,false,MORRENDO DE SONO,www.youtube.com; duration: 29ms, rows: 1 }
+executed query: { query: SELECT id FROM modules WHERE id = $1 AND deleted_at IS NULL, params: 18; duration: 35ms, rows: 1 }
+executed query: { query: INSERT INTO classes(name, class_order, module_id, inactive, description, video_link) VALUES ($1, $2, $3, $4, $5, $6), params: Dormindo modulo 3 order3,3,18,false,MORRENDO DE SONO,www.youtube.com; duration: 22ms, rows: 1 }
+executed query: { query: COMMIT, params: undefined; duration: 36ms, rows: null }
+executed query: { SELECT name FROM courses WHERE id = $1 AND status LIKE '%'||$2||'%' AND deleted_at IS null  , params: 24,aprovado; duration: 1383ms }
+executed query: { SELECT type FROM users WHERE id = $1 AND active IS true AND deleted_at IS null AND type NOT IN (2, 4)  , params: 2; duration: 654ms }
+executed query: { SELECT name FROM payment_method WHERE id = $1  , params: 1; duration: 629ms }
+executed query: { SELECT name FROM courses WHERE id = $1 AND status LIKE '%'||$2||'%' AND deleted_at IS null  , params: 24,aprovado; duration: 931ms }
+executed query: { SELECT type FROM users WHERE id = $1 AND active IS true AND deleted_at IS null AND type NOT IN (2, 4)  , params: 20; duration: 669ms }
+executed query: { SELECT name FROM payment_method WHERE id = $1  , params: 1; duration: 662ms }
+executed query: { query: BEGIN, params: undefined; duration: 522ms, rows: null }
+executed query: { query: INSERT INTO sales(course_id, student_id, price, payment_method_id, release_date) VALUES ($1, $2, $3, $4, $5) RETURNING *, params: 24,20,140.45,1,Tue Aug 31 2021 15:26:12 GMT-0300 (Brasilia Standard Time); duration: 88ms, rows: 1 }
+executed query: { query: SELECT installments from payment_method WHERE id = $1, params: 1; duration: 22ms, rows: 1 }
+executed query: { query: INSERT INTO receive_bills(sale_id, installment, subtotal, due_date) VALUES($1, $2, $3, $4) RETURNING *, params: 18,1,70.225,Tue Aug 31 2021 15:26:15 GMT-0300 (Brasilia Standard Time); duration: 56ms, rows: 1 }
+executed query: { query: INSERT INTO receive_bills(sale_id, installment, subtotal, due_date) VALUES($1, $2, $3, $4) RETURNING *, params: 18,2,70.225,Thu Sep 30 2021 15:26:15 GMT-0300 (Brasilia Standard Time); duration: 26ms, rows: 1 }
+executed query: { query: INSERT INTO financial_transfer(sale_id, teacher_id, price, due_date, pay_date) VALUES($1, $2, $3, $4, $5), params: 18,20,140.45,Mon Nov 29 2021 15:26:15 GMT-0300 (Brasilia Standard Time),Tue Aug 31 2021 15:26:15 GMT-0300 (Brasilia Standard Time); duration: 39ms, rows: 1 }
+executed query: { query: INSERT INTO enroll_students(student_id, course_id) VALUES($1, $2), params: 20,24; duration: 41ms, rows: 1 }
+executed query: { query: COMMIT, params: undefined; duration: 45ms, rows: null }
+executed query: { SELECT id, email, first_name, type, password FROM users WHERE email = $1 AND active IS true AND deleted_at IS null  , params: diego-s.novaes@hotmail.com; duration: 1146ms }
+executed query: { SELECT * FROM users  , params: ; duration: 679ms }
+executed query: { SELECT id, email, first_name, type, password, profile_photo FROM users WHERE email = $1 AND active IS true AND deleted_at IS null  , params: diego-s.novaes@hotmail.com; duration: 1097ms }
+executed query: { SELECT * FROM users  , params: ; duration: 639ms }
+executed query: { SELECT * FROM users  , params: ; duration: 917ms }
+executed query: { SELECT id, email, first_name, type, password, profile_photo FROM users WHERE email = $1 AND active IS true AND deleted_at IS null  , params: diego-s.novaes@hotmail.com; duration: 1121ms }
+executed query: { SELECT * FROM users  , params: ; duration: 596ms }

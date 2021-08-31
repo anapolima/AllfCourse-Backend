@@ -13,6 +13,7 @@ const authMiddleware = async (req, res, next) => {
             email: payload.email,
             firstname: payload.name,
             type: payload.type,
+            photo: payload.photo,
         };
 
         console.table({ 'Session-user': req.auth });

@@ -15,7 +15,7 @@ exports.login = async (req, res) => {
     const [, hash] = req.headers.authorization.split(' ');
     const [email, password] = Buffer.from(hash, 'base64').toString().split(':');
 
-    const checkSelect = ['id', 'email', 'first_name', 'type', 'password'];
+    const checkSelect = ['id', 'email', 'first_name', 'type', 'password', 'profile_photo'];
     const whereCheck = {
         email: {
             operator: '=',
@@ -46,6 +46,7 @@ exports.login = async (req, res) => {
                 email,
                 name: userFound.data[0].first_name,
                 type: userFound.data[0].type,
+                photo: userFound.data[0].profile_photo,
             });
 
             res.cookie('auth', token, {
