@@ -96,3 +96,4 @@
     - Pasta avatars criada
     - Restaurado backup de "addModule.controller.js" e "addClass.controller.js"
     - Porta alterada definitivamente para 3001
+    - Adicionado reordenação sequencial quando deletar um módulo
