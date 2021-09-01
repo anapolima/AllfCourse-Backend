@@ -241,7 +241,7 @@ exports.getCourseInformations = async (req, res) => {
                 }
                 courseInformations.modules = [...modules.data];
 
-                res.status(200).send(courseInformations);
+                res.status(200).send([courseInformations]);
             } else {
                 res.sendError(modules.error, 500);
             }
