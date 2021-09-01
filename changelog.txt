@@ -82,3 +82,5 @@
 01 de setembro:
     - Adição da rota de get course-informations
     - Adição de retorno de categorias do curso na rota get courses by logged user
+    - Adicionado host como opção na index da config
+    - Arrumado pequeno bug no update de foto e cadastro
