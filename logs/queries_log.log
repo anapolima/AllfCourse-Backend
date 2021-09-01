@@ -1,16 +1,8 @@
-executed query: { SELECT id FROM courses WHERE id = $1 AND deleted_at IS null  , params: 247; duration: 735ms }
-executed query: { SELECT id FROM courses WHERE id = $1 AND deleted_at IS null  , params: 24; duration: 603ms }
-executed query: { SELECT id FROM courses WHERE id = $1 AND deleted_at IS null  , params: 24; duration: 971ms }
-executed query: { query: SELECT * from courses where id = $1 and deleted_at is NULL, params: 24; duration: 513ms, rows: 1 }
+executed query: { query: SELECT * from modules where id = $1, params: 17; duration: 1101ms, rows: 1 }
+executed query: { query: SELECT * from modules where id = $1, params: 17; duration: 22ms, rows: 1 }
 executed query: { query: BEGIN, params: undefined; duration: 20ms, rows: null }
-executed query: { query: UPDATE courses SET name = $1, description = $2, price = $3 RETURNING *, params: CURSO DE HIPNOSE 9.0,TESTE UPDATE9,13.00; duration: 21ms, rows: 1 }
-executed query: { SELECT id FROM courses_categories WHERE id = $1 AND deleted_at IS null  , params: 1; duration: 595ms }
-executed query: { query: INSERT INTO courses_flags(course_id, category_id, created_by) VALUES ($1, $2, $3), params: 24,1,20; duration: 93ms, rows: 1 }
+executed query: { query: UPDATE classes SET deleted_at = $1 WHERE module_id = $2 RETURNING *, params: 9/1/2021, 8:18:10 PM,17; duration: 33ms, rows: 2 }
+executed query: { query: UPDATE modules SET deleted_at = $1, deleted_by = $2 WHERE id = $3 RETURNING *, params: 9/1/2021, 8:18:10 PM,20,17; duration: 21ms, rows: 1 }
+executed query: { query: SELECT * from modules where course_id = $1 AND module_order > $2, params: 24,2; duration: 22ms, rows: 1 }
+executed query: { query: UPDATE modules set module_order = $1 WHERE course_id = $2 AND module_order > $3 AND id = $4 AND deleted_at IS NULL, params: 2,24,2,18; duration: 32ms, rows: 1 }
 executed query: { query: COMMIT, params: undefined; duration: 25ms, rows: null }
-executed query: { SELECT id FROM courses WHERE id = $1 AND deleted_at IS null  , params: 24; duration: 910ms }
-executed query: { query: SELECT * from courses where id = $1 and deleted_at is NULL, params: 24; duration: 541ms, rows: 1 }
-executed query: { query: BEGIN, params: undefined; duration: 21ms, rows: null }
-executed query: { query: UPDATE courses SET name = $1, description = $2, price = $3 RETURNING *, params: CURSO DE HIPNOSE 10.0,TESTE UPDATE10,14.00; duration: 22ms, rows: 1 }
-executed query: { SELECT id FROM courses_categories WHERE id = $1 AND deleted_at IS null  , params: 1; duration: 605ms }
-executed query: { query: INSERT INTO courses_flags(course_id, category_id, created_by) VALUES ($1, $2, $3), params: 24,1,20; duration: 184ms, rows: 1 }
-executed query: { query: COMMIT, params: undefined; duration: 36ms, rows: null }

@@ -29,8 +29,8 @@ const addClassController = require('@controller/courses/addClass.controller');
 // ------------------------------------------------------------//
 // -----------------------courses-routes-----------------------//
 router.post('/addcourse', jwtuser, addCourse); // professor
-router.post('/addmodule', jwtuser, addModuleController);
-router.post('/addclass', jwtuser, addClassController);
+router.post('/addmodule', jwtuser, addModuleController.post);
+router.post('/addclass', jwtuser, addClassController.post);
 router.get('/getcourse/:id', jwtuser, getcourse); // todos
 router.get('/getclass/:moduleId', jwtuser, getclass); // todos
 router.get('/courses/flag/:id', jwtuser, getCoursesInFlags); // retorna todos os cursos em uma determinada categoria (passar o id da categoria), se 0 retorna todos os cursos de todas as categorias

@@ -36,6 +36,32 @@ exports.deletecoursemodule = async (req, res) => {
                 };
                 return errors;
             }
+            return result;
+        }
+
+        async function updateOrder(results) {
+            const check = await db.query('SELECT * from modules where course_id = $1 AND module_order > $2',
+                [results.rows[0].course_id,
+                    results.rows[0].module_order,
+                ]);
+            for (const eachmodule of check.rows) {
+                const result = await db.query('UPDATE modules set module_order = $1 WHERE course_id = $2 AND module_order > $3 AND id = $4 AND deleted_at IS NULL',
+                    [
+                        parseInt(eachmodule.module_order, 10) - 1,
+                        results.rows[0].course_id,
+                        parseInt(results.rows[0].module_order, 10),
+                        eachmodule.id,
+                    ]);
+                if (result.severity === 'ERROR') {
+                    await db.query('ROLLBACK');
+                    errors.criticalErrors.error = {
+                        message: 'Ocorreu um ao atualizar os modulos anteriores.',
+                        code: 500,
+                        detail: { ...result },
+                    };
+                    return errors;
+                }
+            }
             return true;
         }
 
@@ -56,8 +82,14 @@ exports.deletecoursemodule = async (req, res) => {
                 if (!deleteclass.criticalErrors) {
                     const deletemodule = await deleteModules();
                     if (!deletemodule.criticalErrors) {
-                        await db.query('COMMIT');
-                        res.status(201).send({ message: 'Módulo deletado com sucesso' });
+                        const updateorder = await updateOrder(deletemodule);
+                        if (!updateorder.criticalErrors) {
+                            await db.query('COMMIT');
+                            res.status(201).send({ message: 'Módulo deletado com sucesso' });
+                        } else {
+                            res.sendError(updateorder, 500);
+                        }
+                        // await db.query('COMMIT');
                     } else {
                         res.sendError(deletemodule, 500);
                     }

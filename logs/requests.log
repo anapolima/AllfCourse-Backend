@@ -4388,3 +4388,111 @@ PUT /updatecourse/24 2349.747 ms
 DATE: Wednesday, September 1, 2021
 HTTP STATUS CODE: 201
 
+DELETE /deletemodule/17 1552.236 ms
+DATE: Wednesday, September 1, 2021
+HTTP STATUS CODE: 201
+
+DELETE /deletemodule/17 1546.103 ms
+DATE: Wednesday, September 1, 2021
+HTTP STATUS CODE: 201
+
+DELETE /deletemodule/17 1096.903 ms
+DATE: Wednesday, September 1, 2021
+HTTP STATUS CODE: 201
+
+DELETE /deletemodule/17 1430.852 ms
+DATE: Wednesday, September 1, 2021
+HTTP STATUS CODE: 500
+
+DELETE /deletemodule/17 1247.493 ms
+DATE: Wednesday, September 1, 2021
+HTTP STATUS CODE: 201
+
+DELETE /deletemodule/17 1358.294 ms
+DATE: Wednesday, September 1, 2021
+HTTP STATUS CODE: 201
+
+DELETE /deletemodule/17 1131.545 ms
+DATE: Wednesday, September 1, 2021
+HTTP STATUS CODE: 201
+
+DELETE /deletemodule/17 1383.726 ms
+DATE: Wednesday, September 1, 2021
+HTTP STATUS CODE: 500
+
+DELETE /deletemodule/17 938.307 ms
+DATE: Wednesday, September 1, 2021
+HTTP STATUS CODE: 500
+
+DELETE /deletemodule/17 1123.824 ms
+DATE: Wednesday, September 1, 2021
+HTTP STATUS CODE: 201
+
+DELETE /deletemodule/17 1225.148 ms
+DATE: Wednesday, September 1, 2021
+HTTP STATUS CODE: 201
+
+DELETE /deletemodule/17 1170.832 ms
+DATE: Wednesday, September 1, 2021
+HTTP STATUS CODE: 201
+
+DELETE /deletemodule/17 1019.162 ms
+DATE: Wednesday, September 1, 2021
+HTTP STATUS CODE: 201
+
+DELETE /deletemodule/17 1460.380 ms
+DATE: Wednesday, September 1, 2021
+HTTP STATUS CODE: 201
+
+DELETE /deletemodule/17 1427.399 ms
+DATE: Wednesday, September 1, 2021
+HTTP STATUS CODE: 201
+
+DELETE /deletemodule/17 1269.704 ms
+DATE: Wednesday, September 1, 2021
+HTTP STATUS CODE: 500
+
+DELETE /deletemodule/17 1446.176 ms
+DATE: Wednesday, September 1, 2021
+HTTP STATUS CODE: 201
+
+DELETE /deletemodule/17 1015.743 ms
+DATE: Wednesday, September 1, 2021
+HTTP STATUS CODE: 201
+
+DELETE /deletemodule/17 1434.295 ms
+DATE: Wednesday, September 1, 2021
+HTTP STATUS CODE: 201
+
+DELETE /deletemodule/17 1570.325 ms
+DATE: Wednesday, September 1, 2021
+HTTP STATUS CODE: 201
+
+DELETE /deletemodule/17 1623.235 ms
+DATE: Wednesday, September 1, 2021
+HTTP STATUS CODE: 201
+
+DELETE /deletemodule/17 1147.272 ms
+DATE: Wednesday, September 1, 2021
+HTTP STATUS CODE: 201
+
+DELETE /deletemodule/17 1926.371 ms
+DATE: Wednesday, September 1, 2021
+HTTP STATUS CODE: 201
+
+DELETE /deletemodule/17 1655.258 ms
+DATE: Wednesday, September 1, 2021
+HTTP STATUS CODE: 201
+
+DELETE /deletemodule/17 1092.977 ms
+DATE: Wednesday, September 1, 2021
+HTTP STATUS CODE: 201
+
+DELETE /deletemodule/17 829.522 ms
+DATE: Wednesday, September 1, 2021
+HTTP STATUS CODE: 201
+
+DELETE /deletemodule/17 1293.412 ms
+DATE: Wednesday, September 1, 2021
+HTTP STATUS CODE: 201
+
