@@ -1,11 +1,11 @@
 const query = require('@helpers/Query');
-const validateCourse = require('@validations/validateCourses');
+const validateModule = require('@validations/validateModule');
 
 module.exports = {
     check: async (_id) => {
         const errors = { criticalErrors: {}, validationErrors: {} };
 
-        const validCourseId = validateCourse.validateCourseId(_id, errors.validationErrors);
+        const validCategoryId = validateModule.validateModule(_id, errors.validationErrors);
 
         if (Object.keys(errors.validationErrors).length > 0) {
             return errors;
@@ -16,7 +16,7 @@ module.exports = {
         const whereCheck1 = {
             id: {
                 operator: '=',
-                value: validCourseId,
+                value: validCategoryId,
             },
             deleted_at: {
                 operator: 'IS',
@@ -26,7 +26,7 @@ module.exports = {
         const logicalOperatorCheck1 = ['AND'];
 
         const resultCheck1 = await query.Select(
-            'courses',
+            'modules',
             check1SelectCategoryId,
             whereCheck1,
             logicalOperatorCheck1,
@@ -34,13 +34,13 @@ module.exports = {
         if (Array.isArray(resultCheck1.data)) {
             if (resultCheck1.data.length === 0) {
                 errors.validationErrors.categoryid = {
-                    message: 'Não existe nenhum curso com o ID informado',
+                    message: 'Não existe nenhum módulo com o ID informado',
                     code: 500,
                 };
             }
         } else {
             errors.criticalErrors.errorCategory = {
-                message: 'Ocorreu um erro inesperado durante a consulta dos cursos',
+                message: 'Ocorreu um erro inesperado durante a consulta de módulos',
                 code: 500,
                 detail: { ...resultCheck1.error },
             };
@@ -52,7 +52,7 @@ module.exports = {
         }
 
         return {
-            id: validCourseId,
+            id: validCategoryId,
             validationErrors: { ...errors.validationErrors },
             criticalErrors: { ...errors.criticalErrors },
         };

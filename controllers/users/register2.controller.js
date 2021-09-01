@@ -51,7 +51,7 @@ exports.addUser = async (req, res) => {
                 password: encryptedPasswd,
                 gender: check.gender,
                 birth_date: check.birthDate,
-                profile_photo: `http://${config.app.host}:${config.app.port}/static/default.png`,
+                profile_photo: `http://${config.app.host}:${config.app.port}/profilephoto/default.png`,
                 type: check.type,
                 email_token: token,
                 etoken_expire: expire,

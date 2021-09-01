@@ -7,7 +7,7 @@
 
 const query = require('@helpers/Query');
 const checkValidCourse = require('@app/functions/checkIfCourseExists');
-const checkValidCategory = require('@app/functions/checkIdCategoryExists');
+const checkValidCategory = require('@functions/checkIfCategoryExists');
 
 exports.deleteCourseFlag = async (req, res) => {
     const courseId = req.params.courseId.toString();

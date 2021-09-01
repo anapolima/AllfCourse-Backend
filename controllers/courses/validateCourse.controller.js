@@ -10,6 +10,7 @@ const query = require('@helpers/Query');
 
 exports.validateCourse = async (req, res) => {
     const { type } = req.auth;
+    console.log(req.auth);
     if (type === 4 || type === 5 || type === 7 || type === 6) {
         const { id } = req.body;
         const { status } = req.body;
@@ -35,7 +36,7 @@ exports.validateCourse = async (req, res) => {
 
         if (courseFound.data.length < 1) {
             res.status(404).send({ message: 'Nenhum Curso com este ID encontrado' });
-        } else if (status !== 'aprovado' && status !== 'em análise' && status !== 'negado') {
+        } else if (status !== 'aprovado' && status !== 'em análise' && status !== 'rejeitado' && status !== 'inativo') {
             res.status(400).send({ message: 'Valor inválido, valores válidos: "aprovado", "em análise", "negado"' });
         } else {
             const whereColumns = {

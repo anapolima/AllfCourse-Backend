@@ -21,9 +21,16 @@ const { getCoursesByLoggedTeacher } = require('@app/controllers/courses/getCours
 const { getCoursesByLoggedUser } = require('@app/controllers/courses/getCoursesByLoggedUser.controller');
 const { deleteCourseFlag } = require('@app/controllers/courses/deleteCourseFlag.controller');
 const { getCourseInformations } = require('@app/controllers/courses/getCourseInformations.controller');
+const { updateCourse } = require('@controller/courses/updateCourse.controller');
+const { updateModule } = require('@controller/courses/updateModule.controller');
+const { updatecoursephoto } = require('@controller/courses/updateCoursePhoto.controller');
+const addModuleController = require('@controller/courses/addModule.controller');
+const addClassController = require('@controller/courses/addClass.controller');
 // ------------------------------------------------------------//
 // -----------------------courses-routes-----------------------//
 router.post('/addcourse', jwtuser, addCourse); // professor
+router.post('/addmodule', jwtuser, addModuleController);
+router.post('/addclass', jwtuser, addClassController);
 router.get('/getcourse/:id', jwtuser, getcourse); // todos
 router.get('/getclass/:moduleId', jwtuser, getclass); // todos
 router.get('/courses/flag/:id', jwtuser, getCoursesInFlags); // retorna todos os cursos em uma determinada categoria (passar o id da categoria), se 0 retorna todos os cursos de todas as categorias
@@ -35,6 +42,9 @@ router.get('/courses/logged-teacher', jwtuser, getCoursesByLoggedTeacher);
 router.get('/courses/logged-user', jwtuser, getCoursesByLoggedUser);
 router.delete('/course-flag/:courseId/:categoryId', jwtuser, deleteCourseFlag);
 router.get('/course-informations/:courseId', jwtuser, getCourseInformations);
+router.put('/updatecourse/:id', jwtuser, updateCourse);
+router.put('/updatemodule/:id', jwtuser, updateModule);
+router.put('/updatecoursebanner/:id', jwtuser, updatecoursephoto);
 // -----------------------courses-routes-----------------------//
 // ------------------------------------------------------------//
 

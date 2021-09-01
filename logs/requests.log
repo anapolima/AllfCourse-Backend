@@ -4080,3 +4080,311 @@ GET /login 1703.652 ms
 DATE: Wednesday, September 1, 2021
 HTTP STATUS CODE: 200
 
+PUT /updatecourse/1 - ms
+DATE: Wednesday, September 1, 2021
+HTTP STATUS CODE: -
+
+GET /login 1311.653 ms
+DATE: Wednesday, September 1, 2021
+HTTP STATUS CODE: 200
+
+PUT /updatecourse/1 8.836 ms
+DATE: Wednesday, September 1, 2021
+HTTP STATUS CODE: 401
+
+PUT /validatecourse/ 1046.823 ms
+DATE: Wednesday, September 1, 2021
+HTTP STATUS CODE: 404
+
+PUT /validatecourse/ 1157.263 ms
+DATE: Wednesday, September 1, 2021
+HTTP STATUS CODE: 404
+
+PUT /updatecourse/1 8.554 ms
+DATE: Wednesday, September 1, 2021
+HTTP STATUS CODE: 401
+
+PUT /updatecourse/1 11.868 ms
+DATE: Wednesday, September 1, 2021
+HTTP STATUS CODE: 200
+
+PUT /updatecourse/1 1918.936 ms
+DATE: Wednesday, September 1, 2021
+HTTP STATUS CODE: 201
+
+PUT /updatecourse/1 2561.918 ms
+DATE: Wednesday, September 1, 2021
+HTTP STATUS CODE: 201
+
+PUT /updatecourse/1 2471.962 ms
+DATE: Wednesday, September 1, 2021
+HTTP STATUS CODE: 201
+
+PUT /updatecourse/1 2108.682 ms
+DATE: Wednesday, September 1, 2021
+HTTP STATUS CODE: 201
+
+PUT /updatecourse/1 2346.130 ms
+DATE: Wednesday, September 1, 2021
+HTTP STATUS CODE: 201
+
+PUT /updatecourse/1 2236.910 ms
+DATE: Wednesday, September 1, 2021
+HTTP STATUS CODE: 201
+
+PUT /updatecourse/1 2256.256 ms
+DATE: Wednesday, September 1, 2021
+HTTP STATUS CODE: 201
+
+PUT /updatecourse/1 2132.364 ms
+DATE: Wednesday, September 1, 2021
+HTTP STATUS CODE: 201
+
+PUT /updatecourse/1 5182.005 ms
+DATE: Wednesday, September 1, 2021
+HTTP STATUS CODE: 201
+
+PUT /updatepaymentmethod/999 1049.302 ms
+DATE: Wednesday, September 1, 2021
+HTTP STATUS CODE: 500
+
+PUT /updatecourse/1 2040.876 ms
+DATE: Wednesday, September 1, 2021
+HTTP STATUS CODE: 201
+
+PUT /updatecourse/1 2026.574 ms
+DATE: Wednesday, September 1, 2021
+HTTP STATUS CODE: 201
+
+PUT /updatecourse/1 2506.491 ms
+DATE: Wednesday, September 1, 2021
+HTTP STATUS CODE: 201
+
+PUT /updatecourse/1 673.917 ms
+DATE: Wednesday, September 1, 2021
+HTTP STATUS CODE: 500
+
+PUT /updatecourse/24 1183.039 ms
+DATE: Wednesday, September 1, 2021
+HTTP STATUS CODE: 500
+
+PUT /updatecourse/24 910.579 ms
+DATE: Wednesday, September 1, 2021
+HTTP STATUS CODE: 500
+
+PUT /updatecourse/24 899.715 ms
+DATE: Wednesday, September 1, 2021
+HTTP STATUS CODE: 500
+
+PUT /updatecourse/24 1127.334 ms
+DATE: Wednesday, September 1, 2021
+HTTP STATUS CODE: 500
+
+PUT /updatecourse/24 1074.253 ms
+DATE: Wednesday, September 1, 2021
+HTTP STATUS CODE: 500
+
+PUT /updatecourse/24 2322.017 ms
+DATE: Wednesday, September 1, 2021
+HTTP STATUS CODE: 500
+
+PUT /updatecourse/24 2430.649 ms
+DATE: Wednesday, September 1, 2021
+HTTP STATUS CODE: 201
+
+PUT /updatecourse/2 790.595 ms
+DATE: Wednesday, September 1, 2021
+HTTP STATUS CODE: 500
+
+PUT /updatecourse/24 2003.910 ms
+DATE: Wednesday, September 1, 2021
+HTTP STATUS CODE: 201
+
+PUT /updatecourse/24 2100.280 ms
+DATE: Wednesday, September 1, 2021
+HTTP STATUS CODE: 500
+
+PUT /updatecourse/24 2284.348 ms
+DATE: Wednesday, September 1, 2021
+HTTP STATUS CODE: 201
+
+PUT /updatecourse/24 1899.655 ms
+DATE: Wednesday, September 1, 2021
+HTTP STATUS CODE: 201
+
+PUT /updatecourse/24 1918.718 ms
+DATE: Wednesday, September 1, 2021
+HTTP STATUS CODE: 500
+
+PUT /updatecourse/24 1693.626 ms
+DATE: Wednesday, September 1, 2021
+HTTP STATUS CODE: 500
+
+PUT /updatecourse/24 1424.951 ms
+DATE: Wednesday, September 1, 2021
+HTTP STATUS CODE: 500
+
+PUT /updatecourse/24 1513.597 ms
+DATE: Wednesday, September 1, 2021
+HTTP STATUS CODE: 500
+
+PUT /updatecourse/24 1466.476 ms
+DATE: Wednesday, September 1, 2021
+HTTP STATUS CODE: 500
+
+PUT /updatecourse/24 3307.293 ms
+DATE: Wednesday, September 1, 2021
+HTTP STATUS CODE: 500
+
+PUT /updatecourse/24 2274.118 ms
+DATE: Wednesday, September 1, 2021
+HTTP STATUS CODE: 500
+
+PUT /updatecourse/24 2398.773 ms
+DATE: Wednesday, September 1, 2021
+HTTP STATUS CODE: 500
+
+PUT /updatecourse/24 1382.454 ms
+DATE: Wednesday, September 1, 2021
+HTTP STATUS CODE: 500
+
+PUT /updatecourse/24 2270.131 ms
+DATE: Wednesday, September 1, 2021
+HTTP STATUS CODE: 500
+
+PUT /updatecourse/24 2126.963 ms
+DATE: Wednesday, September 1, 2021
+HTTP STATUS CODE: 201
+
+PUT /updatecourse/24 2262.581 ms
+DATE: Wednesday, September 1, 2021
+HTTP STATUS CODE: 500
+
+PUT /updatecourse/24 2500.206 ms
+DATE: Wednesday, September 1, 2021
+HTTP STATUS CODE: 201
+
+PUT /updatecourse/24 2221.213 ms
+DATE: Wednesday, September 1, 2021
+HTTP STATUS CODE: 201
+
+PUT /updatecourse/24 2120.389 ms
+DATE: Wednesday, September 1, 2021
+HTTP STATUS CODE: 201
+
+PUT /updatecourse/24 2389.675 ms
+DATE: Wednesday, September 1, 2021
+HTTP STATUS CODE: 201
+
+PUT /updatecourse/24 2532.750 ms
+DATE: Wednesday, September 1, 2021
+HTTP STATUS CODE: 500
+
+PUT /updatecourse/24 2761.795 ms
+DATE: Wednesday, September 1, 2021
+HTTP STATUS CODE: 201
+
+PUT /updatemodule/4456564 12.301 ms
+DATE: Wednesday, September 1, 2021
+HTTP STATUS CODE: 200
+
+PUT /updatemodule/4456564 1117.974 ms
+DATE: Wednesday, September 1, 2021
+HTTP STATUS CODE: 500
+
+PUT /updatemodule/18 2359.621 ms
+DATE: Wednesday, September 1, 2021
+HTTP STATUS CODE: 201
+
+PUT /updatemodule/18 2195.631 ms
+DATE: Wednesday, September 1, 2021
+HTTP STATUS CODE: 201
+
+PUT /updatecourse/47 1121.782 ms
+DATE: Wednesday, September 1, 2021
+HTTP STATUS CODE: 500
+
+PUT /updatecourse/47 1199.358 ms
+DATE: Wednesday, September 1, 2021
+HTTP STATUS CODE: 500
+
+PUT /updatecourse/47 1053.049 ms
+DATE: Wednesday, September 1, 2021
+HTTP STATUS CODE: 500
+
+PUT /updatecourse/47 758.482 ms
+DATE: Wednesday, September 1, 2021
+HTTP STATUS CODE: 500
+
+PUT /updatecourse/47 747.928 ms
+DATE: Wednesday, September 1, 2021
+HTTP STATUS CODE: 500
+
+PUT /updatecourse/47 701.559 ms
+DATE: Wednesday, September 1, 2021
+HTTP STATUS CODE: 500
+
+PUT /updatecourse/24 853.053 ms
+DATE: Wednesday, September 1, 2021
+HTTP STATUS CODE: 500
+
+PUT /updatecourse/24 2103.475 ms
+DATE: Wednesday, September 1, 2021
+HTTP STATUS CODE: 201
+
+PUT /updatecourse/24 2227.236 ms
+DATE: Wednesday, September 1, 2021
+HTTP STATUS CODE: 201
+
+PUT /updatecourse/24 2366.763 ms
+DATE: Wednesday, September 1, 2021
+HTTP STATUS CODE: 500
+
+PUT /updatecourse/24 2025.216 ms
+DATE: Wednesday, September 1, 2021
+HTTP STATUS CODE: 500
+
+PUT /updatecourse/24 2964.926 ms
+DATE: Wednesday, September 1, 2021
+HTTP STATUS CODE: 500
+
+PUT /updatecourse/24 2330.864 ms
+DATE: Wednesday, September 1, 2021
+HTTP STATUS CODE: 500
+
+PUT /updatecourse/24 2050.619 ms
+DATE: Wednesday, September 1, 2021
+HTTP STATUS CODE: 500
+
+PUT /updatecourse/24 2091.564 ms
+DATE: Wednesday, September 1, 2021
+HTTP STATUS CODE: 500
+
+PUT /updatecourse/24 2493.870 ms
+DATE: Wednesday, September 1, 2021
+HTTP STATUS CODE: 201
+
+PUT /updatecourse/24 2511.957 ms
+DATE: Wednesday, September 1, 2021
+HTTP STATUS CODE: 500
+
+PUT /updatecourse/24 2694.218 ms
+DATE: Wednesday, September 1, 2021
+HTTP STATUS CODE: 201
+
+PUT /updatecourse/247 762.693 ms
+DATE: Wednesday, September 1, 2021
+HTTP STATUS CODE: 500
+
+PUT /updatecourse/24 608.278 ms
+DATE: Wednesday, September 1, 2021
+HTTP STATUS CODE: 500
+
+PUT /updatecourse/24 2249.679 ms
+DATE: Wednesday, September 1, 2021
+HTTP STATUS CODE: 201
+
+PUT /updatecourse/24 2349.747 ms
+DATE: Wednesday, September 1, 2021
+HTTP STATUS CODE: 201
+

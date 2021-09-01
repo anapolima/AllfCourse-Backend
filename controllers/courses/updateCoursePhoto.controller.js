@@ -2,20 +2,23 @@ const query = require('@helpers/Query');
 const config = require('@config');
 require('dotenv').config();
 
-exports.updatephoto = async (req, res) => {
+exports.updatecoursephoto = async (req, res) => {
     const userid = req.auth.id;
+    const { id } = req.params;
     if (!req.files || Object.keys(req.files).length === 0) {
         res.status(400).send({ message: 'Nenhuma foto enviada' });
     } else if (!userid) {
         res.status(400).send({ message: 'Não autorizado' });
+    } else if (!id) {
+        res.status(500).send({ message: 'Preencha o ID do curso' });
     } else {
         // The name of the input field (i.e. "sampleFile") is used to retrieve the uploaded file
-        const { avatar } = req.files;
-        const uploadPath = `${__dirname}/avatars/userphoto-${userid}`;
+        const { banner } = req.files;
+        const uploadPath = `${__dirname}/banners/coursebanner-${userid}`;
 
         // Use the mv() method to place the file somewhere on your server
         try {
-            await avatar.mv(uploadPath);
+            await banner.mv(uploadPath);
             const whereColumns = {
                 id: {
                     operator: '=',
@@ -23,11 +26,11 @@ exports.updatephoto = async (req, res) => {
                 },
             };
             const fieldsValues = {};
-            fieldsValues.profile_photo = `http://${config.app.host}:${config.app.port}/userphoto-${userid}`;
+            fieldsValues.banner_img = `http://${config.app.host}:${config.app.port}/coursebanners/coursebanner-${userid}`;
 
             const result = await query.Update(
                 true,
-                'users',
+                'courses',
                 fieldsValues,
                 ['*'],
                 whereColumns,

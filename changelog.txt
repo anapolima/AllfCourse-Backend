@@ -84,3 +84,15 @@
     - Adição de retorno de categorias do curso na rota get courses by logged user
     - Adicionado host como opção na index da config
     - Arrumado pequeno bug no update de foto e cadastro
+    - Rota estática de fotos de usuário mudada para /profilephoto/user-${userid}
+    - Rota estática de banners de curso definida para /coursebanners/coursebanner-${teacherid}
+    - Adicionado rota /updatecourse/:id
+    - Adicionado rota /updatemodule/:id
+    - Adicionado rota /updatecoursebanner/:id
+    - Bugs menores corrigidos
+    - Consertado nome de "checkIdCategoryExists" para "CheckIfCategoryExists"
+    - Adicionado validadores para os update
+    - Pasta banners criada
+    - Pasta avatars criada
+    - Restaurado backup de "addModule.controller.js" e "addClass.controller.js"
+    - Porta alterada definitivamente para 3001
