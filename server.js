@@ -11,7 +11,7 @@ const app = require('./app');
 
 // ----------------------------------------------------------------------------//
 // --------------------------------server-port---------------------------------//
-app.listen(config.app.port, (err) => {
+app.listen(config.app.port, config.app.host, (err) => {
     if (err) console.log(err);
     console.log(`Server listening on port ${config.app.port}`);
 });

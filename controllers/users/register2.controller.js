@@ -6,6 +6,7 @@
 // -----------------------------------------------------------------------------------------------//
 
 const query = require('@helpers/Query');
+const config = require('@config');
 require('dotenv').config();
 
 const emailrequest = require('@functions/sendConfirmationEmail');
@@ -50,7 +51,7 @@ exports.addUser = async (req, res) => {
                 password: encryptedPasswd,
                 gender: check.gender,
                 birth_date: check.birthDate,
-                profile_photo: 'http://localhost:3000/static/default.png',
+                profile_photo: `http://${config.app.host}:${config.app.port}/static/default.png`,
                 type: check.type,
                 email_token: token,
                 etoken_expire: expire,

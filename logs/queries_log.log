@@ -537,3 +537,4 @@ executed query: { SELECT courses.id AS course_id, courses.name AS course_name, c
                 AND
                     courses.deleted_at IS NULL
             ) FROM courses WHERE courses.deleted_at IS null  ORDER BY courses.name, params: 18; duration: 848ms }
+executed query: { SELECT id, email, first_name, type, password, profile_photo FROM users WHERE email = $1 AND active IS true AND deleted_at IS null  , params: diego-s.novaes@hotmail.com; duration: 1596ms }

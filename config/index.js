@@ -3,6 +3,7 @@ require('dotenv').config()
 
 module.exports = {
     app: {
+        host: 'localhost',
         port: process.env.PORT || 3001,
     },
 

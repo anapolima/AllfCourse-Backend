@@ -4076,3 +4076,7 @@ GET /courses/logged-user 857.390 ms
 DATE: Tuesday, August 31, 2021
 HTTP STATUS CODE: 200
 
+GET /login 1703.652 ms
+DATE: Wednesday, September 1, 2021
+HTTP STATUS CODE: 200
+
