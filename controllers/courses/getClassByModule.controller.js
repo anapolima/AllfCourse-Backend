@@ -24,18 +24,23 @@ exports.getclass = async (req, res) => {
             res.status(200).send(classFound.data);
         }
     } else {
+        const logicalOperators = ['AND'];
         const checkSelect = ['*'];
         const whereCheck = {
             module_id: {
                 operator: '=',
                 value: moduleid,
             },
+            deleted_at: {
+                operator: 'is',
+                value: 'null',
+            },
         };
         const classFound = await query.Select(
             'classes',
             checkSelect,
             whereCheck,
-            [''],
+            logicalOperators,
         );
         if (classFound.data.length < 1) {
             res.status(404).send({ message: 'Nenhuma aula neste modulo com este ID encontrada' });
