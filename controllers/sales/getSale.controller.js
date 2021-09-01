@@ -58,10 +58,10 @@ exports.getSales = async (req, res) => {
                             operator: 'is',
                             value: 'null',
                         },
-                        // status: {
-                        //     operator: 'like',
-                        //     value: 'aprovado',
-                        // },
+                        status: {
+                            operator: 'like',
+                            value: 'aprovado',
+                        },
                     },
                     logicalOperators: ['AND'],
                 },
@@ -141,10 +141,10 @@ exports.getSales = async (req, res) => {
                         operator: 'is',
                         value: 'null',
                     },
-                    // status: {
-                    //     operator: 'like',
-                    //     value: 'aprovado',
-                    // },
+                    status: {
+                        operator: 'like',
+                        value: 'aprovado',
+                    },
                 },
                 logicalOperators: ['AND'],
             },

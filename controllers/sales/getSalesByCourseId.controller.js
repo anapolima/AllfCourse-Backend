@@ -52,7 +52,7 @@ exports.getSalesByCourseId = async (req, res) => {
                             operator: '=',
                             value: 'sales.course_id',
                         },
-                        deleted_At: {
+                        deleted_at: {
                             operator: 'is',
                             value: 'null',
                         },
@@ -135,7 +135,7 @@ exports.getSalesByCourseId = async (req, res) => {
                         operator: '=',
                         value: 'sales.course_id',
                     },
-                    deleted_At: {
+                    deleted_at: {
                         operator: 'is',
                         value: 'null',
                     },

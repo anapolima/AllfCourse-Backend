@@ -1,4 +1,4 @@
-/* eslint-disable no-unused-vars */
+// /* eslint-disable no-unused-vars */
 const validateCourseCategory = require('@validations/validateCoursesCategories');
 const query = require('@helpers/Query');
 
