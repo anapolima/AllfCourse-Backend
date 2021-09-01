@@ -34,6 +34,10 @@ exports.getPaymentMethod = async (req, res) => {
                     operator: '=',
                     value: validPaymentMethodId,
                 },
+                deleted_at: {
+                    operator: 'is',
+                    value: 'null',
+                },
             };
             const logicalOperatorCheck1 = [''];
             const orderBy = ['name', 'installments'];
@@ -58,7 +62,12 @@ exports.getPaymentMethod = async (req, res) => {
             'name',
             'installments',
         ];
-        const whereCheck1 = {};
+        const whereCheck1 = {
+            deleted_at: {
+                operator: 'is',
+                value: 'null',
+            },
+        };
         const logicalOperatorCheck1 = [''];
         const orderBy = ['name', 'installments'];
 

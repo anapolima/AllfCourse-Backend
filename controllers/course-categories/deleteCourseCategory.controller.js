@@ -18,12 +18,16 @@ exports.deletecategory = async (req, res) => {
                     operator: '=',
                     value: parseInt(id, 10),
                 },
+                deleted_at: {
+                    operator: 'IS',
+                    value: 'null',
+                },
             };
             const flagFound = await query.Select(
                 'courses_flags',
                 checkSelect,
                 whereCheck,
-                [''],
+                ['AND'],
             );
 
             if (flagFound.data.length >= 1) {
