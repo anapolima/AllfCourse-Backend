@@ -78,3 +78,6 @@
     - Usuário agora por padrão vem com a foto "default.png"
     - Atualizando para camelCase todas os valores recebidos no req.body
     - Corrigido bug que não setava os cookies no browser do usuário
+
+01 de setembro:
+    - Adição da rota de get course-informations

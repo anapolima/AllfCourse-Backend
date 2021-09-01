@@ -22,10 +22,6 @@ module.exports = {
                 operator: 'IS',
                 value: 'null',
             },
-            status: {
-                operator: 'like',
-                value: 'aprovado',
-            },
         };
         const logicalOperatorCheck1 = ['AND', 'AND'];
 
