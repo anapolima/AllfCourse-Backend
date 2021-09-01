@@ -101,6 +101,64 @@ exports.getCoursesByLoggedUser = async (req, res) => {
         );
 
         if (Array.isArray(courses.data)) {
+            for (let i = 0; i < courses.data.length; i++) {
+                const categoriesColumns = [
+                    'courses_categories.id',
+                    'courses_categories.name',
+                ];
+
+                const whereCategories = {
+                    'courses_flags.deleted_at': {
+                        operator: 'is',
+                        value: 'null',
+                    },
+                    'courses_flags.course_id': {
+                        operator: '=',
+                        value: courses.data[i].course_id,
+                    },
+                };
+
+                const logicalOperatorsCategories = ['AND'];
+
+                const categoriesJoin = {
+                    courses_categories: {
+                        join: 'join',
+                        on: {
+                            id: {
+                                operator: '=',
+                                value: 'courses_flags.category_id',
+                            },
+                            deleted_at: {
+                                operator: 'is',
+                                value: 'null',
+                            },
+                        },
+                        logicalOperators: ['AND'],
+                    },
+                };
+
+                const orderBy = ['courses_categories.name'];
+
+                const categories = await query.Select(
+                    'courses_flags',
+                    categoriesColumns,
+                    whereCategories,
+                    logicalOperatorsCategories,
+                    orderBy,
+                    categoriesJoin,
+                );
+
+                if (Array.isArray(categories.data) && categories.data.length > 0) {
+                    courses.data[i].categories = [
+                        ...categories.data,
+                    ];
+                } else if (Array.isArray(categories.data)) {
+                    courses.data[i].categories = [];
+                } else {
+                    res.sendError(categories.error, 500);
+                    return false;
+                }
+            }
             res.status(200).send(courses.data);
         } else {
             res.sendError('Ocorreu um problema durante a consulta de cursos', 500);
