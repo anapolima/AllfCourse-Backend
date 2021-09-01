@@ -86,8 +86,6 @@ exports.getCourseInformations = async (req, res) => {
             ['courses.id'],
         );
 
-        console.log(course);
-
         if (Array.isArray(course.data) && course.data.length > 0) {
             const courseInformations = {
                 ...course.data[0],
@@ -102,9 +100,13 @@ exports.getCourseInformations = async (req, res) => {
                     operator: 'is',
                     value: 'null',
                 },
+                'courses_flags.course_id': {
+                    operator: '=',
+                    value: courseId,
+                },
             };
 
-            const logicalOperatorsCategories = [];
+            const logicalOperatorsCategories = ['AND'];
 
             const categoriesJoin = {
                 courses_categories: {
