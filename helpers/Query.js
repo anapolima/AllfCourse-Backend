@@ -552,20 +552,36 @@ class QueryGenerator {
             const start = Date.now();
 
             columns.forEach((_column) => {
+                const { value } = columnsValues[_column];
+                const { type } = columnsValues[_column];
+
                 // eslint-disable-next-line no-restricted-globals
-                if (isNaN(columnsValues[_column])) {
-                    if (columnsValues[_column].split(' ').length > 1
-                        || columnsValues[_column].split('.').length > 3) {
-                        params.push(`${_column} = '${columnsValues[_column]}'`);
+                if (isNaN(value)) {
+                    if (type) {
+                        const regexType = /integer$|string$/;
+
+                        if (regexType.test(type)) {
+                            if (type.toLowerCase() === 'integer') {
+                                params.push(`${_column} = ${value}`);
+                            } else {
+                                params.push(`${_column} = '${value}'`);
+                            }
+                        } else {
+                            this.#result.error.params = "Invalid type. Type must be 'integer' or 'string'.";
+                        }
                     } else {
-                        params.push(`${_column} = ${columnsValues[_column]}`);
+                        this.#result.error.params = "When providing values as a string you need to specify its type. You can do that by adding a key 'type' with a value of 'string' or 'integer'";
                     }
                 } else {
                     params.push(`${_column} = $${param}`);
-                    values.push(columnsValues[_column]);
+                    values.push(value);
                     param++;
                 }
             });
+
+            if (this.#result.error.params) {
+                return this.#result;
+            }
 
             this.#params = params.join(', ');
 
