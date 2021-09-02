@@ -155,20 +155,20 @@ async function check(
         }
         if (check2.data.length >= 1) {
             if (check3.data.length >= 1) {
-                errors.criticalErrors.emailphone = {
+                errors.validationErrors.emailphone = {
                     message: 'Email e telefone já existem',
                     code: 500,
                 };
                 return errors;
             }
-            errors.criticalErrors.email = {
+            errors.validationErrors.email = {
                 message: 'E-mail já existe',
                 code: 500,
             };
             return errors;
         }
         if (check3.data.length >= 1) {
-            errors.criticalErrors.phone = {
+            errors.validationErrors.phone = {
                 message: 'Telefone já existe',
                 code: 500,
             };
