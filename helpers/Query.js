@@ -493,7 +493,7 @@ class QueryGenerator {
                             whereColumns.length !== 0
                                 ? `WHERE ${this.#whereParams}`
                                 : ''
-                        } ${
+                        } ${join ? this.#join : ''} ${
                             orderBy ? `ORDER BY ${this.#orderBy}` : ''
                         }, params: ${values}; duration: ${duration}ms }\n`,
                     );
@@ -552,9 +552,19 @@ class QueryGenerator {
             const start = Date.now();
 
             columns.forEach((_column) => {
-                params.push(`${_column} = $${param}`);
-                values.push(columnsValues[_column]);
-                param++;
+                // eslint-disable-next-line no-restricted-globals
+                if (isNaN(columnsValues[_column])) {
+                    if (columnsValues[_column].split(' ').length > 1
+                        || columnsValues[_column].split('.').length > 3) {
+                        params.push(`${_column} = '${columnsValues[_column]}'`);
+                    } else {
+                        params.push(`${_column} = ${columnsValues[_column]}`);
+                    }
+                } else {
+                    params.push(`${_column} = $${param}`);
+                    values.push(columnsValues[_column]);
+                    param++;
+                }
             });
 
             this.#params = params.join(', ');
@@ -654,6 +664,15 @@ class QueryGenerator {
 
                                 whereParams.push(
                                     `${_column} ${operator.toUpperCase()} ${inValues} ${
+                                        logicalOperators[_index]
+                                            ? logicalOperators[_index]
+                                            : ''
+                                    }`,
+                                );
+                            // eslint-disable-next-line no-restricted-globals
+                            } else if (isNaN(whereColumnsValues[_column].value)) {
+                                whereParams.push(
+                                    `${_column} ${operator.toUpperCase()} ${whereColumnsValues[_column].value} ${
                                         logicalOperators[_index]
                                             ? logicalOperators[_index]
                                             : ''
