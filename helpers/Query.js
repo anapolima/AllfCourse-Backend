@@ -1,3 +1,4 @@
+/* eslint-disable no-restricted-globals */
 const pg = require('pg');
 require('dotenv').config();
 const dotenv = require('dotenv');
@@ -562,9 +563,13 @@ class QueryGenerator {
 
                         if (regexType.test(type)) {
                             if (type.toLowerCase() === 'integer') {
-                                params.push(`${_column} = ${value}`);
+                                params.push(`${_column} = ${param}`);
+                                values.push(value);
+                                param++;
                             } else {
-                                params.push(`${_column} = '${value}'`);
+                                params.push(`${_column} = '${param}'`);
+                                values.push(value);
+                                param++;
                             }
                         } else {
                             this.#result.error.params = "Invalid type. Type must be 'integer' or 'string'.";
@@ -690,33 +695,27 @@ class QueryGenerator {
                                     }`,
                                 );
                             // eslint-disable-next-line no-restricted-globals
-                            } else if (isNaN(whereColumnsValues[_column].value)) {
-                                whereParams.push(
-                                    `${_column} ${operator.toUpperCase()} ${whereColumnsValues[_column].value} ${
-                                        logicalOperators[_index]
-                                            ? logicalOperators[_index]
-                                            : ''
-                                    }`,
-                                );
-                            // eslint-disable-next-line no-restricted-globals
-                            } else if (isNaN(whereColumnsValues[_column].value)) {
-                                whereParams.push(
-                                    `${_column} ${operator.toUpperCase()} ${whereColumnsValues[_column].value} ${
-                                        logicalOperators[_index]
-                                            ? logicalOperators[_index]
-                                            : ''
-                                    }`,
-                                );
                             } else {
-                                whereParams.push(
-                                    `${_column} ${operator.toUpperCase()} $${param} ${
-                                        logicalOperators[_index]
-                                            ? logicalOperators[_index]
-                                            : ''
-                                    }`,
-                                );
-                                values.push(whereColumnsValues[_column].value);
-                                param++;
+                                // eslint-disable-next-line no-lonely-if
+                                if (isNaN(whereColumnsValues[_column].value)) {
+                                    whereParams.push(
+                                        `${_column} ${operator.toUpperCase()} ${whereColumnsValues[_column].value} ${
+                                            logicalOperators[_index]
+                                                ? logicalOperators[_index]
+                                                : ''
+                                        }`,
+                                    );
+                                } else {
+                                    whereParams.push(
+                                        `${_column} ${operator.toUpperCase()} $${param} ${
+                                            logicalOperators[_index]
+                                                ? logicalOperators[_index]
+                                                : ''
+                                        }`,
+                                    );
+                                    values.push(whereColumnsValues[_column].value);
+                                    param++;
+                                }
                             }
                         } else {
                             this.#result.error.params = 'Invalid operator on WHERE params';
