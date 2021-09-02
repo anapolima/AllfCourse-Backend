@@ -52,9 +52,10 @@ exports.deleteClass = async (req, res) => {
 
             if (Array.isArray(biggerOrderClasses.data)) {
                 if (Array.isArray(biggerOrderClasses.data) === 0) {
+                    const now = new Date().toLocaleString();
                     const classColumns = {
                         deleted_at: {
-                            value: 'now()',
+                            value: now,
                             type: 'string',
                         },
                     };
@@ -86,9 +87,10 @@ exports.deleteClass = async (req, res) => {
                         res.sendError(classInformations.error, 500);
                     }
                 } else {
+                    const now = new Date().toLocaleString();
                     const classColumns = {
                         deleted_at: {
-                            value: 'now()',
+                            value: now,
                             type: 'string',
                         },
                     };
