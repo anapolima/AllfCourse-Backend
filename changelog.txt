@@ -100,3 +100,4 @@
     - Adicionado reordenação sequencial quando deletar uma aula
     - Adição da rota de update class
     - Atualização do método de Update da Query
+    - Atualização das rotas que utilizam o método de Update da Query
