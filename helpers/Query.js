@@ -699,7 +699,7 @@ class QueryGenerator {
                                 // eslint-disable-next-line no-lonely-if
                                 if (isNaN(whereColumnsValues[_column].value)) {
                                     whereParams.push(
-                                        `${_column} ${operator.toUpperCase()} '${param}' ${
+                                        `${_column} ${operator.toUpperCase()} '$${param}' ${
                                             logicalOperators[_index]
                                                 ? logicalOperators[_index]
                                                 : ''
