@@ -56,7 +56,6 @@ async function check(
         );
     }
 
-    console.log(_usertype, typeof (_usertype));
     const validUserType = validateRegister.validateUserType(
         _usertype,
         errors.validationErrors,
