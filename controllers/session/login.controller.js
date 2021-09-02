@@ -54,7 +54,11 @@ exports.login = async (req, res) => {
             }).status(200).send({ message: 'Login sucedido', token });
         } catch (err) {
             if (err === 1) {
-                res.sendError({ message: 'Senha incorreta' }, 403);
+                errors.criticalErrors.email = {
+                    message: 'Senha incorreta.',
+                    code: 403,
+                };
+                res.sendError(errors, 403);
             } else {
                 console.log(err);
                 errors.criticalErrors.errorCategory = {
