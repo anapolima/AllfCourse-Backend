@@ -567,7 +567,7 @@ class QueryGenerator {
                                 values.push(value);
                                 param++;
                             } else {
-                                params.push(`${_column} = '$${param}'`);
+                                params.push(`${_column} = $${param}`);
                                 values.push(value);
                                 param++;
                             }
