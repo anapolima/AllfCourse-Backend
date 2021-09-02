@@ -18,7 +18,7 @@ exports.forgotPassEmail = async (req, res) => {
     const checkSelect = ['email', 'first_name'];
     const whereCheck = {
         email: {
-            operator: '=',
+            operator: 'like',
             value: email,
         },
         active: {
@@ -56,7 +56,7 @@ exports.forgotPassEmail = async (req, res) => {
                     value: expire,
                     type: 'string',
                 };
-                await query.Update(
+                const test = await query.Update(
                     true,
                     'users',
                     fieldvalues,
@@ -64,6 +64,7 @@ exports.forgotPassEmail = async (req, res) => {
                     whereCheck,
                     checkOperators,
                 );
+                console.log(test);
                 res.status(201).send({ message: 'Email enviado' });
             } catch (err) {
                 console.log(err);

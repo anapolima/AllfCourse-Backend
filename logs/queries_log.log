@@ -1,8 +1,11 @@
-executed query: { query: SELECT * from modules where id = $1, params: 17; duration: 1101ms, rows: 1 }
-executed query: { query: SELECT * from modules where id = $1, params: 17; duration: 22ms, rows: 1 }
-executed query: { query: BEGIN, params: undefined; duration: 20ms, rows: null }
-executed query: { query: UPDATE classes SET deleted_at = $1 WHERE module_id = $2 RETURNING *, params: 9/1/2021, 8:18:10 PM,17; duration: 33ms, rows: 2 }
-executed query: { query: UPDATE modules SET deleted_at = $1, deleted_by = $2 WHERE id = $3 RETURNING *, params: 9/1/2021, 8:18:10 PM,20,17; duration: 21ms, rows: 1 }
-executed query: { query: SELECT * from modules where course_id = $1 AND module_order > $2, params: 24,2; duration: 22ms, rows: 1 }
-executed query: { query: UPDATE modules set module_order = $1 WHERE course_id = $2 AND module_order > $3 AND id = $4 AND deleted_at IS NULL, params: 2,24,2,18; duration: 32ms, rows: 1 }
-executed query: { query: COMMIT, params: undefined; duration: 25ms, rows: null }
+executed query: { SELECT email, first_name FROM users WHERE email LIKE '%'||$1||'%' AND active = $2 AND deleted_at IS null   , params: diego-s.novaes@hotmail.com,true; duration: 1130ms }
+executed query: { UPDATE users SET recover_token = 'fc54246af6f415cd502ebdd959f6e906ab5df39c', rtoken_expire = $1 WHERE email LIKE '%'||$2||'%'  AND active = $3 AND deleted_at IS null  RETURNING *, params: Thu Sep 02 2021 19:57:11 GMT-0300 (Brasilia Standard Time),diego-s.novaes@hotmail.com,true; duration: 631ms }
+executed query: { SELECT recover_token, rtoken_expire FROM users WHERE recover_token = $1   , params: fc54246af6f415cd502ebdd959f6e906ab5df39c; duration: 641ms }
+executed query: { UPDATE users SET recover_token = $1, rtoken_expire = $2, password = '$2b$10$mRY6EKYSlZAjjwEMXmNQie3KfaiLAvxWSPa4iSIKNc4ApzNuY3aLm' WHERE recover_token = fc54246af6f415cd502ebdd959f6e906ab5df39c  RETURNING *, params: ,; duration: 634ms }
+executed query: { SELECT id, email, first_name, type, password, profile_photo FROM users WHERE email = $1 AND active IS true AND deleted_at IS null   , params: diego-s.novaes@hotmail.com; duration: 759ms }
+executed query: { SELECT recover_token, rtoken_expire FROM users WHERE recover_token = $1   , params: fc54246af6f415cd502ebdd959f6e906ab5df39c; duration: 640ms }
+executed query: { UPDATE users SET recover_token = $1, rtoken_expire = $2, password = '$2b$10$0IWXVrz8wdx24II7beK59uD781icv20t7SM//7lgwuQn30dltAfhe' WHERE recover_token = fc54246af6f415cd502ebdd959f6e906ab5df39c  RETURNING *, params: ,; duration: 647ms }
+executed query: { SELECT recover_token, rtoken_expire FROM users WHERE recover_token = $1   , params: fc54246af6f415cd502ebdd959f6e906ab5df39c; duration: 699ms }
+executed query: { UPDATE users SET recover_token = $1, rtoken_expire = $2, password = '$2b$10$KWYCqtNkT5P7H7tjRskh6OT0cKnNTfwFOdcKK.PVWbQyDpVnOBfZy' WHERE recover_token LIKE '%'||$3||'%'   RETURNING *, params: ,,fc54246af6f415cd502ebdd959f6e906ab5df39c; duration: 917ms }
+executed query: { SELECT id, email, first_name, type, password, profile_photo FROM users WHERE email = $1 AND active IS true AND deleted_at IS null   , params: diego-s.novaes@hotmail.com; duration: 603ms }
+executed query: { SELECT id, email, first_name, type, password, profile_photo FROM users WHERE email = $1 AND active IS true AND deleted_at IS null   , params: diego-s.novaes@hotmail.com; duration: 624ms }

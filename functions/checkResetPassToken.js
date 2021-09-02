@@ -34,7 +34,7 @@ async function check(token, newpass, confirmnewpass) {
             const encryptedNewPassword = await bcrypt.hash(newpass, 10);
             const whereColumns = {
                 recover_token: {
-                    operator: '=',
+                    operator: 'like',
                     value: token,
                 },
             };
@@ -52,6 +52,7 @@ async function check(token, newpass, confirmnewpass) {
                 type: 'string',
             };
             const teste = await query.Update(true, 'users', fieldsValue, ['*'], whereColumns, ['']);
+            console.log(teste);
             return true;
         }
         errors.criticalErrors.tokenExpired = {
