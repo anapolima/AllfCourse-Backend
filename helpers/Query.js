@@ -694,6 +694,15 @@ class QueryGenerator {
                                             : ''
                                     }`,
                                 );
+                            // eslint-disable-next-line no-restricted-globals
+                            } else if (isNaN(whereColumnsValues[_column].value)) {
+                                whereParams.push(
+                                    `${_column} ${operator.toUpperCase()} ${whereColumnsValues[_column].value} ${
+                                        logicalOperators[_index]
+                                            ? logicalOperators[_index]
+                                            : ''
+                                    }`,
+                                );
                             } else {
                                 whereParams.push(
                                     `${_column} ${operator.toUpperCase()} $${param} ${
