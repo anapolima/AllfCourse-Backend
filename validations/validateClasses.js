@@ -72,7 +72,7 @@ module.exports = {
         if (typeof (_name) === 'string') {
             const name = _name.trim();
             if (name.length >= 3 && name.length <= 80) {
-                return name;
+                return name.toUpperCase();
             }
 
             _errors.courseName = `O nome da aula deve ter pelo menos 3 caracteres e ser menor que ou igual a 80 caracteres. O nome fornecido tem ${name.length} caracteres.`;
