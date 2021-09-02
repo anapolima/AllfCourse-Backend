@@ -44,8 +44,14 @@ exports.deletecategory = async (req, res) => {
                     },
                 };
                 const fieldValues = {};
-                fieldValues.deleted_at = now;
-                fieldValues.deleted_by = currentuser;
+                fieldValues.deleted_at = {
+                    value: now,
+                    type: 'string',
+                };
+                fieldValues.deleted_by = {
+                    value: currentuser,
+                    type: 'integer',
+                };
                 await query.Update(true, 'courses_categories', fieldValues, ['*'], whereColumns, ['']);
                 res.status(201).send({ message: 'Categoria deletada com sucesso' });
             }

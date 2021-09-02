@@ -55,8 +55,12 @@ exports.deleteCourseFlag = async (req, res) => {
 
         if (Array.isArray(otherFlags.data)) {
             if (otherFlags.data.length > 1) {
+                const now = new Date().toLocaleString();
                 const flagsColumns = {
-                    deleted_at: 'now()',
+                    deleted_at: {
+                        value: now,
+                        type: 'string',
+                    },
                 };
                 const whereFlags = {
                     course_id: {

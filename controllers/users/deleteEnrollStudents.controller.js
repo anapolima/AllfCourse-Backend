@@ -20,8 +20,12 @@ exports.deleteEnrollStudent = async (req, res) => {
         || Object.keys(checkCourse.criticalErrors).length !== 0) {
             res.sendError(checkCourse, 500);
         } else {
+            const now = new Date().toLocaleString();
             const enrollColumns = {
-                deleted_at: 'now()',
+                deleted_at: {
+                    value: now,
+                    type: 'string',
+                },
             };
             const whereEnroll = {
                 student_id: {

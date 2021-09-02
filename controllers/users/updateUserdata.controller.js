@@ -42,12 +42,28 @@ exports.updateUserData = async (req, res) => {
         || Object.keys(errors.criticalErrors).length !== 0) {
             res.sendError(errors, 500);
         } else {
+            const now = new Date().toLocaleString();
             const usersColumns = {
-                updated_at: 'now()',
-                last_name: validLast,
-                gender: validGender,
-                phone: parseInt(validPhone, 10),
-                social_name: validSocialName,
+                updated_at: {
+                    value: now,
+                    type: 'string',
+                },
+                last_name: {
+                    value: validLast,
+                    type: 'string',
+                },
+                gender: {
+                    value: validGender,
+                    type: 'string',
+                },
+                phone: {
+                    value: parseInt(validPhone, 10),
+                    type: 'integer',
+                },
+                social_name: {
+                    value: validSocialName,
+                    type: 'string',
+                },
             };
             const whereUsers = {
                 id: {

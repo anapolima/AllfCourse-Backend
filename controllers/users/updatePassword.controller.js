@@ -57,10 +57,16 @@ exports.updateUserPassword = async (req, res) => {
 
                 if (validCurrentPasswd) {
                     const encryptedNewPassword = await bcrypt.hash(validNewPassword, 10);
-
+                    const now = new Date().toLocaleString();
                     const usersUpdateColumns = {
-                        updated_at: 'now()',
-                        password: encryptedNewPassword,
+                        updated_at: {
+                            value: now,
+                            type: 'string',
+                        },
+                        password: {
+                            value: encryptedNewPassword,
+                            type: 'string',
+                        },
                     };
                     const whereUsersUpdate = {
                         id: {

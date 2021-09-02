@@ -46,8 +46,14 @@ exports.forgotPassSMS = async (req, res) => {
                     const expire = new Date();
                     expire.setHours(expire.getHours() + 2);
                     const fieldvalues = {};
-                    fieldvalues.recover_token = token;
-                    fieldvalues.rtoken_expire = expire;
+                    fieldvalues.recover_token = {
+                        value: token,
+                        type: 'string',
+                    };
+                    fieldvalues.rtoken_expire = {
+                        value: expire,
+                        type: 'string',
+                    };
                     await query.Update(
                         true,
                         'users',

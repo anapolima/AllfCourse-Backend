@@ -39,8 +39,14 @@ exports.newEmailToken = async (req, res) => {
         if (Array.isArray(check.data)) {
             if (check.data.length >= 1) {
                 const fieldvalues = {};
-                fieldvalues.email_token = token;
-                fieldvalues.etoken_expire = expire;
+                fieldvalues.email_token = {
+                    value: token,
+                    type: 'string',
+                };
+                fieldvalues.etoken_expire = {
+                    value: expire,
+                    type: 'string',
+                };
                 await query.Update(
                     true,
                     'users',

@@ -53,7 +53,10 @@ exports.deleteClass = async (req, res) => {
             if (Array.isArray(biggerOrderClasses.data)) {
                 if (Array.isArray(biggerOrderClasses.data) === 0) {
                     const classColumns = {
-                        deleted_at: 'now()',
+                        deleted_at: {
+                            value: 'now()',
+                            type: 'string',
+                        },
                     };
                     const whereClass = {
                         id: {
@@ -84,7 +87,10 @@ exports.deleteClass = async (req, res) => {
                     }
                 } else {
                     const classColumns = {
-                        deleted_at: 'now()',
+                        deleted_at: {
+                            value: 'now()',
+                            type: 'string',
+                        },
                     };
                     const whereClass = {
                         id: {
@@ -107,7 +113,10 @@ exports.deleteClass = async (req, res) => {
                     if (Array.isArray(classInformations.data)) {
                         if (classInformations.data.length > 0) {
                             const otherClassesColumns = {
-                                class_order: 'classes.class_order::integer - 1',
+                                class_order: {
+                                    value: 'classes.class_order - 1',
+                                    type: 'integer',
+                                },
                             };
 
                             const whereOtherClasses = {
@@ -119,9 +128,13 @@ exports.deleteClass = async (req, res) => {
                                     operator: '>',
                                     value: classInformations.data[0].class_order,
                                 },
+                                deleted_at: {
+                                    operator: 'is',
+                                    value: 'null',
+                                },
                             };
 
-                            const otherClassesLogicalOperators = ['AND'];
+                            const otherClassesLogicalOperators = ['AND', 'AND'];
                             const otherClassesReturning = ['id', 'class_order'];
 
                             const updatingOtherClasses = await query.Update(
@@ -136,7 +149,11 @@ exports.deleteClass = async (req, res) => {
                             if (Array.isArray(updatingOtherClasses.data)) {
                                 res.status(200).send({ message: 'Aula excluída com sucesso!' });
                             } else {
-                                const recoveringColumns = { deleted_at: null };
+                                const recoveringColumns = {
+                                    deleted_at: {
+                                        value: null,
+                                    },
+                                };
 
                                 const whereRecovering = {
                                     id: {

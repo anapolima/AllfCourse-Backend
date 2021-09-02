@@ -45,9 +45,18 @@ exports.updateClass = async (req, res) => {
                 res.sendError(check, 500);
             } else {
                 const updateColumns = {
-                    video_link: validLink,
-                    name: validName,
-                    description: validDescription,
+                    video_link: {
+                        value: validLink,
+                        type: 'string',
+                    },
+                    name: {
+                        value: validName,
+                        type: 'string',
+                    },
+                    description: {
+                        value: validDescription,
+                        type: 'string',
+                    },
                 };
 
                 const updateWhere = {

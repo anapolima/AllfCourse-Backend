@@ -29,7 +29,10 @@ exports.updateCourseCategory = async (req, res) => {
                 },
             };
             const fieldsValues = {};
-            fieldsValues.name = name;
+            fieldsValues.name = {
+                value: name,
+                type: 'string',
+            };
 
             const result = await query.Update(
                 true,

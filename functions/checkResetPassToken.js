@@ -31,6 +31,7 @@ async function check(token, newpass, confirmnewpass) {
     if (check1.data.length >= 1) {
         const expire = new Date(check1.data[0].rtoken_expire);
         if (new Date(now_converted).getTime() < new Date(expire).getTime()) {
+            const encryptedNewPassword = await bcrypt.hash(newpass, 10);
             const whereColumns = {
                 recover_token: {
                     operator: '=',
@@ -38,9 +39,18 @@ async function check(token, newpass, confirmnewpass) {
                 },
             };
             const fieldsValue = {};
-            fieldsValue.recover_token = null;
-            fieldsValue.rtoken_expire = null;
-            fieldsValue.password = bcrypt.hashSync(newpass, 10);
+            fieldsValue.recover_token = {
+                value: null,
+                type: 'integer',
+            };
+            fieldsValue.rtoken_expire = {
+                value: null,
+                type: 'integer',
+            };
+            fieldsValue.password = {
+                value: encryptedNewPassword,
+                type: 'string',
+            };
             const teste = await query.Update(true, 'users', fieldsValue, ['*'], whereColumns, ['']);
             return true;
         }

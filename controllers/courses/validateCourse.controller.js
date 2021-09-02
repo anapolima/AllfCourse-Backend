@@ -46,7 +46,10 @@ exports.validateCourse = async (req, res) => {
                 },
             };
             const fieldsValues = {};
-            fieldsValues.status = status;
+            fieldsValues.status = {
+                value: status,
+                type: 'string',
+            };
 
             const result = await query.Update(
                 true,

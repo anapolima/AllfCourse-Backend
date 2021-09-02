@@ -48,12 +48,24 @@ exports.updatePaymentMethod = async (req, res) => {
                 } else {
                     const fieldsValues = {};
                     if (name && installments) {
-                        fieldsValues.name = name;
-                        fieldsValues.installments = installments;
+                        fieldsValues.name = {
+                            value: name,
+                            type: 'string',
+                        };
+                        fieldsValues.installments = {
+                            value: installments,
+                            type: 'integer',
+                        };
                     } else if (name && !installments) {
-                        fieldsValues.name = name;
+                        fieldsValues.name = {
+                            value: name,
+                            type: 'string',
+                        };
                     } else if (installments && !name) {
-                        fieldsValues.installments = installments;
+                        fieldsValues.installments = {
+                            value: installments,
+                            type: 'integer',
+                        };
                     }
                     const whereColumns = {
                         id: {

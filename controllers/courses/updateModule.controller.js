@@ -49,8 +49,15 @@ exports.updateModule = async (req, res) => {
                 );
 
                 const fieldsValues = {};
-                fieldsValues.name = name || currentModule.data[0].name;
-                fieldsValues.description = description || currentModule.data[0].description;
+                fieldsValues.name = {
+                    value: name,
+                    type: 'string',
+                } || { value: currentModule.data[0].name, type: 'string' };
+
+                fieldsValues.description = {
+                    value: description,
+                    type: 'string',
+                } || { value: currentModule.data[0].description, type: 'string' };
 
                 const whereColumns = {
                     id: {

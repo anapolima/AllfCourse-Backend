@@ -40,8 +40,14 @@ exports.deleteuser = async (req, res) => {
                     },
                 };
                 const fieldValues = {};
-                fieldValues.deleted_at = now;
-                fieldValues.deleted_by = currentuser;
+                fieldValues.deleted_at = {
+                    value: now,
+                    type: 'string',
+                };
+                fieldValues.deleted_by = {
+                    value: currentuser,
+                    type: 'integer',
+                };
                 await query.Update(true, 'users', fieldValues, ['*'], whereColumns, ['']);
                 res.status(201).send({ message: 'Usuário deletado com sucesso' });
             }

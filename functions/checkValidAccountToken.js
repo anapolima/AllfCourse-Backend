@@ -28,9 +28,18 @@ async function check(token) {
                 },
             };
             const fieldsValue = {};
-            fieldsValue.active = true;
-            fieldsValue.email_token = null;
-            fieldsValue.etoken_expire = null;
+            fieldsValue.active = {
+                value: true,
+                type: 'integer',
+            };
+            fieldsValue.email_token = {
+                value: null,
+                type: 'integer',
+            };
+            fieldsValue.etoken_expire = {
+                value: null,
+                type: 'integer',
+            };
             await query.Update(true, 'users', fieldsValue, ['*'], whereColumns, ['']);
             return true;
         }

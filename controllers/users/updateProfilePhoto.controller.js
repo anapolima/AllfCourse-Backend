@@ -23,7 +23,10 @@ exports.updatephoto = async (req, res) => {
                 },
             };
             const fieldsValues = {};
-            fieldsValues.profile_photo = `http://${config.app.host}:${config.app.port}/userphoto-${userid}`;
+            fieldsValues.profile_photo = {
+                value: `http://${config.app.host}:${config.app.port}/userphoto-${userid}`,
+                type: 'string',
+            };
 
             const result = await query.Update(
                 true,

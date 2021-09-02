@@ -20,8 +20,12 @@ exports.deletePaymentMethod = async (req, res) => {
         || Object.keys(check.criticalErrors).length !== 0) {
             res.sendError(check, 500);
         } else {
+            const now = new Date().toLocaleString();
             const paymentColumns = {
-                deleted_at: 'now()',
+                deleted_at: {
+                    value: now,
+                    type: 'string',
+                },
             };
             const wherePayment = {
                 id: {

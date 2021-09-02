@@ -26,7 +26,10 @@ exports.updatecoursephoto = async (req, res) => {
                 },
             };
             const fieldsValues = {};
-            fieldsValues.banner_img = `http://${config.app.host}:${config.app.port}/coursebanners/coursebanner-${userid}`;
+            fieldsValues.banner_img = {
+                value: `http://${config.app.host}:${config.app.port}/coursebanners/coursebanner-${userid}`,
+                type: 'string',
+            };
 
             const result = await query.Update(
                 true,
