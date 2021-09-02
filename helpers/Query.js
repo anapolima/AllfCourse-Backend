@@ -618,7 +618,11 @@ class QueryGenerator {
                                 || operator.toLowerCase() === 'not ilike'
                             ) {
                                 whereParams.push(
-                                    `${_column} ${operator.toUpperCase()} '%'||$${param}||'%' `,
+                                    `${_column} ${operator.toUpperCase()} '%'||$${param}||'%'  ${
+                                        logicalOperators[_index]
+                                            ? logicalOperators[_index]
+                                            : ''
+                                    }`,
                                 );
                                 values.push(whereColumnsValues[_column].value);
                                 param++;
