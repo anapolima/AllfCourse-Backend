@@ -97,3 +97,6 @@
     - Restaurado backup de "addModule.controller.js" e "addClass.controller.js"
     - Porta alterada definitivamente para 3001
     - Adicionado reordenação sequencial quando deletar um módulo
+    - Adicionado reordenação sequencial quando deletar uma aula
+    - Adição da rota de update class
+    - Atualização do método de Update da Query
