@@ -34,7 +34,7 @@ async function check(token, newpass, confirmnewpass) {
             const encryptedNewPassword = await bcrypt.hash(newpass, 10);
             const whereColumns = {
                 recover_token: {
-                    operator: 'like',
+                    operator: '=',
                     value: token,
                 },
             };

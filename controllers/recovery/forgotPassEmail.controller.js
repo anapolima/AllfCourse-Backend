@@ -18,7 +18,7 @@ exports.forgotPassEmail = async (req, res) => {
     const checkSelect = ['email', 'first_name'];
     const whereCheck = {
         email: {
-            operator: 'like',
+            operator: '=',
             value: email,
         },
         active: {

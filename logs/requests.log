@@ -4552,3 +4552,31 @@ GET /login 697.014 ms
 DATE: Thursday, September 2, 2021
 HTTP STATUS CODE: 200
 
+POST /requestpass-email 3799.921 ms
+DATE: Thursday, September 2, 2021
+HTTP STATUS CODE: 201
+
+POST /resetpass 19.626 ms
+DATE: Thursday, September 2, 2021
+HTTP STATUS CODE: 500
+
+POST /resetpass 1240.821 ms
+DATE: Thursday, September 2, 2021
+HTTP STATUS CODE: 500
+
+POST /resetpass 1664.135 ms
+DATE: Thursday, September 2, 2021
+HTTP STATUS CODE: 201
+
+POST /logout 1.383 ms
+DATE: Thursday, September 2, 2021
+HTTP STATUS CODE: 202
+
+GET /login 957.518 ms
+DATE: Thursday, September 2, 2021
+HTTP STATUS CODE: 403
+
+GET /login 811.168 ms
+DATE: Thursday, September 2, 2021
+HTTP STATUS CODE: 200
+
