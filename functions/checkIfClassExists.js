@@ -14,26 +14,64 @@ module.exports = {
             return errors;
         }
 
-        const check1SelectClassId = ['id'];
+        const check1SelectClassId = [
+            'classes.id AS class_id',
+            'classes.module_id AS module_id',
+            'courses.id AS course_id',
+        ];
 
         const whereCheck1 = {
-            id: {
+            'classes.id': {
                 operator: '=',
                 value: validClassId,
             },
-            deleted_at: {
+            'classes.deleted_at': {
                 operator: 'IS',
                 value: 'null',
             },
         };
         const logicalOperatorCheck1 = ['AND'];
 
+        const join = {
+            modules: {
+                join: 'join',
+                on: {
+                    id: {
+                        operator: '=',
+                        value: 'classes.module_id',
+                    },
+                    deleted_at: {
+                        operator: 'IS',
+                        value: 'null',
+                    },
+                },
+                logicalOperators: ['AND'],
+            },
+            courses: {
+                join: 'join',
+                on: {
+                    id: {
+                        operator: '=',
+                        value: 'modules.course_id',
+                    },
+                    deleted_at: {
+                        operator: 'IS',
+                        value: 'null',
+                    },
+                },
+                logicalOperators: ['AND'],
+            },
+        };
+
         const resultCheck1 = await query.Select(
             'classes',
             check1SelectClassId,
             whereCheck1,
             logicalOperatorCheck1,
+            [],
+            join,
         );
+
         if (Array.isArray(resultCheck1.data)) {
             if (resultCheck1.data.length === 0) {
                 errors.validationErrors.categoryid = {
