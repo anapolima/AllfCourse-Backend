@@ -9,7 +9,7 @@ const express = require('express');
 const jwtuser = require('@middlewares/auth');
 
 const router = express.Router();
-const { addUser } = require('@controller/users/register2.controller');
+const { addUser } = require('@controller/users/register.controller');
 const { validateAccount } = require('@controller/users/validAccount.controller');
 const { getuser } = require('@controller/users/getusers.controller');
 const { getstudent } = require('@controller/users/getEnrollStudentsController');

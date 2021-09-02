@@ -4,40 +4,64 @@ const validateRegister = require('@validations/validateRegister');
 require('dotenv').config();
 
 async function check(
-    document,
-    email,
-    phone,
-    firstname,
-    lastname,
-    gender,
-    birthdate,
+    _document,
+    _email,
+    _phone,
+    _firstname,
+    _lastname,
+    _gender,
+    _birthdate,
+    _password,
+    _usertype,
+    _socialname,
 ) {
     const errors = { criticalErrors: {}, validationErrors: {} };
     const validDocument = validateRegister.validateDocument(
-        document,
+        _document,
         errors.validationErrors,
     );
-    const validEmail = validateRegister.validateEmail(email, errors);
+    const validEmail = validateRegister.validateEmail(_email, errors);
     const validFirstName = validateRegister.validateFirstName(
-        firstname,
+        _firstname,
         errors.validationErrors,
     );
     const validLastName = validateRegister.validateLastName(
-        lastname,
+        _lastname,
         errors.validationErrors,
     );
     const validGender = validateRegister.validateGender(
-        gender,
+        _gender,
         errors.validationErrors,
     );
     const validPhone = validateRegister.validatePhone(
-        phone,
+        _phone,
         errors.validationErrors,
     );
     const validbirthDate = validateRegister.validateBirthDate(
-        birthdate,
+        _birthdate,
         errors.validationErrors,
     );
+
+    const validPassword = validateRegister.validatePassword(
+        _password,
+        errors.validationErrors,
+    );
+
+    let validSocialName = null;
+
+    if (_socialname) {
+        validSocialName = validateRegister.validateSocialName(
+            _socialname,
+            errors.validationErrors,
+        );
+    }
+
+    console.log(_usertype, typeof (_usertype));
+    const validUserType = validateRegister.validateUserType(
+        _usertype,
+        errors.validationErrors,
+    );
+
     if (Object.keys(errors.validationErrors).length > 0) {
         return errors;
     }
@@ -48,7 +72,7 @@ async function check(
     const whereCheck1 = {
         document: {
             operator: '=',
-            value: document,
+            value: _document,
         },
         deleted_at: {
             operator: 'is',
@@ -58,7 +82,7 @@ async function check(
     const whereCheck2 = {
         email: {
             operator: '=',
-            value: email,
+            value: _email,
         },
         deleted_at: {
             operator: 'is',
@@ -68,7 +92,7 @@ async function check(
     const whereCheck3 = {
         phone: {
             operator: '=',
-            value: parseInt(phone, 10),
+            value: parseInt(_phone, 10),
         },
         deleted_at: {
             operator: 'is',
@@ -98,11 +122,11 @@ async function check(
     );
     if (
         Array.isArray(check1.data)
-        || Array.isArray(check2.data)
-        || Array.isArray(check3.data)
+        && Array.isArray(check2.data)
+        && Array.isArray(check3.data)
     ) {
         if (check1.data.length >= 1 && check2.data.length >= 1 && check3.data.length >= 1) {
-            errors.criticalErrors.documentemailphone = {
+            errors.validationErrors.documentemailphone = {
                 message: 'Documento, e-mail e telefone já existem',
                 code: 500,
             };
@@ -110,20 +134,20 @@ async function check(
         }
         if (check1.data.length >= 1) {
             if (check2.data.length >= 1) {
-                errors.criticalErrors.documentemail = {
+                errors.validationErrors.documentemail = {
                     message: 'Documento e e-mail já existem',
                     code: 500,
                 };
                 return errors;
             }
             if (check3.data.length >= 1) {
-                errors.criticalErrors.documentphone = {
+                errors.validationErrors.documentphone = {
                     message: 'Documento e telefone já existem',
                     code: 500,
                 };
                 return errors;
             }
-            errors.criticalErrors.document = {
+            errors.validationErrors.document = {
                 message: 'Documento já existe',
                 code: 500,
             };
@@ -150,10 +174,39 @@ async function check(
             };
             return errors;
         }
-        return true;
+
+        return {
+            document: validDocument,
+            email: validEmail,
+            firstName: validFirstName,
+            lastName: validLastName,
+            socialName: validSocialName,
+            gender: validGender,
+            phone: validPhone,
+            birthDate: validbirthDate,
+            password: validPassword,
+            type: validUserType,
+            validationErrors: { ...errors.validationErrors },
+            criticalErrors: { ...errors.criticalErrors },
+        };
     }
 
-    return [check1, 500];
+    errors.criticalErrors.document = {
+        message: 'Ocorreu um erro inesperado durante a consulta de documentos',
+        code: 500,
+        detail: { ...check1.error },
+    };
+    errors.criticalErrors.email = {
+        message: 'Ocorreu um erro inesperado durante a consulta de emails',
+        code: 500,
+        detail: { ...check2.error },
+    };
+    errors.criticalErrors.phone = {
+        message: 'Ocorreu um erro inesperado durante a consulta de telefones',
+        code: 500,
+        detail: { ...check3.error },
+    };
+    return errors;
 }
 
 module.exports = { check };

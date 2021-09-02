@@ -7,7 +7,7 @@
 
 const query = require('@helpers/Query');
 const bcrypt = require('bcrypt');
-const validateUserdata = require('@validations/validateRegister2');
+const validateUserdata = require('@validations/validateRegister');
 
 exports.updateUserPassword = async (req, res) => {
     const userType = req.auth.type;

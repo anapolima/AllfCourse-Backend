@@ -6,7 +6,7 @@
 // -----------------------------------------------------------------------------------------------//
 
 const query = require('@helpers/Query');
-const validateUserdata = require('@validations/validateRegister2');
+const validateUserdata = require('@validations/validateRegister');
 
 exports.updateUserData = async (req, res) => {
     const userType = req.auth.type;

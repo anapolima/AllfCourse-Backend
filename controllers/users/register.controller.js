@@ -6,6 +6,7 @@
 // -----------------------------------------------------------------------------------------------//
 
 const query = require('@helpers/Query');
+const config = require('@config');
 require('dotenv').config();
 
 const emailrequest = require('@functions/sendConfirmationEmail');
@@ -14,7 +15,6 @@ const crypto = require('crypto');
 const checkregister = require('@functions/checkRegister');
 
 exports.addUser = async (req, res) => {
-    console.log(req.body);
     const errors = { criticalErrors: {}, validationErrors: {} };
     const { firstName } = req.body;
     const { lastName } = req.body;
@@ -24,32 +24,37 @@ exports.addUser = async (req, res) => {
     const { birthDate } = req.body;
     const { phone } = req.body;
     const { email } = req.body;
-    const { avatar } = req.body;
+    // const { avatar } = req.body;
     const { type } = req.body;
-    const password = await bcrypt.hash(req.body.password, 10);
+    const { password } = req.body;
     const token = crypto.randomBytes(20).toString('hex');
     const expire = new Date();
     expire.setHours(expire.getHours() + 2);
+
     try {
-        const check = await checkregister.check(document, email, phone, firstName, lastName, gender, birthDate);
-        if (check !== true) {
+        const check = await checkregister.check(document, email, phone, firstName, lastName, gender, birthDate, password, type, socialName);
+        if (Object.keys(check.validationErrors).length !== 0
+            || Object.keys(check.criticalErrors).length !== 0) {
             res.sendError(check, 500);
         } else {
+            const encryptedPasswd = await bcrypt.hash(check.password, 10);
+
             const columns = {
-                first_name: firstName,
-                last_name: lastName,
-                social_name: socialName || null,
-                document,
-                email,
-                phone: parseInt(phone, 10),
-                password,
-                gender,
-                birth_date: birthDate,
-                profile_photo: avatar,
-                type,
+                first_name: check.firstName,
+                last_name: check.lastName,
+                social_name: check.socialName,
+                document: check.document,
+                email: check.email,
+                phone: parseInt(check.phone, 10),
+                password: encryptedPasswd,
+                gender: check.gender,
+                birth_date: check.birthDate,
+                profile_photo: `http://${config.app.host}:${config.app.port}/profilephoto/default.png`,
+                type: check.type,
                 email_token: token,
                 etoken_expire: expire,
             };
+            console.log(columns);
             const returningColumns = ['*'];
             const result = await query.Insert(
                 true,
