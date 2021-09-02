@@ -26,6 +26,7 @@ const { updateModule } = require('@controller/courses/updateModule.controller');
 const { updatecoursephoto } = require('@controller/courses/updateCoursePhoto.controller');
 const addModuleController = require('@controller/courses/addModule.controller');
 const addClassController = require('@controller/courses/addClass.controller');
+const { updateClass } = require('@controller/classes/updateClass.controller');
 // ------------------------------------------------------------//
 // -----------------------courses-routes-----------------------//
 router.post('/addcourse', jwtuser, addCourse); // professor
@@ -45,6 +46,7 @@ router.get('/course-informations/:courseId', jwtuser, getCourseInformations);
 router.put('/updatecourse/:id', jwtuser, updateCourse);
 router.put('/updatemodule/:id', jwtuser, updateModule);
 router.put('/updatecoursebanner/:id', jwtuser, updatecoursephoto);
+router.put('/update-class/:id', jwtuser, updateClass);
 // -----------------------courses-routes-----------------------//
 // ------------------------------------------------------------//
 
