@@ -623,7 +623,7 @@ class QueryGenerator {
                                 || operator.toLowerCase() === 'not ilike'
                             ) {
                                 whereParams.push(
-                                    `${_column} ${operator.toUpperCase()} '%'||$${param}||'%'  ${
+                                    `${_column} ${operator.toUpperCase()} '%'||$${param}||'%' ${
                                         logicalOperators[_index]
                                             ? logicalOperators[_index]
                                             : ''
@@ -699,12 +699,14 @@ class QueryGenerator {
                                 // eslint-disable-next-line no-lonely-if
                                 if (isNaN(whereColumnsValues[_column].value)) {
                                     whereParams.push(
-                                        `${_column} ${operator.toUpperCase()} ${whereColumnsValues[_column].value} ${
+                                        `${_column} ${operator.toUpperCase()} '${param}'' ${
                                             logicalOperators[_index]
                                                 ? logicalOperators[_index]
                                                 : ''
                                         }`,
                                     );
+                                    values.push(whereColumnsValues[_column].value);
+                                    param++;
                                 } else {
                                     whereParams.push(
                                         `${_column} ${operator.toUpperCase()} $${param} ${
