@@ -18,7 +18,7 @@ const { updatePaymentMethod } = require('@controller/payment-method/updatePaymen
 // --------------------payment-method-routes-------------------//
 router.post('/payment-methods', jwtuser, addPaymentMethod); // admin
 router.get('/payment-methods/:id', jwtuser, getPaymentMethod);
-router.delete('/payment-method/:id', deletePaymentMethod);
+router.delete('/payment-method/:id', jwtuser, deletePaymentMethod);
 router.put('/updatepaymentmethod/:id', jwtuser, updatePaymentMethod);
 // --------------------payment-method-routes-------------------//
 // ------------------------------------------------------------//
