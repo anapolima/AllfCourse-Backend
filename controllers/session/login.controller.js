@@ -49,9 +49,7 @@ exports.login = async (req, res) => {
                 photo: userFound.data[0].profile_photo,
             });
 
-            res.cookie('auth', token, {
-                httpOnly: true,
-            }).status(200).send({ message: 'Login sucedido', token });
+            res.status(200).send({ message: 'Login sucedido', token });
         } catch (err) {
             if (err === 1) {
                 errors.criticalErrors.email = {
