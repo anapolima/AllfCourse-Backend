@@ -39,11 +39,11 @@ exports.getCoursesByLoggedUser = async (req, res) => {
                     COUNT(enroll_students.id) as total_enrolleds
                 FROM
                     enroll_students
-                RIGHT JOIN
-                    courses
-                ON
-                    courses.id = enroll_students.course_id
-                AND
+                WHERE
+                    enroll_students.course_id = courses.id
+                    AND 
+                    enroll_students.deleted_at IS NULL
+                    AND
                     courses.deleted_at IS NULL
             )`,
         ];
@@ -99,8 +99,10 @@ exports.getCoursesByLoggedUser = async (req, res) => {
             order,
             join,
         );
+        console.log(courses);
 
         if (Array.isArray(courses.data)) {
+            console.log('if');
             for (let i = 0; i < courses.data.length; i++) {
                 const categoriesColumns = [
                     'courses_categories.id',
@@ -161,6 +163,7 @@ exports.getCoursesByLoggedUser = async (req, res) => {
             }
             res.status(200).send(courses.data);
         } else {
+            console.log('else');
             res.sendError('Ocorreu um problema durante a consulta de cursos', 500);
         }
     } else {
