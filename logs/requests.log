@@ -4580,3 +4580,11 @@ GET /login 811.168 ms
 DATE: Thursday, September 2, 2021
 HTTP STATUS CODE: 200
 
+GET /course-informations/24 4708.278 ms
+DATE: Friday, September 3, 2021
+HTTP STATUS CODE: 200
+
+GET /course-informations/29 4531.525 ms
+DATE: Friday, September 3, 2021
+HTTP STATUS CODE: 200
+

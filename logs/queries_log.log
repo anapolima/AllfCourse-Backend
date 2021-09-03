@@ -5,3 +5,100 @@ executed query: { SELECT recover_token, rtoken_expire FROM users WHERE recover_t
 executed query: { UPDATE users SET recover_token = $1, rtoken_expire = $2, password = $3 WHERE recover_token = $4  RETURNING *, params: ,,$2b$10$qf6kyn54pct8O773d6iZr.NrZJ5hWLC4k62sZ87pQ3U7TzOx7u8W2,2e51171bd7e80bed331aec8df724f7f988dd009e; duration: 672ms }
 executed query: { SELECT id, email, first_name, type, password, profile_photo FROM users WHERE email = $1 AND active IS true AND deleted_at IS null   , params: diego-s.novaes@hotmail.com; duration: 885ms }
 executed query: { SELECT id, email, first_name, type, password, profile_photo FROM users WHERE email = $1 AND active IS true AND deleted_at IS null   , params: diego-s.novaes@hotmail.com; duration: 738ms }
+executed query: { SELECT courses.id as course_id, courses.name as name, courses.banner_img as banner_img, courses.description as description, courses.price as value, courses.status as status, COUNT(enroll_students.id) as enrolleds, courses.created_at as create_date, courses.teacher_id AS teacher_id, (
+                SELECT
+                CASE
+                    WHEN
+                        users.social_name IS NULL
+                    THEN
+                        CONCAT(users.first_name, ' ', users.last_name)
+                    ELSE
+                        CONCAT(users.social_name, ' ', users.last_name)
+                    END AS teacher_name
+                FROM
+                    users
+                WHERE
+                    users.id = courses.teacher_id
+                AND
+                    users.deleted_at IS NULL) FROM courses WHERE courses.id = $1 AND courses.deleted_at IS null  LEFT JOIN enroll_students ON 
+                                                    enroll_students.course_id =
+                                                     $2 
+                                                    AND 
+                                                    enroll_students.deleted_at IS
+                                                     null 
+                                                
+                                             JOIN users ON 
+                                                    users.id =
+                                                     courses.teacher_id 
+                                                    AND 
+                                                    users.deleted_at IS
+                                                     null 
+                                                
+                                             ORDER BY courses.name, params: 24,24; duration: 1768ms }
+executed query: { SELECT courses_categories.id, courses_categories.name FROM courses_flags WHERE courses_flags.deleted_at IS null AND courses_flags.course_id = $1  JOIN courses_categories ON 
+                                                    courses_categories.id =
+                                                     courses_flags.category_id 
+                                                    AND 
+                                                    courses_categories.deleted_at IS
+                                                     null 
+                                                
+                                             ORDER BY courses_categories.name, params: 24; duration: 734ms }
+executed query: { SELECT modules.id, modules.name, modules.description, modules.module_order FROM modules WHERE modules.course_id = $1 AND modules.deleted_at IS null  JOIN courses ON 
+                                                    courses.id =
+                                                     $2 
+                                                    AND 
+                                                    courses.deleted_at IS
+                                                     null 
+                                                
+                                             ORDER BY modules.module_order, params: 24,24; duration: 718ms }
+executed query: { SELECT classes.id, classes.name, classes.description, classes.video_link, classes.class_order FROM classes WHERE classes.module_id = $1 AND classes.deleted_at IS null   ORDER BY classes.class_order, params: 16; duration: 691ms }
+executed query: { SELECT classes.id, classes.name, classes.description, classes.video_link, classes.class_order FROM classes WHERE classes.module_id = $1 AND classes.deleted_at IS null   ORDER BY classes.class_order, params: 18; duration: 734ms }
+executed query: { SELECT courses.id as course_id, courses.name as name, courses.banner_img as banner_img, courses.description as description, courses.price as value, courses.status as status, COUNT(enroll_students.id) as enrolleds, courses.created_at as create_date, courses.teacher_id AS teacher_id, (
+                SELECT
+                CASE
+                    WHEN
+                        users.social_name IS NULL
+                    THEN
+                        CONCAT(users.first_name, ' ', users.last_name)
+                    ELSE
+                        CONCAT(users.social_name, ' ', users.last_name)
+                    END AS teacher_name
+                FROM
+                    users
+                WHERE
+                    users.id = courses.teacher_id
+                AND
+                    users.deleted_at IS NULL) FROM courses WHERE courses.id = $1 AND courses.deleted_at IS null  LEFT JOIN enroll_students ON 
+                                                    enroll_students.course_id =
+                                                     $2 
+                                                    AND 
+                                                    enroll_students.deleted_at IS
+                                                     null 
+                                                
+                                             JOIN users ON 
+                                                    users.id =
+                                                     courses.teacher_id 
+                                                    AND 
+                                                    users.deleted_at IS
+                                                     null 
+                                                
+                                             ORDER BY courses.name, params: 29,29; duration: 773ms }
+executed query: { SELECT courses_categories.id, courses_categories.name FROM courses_flags WHERE courses_flags.deleted_at IS null AND courses_flags.course_id = $1  JOIN courses_categories ON 
+                                                    courses_categories.id =
+                                                     courses_flags.category_id 
+                                                    AND 
+                                                    courses_categories.deleted_at IS
+                                                     null 
+                                                
+                                             ORDER BY courses_categories.name, params: 29; duration: 1020ms }
+executed query: { SELECT modules.id, modules.name, modules.description, modules.module_order FROM modules WHERE modules.course_id = $1 AND modules.deleted_at IS null  JOIN courses ON 
+                                                    courses.id =
+                                                     $2 
+                                                    AND 
+                                                    courses.deleted_at IS
+                                                     null 
+                                                
+                                             ORDER BY modules.module_order, params: 29,29; duration: 627ms }
+executed query: { SELECT classes.id, classes.name, classes.description, classes.video_link, classes.class_order FROM classes WHERE classes.module_id = $1 AND classes.deleted_at IS null   ORDER BY classes.class_order, params: 28; duration: 699ms }
+executed query: { SELECT classes.id, classes.name, classes.description, classes.video_link, classes.class_order FROM classes WHERE classes.module_id = $1 AND classes.deleted_at IS null   ORDER BY classes.class_order, params: 29; duration: 670ms }
+executed query: { SELECT classes.id, classes.name, classes.description, classes.video_link, classes.class_order FROM classes WHERE classes.module_id = $1 AND classes.deleted_at IS null   ORDER BY classes.class_order, params: 30; duration: 714ms }
