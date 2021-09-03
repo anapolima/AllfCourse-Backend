@@ -96,7 +96,13 @@ module.exports = {
         if (typeof (_link) === 'string') {
             const link = _link.trim();
             if (link.length >= 10 && link.length <= 255) {
-                return link;
+                const regexLink = /(https:\/\/youtu\.be\/)/;
+                if (regexLink.test(link)) {
+                    const linkCode = link.split('.be/')[1];
+                    return linkCode;
+                }
+                _errors.classVideoLink = 'O link do vídeo da aula deve ter domínio https://youtu.be/';
+                return false;
             }
 
             _errors.classVideoLink = `O link do vídeo da aula deve ter pelo menos 10 caracteres e ser menor que ou igual a 255 caracteres. O link fornecido tem ${link.length} caracteres.`;
