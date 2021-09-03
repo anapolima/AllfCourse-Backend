@@ -24,14 +24,14 @@ const { getCourseInformations } = require('@app/controllers/courses/getCourseInf
 const { updateCourse } = require('@controller/courses/updateCourse.controller');
 const { updateModule } = require('@controller/courses/updateModule.controller');
 const { updatecoursephoto } = require('@controller/courses/updateCoursePhoto.controller');
-const addModuleController = require('@controller/courses/addModule.controller');
-const addClassController = require('@controller/courses/addClass.controller');
+const { addModule } = require('@controller/courses/addModule.controller');
+const { addClass } = require('@controller/courses/addClass.controller');
 const { updateClass } = require('@controller/classes/updateClass.controller');
 // ------------------------------------------------------------//
 // -----------------------courses-routes-----------------------//
 router.post('/addcourse', jwtuser, addCourse); // professor
-router.post('/addmodule', jwtuser, addModuleController.post);
-router.post('/addclass', jwtuser, addClassController.post);
+router.post('/addmodule', jwtuser, addModule);
+router.post('/addclass', jwtuser, addClass);
 router.get('/getcourse/:id', jwtuser, getcourse); // todos
 router.get('/getclass/:moduleId', jwtuser, getclass); // todos
 router.get('/courses/flag/:id', jwtuser, getCoursesInFlags); // retorna todos os cursos em uma determinada categoria (passar o id da categoria), se 0 retorna todos os cursos de todas as categorias
