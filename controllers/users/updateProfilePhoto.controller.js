@@ -1,42 +1,45 @@
-const query = require('@helpers/Query');
 const config = require('@config');
+const db = require('@model/db2');
+const path = require('path');
 require('dotenv').config();
 
 exports.updatephoto = async (req, res) => {
     const userid = req.auth.id;
+    const errors = { criticalErrors: {}, validationErrors: {} };
     if (!req.files || Object.keys(req.files).length === 0) {
         res.status(400).send({ message: 'Nenhuma foto enviada' });
     } else if (!userid) {
         res.status(400).send({ message: 'Não autorizado' });
     } else {
-        // The name of the input field (i.e. "sampleFile") is used to retrieve the uploaded file
         const { avatar } = req.files;
-        const uploadPath = `${__dirname}/avatars/userphoto-${userid}`;
+        console.log(avatar);
+        const uploadPath = path.join(__dirname, `../../avatars/userphoto-${userid}.jpg`);
 
-        // Use the mv() method to place the file somewhere on your server
+        async function updateDb() {
+            await db.query('BEGIN');
+            const result = await db.query('UPDATE users set profile_photo = $1 WHERE id = $2 RETURNING *',
+                [
+                    `http://${config.app.host}:${config.app.port}/avatars/userphoto-${userid}.jpg`,
+                    userid,
+                ]);
+            if (Array.isArray(result.rows)) {
+                await db.query('COMMIT');
+                return ({ message: 'Foto atualizada com sucesso' });
+            }
+            errors.criticalErrors.photo = {
+                message: 'Ocorreu um erro ao atualizar a foto.',
+                code: 500,
+            };
+            await db.query('ROLLBACK');
+            return errors;
+        }
+
         try {
-            await avatar.mv(uploadPath);
-            const whereColumns = {
-                id: {
-                    operator: '=',
-                    value: userid,
-                },
-            };
-            const fieldsValues = {};
-            fieldsValues.profile_photo = {
-                value: `http://${config.app.host}:${config.app.port}/userphoto-${userid}`,
-                type: 'string',
-            };
-
-            const result = await query.Update(
-                true,
-                'users',
-                fieldsValues,
-                ['*'],
-                whereColumns,
-                [''],
-            );
-            if (Array.isArray(result)) {
+            const update = await updateDb();
+            if (update.criticalErrors) {
+                res.sendError(errors, 500);
+            } else {
+                await avatar.mv(uploadPath);
                 res.status(201).send({ message: 'Foto atualizada com sucesso' });
             }
         } catch (err) {
