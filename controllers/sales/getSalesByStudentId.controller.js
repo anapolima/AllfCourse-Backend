@@ -114,7 +114,14 @@ exports.getSalesByStudentId = async (req, res) => {
             'sales.course_id as course_id',
             'courses.name as course_name',
             'sales.student_id as student_id',
-            'CONCAT(users.first_name, \' \', users.last_name) as student_name',
+            `CASE
+                    WHEN
+                        users.social_name IS NULL
+                    THEN
+                        CONCAT(users.first_name, ' ', users.last_name)
+                    ELSE
+                        CONCAT(users.social_name, ' ', users.last_name)
+                    END AS student_name`,
             'sales.payment_method_id as payment_method_id',
             'CONCAT(payment_method.name, \' em \', payment_method.installments, \'x\') as payment_method',
             'CONCAT(\'R$\', sales.price) as price',
