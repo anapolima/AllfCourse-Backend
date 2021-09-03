@@ -12,6 +12,10 @@ const checkAddModules = require('@functions/checkAddModule');
 const checkAddClass = require('@functions/checkAddClasses');
 
 exports.addCourse = async (req, res) => {
+    console.log(req.body);
+    console.log(req.body.courseName);
+    console.log(req.body.description);
+    console.log(req.body.price);
     const { type } = req.auth;
     if (type === 2 || type === 3 || type === 7) {
         const errors = { criticalErrors: {}, validationErrors: {} };
@@ -24,7 +28,7 @@ exports.addCourse = async (req, res) => {
         newcourse.course_modules = req.body.courseModules;
         newcourse.course_classes = req.body.courseClasses;
         newcourse.course_classes.moduleid = null;
-
+        console.log(newcourse);
         async function checkCategory() {
             const categoriesid = [];
             for (const category of newcourse.course_categories) {

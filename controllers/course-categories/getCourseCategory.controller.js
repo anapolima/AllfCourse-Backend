@@ -14,10 +14,16 @@ exports.getcategory = async (req, res) => {
     if (type === 4 || type === 5 || type === 7 || type === 6 || type === 2 || type === 3) {
         if (id === '0') {
             const checkSelect = ['*'];
+            const whereCheck = {
+                deleted_at: {
+                    operator: 'is',
+                    value: 'null',
+                },
+            };
             const categoryFound = await query.Select(
                 'courses_categories',
                 checkSelect,
-                [''],
+                whereCheck,
                 [''],
             );
             if (categoryFound.data.length < 1) {
