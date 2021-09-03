@@ -21,7 +21,15 @@ exports.getCoursesByLoggedUser = async (req, res) => {
             'courses.status AS status',
             'courses.created_at AS create_date',
             'courses.teacher_id AS teacher_id',
-            'CONCAT(users.first_name, \' \', users.last_name) AS teacher_name',
+            `CASE
+            WHEN
+                users.social_name IS NULL
+            THEN
+                CONCAT(users.first_name, ' ', users.last_name)
+            ELSE
+                CONCAT(users.social_name, ' ', users.last_name)
+            END AS teacher_name
+            `,
             `CASE
             WHEN
                 enroll_students.id IS NOT NULL
