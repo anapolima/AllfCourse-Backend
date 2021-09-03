@@ -170,7 +170,7 @@ exports.addCourse = async (req, res) => {
                     check.name,
                     check.description,
                     check.price,
-                    'em análise',
+                    'aprovado',
                 ]);
 
             if (resultcourse.rows.length >= 1) {
