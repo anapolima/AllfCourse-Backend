@@ -43,7 +43,7 @@ const corsOptions = {
 };
 
 app.use(sendError);
-app.use('/profilephoto', express.static(`${__dirname}/avatars`));
+app.use('/avatars', express.static(`${__dirname}/avatars`));
 app.use('/coursebanners', express.static(`${__dirname}/banners`));
 app.use(fileUpload());
 app.use(
