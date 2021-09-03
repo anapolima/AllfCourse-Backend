@@ -45,7 +45,14 @@ exports.getCoursesInFlags = async (req, res) => {
                     'courses_categories.id as category_id',
                     'courses_categories.name as category_name',
                     'users.id as teacher_id',
-                    'CONCAT(users.first_name, \' \', users.last_name) as teacher_name',
+                    `CASE
+                    WHEN
+                        users.social_name IS NULL
+                    THEN
+                        CONCAT(users.first_name, ' ', users.last_name)
+                    ELSE
+                        CONCAT(users.social_name, ' ', users.last_name)
+                    END AS teacher_name`,
                 ];
                 const table = ['courses_flags'];
                 const where = {

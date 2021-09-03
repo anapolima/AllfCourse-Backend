@@ -24,7 +24,14 @@ exports.getCourseInformations = async (req, res) => {
             'courses.teacher_id AS teacher_id',
             `(
                 SELECT
-                    CONCAT(users.first_name, ' ', users.last_name) AS teacher_name
+                CASE
+                    WHEN
+                        users.social_name IS NULL
+                    THEN
+                        CONCAT(users.first_name, ' ', users.last_name)
+                    ELSE
+                        CONCAT(users.social_name, ' ', users.last_name)
+                    END AS teacher_name
                 FROM
                     users
                 WHERE
