@@ -11,7 +11,7 @@ const query = require('@helpers/Query');
 exports.getcategory = async (req, res) => {
     const { id } = req.params;
     const { type } = req.auth;
-    if (type === 4 || type === 5 || type === 7 || type === 6 || type === 2) {
+    if (type === 4 || type === 5 || type === 7 || type === 6 || type === 2 || type === 3) {
         if (id === '0') {
             const checkSelect = ['*'];
             const categoryFound = await query.Select(
