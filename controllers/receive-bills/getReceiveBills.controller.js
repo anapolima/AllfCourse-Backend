@@ -11,18 +11,55 @@ const validateBills = require('@app/validations/validateSales');
 exports.getReceiveBills = async (req, res) => {
     const billId = req.params.id.toString();
     const errors = { criticalErrors: {}, validationErrors: {} };
-    // const userType = req.auth.type;
+    const userType = req.auth.type;
 
-    // if (userType === 1 || userType === 3) {
-    if (billId !== '0') {
-        const validBillId = await validateBills.validateSaleId(
-            billId,
-            errors.validationErrors,
-        );
+    if (userType >= 4 && userType <= 7) {
+        if (billId !== '0') {
+            const validBillId = await validateBills.validateSaleId(
+                billId,
+                errors.validationErrors,
+            );
 
-        if (Object.keys(errors.validationErrors).length !== 0
+            if (Object.keys(errors.validationErrors).length !== 0
             || Object.keys(errors.criticalErrors).length !== 0) {
-            res.sendError(errors, 500);
+                res.sendError(errors, 500);
+            } else {
+                const selectBillInformations = [
+                    'id',
+                    'sale_id',
+                    'installment',
+                    'subtotal',
+                    'due_date',
+                    'pay_date',
+                    'created_at',
+                ];
+                const whereCheck1 = {
+                    id: {
+                        operator: '=',
+                        value: validBillId,
+                    },
+                    deleted_at: {
+                        operator: 'is',
+                        value: 'null',
+                    },
+                };
+                const logicalOperatorCheck1 = ['AND'];
+                const orderBy = ['installment'];
+
+                const billInformations = await query.Select(
+                    'receive_bills',
+                    selectBillInformations,
+                    whereCheck1,
+                    logicalOperatorCheck1,
+                    orderBy,
+                );
+
+                if (Array.isArray(billInformations.data)) {
+                    res.status(200).send(billInformations.data);
+                } else {
+                    res.sendError(billInformations.error, 500);
+                }
+            }
         } else {
             const selectBillInformations = [
                 'id',
@@ -34,16 +71,12 @@ exports.getReceiveBills = async (req, res) => {
                 'created_at',
             ];
             const whereCheck1 = {
-                id: {
-                    operator: '=',
-                    value: validBillId,
-                },
                 deleted_at: {
                     operator: 'is',
                     value: 'null',
                 },
             };
-            const logicalOperatorCheck1 = ['AND'];
+            const logicalOperatorCheck1 = [''];
             const orderBy = ['installment'];
 
             const billInformations = await query.Select(
@@ -61,39 +94,6 @@ exports.getReceiveBills = async (req, res) => {
             }
         }
     } else {
-        const selectBillInformations = [
-            'id',
-            'sale_id',
-            'installment',
-            'subtotal',
-            'due_date',
-            'pay_date',
-            'created_at',
-        ];
-        const whereCheck1 = {
-            deleted_at: {
-                operator: 'is',
-                value: 'null',
-            },
-        };
-        const logicalOperatorCheck1 = [''];
-        const orderBy = ['installment'];
-
-        const billInformations = await query.Select(
-            'receive_bills',
-            selectBillInformations,
-            whereCheck1,
-            logicalOperatorCheck1,
-            orderBy,
-        );
-
-        if (Array.isArray(billInformations.data)) {
-            res.status(200).send(billInformations.data);
-        } else {
-            res.sendError(billInformations.error, 500);
-        }
+        res.status(401).send({ message: 'Não autorizado' });
     }
-    // } else {
-    //     res.status(401).send({ message: 'Não autorizado' });
-    // }
 };
