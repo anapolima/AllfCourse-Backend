@@ -120,7 +120,7 @@ exports.addCourse = async (req, res) => {
 
         async function newclass() {
             for (const newclass of newcourse.course_classes) {
-                const check = await checkAddClass.check(newclass.name, newclass.order, formatedmodules[newclass.position].id.toString(), newclass.inactive, newclass.link, newclass.description);
+                const check = await checkAddClass.check(newclass.name, newclass.order, formatedmodules[newclass.position].id.toString(), false, newclass.link, newclass.description);
                 if (Object.keys(check.validationErrors).length !== 0 || Object.keys(check.criticalErrors).length !== 0) {
                     return check;
                 }
@@ -130,7 +130,7 @@ exports.addCourse = async (req, res) => {
                             check.name,
                             check.order,
                             check.moduleid,
-                            check.inactive,
+                            false,
                             check.description,
                             check.link,
                         ]);
