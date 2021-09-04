@@ -5556,3 +5556,1111 @@ GET /courses/logged-teacher 970.665 ms
 DATE: Friday, September 3, 2021
 HTTP STATUS CODE: 200
 
+OPTIONS /login 4.014 ms
+DATE: Friday, September 3, 2021
+HTTP STATUS CODE: 204
+
+GET /login 1272.090 ms
+DATE: Friday, September 3, 2021
+HTTP STATUS CODE: 200
+
+GET /avatars/userphoto-49.jpg 11.468 ms
+DATE: Friday, September 3, 2021
+HTTP STATUS CODE: 404
+
+GET /course-list 1769.235 ms
+DATE: Friday, September 3, 2021
+HTTP STATUS CODE: 201
+
+GET /course-list 2027.616 ms
+DATE: Friday, September 3, 2021
+HTTP STATUS CODE: 500
+
+GET /courses/logged-teacher 788.903 ms
+DATE: Friday, September 3, 2021
+HTTP STATUS CODE: 200
+
+GET /course-list 3807.372 ms
+DATE: Friday, September 3, 2021
+HTTP STATUS CODE: 201
+
+GET /courses/logged-teacher 732.006 ms
+DATE: Friday, September 3, 2021
+HTTP STATUS CODE: 200
+
+GET /courses/logged-user 8246.713 ms
+DATE: Friday, September 3, 2021
+HTTP STATUS CODE: 200
+
+GET /course-list 1604.504 ms
+DATE: Friday, September 3, 2021
+HTTP STATUS CODE: 201
+
+GET /course-list 1480.395 ms
+DATE: Friday, September 3, 2021
+HTTP STATUS CODE: 201
+
+OPTIONS /login 0.807 ms
+DATE: Friday, September 3, 2021
+HTTP STATUS CODE: 204
+
+GET /login 1224.737 ms
+DATE: Friday, September 3, 2021
+HTTP STATUS CODE: 200
+
+GET /avatars/userphoto-49.jpg 4.409 ms
+DATE: Friday, September 3, 2021
+HTTP STATUS CODE: 404
+
+GET /course-list 2771.340 ms
+DATE: Friday, September 3, 2021
+HTTP STATUS CODE: 201
+
+GET /course-list 2047.590 ms
+DATE: Friday, September 3, 2021
+HTTP STATUS CODE: 201
+
+GET /course-list 1566.718 ms
+DATE: Friday, September 3, 2021
+HTTP STATUS CODE: 201
+
+GET /course-list 2099.988 ms
+DATE: Friday, September 3, 2021
+HTTP STATUS CODE: 201
+
+GET /course-list 2352.992 ms
+DATE: Friday, September 3, 2021
+HTTP STATUS CODE: 201
+
+GET /course-list 2372.981 ms
+DATE: Friday, September 3, 2021
+HTTP STATUS CODE: 201
+
+GET /course-list 2568.915 ms
+DATE: Friday, September 3, 2021
+HTTP STATUS CODE: 201
+
+GET /course-list 2592.100 ms
+DATE: Friday, September 3, 2021
+HTTP STATUS CODE: 500
+
+GET /course-list 1609.699 ms
+DATE: Friday, September 3, 2021
+HTTP STATUS CODE: 500
+
+GET /course-list 2090.141 ms
+DATE: Friday, September 3, 2021
+HTTP STATUS CODE: 201
+
+GET /course-list 2160.608 ms
+DATE: Friday, September 3, 2021
+HTTP STATUS CODE: 201
+
+GET /course-list 1976.639 ms
+DATE: Friday, September 3, 2021
+HTTP STATUS CODE: 201
+
+GET /course-list 1710.422 ms
+DATE: Friday, September 3, 2021
+HTTP STATUS CODE: 201
+
+OPTIONS /login 0.600 ms
+DATE: Friday, September 3, 2021
+HTTP STATUS CODE: 204
+
+GET /login 1378.940 ms
+DATE: Friday, September 3, 2021
+HTTP STATUS CODE: 200
+
+GET /avatars/userphoto-49.jpg 1.887 ms
+DATE: Friday, September 3, 2021
+HTTP STATUS CODE: 404
+
+GET /course-list 1623.033 ms
+DATE: Friday, September 3, 2021
+HTTP STATUS CODE: 201
+
+GET /course-list 1961.525 ms
+DATE: Friday, September 3, 2021
+HTTP STATUS CODE: 201
+
+GET /course-list 1926.448 ms
+DATE: Friday, September 3, 2021
+HTTP STATUS CODE: 201
+
+GET /course-list 2255.226 ms
+DATE: Friday, September 3, 2021
+HTTP STATUS CODE: 201
+
+GET /course-list 1814.191 ms
+DATE: Friday, September 3, 2021
+HTTP STATUS CODE: 201
+
+OPTIONS /login 0.524 ms
+DATE: Friday, September 3, 2021
+HTTP STATUS CODE: 204
+
+GET /login 1253.418 ms
+DATE: Friday, September 3, 2021
+HTTP STATUS CODE: 200
+
+GET /avatars/userphoto-49.jpg 2.351 ms
+DATE: Friday, September 3, 2021
+HTTP STATUS CODE: 404
+
+GET /course-list 2222.121 ms
+DATE: Friday, September 3, 2021
+HTTP STATUS CODE: 201
+
+GET /course-list 2150.444 ms
+DATE: Friday, September 3, 2021
+HTTP STATUS CODE: 201
+
+GET /course-list 3163.663 ms
+DATE: Friday, September 3, 2021
+HTTP STATUS CODE: 201
+
+GET /course-list 1617.462 ms
+DATE: Friday, September 3, 2021
+HTTP STATUS CODE: 201
+
+OPTIONS /login 0.992 ms
+DATE: Friday, September 3, 2021
+HTTP STATUS CODE: 204
+
+GET /login 943.953 ms
+DATE: Friday, September 3, 2021
+HTTP STATUS CODE: 200
+
+GET /avatars/userphoto-49.jpg 3.365 ms
+DATE: Friday, September 3, 2021
+HTTP STATUS CODE: 404
+
+GET /course-list 1576.421 ms
+DATE: Friday, September 3, 2021
+HTTP STATUS CODE: 201
+
+GET /course-list - ms
+DATE: Friday, September 3, 2021
+HTTP STATUS CODE: -
+
+OPTIONS /login 5.720 ms
+DATE: Friday, September 3, 2021
+HTTP STATUS CODE: 204
+
+GET /login 1255.163 ms
+DATE: Friday, September 3, 2021
+HTTP STATUS CODE: 200
+
+GET /avatars/userphoto-49.jpg 14.166 ms
+DATE: Friday, September 3, 2021
+HTTP STATUS CODE: 404
+
+GET /course-list 2058.396 ms
+DATE: Friday, September 3, 2021
+HTTP STATUS CODE: 201
+
+GET /course-list 2059.607 ms
+DATE: Friday, September 3, 2021
+HTTP STATUS CODE: 201
+
+GET /course-list 2206.631 ms
+DATE: Friday, September 3, 2021
+HTTP STATUS CODE: 201
+
+GET /course-list 1587.615 ms
+DATE: Friday, September 3, 2021
+HTTP STATUS CODE: 201
+
+GET /course-list 1829.344 ms
+DATE: Friday, September 3, 2021
+HTTP STATUS CODE: 201
+
+GET /course-list 2288.053 ms
+DATE: Friday, September 3, 2021
+HTTP STATUS CODE: 500
+
+GET /courses/logged-teacher 1979.318 ms
+DATE: Friday, September 3, 2021
+HTTP STATUS CODE: 500
+
+GET /course-list 2612.267 ms
+DATE: Friday, September 3, 2021
+HTTP STATUS CODE: 500
+
+OPTIONS /login 0.725 ms
+DATE: Friday, September 3, 2021
+HTTP STATUS CODE: 204
+
+GET /login 1055.356 ms
+DATE: Friday, September 3, 2021
+HTTP STATUS CODE: 200
+
+GET /avatars/userphoto-49.jpg 8.496 ms
+DATE: Friday, September 3, 2021
+HTTP STATUS CODE: 404
+
+GET /course-list 1586.929 ms
+DATE: Friday, September 3, 2021
+HTTP STATUS CODE: 201
+
+OPTIONS /login 3.545 ms
+DATE: Friday, September 3, 2021
+HTTP STATUS CODE: 204
+
+GET /login 1528.556 ms
+DATE: Friday, September 3, 2021
+HTTP STATUS CODE: 200
+
+GET /avatars/userphoto-49.jpg 15.836 ms
+DATE: Friday, September 3, 2021
+HTTP STATUS CODE: 404
+
+GET /course-list 2585.858 ms
+DATE: Friday, September 3, 2021
+HTTP STATUS CODE: 201
+
+GET /course-list 1738.400 ms
+DATE: Friday, September 3, 2021
+HTTP STATUS CODE: 500
+
+GET /course-list 1580.363 ms
+DATE: Friday, September 3, 2021
+HTTP STATUS CODE: 500
+
+GET /course-list 2051.258 ms
+DATE: Friday, September 3, 2021
+HTTP STATUS CODE: 201
+
+GET /course-list 1795.642 ms
+DATE: Friday, September 3, 2021
+HTTP STATUS CODE: 201
+
+GET /course-list - ms
+DATE: Friday, September 3, 2021
+HTTP STATUS CODE: -
+
+GET /course-list - ms
+DATE: Friday, September 3, 2021
+HTTP STATUS CODE: -
+
+OPTIONS /login 0.395 ms
+DATE: Friday, September 3, 2021
+HTTP STATUS CODE: 204
+
+GET /login 1184.473 ms
+DATE: Friday, September 3, 2021
+HTTP STATUS CODE: 200
+
+GET /avatars/userphoto-49.jpg 9.358 ms
+DATE: Friday, September 3, 2021
+HTTP STATUS CODE: 404
+
+GET /course-list 1649.924 ms
+DATE: Friday, September 3, 2021
+HTTP STATUS CODE: 201
+
+GET /course-list 2298.173 ms
+DATE: Friday, September 3, 2021
+HTTP STATUS CODE: 201
+
+OPTIONS /login 0.242 ms
+DATE: Friday, September 3, 2021
+HTTP STATUS CODE: 204
+
+GET /login 1322.297 ms
+DATE: Friday, September 3, 2021
+HTTP STATUS CODE: 200
+
+GET /avatars/userphoto-49.jpg 4.039 ms
+DATE: Friday, September 3, 2021
+HTTP STATUS CODE: 404
+
+GET /course-list 2619.520 ms
+DATE: Friday, September 3, 2021
+HTTP STATUS CODE: 201
+
+OPTIONS /login 3.820 ms
+DATE: Friday, September 3, 2021
+HTTP STATUS CODE: 204
+
+GET /login 1547.439 ms
+DATE: Friday, September 3, 2021
+HTTP STATUS CODE: 200
+
+GET /avatars/userphoto-49.jpg 14.367 ms
+DATE: Friday, September 3, 2021
+HTTP STATUS CODE: 404
+
+GET /course-list 1960.045 ms
+DATE: Friday, September 3, 2021
+HTTP STATUS CODE: 201
+
+GET /course-list 1922.893 ms
+DATE: Friday, September 3, 2021
+HTTP STATUS CODE: 201
+
+GET /course-list 1600.340 ms
+DATE: Friday, September 3, 2021
+HTTP STATUS CODE: 201
+
+GET /course-list 2364.567 ms
+DATE: Friday, September 3, 2021
+HTTP STATUS CODE: 201
+
+GET /course-list 1650.715 ms
+DATE: Friday, September 3, 2021
+HTTP STATUS CODE: 500
+
+GET /course-list 4515.808 ms
+DATE: Friday, September 3, 2021
+HTTP STATUS CODE: 500
+
+GET /course-list 2339.774 ms
+DATE: Friday, September 3, 2021
+HTTP STATUS CODE: 201
+
+OPTIONS /login 0.396 ms
+DATE: Friday, September 3, 2021
+HTTP STATUS CODE: 204
+
+GET /login 1265.630 ms
+DATE: Friday, September 3, 2021
+HTTP STATUS CODE: 200
+
+GET /avatars/userphoto-49.jpg 10.286 ms
+DATE: Friday, September 3, 2021
+HTTP STATUS CODE: 404
+
+GET /course-list 1539.590 ms
+DATE: Friday, September 3, 2021
+HTTP STATUS CODE: 201
+
+OPTIONS /login 0.372 ms
+DATE: Friday, September 3, 2021
+HTTP STATUS CODE: 204
+
+GET /login 1256.118 ms
+DATE: Friday, September 3, 2021
+HTTP STATUS CODE: 200
+
+GET /avatars/userphoto-49.jpg 1.991 ms
+DATE: Friday, September 3, 2021
+HTTP STATUS CODE: 404
+
+GET /course-list 1525.225 ms
+DATE: Friday, September 3, 2021
+HTTP STATUS CODE: 201
+
+GET /course-list - ms
+DATE: Friday, September 3, 2021
+HTTP STATUS CODE: -
+
+OPTIONS /login 0.487 ms
+DATE: Friday, September 3, 2021
+HTTP STATUS CODE: 204
+
+GET /login 1324.827 ms
+DATE: Friday, September 3, 2021
+HTTP STATUS CODE: 200
+
+GET /avatars/userphoto-49.jpg 6.017 ms
+DATE: Friday, September 3, 2021
+HTTP STATUS CODE: 404
+
+GET /course-list 1848.905 ms
+DATE: Friday, September 3, 2021
+HTTP STATUS CODE: 201
+
+OPTIONS /login 0.387 ms
+DATE: Friday, September 3, 2021
+HTTP STATUS CODE: 204
+
+GET /login 1846.456 ms
+DATE: Friday, September 3, 2021
+HTTP STATUS CODE: 200
+
+GET /avatars/userphoto-49.jpg 3.819 ms
+DATE: Friday, September 3, 2021
+HTTP STATUS CODE: 404
+
+GET /course-list 1628.606 ms
+DATE: Friday, September 3, 2021
+HTTP STATUS CODE: 201
+
+OPTIONS /login 0.314 ms
+DATE: Friday, September 3, 2021
+HTTP STATUS CODE: 204
+
+GET /login 1383.481 ms
+DATE: Friday, September 3, 2021
+HTTP STATUS CODE: 200
+
+GET /avatars/userphoto-49.jpg 1.882 ms
+DATE: Friday, September 3, 2021
+HTTP STATUS CODE: 404
+
+GET /course-list 1550.293 ms
+DATE: Friday, September 3, 2021
+HTTP STATUS CODE: 201
+
+OPTIONS /login 0.494 ms
+DATE: Friday, September 3, 2021
+HTTP STATUS CODE: 204
+
+GET /login 1061.405 ms
+DATE: Friday, September 3, 2021
+HTTP STATUS CODE: 200
+
+GET /avatars/userphoto-49.jpg 2.566 ms
+DATE: Friday, September 3, 2021
+HTTP STATUS CODE: 404
+
+GET /course-list 1665.135 ms
+DATE: Friday, September 3, 2021
+HTTP STATUS CODE: 201
+
+OPTIONS /login 28.788 ms
+DATE: Friday, September 3, 2021
+HTTP STATUS CODE: 204
+
+GET /login 1282.544 ms
+DATE: Friday, September 3, 2021
+HTTP STATUS CODE: 200
+
+GET /avatars/userphoto-49.jpg 3.875 ms
+DATE: Friday, September 3, 2021
+HTTP STATUS CODE: 404
+
+GET /course-list 1795.786 ms
+DATE: Friday, September 3, 2021
+HTTP STATUS CODE: 201
+
+OPTIONS /login 2.401 ms
+DATE: Friday, September 3, 2021
+HTTP STATUS CODE: 204
+
+GET /login 1310.182 ms
+DATE: Friday, September 3, 2021
+HTTP STATUS CODE: 200
+
+GET /avatars/userphoto-49.jpg 3.329 ms
+DATE: Friday, September 3, 2021
+HTTP STATUS CODE: 404
+
+GET /course-list 1846.813 ms
+DATE: Friday, September 3, 2021
+HTTP STATUS CODE: 201
+
+OPTIONS /login 16.509 ms
+DATE: Friday, September 3, 2021
+HTTP STATUS CODE: 204
+
+GET /login 2415.818 ms
+DATE: Friday, September 3, 2021
+HTTP STATUS CODE: 200
+
+GET /avatars/userphoto-49.jpg 1.867 ms
+DATE: Friday, September 3, 2021
+HTTP STATUS CODE: 404
+
+GET /course-list 2192.366 ms
+DATE: Friday, September 3, 2021
+HTTP STATUS CODE: 201
+
+OPTIONS /updatephoto 0.347 ms
+DATE: Friday, September 3, 2021
+HTTP STATUS CODE: 204
+
+PUT /updatephoto 1226.407 ms
+DATE: Friday, September 3, 2021
+HTTP STATUS CODE: 201
+
+OPTIONS /login 0.279 ms
+DATE: Friday, September 3, 2021
+HTTP STATUS CODE: 204
+
+GET /login 1869.520 ms
+DATE: Friday, September 3, 2021
+HTTP STATUS CODE: 200
+
+GET /course-list 1636.119 ms
+DATE: Friday, September 3, 2021
+HTTP STATUS CODE: 201
+
+OPTIONS /updatephoto 0.243 ms
+DATE: Friday, September 3, 2021
+HTTP STATUS CODE: 204
+
+PUT /updatephoto 955.127 ms
+DATE: Friday, September 3, 2021
+HTTP STATUS CODE: 201
+
+OPTIONS /updatephoto 0.519 ms
+DATE: Friday, September 3, 2021
+HTTP STATUS CODE: 204
+
+PUT /updatephoto 805.324 ms
+DATE: Friday, September 3, 2021
+HTTP STATUS CODE: 201
+
+OPTIONS /updatephoto 0.245 ms
+DATE: Friday, September 3, 2021
+HTTP STATUS CODE: 204
+
+PUT /updatephoto 1248.082 ms
+DATE: Friday, September 3, 2021
+HTTP STATUS CODE: 201
+
+OPTIONS /login 0.354 ms
+DATE: Friday, September 3, 2021
+HTTP STATUS CODE: 204
+
+GET /login 1297.780 ms
+DATE: Friday, September 3, 2021
+HTTP STATUS CODE: 200
+
+GET /course-list 2150.091 ms
+DATE: Friday, September 3, 2021
+HTTP STATUS CODE: 201
+
+OPTIONS /updatephoto 0.297 ms
+DATE: Friday, September 3, 2021
+HTTP STATUS CODE: 204
+
+PUT /updatephoto 880.847 ms
+DATE: Friday, September 3, 2021
+HTTP STATUS CODE: 201
+
+OPTIONS /login 1.140 ms
+DATE: Friday, September 3, 2021
+HTTP STATUS CODE: 204
+
+GET /login 1700.388 ms
+DATE: Friday, September 3, 2021
+HTTP STATUS CODE: 403
+
+OPTIONS /login 0.331 ms
+DATE: Friday, September 3, 2021
+HTTP STATUS CODE: 204
+
+GET /login 1228.060 ms
+DATE: Friday, September 3, 2021
+HTTP STATUS CODE: 200
+
+GET /course-list 1923.900 ms
+DATE: Friday, September 3, 2021
+HTTP STATUS CODE: 201
+
+OPTIONS /updatephoto 0.355 ms
+DATE: Friday, September 3, 2021
+HTTP STATUS CODE: 204
+
+PUT /updatephoto 902.685 ms
+DATE: Friday, September 3, 2021
+HTTP STATUS CODE: 201
+
+OPTIONS /login 0.440 ms
+DATE: Friday, September 3, 2021
+HTTP STATUS CODE: 204
+
+GET /login 1119.574 ms
+DATE: Friday, September 3, 2021
+HTTP STATUS CODE: 200
+
+GET /course-list 1689.452 ms
+DATE: Friday, September 3, 2021
+HTTP STATUS CODE: 201
+
+OPTIONS /login 0.371 ms
+DATE: Friday, September 3, 2021
+HTTP STATUS CODE: 204
+
+GET /login 1365.550 ms
+DATE: Friday, September 3, 2021
+HTTP STATUS CODE: 200
+
+GET /course-list 1978.473 ms
+DATE: Friday, September 3, 2021
+HTTP STATUS CODE: 201
+
+OPTIONS /updatephoto 1.963 ms
+DATE: Friday, September 3, 2021
+HTTP STATUS CODE: 204
+
+PUT /updatephoto 1472.266 ms
+DATE: Friday, September 3, 2021
+HTTP STATUS CODE: 201
+
+OPTIONS /login 0.453 ms
+DATE: Friday, September 3, 2021
+HTTP STATUS CODE: 204
+
+GET /login 1729.201 ms
+DATE: Friday, September 3, 2021
+HTTP STATUS CODE: 200
+
+GET /course-list 1576.408 ms
+DATE: Friday, September 3, 2021
+HTTP STATUS CODE: 201
+
+OPTIONS /login 0.679 ms
+DATE: Friday, September 3, 2021
+HTTP STATUS CODE: 204
+
+GET /login 1347.977 ms
+DATE: Friday, September 3, 2021
+HTTP STATUS CODE: 200
+
+GET /course-list 1636.252 ms
+DATE: Friday, September 3, 2021
+HTTP STATUS CODE: 201
+
+OPTIONS /login 0.285 ms
+DATE: Friday, September 3, 2021
+HTTP STATUS CODE: 204
+
+GET /login 2122.863 ms
+DATE: Friday, September 3, 2021
+HTTP STATUS CODE: 200
+
+GET /course-list 1565.665 ms
+DATE: Friday, September 3, 2021
+HTTP STATUS CODE: 201
+
+OPTIONS /login 0.285 ms
+DATE: Friday, September 3, 2021
+HTTP STATUS CODE: 204
+
+GET /login 977.297 ms
+DATE: Friday, September 3, 2021
+HTTP STATUS CODE: 200
+
+GET /course-list 1871.699 ms
+DATE: Friday, September 3, 2021
+HTTP STATUS CODE: 201
+
+OPTIONS /updatephoto 0.573 ms
+DATE: Friday, September 3, 2021
+HTTP STATUS CODE: 204
+
+PUT /updatephoto 1106.441 ms
+DATE: Friday, September 3, 2021
+HTTP STATUS CODE: 201
+
+OPTIONS /login 0.308 ms
+DATE: Friday, September 3, 2021
+HTTP STATUS CODE: 204
+
+GET /login 1222.764 ms
+DATE: Friday, September 3, 2021
+HTTP STATUS CODE: 200
+
+GET /course-list 1782.886 ms
+DATE: Friday, September 3, 2021
+HTTP STATUS CODE: 201
+
+OPTIONS /updatephoto 0.334 ms
+DATE: Friday, September 3, 2021
+HTTP STATUS CODE: 204
+
+PUT /updatephoto 1359.445 ms
+DATE: Friday, September 3, 2021
+HTTP STATUS CODE: 201
+
+OPTIONS /updatephoto 0.799 ms
+DATE: Friday, September 3, 2021
+HTTP STATUS CODE: 204
+
+PUT /updatephoto 1081.938 ms
+DATE: Friday, September 3, 2021
+HTTP STATUS CODE: 201
+
+OPTIONS /updatephoto 35.297 ms
+DATE: Friday, September 3, 2021
+HTTP STATUS CODE: 204
+
+PUT /updatephoto 1435.829 ms
+DATE: Friday, September 3, 2021
+HTTP STATUS CODE: 201
+
+OPTIONS /login 0.303 ms
+DATE: Friday, September 3, 2021
+HTTP STATUS CODE: 204
+
+GET /login 4301.735 ms
+DATE: Friday, September 3, 2021
+HTTP STATUS CODE: 200
+
+GET /course-list 2146.582 ms
+DATE: Friday, September 3, 2021
+HTTP STATUS CODE: 201
+
+OPTIONS /login 3.951 ms
+DATE: Saturday, September 4, 2021
+HTTP STATUS CODE: 204
+
+GET /login 1557.818 ms
+DATE: Saturday, September 4, 2021
+HTTP STATUS CODE: 200
+
+GET /course-list 1754.965 ms
+DATE: Saturday, September 4, 2021
+HTTP STATUS CODE: 201
+
+OPTIONS /login 0.382 ms
+DATE: Saturday, September 4, 2021
+HTTP STATUS CODE: 204
+
+GET /login 891.287 ms
+DATE: Saturday, September 4, 2021
+HTTP STATUS CODE: 200
+
+GET /course-list 1647.594 ms
+DATE: Saturday, September 4, 2021
+HTTP STATUS CODE: 201
+
+OPTIONS /updatephoto 1.204 ms
+DATE: Saturday, September 4, 2021
+HTTP STATUS CODE: 204
+
+PUT /updatephoto 699.761 ms
+DATE: Saturday, September 4, 2021
+HTTP STATUS CODE: 201
+
+OPTIONS /login 0.386 ms
+DATE: Saturday, September 4, 2021
+HTTP STATUS CODE: 204
+
+GET /login 1116.386 ms
+DATE: Saturday, September 4, 2021
+HTTP STATUS CODE: 200
+
+GET /course-list 2428.615 ms
+DATE: Saturday, September 4, 2021
+HTTP STATUS CODE: 201
+
+GET /courses/logged-teacher 1180.648 ms
+DATE: Saturday, September 4, 2021
+HTTP STATUS CODE: 200
+
+GET /courses/logged-user 6947.375 ms
+DATE: Saturday, September 4, 2021
+HTTP STATUS CODE: 304
+
+GET /course-list 1532.336 ms
+DATE: Saturday, September 4, 2021
+HTTP STATUS CODE: 201
+
+OPTIONS /updatephoto 0.245 ms
+DATE: Saturday, September 4, 2021
+HTTP STATUS CODE: 204
+
+PUT /updatephoto 838.370 ms
+DATE: Saturday, September 4, 2021
+HTTP STATUS CODE: 201
+
+OPTIONS /login 0.346 ms
+DATE: Saturday, September 4, 2021
+HTTP STATUS CODE: 204
+
+GET /login 1153.481 ms
+DATE: Saturday, September 4, 2021
+HTTP STATUS CODE: 200
+
+GET /course-list 1778.137 ms
+DATE: Saturday, September 4, 2021
+HTTP STATUS CODE: 201
+
+OPTIONS /updatephoto 0.392 ms
+DATE: Saturday, September 4, 2021
+HTTP STATUS CODE: 204
+
+PUT /updatephoto 1460.837 ms
+DATE: Saturday, September 4, 2021
+HTTP STATUS CODE: 201
+
+OPTIONS /updatephoto 0.666 ms
+DATE: Saturday, September 4, 2021
+HTTP STATUS CODE: 204
+
+PUT /updatephoto 940.341 ms
+DATE: Saturday, September 4, 2021
+HTTP STATUS CODE: 201
+
+OPTIONS /updatephoto 0.316 ms
+DATE: Saturday, September 4, 2021
+HTTP STATUS CODE: 204
+
+PUT /updatephoto 1843.326 ms
+DATE: Saturday, September 4, 2021
+HTTP STATUS CODE: 201
+
+OPTIONS /login 0.347 ms
+DATE: Saturday, September 4, 2021
+HTTP STATUS CODE: 204
+
+GET /login 1934.892 ms
+DATE: Saturday, September 4, 2021
+HTTP STATUS CODE: 403
+
+OPTIONS /login 0.321 ms
+DATE: Saturday, September 4, 2021
+HTTP STATUS CODE: 204
+
+GET /login 1435.409 ms
+DATE: Saturday, September 4, 2021
+HTTP STATUS CODE: 403
+
+OPTIONS /login 0.262 ms
+DATE: Saturday, September 4, 2021
+HTTP STATUS CODE: 204
+
+GET /login 1071.957 ms
+DATE: Saturday, September 4, 2021
+HTTP STATUS CODE: 200
+
+GET /course-list 2160.865 ms
+DATE: Saturday, September 4, 2021
+HTTP STATUS CODE: 201
+
+GET /courses/logged-teacher 842.514 ms
+DATE: Saturday, September 4, 2021
+HTTP STATUS CODE: 200
+
+GET /courses/logged-user 6150.537 ms
+DATE: Saturday, September 4, 2021
+HTTP STATUS CODE: 200
+
+GET /courses/logged-user 762.877 ms
+DATE: Saturday, September 4, 2021
+HTTP STATUS CODE: 500
+
+GET /courses/logged-user 748.339 ms
+DATE: Saturday, September 4, 2021
+HTTP STATUS CODE: 500
+
+GET /courses/logged-user 1147.319 ms
+DATE: Saturday, September 4, 2021
+HTTP STATUS CODE: 500
+
+GET /courses/logged-user 917.538 ms
+DATE: Saturday, September 4, 2021
+HTTP STATUS CODE: 500
+
+GET /courses/logged-user 914.687 ms
+DATE: Saturday, September 4, 2021
+HTTP STATUS CODE: 500
+
+GET /courses/logged-user 5986.635 ms
+DATE: Saturday, September 4, 2021
+HTTP STATUS CODE: 200
+
+GET /courses/logged-user 5629.232 ms
+DATE: Saturday, September 4, 2021
+HTTP STATUS CODE: 200
+
+GET /courses/logged-user 7030.275 ms
+DATE: Saturday, September 4, 2021
+HTTP STATUS CODE: 200
+
+GET /courses/logged-user - ms
+DATE: Saturday, September 4, 2021
+HTTP STATUS CODE: -
+
+GET /courses/logged-user - ms
+DATE: Saturday, September 4, 2021
+HTTP STATUS CODE: -
+
+GET /courses/logged-user - ms
+DATE: Saturday, September 4, 2021
+HTTP STATUS CODE: -
+
+GET /courses/logged-user - ms
+DATE: Saturday, September 4, 2021
+HTTP STATUS CODE: -
+
+GET /courses/logged-user - ms
+DATE: Saturday, September 4, 2021
+HTTP STATUS CODE: -
+
+GET /courses/logged-user - ms
+DATE: Saturday, September 4, 2021
+HTTP STATUS CODE: -
+
+OPTIONS /login 0.664 ms
+DATE: Saturday, September 4, 2021
+HTTP STATUS CODE: 204
+
+GET /login 1206.803 ms
+DATE: Saturday, September 4, 2021
+HTTP STATUS CODE: 200
+
+GET /course-list 1574.023 ms
+DATE: Saturday, September 4, 2021
+HTTP STATUS CODE: 201
+
+GET /courses/logged-user 5741.820 ms
+DATE: Saturday, September 4, 2021
+HTTP STATUS CODE: 200
+
+GET /courses/logged-teacher 759.125 ms
+DATE: Saturday, September 4, 2021
+HTTP STATUS CODE: 200
+
+GET /courses/logged-user 5613.687 ms
+DATE: Saturday, September 4, 2021
+HTTP STATUS CODE: 200
+
+GET /courses/logged-user 6796.616 ms
+DATE: Saturday, September 4, 2021
+HTTP STATUS CODE: 200
+
+OPTIONS /login 0.459 ms
+DATE: Saturday, September 4, 2021
+HTTP STATUS CODE: 204
+
+GET /login 901.647 ms
+DATE: Saturday, September 4, 2021
+HTTP STATUS CODE: 200
+
+GET /course-list 1865.150 ms
+DATE: Saturday, September 4, 2021
+HTTP STATUS CODE: 201
+
+GET /courses/logged-user 6119.058 ms
+DATE: Saturday, September 4, 2021
+HTTP STATUS CODE: 200
+
+GET /course-informations/29 4930.477 ms
+DATE: Saturday, September 4, 2021
+HTTP STATUS CODE: 200
+
+OPTIONS /buy 0.332 ms
+DATE: Saturday, September 4, 2021
+HTTP STATUS CODE: 204
+
+POST /buy 3544.118 ms
+DATE: Saturday, September 4, 2021
+HTTP STATUS CODE: 201
+
+GET /courses/logged-user 6111.664 ms
+DATE: Saturday, September 4, 2021
+HTTP STATUS CODE: 200
+
+OPTIONS /login 0.254 ms
+DATE: Saturday, September 4, 2021
+HTTP STATUS CODE: 204
+
+GET /login 917.054 ms
+DATE: Saturday, September 4, 2021
+HTTP STATUS CODE: 200
+
+GET /course-list 2014.701 ms
+DATE: Saturday, September 4, 2021
+HTTP STATUS CODE: 201
+
+GET /course-list 2517.776 ms
+DATE: Saturday, September 4, 2021
+HTTP STATUS CODE: 500
+
+GET /course-list 1588.010 ms
+DATE: Saturday, September 4, 2021
+HTTP STATUS CODE: 500
+
+OPTIONS /login 0.642 ms
+DATE: Saturday, September 4, 2021
+HTTP STATUS CODE: 204
+
+GET /login 1372.046 ms
+DATE: Saturday, September 4, 2021
+HTTP STATUS CODE: 200
+
+GET /course-list 1846.890 ms
+DATE: Saturday, September 4, 2021
+HTTP STATUS CODE: 201
+
+OPTIONS /updatephoto 0.277 ms
+DATE: Saturday, September 4, 2021
+HTTP STATUS CODE: 204
+
+PUT /updatephoto 868.179 ms
+DATE: Saturday, September 4, 2021
+HTTP STATUS CODE: 201
+
+GET /courses/logged-user 6761.649 ms
+DATE: Saturday, September 4, 2021
+HTTP STATUS CODE: 200
+
+GET /courses/logged-user 9205.074 ms
+DATE: Saturday, September 4, 2021
+HTTP STATUS CODE: 200
+
+GET /course-informations/24 4215.672 ms
+DATE: Saturday, September 4, 2021
+HTTP STATUS CODE: 200
+
+OPTIONS /login 0.284 ms
+DATE: Saturday, September 4, 2021
+HTTP STATUS CODE: 204
+
+GET /login 1269.939 ms
+DATE: Saturday, September 4, 2021
+HTTP STATUS CODE: 200
+
+GET /course-list 1513.235 ms
+DATE: Saturday, September 4, 2021
+HTTP STATUS CODE: 201
+
+GET /courses/logged-user 6856.513 ms
+DATE: Saturday, September 4, 2021
+HTTP STATUS CODE: 200
+
+GET /course-informations/24 4145.614 ms
+DATE: Saturday, September 4, 2021
+HTTP STATUS CODE: 200
+
+OPTIONS /login 0.275 ms
+DATE: Saturday, September 4, 2021
+HTTP STATUS CODE: 204
+
+GET /login 1235.364 ms
+DATE: Saturday, September 4, 2021
+HTTP STATUS CODE: 200
+
+GET /course-list 1585.160 ms
+DATE: Saturday, September 4, 2021
+HTTP STATUS CODE: 201
+
+GET /courses/logged-user 6864.558 ms
+DATE: Saturday, September 4, 2021
+HTTP STATUS CODE: 200
+
+GET /course-informations/24 4291.483 ms
+DATE: Saturday, September 4, 2021
+HTTP STATUS CODE: 200
+
+GET /course-informations/undefined 1032.602 ms
+DATE: Saturday, September 4, 2021
+HTTP STATUS CODE: 500
+
+GET /courses/logged-user 6153.461 ms
+DATE: Saturday, September 4, 2021
+HTTP STATUS CODE: 200
+
+GET /course-informations/29 7861.991 ms
+DATE: Saturday, September 4, 2021
+HTTP STATUS CODE: 200
+
+GET /course-informations/undefined 932.982 ms
+DATE: Saturday, September 4, 2021
+HTTP STATUS CODE: 500
+
+GET /courses/logged-teacher 855.843 ms
+DATE: Saturday, September 4, 2021
+HTTP STATUS CODE: 200
+
+GET /courses/logged-teacher 836.095 ms
+DATE: Saturday, September 4, 2021
+HTTP STATUS CODE: 200
+
